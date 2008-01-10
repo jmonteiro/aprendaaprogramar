@@ -52,26 +52,25 @@ module Main
             puts @@HLINE
             method(chapter[1]).call
           else # TOC
-            h2 { 'A Place to Start for the Future&nbsp;Programmer' }
+            h2 { 'Um lugar para o futuro programador come&ccedil;ar' }
             para do <<-END_PARAGRAPH
-              I guess this all began back in 2002.  I was thinking
-              about teaching programming, and what a great language
-              Ruby would be for learning how to program.  I mean, we were
-              all excited about Ruby because it was powerful, elegant, and
-              really just fun, but it seemed to me that it would also
-              be a great way to get into programming in the first place.
+              Eu acho que tudo isso come&ccedil;ou em 2002. Eu estava pensando
+              em ensinar programa&ccedil;&atilde;o, e como uma grande linguagem como
+              Ruby seria &oacute;tima para aprender a como programar.  Quer dizer, n&oacute;s est&aacute;vamos
+              todos excitados com Ruby pelo seu poder, eleg&acirc;ncia e por ser realmente divertido,
+              mas me pareceu que ele seria, tamb&eacute;m um excelente guia para aprender a programar.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              Unfortunately, there wasn't much Ruby documentation
-              geared for newbies at the time.  Some of us
-              in the community were talking about what such a
-              "Ruby for the Nuby" tutorial would
-              need, and more generally, how to teach programming at all.
-              The more I thought about this, the more I had to say (which
-              surprised me a bit).  Finally, someone said, "Chris,
-              why don't you just write a tutorial instead of talking about
-              it?"  So I did.
+              Infelizmente, n&atilde;o havia muita documenta&ccedil;&atilde;o sobre Ruby
+              destinada aos iniciantes, naquela &eacute;poca. Alguns de n&oacute;s,
+              na comunidade, est&aacute;vamos falando sobre como um tutorial 
+              "Ruby for the Nuby" era necess&aacute;rio,
+              e, mais gen&eacute;ricamente, um tutorial ensinando a programar, como um todo.
+              Quanto mais eu pensava nisso, mais eu tinha a dizer (o que me surpreendeu
+              um pouco). At&aacute; que algu&eacute;m finalmente disse: &quot;Chris, porque voc&ecirc;
+              n&atilde;o escreve um tutorial ao inv&eacute;s de ficar falando sobre isso?&quot;.
+              Ent&atilde;o eu o fiz.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
