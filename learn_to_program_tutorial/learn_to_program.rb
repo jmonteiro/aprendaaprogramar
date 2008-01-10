@@ -30,7 +30,7 @@ module LearnToProgram
   
   def selfLink (chap = nil)
     #  REQUEST_URI includes "?Chapter=Foo"
-    LINKADDR+'?Chapter='+(chap ? getChapter(chap) : '')
+    LINKADDR+'index.rb?Chapter='+(chap ? getChapter(chap) : '')
   end
   
   def makeLink (name, methodName)

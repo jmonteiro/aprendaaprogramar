@@ -7,7 +7,7 @@ module Menu
     para(:class=>'funnyMenuText fancyMenuText', :style=>'font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;') { 'expanded' }
     para(:class=>'funnyMenuText fancyMenuText', :style=>'font-size: 12px; font-family: times, serif;') { 'version' }
     puts "<a href=\"#{FRLTP_ADDR}\">"
-      img(:width=>'100', :height=>'120', :src=>'/images/LTP_cover.jpg')
+      img(:width=>'100', :height=>'120', :src=>'images/LTP_cover.jpg')
     puts '</a>'
   end
   
