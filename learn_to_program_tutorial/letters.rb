@@ -155,7 +155,7 @@ module Letters
     end
     para do <<-END_PARAGRAPH
       Finalmente, e se eu quiser um programa para imprimir
-      #{output 'Marca d'água!'}?  Nós podemos tentar isto:
+      #{output 'Marca d\'água!'}?  Nós podemos tentar isto:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
