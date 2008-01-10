@@ -7,7 +7,7 @@ module Main
     srand
     chapNum   = @cgi.params['Chapter'][0]
     chapter   = @chapters[chapNum]
-    chapTitle = 'Learn to Program, by Chris Pine'
+    chapTitle = 'Aprendendo a Programar, por Chris Pine'
     if chapter
       chapTitle = chapNum + '.&nbsp;&nbsp;' if chapNum < 'A'
       chapTitle.sub! /^0/, ''
@@ -15,12 +15,12 @@ module Main
     end
     
     puts '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">'
-    html(:lang=>'en') do
+    html(:lang=>'pt_br') do
       head do
         meta('http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8")
       	
-        link(:href=>LINKADDR+'stylesheets/pine.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
-        link(:href=>LINKADDR+'stylesheets/tutorial.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
+        link(:href=>'/stylesheets/pine.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
+        link(:href=>LINKADDR+'tutorial.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
         title { chapTitle }
         script(:language=>'JavaScript', :src=>'http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106', :type=>'text/javascript') {}
       end # head
@@ -28,25 +28,25 @@ module Main
       div(:id=>'pageWidth') do
         div(:id=>'headerBar') do
           div(:id=>'titlePicContainer') do
-            puts '<a href="'+LINKADDR+'index.rb">'
-            img(:id=>'titlePic', :width=>'418', :height=>'108', :src=>'images/titleLTP.gif', :alt=>'Learn to Program')
+            puts '<a href="'+LINKADDR+'">'
+            img(:id=>'titlePic', :width=>'418', :height=>'108', :src=>'/images/titleLTP.gif', :alt=>'Aprendendo a Programar')
             puts '</a>'
           end
-          puts '<a href="'+LINKADDR+'index.rb">'
-          puts '  <img id="locket" width="82" height="82" alt="just a cute picture"'
-          puts '    src="images/locketLTP.png" />'
+          puts '<a href="'+LINKADDR+'">'
+          puts '  <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"'
+          puts '    src="/images/locketLTP.png" />'
           puts '</a>'
         end
         div(:id=>'menuPane') do
-          img(:id=>'menuSpearTop', :width=>'35', :height=>'38', :src=>'images/spearup_sm.gif')
+          img(:id=>'menuSpearTop', :width=>'35', :height=>'38', :src=>'/images/spearup_sm.gif')
           
           menuBookLink
           
-          img(:width=>'64', :height=>'21', :style=>'padding: 30px;', :src=>'images/swirly.gif')
+          img(:width=>'64', :height=>'21', :style=>'padding: 30px;', :src=>'/images/swirly.gif')
           
           menuTOC
           
-          img(:id=>'menuSpearBottom', :width=>'36', :height=>'40', :src=>'images/speardown_sm.gif')
+          img(:id=>'menuSpearBottom', :width=>'36', :height=>'40', :src=>'/images/speardown_sm.gif')
         end
         div(:id=>'contentPane') do
           if chapter
@@ -186,7 +186,7 @@ module Main
             h2 { 'Sobre o Tutorial Original' }
             para do <<-END_PARAGRAPH
               As páginas do tutorial (esta página, inclusive) são geradas por um
-              <a href="#{LINKADDR}index.rb?ShowTutorialCode=true">grande programa em Ruby</a>,
+              <a href="#{LINKADDR}?ShowTutorialCode=true">grande programa em Ruby</a>,
               claro. :-)
               Assim, elas tem uns recursos elegantes. Por exemplo, todos os
               exemplos de código são, atualmente, executados toda vez que você
@@ -204,7 +204,7 @@ module Main
             end
             para do
               '<a href="http://ruby-lang.org">'+
-                '<img src="images/PoweredByRuby.png" alt="powered by Ruby" width="234" height="60" />'+
+                '<img src="/images/PoweredByRuby.png" alt="powered by Ruby" width="234" height="60" />'+
               '</a>'
             end
             puts HLINE
