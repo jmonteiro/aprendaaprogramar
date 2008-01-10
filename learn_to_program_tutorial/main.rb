@@ -74,75 +74,73 @@ module Main
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              And it wasn't very good.  I had all these ideas that were good
-              <em>in theory</em>, but the actual task of making a great
-              tutorial for non-programmers was vastly more challenging than
-              I had realized.  (I mean, it seemed good to me, but I already
-              knew how to program.)
+              E isso n&atilde;o foi muito bom. Eu tive todas essas boas id&eacute;ias que eram boas
+              <em>em teoria</em>, mas a atual tarefa de fazer um grande tutorial
+              para n&atilde;o-programadores foi muito mais desafiador
+              do que eu poderia prever. (Quer dizer, pareciam boas para mim, mas eu j&aacute;
+              sabia como programar.)
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              What saved me was that I made it really easy for people to
-              contact me, and I always tried to help people when they got
-              stuck.  When I saw a lot of people getting stuck in one place,
-              I'd rewrite it.  It was a lot of work, but it slowly got better
-              and better.
+              O que me salvou foi que eu fiz com que fosse f&aacute;cil para as pessoas
+              falarem comigo, e eu sempre tentei ajudar as pessoas quando elas empacavam.
+              Quando eu via um monte de gente empacando em uma parte,
+              eu a reescrevia. Isso deu muito trabalho, mas lentamente foi se tornando melhor
+              e melhor.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              A couple of years later, it was getting pretty good.  :-)  So
-              good, in fact, that I was ready to pronounce it finished, and
-              move on to something else.  And right about then came an
-              opportunity to turn the tutorial into a book.  Since it was
-              already basically done, I figured this would be no problem.
-              I'd just clean up a few spots, add some more exercises, maybe
-              some more examples, a few more chapters, run it by 50 more
-              reviewers...
+              Um par de anos depois, isso estava ficando realmente bom.  :-) T&aacute;o bom,
+              na verdade, que eu j&aacute; estava pronto para anunciar sua finaliza&ccedil;&atilde;o, e
+              partir para outra coisa. E justamente nesse instante houve a
+              oportunidade de transformar esse tutorial em um livro. Uma vez que o b&aacute;sico
+              j&aacute; estava pronto, eu achei que n&atilde;o haveria maiores problemas.
+              I apenas precisaria clarificar umas coisas, adicionar alguns exerc&iacute;cios a mais, talvez
+              alguns exemplos a mais, um pouquinho mais de cap&iacute;tulos, enviar ele para uns 50 revisores...
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              It took me another year, but now I think it's really
-              <em>really</em> good, mostly because of the hundreds of
-              brave souls who have helped me write it.
+              Isso me tomou outro ano, mas agora eu acho que est&aacute; realmente
+              <em>muito</em> bom, grande parte gra&ccedil;as as centenas
+              de boas almas que me ajudaram a escrever esse livro.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              What's here on this site is the original tutorial, more or less
-              unchanged since 2004.  For the latest and greatest, you'll
-              want to check out <a href="#{FRLTP_ADDR}">the book</a>.
+              O que est&aacute; nesse site &eacute; o tutorial original, quase inalterado
+              desde 2004. Para o melhor e mais atualizado, voc&ecirc; poder&aacute;
+              querer dar uma olhada <a href="#{FRLTP_ADDR}">no livro</a>.
               END_PARAGRAPH
             end
             puts @@HLINE
-            h2 { 'Thoughts For Teachers' }
+            h2 { 'Notas Para Professores' }
             para do <<-END_PARAGRAPH
-              There were a few guiding principles that I tried to stick to.
-              I think they make the learning process much smoother;
-              learning to program is hard enough as it is.  If you're
-              teaching or guiding someone on the road to hackerdom, these
-              ideas might help you, too.
+              H&aacute; algumas normas de conduta que eu tentei seguir.
+              Eu acho que elas tornam o processo de aprendizado muito mais suave;
+              ensinar a programar j&aacute; &eacute; dif&iacute;cil por si s&oacute;. Se voc&ecirc; est&aacute;
+              ensinando ou guiando algu&eacute;m pelas vias hakcers, essas id&eacute;ias podem lhe ajudar tamb&eacute;m.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              First, I tried to separate concepts as much as possible,
-              so that the student would only have to learn
-              one concept at a time.  This was difficult at first, but a little
-              <em>too</em> easy after I had some practice.  Some things must be
-              taught before others, but I was amazed at how little of
-              a precedence hierarchy there really is.  Eventually, I just had to
-              pick an order, and I tried to arrange things so that each
-              new section was motivated by the previous ones.
+              Primeiramente, eu tentei separar os conceitos o m&aacute;ximo poss&iaacute;vel,
+              assim o estudante tem que aprender apenas um conceito de cada vez.
+              Isso foi dif&iacute;cil no come&ccedil;o, mas um <em>pouco</em> mais f&aacute;cil
+              depois que eu peguei a pr&aacute;tica. Algumas coisas devem ser faladas
+              antes de outras, but I was amazed at how little of
+              a precedence hierarchy there really is. Eventualmente, eu apenas tive que
+              seguir uma ordem, e eu tentei arrumar as coisas de tal maneira
+              que cada nova se&ccedil;&atilde;o seja motivada pela anterior.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              Another principle I've kept in mind is to teach only one way
-              to do something.  It's an obvious benefit in a tutorial for
-              people who have never programmed before.  For one thing,
-              one way to do something is easier to learn than two.  Perhaps
-              the more important benefit, though, is that the fewer things
-              you teach a new programmer, the more creative and clever
-              they have to be in their programming.  Since so much of programming
-              is problem solving, it's crucial to encourage that as much
-              as possible at every stage.
+              Outro princ&iacute;pio que eu tinha em mente era de ensinar apenas uma maneira
+              de fazer alguma coisa. Isso &eacute; um benef&iacute;cio &oacute;bvio em um tutorial
+              para pessoas que nunca programaram antes. Por um motivo:
+              uma maneira de fazer uma coisa &eacute; mais f&aacute;cil de aprender do que duas. Por&eacute;m
+              o mais importante benef&iacute;cio, &eacute; que quanto menos coisas voc&ecirc;
+              ensinar a um novo programador, mais criativo e esperto
+              ele tem que ser em sua programa&ccedil;&atilde;o. J&aacute; que muito da programa&ccedil;&atilde;o
+              &eacute; a resolu&ccedil;&atilde;o de problemas, torna-se crucial o encorajamento em todos os est&aacute;gios
+              poss&iacute;veis.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
