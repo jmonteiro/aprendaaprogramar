@@ -5,47 +5,84 @@ module Setup
   
   def generateSetup
     para do <<-END_PARAGRAPH
-      When you program a computer, you have to "speak" in a
-      language your computer understands:  a programming
-      language.  There are lots and lots of different
-      languages out there, and many of them are excellent.
-      In this tutorial I chose to use my favorite
-      programming language, <em>Ruby</em>.
+      Quando você programa um computador, você tem que "falar" em 
+      uma lingua que o seu computador entenda: uma linguagem de 
+      programação. Existem muitas e muitas linguagens por aí, e muitas 
+      são excelentes. Neste tutorial eu escolhí usar a minha favorita, 
+      o <em>Ruby</em>.
       END_PARAGRAPH
     end
+    #para do <<-END_PARAGRAPH
+    #  When you program a computer, you have to "speak" in a
+    #  language your computer understands:  a programming
+    #  language.  There are lots and lots of different
+    #  languages out there, and many of them are excellent.
+    #  In this tutorial I chose to use my favorite
+    #  programming language, <em>Ruby</em>.
+    #  END_PARAGRAPH
+    #end
     para do <<-END_PARAGRAPH
-      Aside from being my favorite,
-      Ruby is also the easiest programming language I have seen
-      (and I've seen quite a few).  In fact, that's the real
-      reason I'm writing this tutorial:  I didn't decide to write
-      a tutorial, and then choose Ruby because it's my favorite;
-      instead, I found Ruby to be so easy that I decided there
-      really ought to be a good beginner's tutorial which uses
-      it.  It's Ruby's simplicity which prompted this tutorial,
-      not the fact that it's my favorite.
-      (Writing a similar tutorial using
-      another language, like C++ or Java, would have required
-      hundreds and hundreds of pages.)  But don't think that
-      Ruby is a beginner's language just because it is easy!
-      It is a powerful, professional-strength programming
-      language if ever there was one.
+      Além de ser a minha favorita, o Ruby também a linguagem mais
+      fácil que eu já vi (e eu já ví uma bela quantidade delas). Aliás,
+      esta é a verdadeira razão pela qual estou escrevendo este tutorial:
+      Eu não decidí escrever este tutorial e aí escolhí Ruby por ser minha favorita;
+      ao invés disso, eu descobrí que o Ruby era tão fácil que eu decidí
+      que deveria haver um bom tutorial para iniciantes que usasse ela.
+      É a simplicidade do Ruby que inspirou este tutorial, não o fato que ela é
+      a minha favorita.
+      (Escrever um tutorial similar usando outra linguagem, C++ ou Java, teria tomado
+      centenas e centenas de páginas.) Mas não pense que o Ruby seja uma linguagem
+      para iniciantes só porque é fácil! Ela é uma linguagem poderosa, de nível profissional
+      como poucas.
       END_PARAGRAPH
-    end
+    end 
+    #para do <<-END_PARAGRAPH      
+    #  Aside from being my favorite,
+    #  Ruby is also the easiest programming language I have seen
+    #  (and I've seen quite a few).  In fact, that's the real
+    #  reason I'm writing this tutorial:  I didn't decide to write
+    #  a tutorial, and then choose Ruby because it's my favorite;
+    #  instead, I found Ruby to be so easy that I decided there
+    #  really ought to be a good beginner's tutorial which uses
+    #  it.  It's Ruby's simplicity which prompted this tutorial,
+    #  not the fact that it's my favorite.
+    #  (Writing a similar tutorial using
+    #  another language, like C++ or Java, would have required
+    #  hundreds and hundreds of pages.)  But don't think that
+    #  Ruby is a beginner's language just because it is easy!
+    #  It is a powerful, professional-strength programming
+    #  language if ever there was one.
+    #  END_PARAGRAPH
+    #end
     para do <<-END_PARAGRAPH
-      When you write something in a human language, what is
-      written is called text.  When you write something in a computer
-      language, what is written is called <dfn>code</dfn>.  I
-      have included lots of examples of Ruby code throughout
-      this tutorial, most of them complete programs you can
-      run on your own computer.  To make the code easier to
-      read, I have colored parts of the code different
-      colors.  (For example, numbers are always
+      Quando você escreve algo em uma linguagem humana, o que é escrito
+      é chamado de texto. Quando você escreve algo em uma linguagem de 
+      computador, o que é escrito é chamado de <dfn>código</dfn>. Eu incluí
+      vários examplos de código Ruby por todo este tutorial, a maioria 
+      deles programas completos que você pode rodar no seu próprio
+      computador. Para deixar o código mais legível, eu colorí partes dele
+      com cores diferentes. (Por exemplo, números são sempre
       <span class="L2Pcode"><span class="L2Pnumber">#{@@NUMBER_COLOR}</span></span>.)
-      Anything you are supposed to type in will be in a
-      #{input @@INPUT_DESC}, and anything a program prints
-      out will be in a #{output @@OUTPUT_DESC}.
+      Qualquer coisa que você tiver que digitar estará sempre em a 
+      #{input @@INPUT_DESC}, e qualquer coisa que o programa imprimir
+      estará em um #{output @@OUTPUT_DESC}.
       END_PARAGRAPH
     end
+    #para do <<-END_PARAGRAPH
+    #  When you write something in a human language, what is
+    #  written is called text.  When you write something in a computer
+    #  language, what is written is called <dfn>code</dfn>.  I
+    #  have included lots of examples of Ruby code throughout
+    #  this tutorial, most of them complete programs you can
+    #  run on your own computer.  To make the code easier to
+    #  read, I have colored parts of the code different
+    #  colors.  (For example, numbers are always
+    #  <span class="L2Pcode"><span class="L2Pnumber">#{@@NUMBER_COLOR}</span></span>.)
+    #  Anything you are supposed to type in will be in a
+    #  #{input @@INPUT_DESC}, and anything a program prints
+    #  out will be in a #{output @@OUTPUT_DESC}.
+    #  END_PARAGRAPH
+    #end
     para do <<-END_PARAGRAPH
       If you come across something you don't understand, or you
       have a question which wasn't answered, write it down and
