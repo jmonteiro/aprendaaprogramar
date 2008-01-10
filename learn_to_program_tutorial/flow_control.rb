@@ -126,7 +126,7 @@ module FlowControl
     para do <<-END_PARAGRAPH
       Muitas vezes gostaríamos que um programa fizesse uma coisa se
       uma expressão for #{code 'true'}, e outra se for #{code 'false'}.
-      É para isso que serve #{else}:
+      É para isso que serve #{code 'else'}:
       END_PARAGRAPH
     end
     executa1 = {:input => ['Chris']}
@@ -436,7 +436,7 @@ module FlowControl
       forem bissextos). Anos bissextos são sempre divisíveis por
       quatro (como 1984 e 2004). Contudo, anos divisíveis por 100
       <em>não</em> são bissextos (como 1800 e 1900)
-      <strong><em>a não ser que</em</strong>sejam divisíveis por
+      <strong><em>a não ser que</em></strong>sejam divisíveis por
       400 (como 1600 e 2000, que foram de fato anos bissextos).
       <em>(Sim, é bem confuso, mas não tão confuso como ter dezembro
       no meio do inverno, que é o que aconteceria no fim).</em>

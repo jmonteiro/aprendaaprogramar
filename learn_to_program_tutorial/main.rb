@@ -19,8 +19,8 @@ module Main
       head do
         meta('http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8")
       	
-        link(:href=>'/stylesheets/pine.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
-        link(:href=>LINKADDR+'tutorial.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
+        link(:href=>LINKADDR+'stylesheets/pine.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
+        link(:href=>LINKADDR+'stylesheets/tutorial.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
         title { chapTitle }
         script(:language=>'JavaScript', :src=>'http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106', :type=>'text/javascript') {}
       end # head
@@ -29,7 +29,7 @@ module Main
         div(:id=>'headerBar') do
           div(:id=>'titlePicContainer') do
             puts '<a href="'+LINKADDR+'">'
-            img(:id=>'titlePic', :width=>'418', :height=>'108', :src=>'/images/titleLTP.gif', :alt=>'Aprendendo a Programar')
+            img(:id=>'titlePic', :width=>'418', :height=>'108', :src=>'images/titleLTP.gif', :alt=>'Aprendendo a Programar')
             puts '</a>'
           end
           puts '<a href="'+LINKADDR+'index.rb">'
@@ -38,15 +38,15 @@ module Main
           puts '</a>'
         end
         div(:id=>'menuPane') do
-          img(:id=>'menuSpearTop', :width=>'35', :height=>'38', :src=>'/images/spearup_sm.gif')
+          img(:id=>'menuSpearTop', :width=>'35', :height=>'38', :src=>'images/spearup_sm.gif')
           
           menuBookLink
           
-          img(:width=>'64', :height=>'21', :style=>'padding: 30px;', :src=>'/images/swirly.gif')
+          img(:width=>'64', :height=>'21', :style=>'padding: 30px;', :src=>'images/swirly.gif')
           
           menuTOC
           
-          img(:id=>'menuSpearBottom', :width=>'36', :height=>'40', :src=>'/images/speardown_sm.gif')
+          img(:id=>'menuSpearBottom', :width=>'36', :height=>'40', :src=>'images/speardown_sm.gif')
         end
         div(:id=>'contentPane') do
           if chapter
@@ -204,7 +204,7 @@ module Main
             end
             para do
               '<a href="http://ruby-lang.org">'+
-                '<img src="/images/PoweredByRuby.png" alt="powered by Ruby" width="234" height="60" />'+
+                '<img src="images/PoweredByRuby.png" alt="powered by Ruby" width="234" height="60" />'+
               '</a>'
             end
             puts HLINE
