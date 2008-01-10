@@ -5,74 +5,75 @@ module Variables
   
   def generateVariables
     para do <<-END_PARAGRAPH
-      So far, whenever we have #{code 'puts'}ed a string or a number, the thing
-      we #{code 'puts'}ed is gone.  What I mean is, if we wanted to print
-      something out twice, we would have to type it in twice:
+      Até agora, sempre que usamos #{code 'puts'} numa string ou número,
+      o que imprimimos some. O que eu quero dizer é, se quiséssemos imprimir
+      algo duas vezes, teríamos que digitar duas vezes:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts '...you can say that again...'
-      puts '...you can say that again...'
+      puts '...você pode dizer aquilo de novo...'
+      puts '...você pode dizer aquilo de novo...'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      It would be nice if we could just type it in once and then hang on to it...
-      store it somewhere.
-      Well, we can, of course&mdash;otherwise, I wouldn't have brought it up!
+      Seria legal se pudéssemos digitá-lo uma única vez e mantê-lo por perto...
+      guardá-lo em algum lugar.
+      Bom, nós podemos, é claro&mdash;caso contrário eu não teria tocado no assunto!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      To store the string in your computer's memory, we need to
-      give the string a name.  Programmers often refer to this process
-      as <dfn>assignment</dfn>,
-      and they call the names <dfn>variables</dfn>.  This variable can be just
-      about any sequence of letters and numbers, but the first character
-      needs to be a lowercase letter.  Let's try that last program again,
-      but this time I will give the string the name #{code 'myString'} (though I could
-      just as well have named it #{code 'str'} or
-      #{code 'myOwnLittleString'} or #{code 'henryTheEighth'}).
+      Para guardar a string na memória de seu computador, precisamos dar
+      um nome a ela. Normalmente os programadores chamam esse processo de
+      <dfn>atribuição</dfn>, e chamam os nomes de <dfn>variáveis</dfn>. A
+      variável pode ser praticamente qualquer seqüência de letras e números,
+      mas o primeiro caracter tem de ser uma letra minúscula. Vamos rodar
+      o último programa de novo, mas desta vez eu darei à string o nome de
+      #{code 'minhaString'} (ainda que eu pudesse tê-la chamado de 
+      #{code 'str'} ou #{code 'minhaStringzinha'} ou {#code 'pedroPrimeiro'}).
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      myString = '...you can say that again...'
-      puts myString
-      puts myString
+      minhaString = '...você pode dizer aquilo de novo...'
+      puts minhaString
+      puts minhaString
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Whenever you tried to do something to #{code 'myString'}, the program did it
-      to #{code "'...you can say that again...'"} instead.  You can think of the
-      variable #{code 'myString'} as "pointing to" the string
-      #{code "'...you can say that again...'"}.  Here's a slightly more interesting example:
+      Sempre que você tentou fazer algo com #{code 'minhaString'}, o programa
+      fez com #{code "'...você pode dizer aquilo de novo'"} no lugar. Você
+      pode pensar na variável #{code 'minhaString'} como "apontando para" a 
+      string #{code "'...você pode dizer aquilo de novo...'"}. Eis um exemplo
+      um tiquinho mais interessante:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      name = 'Patricia Rosanna Jessica Mildred Oppenheimer'
-      puts 'My name is ' + name + '.'
-      puts 'Wow!  ' + name + ' is a really long name!'
+      nome = 'Patricia Rosanna Jessica Mildred Oppenheimer'
+      puts 'Meu nome é ' + name + '.'
+      puts 'Nossa!  ' + name + ' é um nome bem longo!'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Also, just as we can <em>assign</em> an object to a variable,
-      we can <em>reassign</em> a different object to that variable.
-      (This is why we call them variables:  because what they
-      point to can vary.)
+      Assim como podemos <em>atribuir</em> um objeto a uma variável,
+      podemos <em>reatribuir</em> um objeto diferente à mesma variável (e
+      é por isso que nós as chamamos de variáveis: porque a coisa para
+      a qual apontam pode variar).
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      composer = 'Mozart'
-      puts composer + ' was "da bomb", in his day.'
+      compositor = 'Mozart'
+      puts compositor + ' era "sensa", na sua época.'
       
-      composer = 'Beethoven'
-      puts 'But I prefer ' + composer + ', personally.'
+      compositor = 'Beethoven'
+      puts 'Mas eu, pessoalmente, prefiro ' + compositor + '.'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Of course, variables can point to any kind of object, not just strings:
+      Variáveis podem, é claro, apontar para qualquer tipo de objeto, não
+      só strings:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      var = 'just another ' + 'string'
+      var = 'só mais uma ' + 'string'
       puts var
       
       var = 5 * (1+2)
@@ -80,9 +81,9 @@ module Variables
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      In fact, variables can point to just about anything...
-      except other variables.
-      So what happens if we try?
+      Na verdade, variáveis podem apontar para qualquer coisa...
+      que não outras variáveis. 
+      Então o que acontece se tentarmos?
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -93,22 +94,22 @@ module Variables
       
       puts ''
       
-      var1 = 'eight'
+      var1 = 'oito'
       puts var1
       puts var2
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      So first, when we tried to point #{code 'var2'} to #{code 'var1'}, it really
-      pointed to #{code '8'} instead (just like #{code 'var1'}
-      was pointing to).  Then we had #{code 'var1'} point to
-      #{code "'eight'"}, but since #{code 'var2'} was never really
-      pointing at #{code 'var1'}, it stays pointing at #{code '8'}.
+      Primeiro, quando tentamos apontar #{code 'var2'} para #{code 'var1'},
+      #{code 'var2'} apontou para #{code '8'} (exatamente como #{code 'var1'}
+      apontava). Aí fizemos #{code 'var1'} apontar para #{code "'oito'"}, mas
+      como #{code 'var2'} nunca apontou de verdade para #{code 'var1'}, ela
+      se mantém apontando para #{code '8'}.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So now that we've got variables, numbers, and strings, let's learn how to
-      #{makeLink 'mix them all up', :generateConversion}!
+      Agora que temos variáveis, números e strings, vamos aprender como
+      #{makeLink 'misturar todos eles', :generateConversion}!
       END_PARAGRAPH
     end
   end
