@@ -1,0 +1,11 @@
+# colocar no seu httpd.conf
+# no mac, o path é /private/etc/httpd/users/nome_do_usuario.conf
+
+AddHandler cgi-script .rb
+
+<Directory /Users/oliver/Sites/>
+    Options Indexes MultiViews ExecCGI
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
