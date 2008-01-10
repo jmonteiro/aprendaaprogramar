@@ -17,6 +17,8 @@ module Main
     puts '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">'
     html(:lang=>'en') do
       head do
+        meta('http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8")
+      	
         link(:href=>'/stylesheets/pine.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
         link(:href=>LINKADDR+'tutorial.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
         title { chapTitle }
