@@ -147,53 +147,52 @@ module BlocksProcs
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Before we move on, let's look at one last example.  So far the procs
-        we have passed in have been fairly similar to each other.  This time
-        they will be quite different, so you can see how much such a method
-        depends on the procs passed into it.  Our
-        method will take some object and a proc, and will call the proc
-        on that object.  If the proc returns false, we quit; otherwise
-        we call the proc with the returned object.  We keep doing this
-        until the proc returns false (which it had better do eventually,
-        or the program will crash).  The method will return the last
-        non-false value returned by the proc.
+        Antes de seguirmos adiante, vamos olhar um último exemplo. Até agora,
+        as procs que nós usamos foram muito similares umas às outras. Agora,
+        elas serão um pouco diferentes, assim você poderá ver como um método
+        depende das procs que lhe são passadas. Nosso método irá receber
+        um objeto e uma proc e irá chamar essa proc naquele objeto. Se a
+        proc retornar falso, nós saímos; caso contrário, nós chamamos a proc
+        com o objeto retornado. Nós vamos continuar fazendo isso até que a proc
+        retorne falso (o que é o melhor a fazer eventualmente, ou o programá irá
+        travar). O método irá retornar o último valor não falso retornado pela proc.
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        def doUntilFalse firstInput, someProc
-          input  = firstInput
-          output = firstInput
+        def facaAteFalso primeiraEntrada, umaProc
+          entrada = primeiraEntrada
+          saida   = primeiraEntrada
 
-          while output
-            input  = output
-            output = someProc.call input
+          while saida
+            entrada = saida
+            saida   = umaProc.call entrada
           end
 
-          input
+          entrada
         end
 
-        buildArrayOfSquares = Proc.new do |array|
-          lastNumber = array.last
-          if lastNumber <= 0
+        construindoVetorDeQuadrados = Proc.new do |vetor|
+          ultimoNumero = vetor.last
+          if ultimoNumero <= 0
             false
           else
-            array.pop                         #  Take off the last number...
-            array.push lastNumber*lastNumber  #  ...and replace it with its square...
-            array.push lastNumber-1           #  ...followed by the next smaller number.
+            vetor.pop                            # Jogue fora o último número...
+            vetor.push ultimoNumero*ultimoNumero # ... e o substitua com esse quadrado...
+            vetor.push ultimoNumero-1            # ... seguido pelo número imediatamente anterior.
           end
         end
 
-        alwaysFalse = Proc.new do |justIgnoreMe|
+        sempreFalso = Proc.new do |apenasIgnoreme|
           false
         end
 
-        puts doUntilFalse([5], buildArrayOfSquares).inspect
-        puts doUntilFalse('I\\'m writing this at 3:00 am; someone knock me out!', alwaysFalse)
+        puts facaAteFalso([5], construindoVetorDeQuadrados).inspect
+        puts facaAteFalso('Estou escrevendo isso às 3:00; alguém me derrube!', sempreFalso)
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Ok, so that was a pretty weird example, I'll admit.  But it shows how differently
-        our method acts when given very different procs.
+        Certo, esse foi um exemplo estranho, eu admito. Mas isso mostra como nosso método
+        age diferentemente quando recebe diferentes procs.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
