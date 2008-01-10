@@ -5,16 +5,16 @@ module Conversion
   
   def generateConversion
     para do <<-END_PARAGRAPH
-      We've looked at a few different kinds of objects
-      (#{makeLink 'numbers', :generateNumbers} and #{makeLink 'letters', :generateLetters}),
-      and we made #{makeLink 'variables', :generateVariables} to point to them;
-      the next thing we want to do is to get them all to play nicely together.
+      Nós vimos alguns tipos diferentes de objetos
+      (#{makeLink 'números', :generateNumbers} e #{makeLink 'letras', :generateLetters}),
+      e nós fizemos #{makeLink 'variáveis', :generateVariables} para apontar para elas;
+      a coisa que queremos fazer a seguir é fazer com que todas se encaixem.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      We've seen that if we want a program to print #{output '25'}, the following
-      <em>does <strong>not</strong></em> work, because you can't add
-      numbers and strings:
+      Nós vimos que se desejássemos que um programa imprimisse #{output '25'},
+      o código a seguir <em><strong>não</strong></em> funcionaria, porque
+      você não pode somar números e strings:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
@@ -25,21 +25,21 @@ module Conversion
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Part of the problem is that your computer doesn't know if you
-      were trying to get #{output '7'} (#{code '2 + 5'}), or if you wanted
-      to get #{output '25'} (#{code "'2' + '5'"}).
+      Parte do problema é que seu computador não sabe se você está
+      querendo #{output '7'} (#{code '2 + 5'}) ou #{output '25'}
+      (#{code "'2' + '5'"}).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Before we can add these together, we need some way of getting the
-      string version of #{code 'var1'}, or to get the integer version
-      of #{code 'var2'}.
+      Antes que possamos somar os dois, precisamos de alguma maneira
+      de obter a versão em string de #{code 'var1'}, ou então de obter
+      a versão inteira de #{code 'var2'}.
       END_PARAGRAPH
     end
     h2 {'Conversions'}
     para do <<-END_PARAGRAPH
-      To get the string version of an object, we simply write
-      #{code '.to_s'} after it:
+      Para obter a versão string de um objeto, simplesmente escrevemos
+      #{code '.to_s'} depois dele:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -50,9 +50,9 @@ module Conversion
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Similarly, #{code 'to_i'} gives the integer version of an object,
-      and #{code 'to_f'} gives the float version.  Let's look at what
-      these three methods do (and <em>don't</em> do) a little more closely:
+      Similarmente, #{code 'to_i'} fornece a versão inteira de um objeto,
+      e #{code 'to_f'} dá a versão float. Vejamos o que esses três método
+      fazem (e <em>não</em> fazem) com mais detalhe:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -64,15 +64,17 @@ module Conversion
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Notice that, even after we got the string version of
-      #{code 'var1'} by calling #{code 'to_s'}, #{code 'var1'} was always pointing
-      at #{code '2'}, and never at #{code "'2'"}.  Unless we explicitly reassign
-      #{code 'var1'} (which requires an #{code '='} sign), it will point
-      at #{code '2'} for the life of the program.
+      Note que, mesmo depois que obtivemos a versão string de 
+      #{code 'var1'} por meio de #{code 'to_s'}, #{code 'var1'}
+      sempre apontou para #{code '2'}, e nunca para #{code "'2'"}.
+      A não ser que reatribuamos #{code 'var1'} explicitamente (o que
+      requer um sinal de #{code '='}), ela vai apontar para #{code '2'}
+      enquanto o programa estiver rodando.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Now let's try some more interesting (and a few just weird) conversions:
+      Agora vamos tentar algumas conversões mais interessantes (e alguma apenas
+      esquisitas):
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -80,37 +82,39 @@ module Conversion
       puts '99.999'.to_f
       puts '99.999'.to_i
       puts ''
-      puts '5 is my favorite number!'.to_i
-      puts 'Who asked you about 5 or whatever?'.to_i
-      puts 'Your momma did.'.to_f
+      puts '5 é meu número favorito!'.to_i
+      puts 'Quem foi que te perguntou sobre o 5?'.to_i
+      puts 'Sua mãe.'.to_f
       puts ''
-      puts 'stringy'.to_s
+      puts 'stringuelingue'.to_s
       puts 3.to_i
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      So, this probably gave some surprises.  The first one is pretty
-      standard, giving #{output '15.0'}.
-      After that, we converted the string #{code "'99.999'"} to a float and
-      to an integer.  The float did what we expected; the integer was, as always, rounded down.
+      É provável que tenha havido surpresas. A primeira é bem padrão e
+      dá #{output '15'}.
+      Depois disso, convertemos a string #{code "'99.999'"} para um float
+      e para um inteiro. O float ficou como esperávamos; o inteiro, como
+      sempre, foi arredondado para baixo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Next, we had some examples of some... <em>unusual</em> strings being converted
-      into numbers.  #{code 'to_i'} ignores the first thing it doesn't understand,
-      and the rest of the string from that point on.  So the first one
-      was converted to #{code '5'}, but the others, since they started with
-      letters, were ignored completely... so the computer just picks zero.
+      Em seguida temos alguns exemplos de strings... atípicas convertidas
+      em números. #{code 'to_i'} ignora a primeira coisa que ela não entende,
+      e o resto da string daquele ponto em diante. Então a primeira string
+      foi convertida para #{code '5'}, mas as outras, já que começavam com
+      letras, foram ignoradas por completo... então o computador só escolhe
+      zero.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Finally, we saw that our last two conversions did nothing at all,
-      just as we would expect.
+      Por fim, vimos que nossas duas últimas conversas não fizeram nada,
+      exatamente como esperávamos.
       END_PARAGRAPH
     end
-    h2 {'Another Look at '+(code 'puts')}
+    h2 {'Uma Outra Olhadela em '+(code 'puts')}
     para do <<-END_PARAGRAPH
-      There's something strange about our favorite method...  Take a look at this:
+      Há alguma coisa estranha no nosso método favorito... Dê uma olhadinha:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -120,114 +124,114 @@ module Conversion
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Why do these three all print the same thing?  Well, the last two
-      should, since #{code '20.to_s'} <em>is</em> #{code "'20'"}.  But what
-      about the first one, the integer #{code '20'}?  For that matter, what
-      does it even mean to write out <em>the integer</em> 20?  When
-      you write a <em>2</em> and then a <em>0</em> on a piece of paper, you
-      are writing down a string, not an integer.  <em>The integer</em> 20 is the number of
-      fingers and toes I have; it isn't a <em>2</em> followed by a <em>0</em>.
+      Por que é que essas três imprimem a mesma coisa? Tudo bem, as duas
+      últimas deveriam, mesmo, já que #{code '20.to_s'} <em>é</em>
+      #{code "'20'"}. Mas e a primeira, o inteiro #{code '20'}? Falando nisso,
+      faz algum sentido escrever <em>o inteiro</em> 20? Quando você escreve
+      um <em>2</em> e depois um <em>0</em> num papel, você está escrevendo
+      uma string, não um inteiro. <em>O inteiro</em> 20 é o número de dedos
+      das mãos e dos pés que eu possuo, e não um <em>2</em> seguido de um
+      <em>0</em>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Well, here's the big secret behind our friend, #{code 'puts'}:  Before
-      #{code 'puts'} tries to write out an object, it uses #{code 'to_s'} to
-      get the string version of that object.  In fact, the <em>s</em> in
-      #{code 'puts'} stands for <em>string</em>; #{code 'puts'} really means
-      <dfn>put string</dfn>.
+      O nosso amigo #{code 'puts'} carrega um grande segredo: antes de tentar
+      escrever um objeto, #{code 'puts'} usa #{code 'to_s'} para obter a
+      versão string do mesmo. Na verdade, o <em>s</em> em #{code 'puts'}
+      está lá representando <em>string</em>; #{code 'puts'} na verdade
+      significa <dfn>put string</dfn> (colocar string).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      This may not seem too exciting now, but there are many,
-      <em>many</em> kinds of objects in Ruby (you'll even learn how
-      to make your own!), and it's nice to know what will happen if
-      you try to #{code 'puts'} a really weird object,
-      like a picture of your grandmother, or a music file or something.
-      But that will come later...
+      Isso pode não parecer muito animador agora, mas há muitos,
+      <em>muitos</em> tipos de objetos em Ruby (você vai até aprender
+      a fazer o seu próprio!), e é bom saber o que vai acontecer
+      se você tentar usar #{code 'puts'} num objeto muito estranho,
+      como uma foto da sua avó, ou um arquivo de música ou algo assim.
+      Mas isso vem depois...
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      In the meantime, we have a few more methods for you, and they
-      allow us to write all sorts of fun programs...
+      Até lá, nós temos mais alguns métodos para você, e eles permitem
+      que escrevamos um bando de programas divertidos...
       END_PARAGRAPH
     end
     h2 {'The Methods '+(code 'gets')+' and '+(code 'chomp')}
     para do <<-END_PARAGRAPH
-      If #{code 'puts'} means <dfn>put string</dfn>, I'm sure you can guess
-      what #{code 'gets'} stands for.  And just as #{code 'puts'} always
-      spits out strings, #{code 'gets'} will only retrieve strings.  And
-      whence does it get them?
+      Se #{code 'puts'} significa <dfn>colocar string</dfn>, acho que
+      você pode adivinhar o que #{code 'gets'} quer dizer (N.T.: get, em
+      inglês, entre várias acepções, significa pegar, obter). E assim como
+      #{code 'puts'} sempre cospe strings, #{code 'gets'} vai apenas
+      obter strings. E de onde ele as pega?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      From you!  Well, from your keyboard, anyway.  Since your keyboard only
-      makes strings, that works out beautifully.  What actually happens
-      is that #{code 'gets'} just sits there, reading what you type until
-      you press <kbd>Enter</kbd>.  Let's try it out:
+      De você! Tudo bem, do seu teclado. Já que seu teclado só produz strings,
+      isso funciona muito bem. O que acontece, na verdade, é que #{code 'gets'}
+      fica lá esperando, lendo o que você digita até que você pressione
+      <kbd>Enter</kbd>. Vamos experimentar:
       END_PARAGRAPH
     end
-    prog ['Is there an echo in here?'] do <<-END_CODE
+    prog ['Tem um eco aqui?'] do <<-END_CODE
       puts gets
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Of course, whatever you type in will just get repeated back
-      to you.  Run it a few times and try typing in different things.
+      Claro, tudo que você digitar vai ser repetido para você. Rode
+      algumas vezes e tente digitar coisas diferentes.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Now we can make interactive programs!  In this one, type in
-      your name and it will greet you:
+      Agora podemos fazer programas interativos! Neste, digite
+      o seu nome para que ele lhe saude:
       END_PARAGRAPH
     end
-    prog ['Chris'], '<em>Eek!</em>  I just ran it&mdash;I typed in my name, and this is what happened:' do <<-END_CODE
-      puts 'Hello there, and what\\'s your name?'
+    prog ['Chris'], '<em>Eca!</em> Eu acabei de rodá-lo&mdash;Escrevi meu nome, e aconteceu isto:' do <<-END_CODE
+      puts 'Olá, qual é o seu nome?'
       name = gets
-      puts 'Your name is ' + name + '?  What a lovely name!'
-      puts 'Pleased to meet you, ' + name + '.  :)'
+      puts 'Seu nome é ' + name + '?  Que nome bonito!'
+      puts 'Prazer em conhecê-lo, ' + name + '.  :)'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Hmmm... it looks like when I typed in the letters <kbd>C</kbd>,
-      <kbd>h</kbd>, <kbd>r</kbd>, <kbd>i</kbd>,
-      <kbd>s</kbd>, and then pressed <kbd>Enter</kbd>, #{code 'gets'}
-      got all of the letters in my name <em>and</em> the
-      <kbd>Enter</kbd>!  Fortunately, there's a method just for
-      this sort of thing:  #{code 'chomp'}.  It takes off any <kbd>Enter</kbd>s
-      hanging out at the end of your string.  Let's try that program again,
-      but with #{code 'chomp'} to help us this time:
+      Hmmm... parece que quando eu digitei as letras <kbd>C</kbd>,
+      <kbd>h</kbd>, <kbd>r</kbd>, <kbd>i</kbd>, <kbd>s</kbd>, e pressionei
+      <kbd>Enter</kbd>, #{code 'gets'} obteve todas as letras do meu nome
+      <em>e</em> o <kbd>Enter</kbd>! Felizmente, existe um método exatamente
+      pra esse tipo de coisa: #{code 'chomp'}. Ele retira qualquer
+      <kbd>Enter<kbd> que esteja lá de bobeira no fim da sua string. Vamos
+      testar aquele programa de novo, mas com #{code 'chomp'} para ajudar:
       END_PARAGRAPH
     end
     prog ['Chris'] do <<-END_CODE
-      puts 'Hello there, and what\\'s your name?'
+      puts 'Olá, qual é o seu nome?'
       name = gets.chomp
-      puts 'Your name is ' + name + '?  What a lovely name!'
-      puts 'Pleased to meet you, ' + name + '.  :)'
+      puts 'Seu nome é ' + name + '?  Que nome bonito!'
+      puts 'Prazer em conhecê-lo, ' + name + '.  :)'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Much better!  Notice that since #{code 'name'} is pointing to
-      #{code 'gets.chomp'}, we don't ever have to say
-      #{code 'name.chomp'};  #{code 'name'} was already
-      #{code 'chomp'}ed.
+      Muito melhor! Perceba que já que #{code 'name'} aponta para 
+      #{code 'gets.chomp'}, não temos que dizer #{code 'name.chomp'};
+      #{code 'name'} já foi #{code 'chomp'}ado.
       END_PARAGRAPH
     end
-    h2 {'A Few Things to Try'}
+    h2 {'Umas Coisinhas Para Tentar'}
     para do <<-END_PARAGRAPH
-      &bull; Write a program which asks for a person's first name, then middle,
-      then last.  Finally, it should greet the person using their full name.
-      END_PARAGRAPH
-    end
-    para do <<-END_PARAGRAPH
-      &bull; Write a program which asks for a person's favorite number.
-      Have your program add one to the number, then suggest the result
-      as a <em>bigger and better</em> favorite number.
-      (Do be tactful about it, though.)
+      &bull; Escreva um programa que peça o nome de uma pessoa, depois
+      o primeiro sobrenome, e por fim o último sobrenome. Por fim, faça 
+      com que ele cumprimente a pessoa usando seu nome completo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Once you have finished those two programs (and any others you would like to try),
-      let's learn some more (and some more about) #{makeLink('methods', :generateMethods)}.
+      &bull; Escreva um programa que pergunte pelo número favorito de uma
+      pessoa. Some um ao número, e sugira o resultado como um número favorito
+      <em>muito melhor</em> (tenha tato ao fazê-lo).
+      END_PARAGRAPH
+    end
+    para do <<-END_PARAGRAPH
+      Assim que você terminar esses dois programas (e quaisquer outros que
+      você queira tentar), aprenderemos mais #{makeLink('métodos', :generateMethods)} (e mais coisas sobre eles).
       END_PARAGRAPH
     end
   end
