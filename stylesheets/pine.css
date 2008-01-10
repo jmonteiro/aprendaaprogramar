@@ -1,0 +1,437 @@
+body
+{ 
+  color:      #403b31;
+  background: #f6f4e3 url(../images/paper_background.png);
+}
+
+*
+{
+  margin:     0px;
+  padding:    0px;
+  border:     0px;
+}
+
+body, p, ol, ul, td
+{
+  /*font-family: verdana, arial, helvetica, sans-serif;*/
+  font-family: palatino, bookman, "Bookman Old Style", "Book Antiqua", serif;
+  font-size:  15px;
+  /*line-height: 18px;*/
+}
+
+
+blockquote
+{
+  padding:        5px;
+  padding-left:   0px;
+  margin:         7px;
+  margin-left:   17px;
+  font-size:     12px;
+  font-style:  italic;
+  /*border-left:    2px solid #db9;*/
+}
+blockquote em { font-style: normal; }
+blockquote p  { font-size:    12px; }
+
+
+p, ol, ul { padding: 5px; }
+img       { display: block; }
+
+a          { color: #3a4; }
+a:visited  { color: #807b71; }
+a:hover    { color: #3b4; /*background-color:#000;*/ }
+
+acronym { border-bottom: 1px dotted black; }
+
+.domhidden { display: none; }
+
+#debugModeWarning
+{
+  position:        fixed;
+  top:              35px;
+  left:             30px;
+  z-index:             5;
+}
+
+#debugModeWarningInnerDiv
+{
+  font-size:   20px;
+  font-family: vinque, dungeon;
+  color:       #a00;
+}
+
+#pageWidth
+{
+  width:     100%;
+  min-width: 500px;
+}
+
+#locket
+{
+  position: absolute;
+  top:   15px;
+  right: 15px;
+}
+
+#headerBar
+{
+  height:122px;
+  width:100%;
+  position: absolute; 
+  top:  0px;
+  left: 0px;
+  background: #403b31 url(../images/flowerborder.gif) bottom repeat-x;
+}
+
+#titlePicContainer
+{
+  position: relative;
+  left:     50%;
+  width:    50%;
+}
+#titlePic
+{
+  position: relative;
+  top:           2px;
+  left:          -258px;
+  /*color:     #d8c0a0;*/
+}
+
+#menuPane
+{
+  position:        absolute;
+  top:                150px;
+  width:              190px;
+  left:                25px;
+  padding:              8px;
+}
+
+#menuPane img
+{
+  margin-left:    auto;
+  margin-right:   auto;
+  position:   relative;
+  left:          -10px;
+}
+
+#menuPane a       { text-decoration: none;      font-weight: bold; }
+#menuPane a:visited  { color: #3a4;  font-weight: bold; }
+#menuPane a:hover { color: #3b4; text-decoration: underline; font-weight: bold; }
+
+#menuPane a.stealth_link           { color: #403b31; font-weight: normal; }
+#menuPane a.stealth_link:visited   { color: #403b31; }
+#menuPane a.stealth_link:hover     { color: #3b4; }
+
+#menuSpearTop
+{
+  padding-bottom: 30px;  /* space between spear and menu content */
+}
+
+#menuSpearBottom
+{
+  top:            30px;  /* space between spear and menu content */
+}
+
+#menuPane p, ul, ol
+{
+  /*letter-spacing:       1px;*/
+  font-size:           10px;
+  font-family: verdana, tahoma, helvetica, arial, sans-serif;
+  line-height:        1.3;
+}
+
+.funnyMenuText
+{
+  text-align: center;
+  position:   relative;
+  left:          -12px;
+}
+
+#contentPane
+{
+  position: absolute;
+  top:   160px;
+  left:  260px;
+  right:  40px;
+}
+
+#contentPane p
+{
+  line-height: 120%;
+  clear: both;
+  padding-left: 15px;
+}
+
+.blogview
+{
+  margin:            5px;
+  clear:            both;
+}
+
+.latest_comment_date
+{
+  font-size:       14px;
+  line-height:     100%;
+  font-style:    italic;
+  clear:           both;
+  color:        #706645;
+  padding-bottom:  24px;
+  padding-top:      0px;
+  padding-left:    40px;
+  margin-top:     -12px;
+}
+
+.picture_caption
+{
+  font-size:       14px;
+  line-height:     100%;
+  font-style:    italic;
+  color:        #706645;
+  padding-left:    15px;
+  padding-bottom:   5px;
+  clear:           both;
+}
+
+.photo_caption
+{
+  font-size:       14px;
+  line-height:     100%;
+  font-style:    italic;
+  color:        #706645;
+}
+
+.fleur
+{
+  clear: both;
+  background: url(../images/fleur_right.gif) bottom right no-repeat;
+  padding-bottom:   20px;  /* Needs to be 20px for the fleur stem. */
+}
+
+.fleur_stem
+{
+  padding-bottom:       10px;  /* Controls blank space above the fleur. */
+  margin-right:         30px;  /* Needs to be 30px for the fleur stem. */
+  border-bottom-width:   1px;
+  border-style:        solid;
+  border-color:      #706645;
+}
+
+.commenter
+{
+  font-size:    17px;
+  clear:        both;
+  color:     #706645;
+  padding:       5px;
+  padding-left: 35px;  /* Controls horizontal positioning of the name relative to dash (should be about 35px). */
+  padding-bottom: 17px;
+  margin-top:  -22px;
+  margin-left:  30px;  /* Controls horizontal positioning of the name-dash combo. */
+  /*content: "hootie"*/
+}
+/*.commenter::after
+{
+  content: " said it"
+}*/
+
+.commenter img
+{
+  display:  inline;
+  position: relative;
+  top:      13px;
+}
+
+.name_header
+{
+  font-size: 35px;
+  letter-spacing:   2px;
+  font-weight:   bolder;
+  font-style:    italic;
+  color:        #706645;
+  padding-left:    50px;
+}
+
+h1
+{
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 2px;
+  font-variant: small-caps;
+  font-weight: bolder;
+  color:       #706645;
+  margin-bottom:  20px;
+  padding-top:    20px;  /* Controls blank space below the fleur. */
+}
+
+h2
+{
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-variant: small-caps;
+  font-weight: bolder;
+  color:       #706645;
+  margin-bottom:  20px;
+  padding-top:    20px;  /* Controls blank space below the fleur. */
+  padding-left:   20px;
+}
+
+h3
+{
+  position: relative;
+  left: 10px;
+  padding: 15px;
+}
+
+.shadow_corner
+{
+  z-index: 1;
+  width:  7px;
+  position: absolute;
+}
+
+.shadow_nw
+{
+  height: 6px;
+}
+
+.shadow_ne
+{
+  height: 6px;
+  right:  0px;
+}
+
+.shadow_sw
+{
+  height:      8px;
+  bottom:      0px;
+}
+
+.shadow_se
+{
+  height:      8px;
+  right:       0px;
+  bottom:      0px;
+}
+
+.photo
+{
+  z-index: -1;
+  padding: 5px 5px 8px 5px;
+  background: #ffffff url(../images/shadowS.gif) repeat-x bottom left;
+}
+
+.photo_and_shadow
+{
+  margin:          5px;
+  float:          left;
+  position:   relative;
+}
+
+.shadow_edges
+{
+  background:    #abaa9e;
+  padding:       0px 1px 0px 1px;
+  border:        1px solid #dfddce;
+  border-bottom: 0px;
+}
+
+.form_text_field
+{
+  background: #f9f8f0;
+  padding:    .25em;
+  margin:     .15em;
+  border:     1px solid  #a3895c;
+}
+
+.form_drop_down
+{
+  background: #f9f8f0;
+  border:     1px solid  #a3895c;
+  }
+
+.form_text_area
+{
+  background: #f9f8f0;
+  border:     1px solid  #a3895c;
+  padding:    .25em;
+}
+
+.formatting_tips
+{
+  float: left;
+  margin-left: 30px; 
+}
+
+.button
+{
+  border:            3px double #999999;
+  border-top-color:  #CCCCCC;
+  border-left-color: #CCCCCC;
+  padding:           0.15em;
+  margin:            5px 0px 5px 20px;
+  background-color:  #f9f8f0;
+  color:             #403b31;
+  font-size:         75%;
+  font-weight:       bold;
+  font-family:       palatino, bookman, "Bookman Old Style", "Book Antiqua", serif;
+} 
+
+/***********************************
+********  Rails Stuff below ********
+***********************************/
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#ErrorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#ErrorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#ErrorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#ErrorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+

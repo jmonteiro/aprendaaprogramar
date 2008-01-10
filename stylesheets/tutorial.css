@@ -1,0 +1,157 @@
+
+
+#menuPane
+{
+  position:        absolute;
+  top:                150px;
+  width:              190px;
+  left:                25px;
+  padding:              8px;
+}
+
+
+#menuPane a          { text-decoration: none;                   font-weight: normal; }
+#menuPane a:visited  { color: #3a4;                             font-weight: normal; }
+#menuPane a:hover    { color: #3b4; text-decoration: underline; font-weight: normal; }
+
+
+#menuPane p, ul, ol
+{
+  font-size: 10px;
+  font-family: verdana, tahoma, helvetica, arial, sans-serif;
+  line-height:        1.3;
+}
+
+.funnyMenuText
+{
+  text-align: center;
+  position:   relative;
+  left:          -10px;
+}
+
+.fancyMenuText
+{
+  letter-spacing: 1px;
+  padding:        0px;
+  padding-bottom: 5px;
+  margin-top:    -5px;
+}
+
+
+h1
+{
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 2px;
+  font-variant: small-caps;
+  font-weight: bolder;
+  color:       #706645;
+  margin-bottom:  20px;
+  padding-top:    20px;  /* Controls blank space below the fleur. */
+}
+
+h2
+{
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-variant: small-caps;
+  font-weight: bolder;
+  color:       #706645;
+  margin-bottom:  20px;
+  padding-top:    20px;  /* Controls blank space below the fleur. */
+  padding-left:   20px;
+}
+
+h3
+{
+  position: relative;
+  left: 10px;
+  padding: 15px;
+}
+
+
+/***********************************
+********** L2P Stuff below *********
+***********************************/
+
+pre
+{
+  padding: 10px;
+  margin:  20px;
+  width:   90%;
+}
+
+.L2Pinput
+{
+  border-right:  #d0b0b0 1px solid;
+  border-top:    #907070 1px solid;
+  border-left:   #705050 1px solid;
+  border-bottom: #c0a0a0 1px solid;
+  padding-right:  3px;
+  padding-top:    0px;
+  padding-left:   3px;
+  padding-bottom: 0px;
+  white-space: pre;
+  font-family: courier new, monospace;
+  background-color: #f3f4f6;
+}
+
+.L2Pcode
+{
+  padding-right:  0px;
+  padding-top:    0px;
+  padding-left:   0px;
+  padding-bottom: 0px;
+  white-space: pre;
+  font-family: courier new, monospace;
+  font-weight: 600;
+}
+
+.L2PcodeBG
+{
+  background-color: #c6d2e8;
+}
+
+.L2PcodeBlock
+{
+  background-color: #d2cbbe;
+  border-right:   #fffbee 1px solid;
+  border-top:     #b2ab9e 1px solid;
+  border-left:    #a29b8e 1px solid;
+  border-bottom:  #f2ebde 1px solid;
+}
+
+.L2PoutputBlock
+{
+  background-color: #c6d2e8;
+  border-right:   #909aba 1px solid;
+  border-top:     #d6e2ff 1px solid;
+  border-left:    #e3f2f4 1px solid;
+  border-bottom:  #a0aaca 1px solid;
+}
+
+.L2Pstring
+{
+  color: #c00000;
+}
+
+.L2Pnumber
+{
+  color: #007f00;
+}
+
+.L2Pkeyword
+{
+  color: #0000ff;
+}
+
+.L2Pdefinition
+{
+  color: #7f007f;
+}
+
+.L2Pcomment
+{
+  color: #ffffff;
+}
+
