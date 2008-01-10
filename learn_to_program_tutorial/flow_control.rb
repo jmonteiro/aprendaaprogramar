@@ -5,21 +5,22 @@ module FlowControl
   
   def generateFlowControl
     para do <<-END_PARAGRAPH
-      Ahhhh, flow control.  This is where it all comes together.  Even though
-      this chapter is shorter and easier than the #{makeLink 'methods', :generateMethods}
-      chapter, it will open up a whole world of programming possibilities.
-      After this chapter, we'll be able to write truly interactive
-      programs; in the past we have made programs which <em>say</em> different
-      things depending on your keyboard input, but after this chapter
-      they will actually <em>do</em> different things, too.  But
-      before we can do that, we need to be
-      able to compare the objects in our programs.  We need...
+      Ahhhh, controle de fluxo. É aqui que tudo se junta. Ainda que
+      este capítulo seja mais curto e fácil que o capítulo sobre #{makeLink 'métodos', :generateMethods}, ele vai abrir um mundo de possibilidades
+      de programação
+      Após este capítulo, poderemos escrever programas realmente interativos;
+      antes fizemos programas que <em>dizem</em> coisas diferentes
+      dependendo do que você escreve, mas após este capítulo eles
+      <em>farão</em> coisas diferentes, também. Todavia, temos que poder
+      comparar objetos no nosso programa. Precisamos de...
       END_PARAGRAPH
     end
-    h2 {'Comparison Methods'}
+    h2 {'Métodos de Comparação'}
     para do <<-END_PARAGRAPH
-      Let's rush through this part so we can get to the next
-      section, <strong>Branching</strong>, where all the cool
+      Vamos correr nesta parte para chegar logo à próxima seção,
+      <strong>Decisões</strong>, onde tudo que é legal acontece.
+      Para ver se um objeto é maior ou menor que outro, usamos
+      os métodos #{code '>'} e #{code '<'}, assim:
       stuff happens.  So, to see if one object is greater than
       or less than another, we use the methods #{code '>'}
       and #{code '<'}, like this:
@@ -31,9 +32,9 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      No problem.  Likewise, we can find out if an object is
-      greater-than-or-equal-to another (or less-than-or-equal-to)
-      with the methods #{code '>='} and #{code '<='}
+      Sem problema. Do mesmo modo, podemos descobrir se um objeto
+      é maior-ou-igual-que outro (ou menor-ou-igual-que) com os métodos
+      #{code '>='} e #{code '<='}.
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -42,13 +43,13 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      And finally, we can see if two objects are equal or not
-      using #{code '=='} (which means "are these equal?")
-      and #{code '!='} (which means "are these different?").
-      It's important not to confuse #{code '='} with #{code '=='}.
-      #{code '='} is for telling a variable to point at an object
-      (assignment), and #{code '=='} is for asking the question:  "Are
-      these two objects equal?"
+      Finalmente, podemos descobrir se dois objetos são iguais
+      ou não usando #{code '=='} (que significa "estes objetos são iguais?")
+      e #{code '!='} (que significa "estes objetos são diferentes?").
+      É importante não confundir #{code '='} com #{code '=='}. #{code '='}
+      serve para dizer a uma variável que aponte para um objeto
+      (atribuição), e #{code '=='} é para fazer a pergunta: "Estes dois
+      objetos são iguais?".
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -57,409 +58,402 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Of course, we can compare strings, too.  When strings
-      get compared, they compare their <dfn>lexicographical ordering</dfn>,
-      which basically means their dictionary ordering.  #{code 'cat'}
-      comes before #{code 'dog'} in the dictionary, so:
+      E é claro que também podemos comparar strings. Quando strings
+      são comparadas, leva-se em conta seus <dnf>ordenamentos
+      lexicográficos</dfn> o que trocando em miúdos significa a ordem delas
+      no dicionário. #{code 'cachorro'} vem antes de #{code 'gato'} no
+      dicionário, então:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts 'cat' < 'dog'
+      puts 'cachorro' < 'gato'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      There's a catch, though:  the way computers usually do things,
-      they order capital letters as coming before lowercase letters.
-      (That's how they store the letters in fonts, for example:
-      all the capital letters first, then the lowercase ones.)
-      This means that it will think #{code "'Zoo'"} comes before #{code "'ant'"}, so if you
-      want to figure out which word would come first in a real dictionary,
-      make sure to use #{code 'downcase'} (or #{code 'upcase'} or
-      #{code 'capitalize'}) on both words before you try to compare them.
+      Há um porém, contudo: os computadores costumam ordenar letras
+      maiúsculas antes de minúsculas, como se viessem antes (é assim que
+      guardam as letras em fontes, por exemplo: todas as letras
+      maiúsculas primeiro, seguidas das minúsculas).
+      Isso significa que o computador vai pensar que #{code "'Zoológico'"} vem
+      antes de #{code "'abelha'"}, então se você quiser descobrir que
+      palavra viria primeiro num dicionário de verdade, use #{code 'downcase'}
+      (ou #{code 'upcase'} ou #{code 'capitalize'}) em ambas as palavras
+      antes de tentar compará-las.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      One last note before <strong>Branching</strong>:  The comparison
-      methods aren't giving us the strings #{code "'true'"} and
-      #{code "'false'"}; they are giving us the special objects #{code 'true'} and
-      #{code 'false'}.  (Of course, #{code 'true.to_s'} gives us
-      #{code "'true'"}, which is why #{code 'puts'} printed #{code "'true'"}.)
-      #{code 'true'} and #{code 'false'} are used all the time in...
+      Uma última observação antes de <strong>Decisões</strong>: os métodos de
+      comparação não estão nos dando as strings #{code "'true'"} e
+      #{code "'false'"}; elas estão nos dando os objetos especiais
+      #{code 'true'} e #{code 'false'} (claro, #{code 'true.to_s'} nos dá
+      #{code "'true'"}, que é como #{code 'puts'} imprimiu #{code "'true'"}.)
+      #{code 'true'} e #{code 'false'} são usados o tempo todo em...
       END_PARAGRAPH
     end
-    h2 {'Branching'}
+    h2 {'Decisões (Branching)'}
     para do <<-END_PARAGRAPH
-      Branching is a simple concept, but powerful.  In fact, it's so simple
-      that I bet I don't even have to explain it at all; I'll just show you:
+      Decidir é um conceito simples, mas poderoso. Na verdade, é tão simples
+      que aposto que nem tenho que explicá-lo; deixe eu lhe mostrar:
       END_PARAGRAPH
     end
-    run1 = {:input => ['Chris']}
-    run2 = {:input => ['Chewbacca'], :remark => 'But if we put in a different name...'}
-    progN run1, run2 do <<-END_CODE
-      puts 'Hello, what\\'s your name?'
-      name = gets.chomp
-      puts 'Hello, ' + name + '.'
-      if name == 'Chris'
-        puts 'What a lovely name!'
+    executa1 = {:input => ['Chris']}
+    executa2 = {:input => ['Chewbacca'], :remark => 'Mas se colocarmos um nome diferente...'}
+    progN executa1, executa2 do <<-END_CODE
+      puts 'Olá, qual é o seu nome?'
+      nome = gets.chomp
+      puts 'Olá, ' + name + '.'
+      if nome == 'Chris'
+        puts 'Que nome bonito!'
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      And that is branching.  If what comes after the #{code 'if'} is
-      #{code 'true'}, we run the code between the
-      #{code 'if'} and the #{code 'end'}.  If what comes after the
-      #{code 'if'} is #{code 'false'}, we don't.  Plain and simple.
+      E isso é decidir. Se o que vem depois de #{code 'if'} (N.T.&mdash;se) é
+      #{code 'true'}, nós executamos o código entre #{code 'if'} e 
+      #{code 'end'}. Se o que vem depois de #{code 'if'} é #{code 'false'},
+      não executamos nada. Claro e simples.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      I indented the code between the #{code 'if'} and the #{code 'end'}
-      just because I think it's easier to keep track of the
-      branching that way.  Almost all
-      programmers do this, regardless of what language they are
-      programming in.  It may not seem much help in this simple
-      example, but when things get more complex, it makes a big
-      difference.
+      Eu indentei o código entre #{code 'if'} e #{code 'end'} porque
+      acho que fica mais fácil acompanhar as decisões assim. Quase
+      todos os programadores fazem isso, independente da linguagem
+      em que estejam programando. Pode não parecer muito útil neste
+      exemplo pequeno, mas quando as coisas ficam mais complexas,
+      faz uma baita diferença.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Often, we would like a program to do one thing if an expression
-      is #{code 'true'}, and another if it is #{code 'false'}.  That's
-      what #{code 'else'} is for:
+      Muitas vezes gostaríamos que um programa fizesse uma coisa se
+      uma expressão for #{code 'true'}, e outra se for #{code 'false'}.
+      É para isso que serve #{else}:
       END_PARAGRAPH
     end
-    run1 = {:input => ['Chris']}
-    run2 = {:input => ['Ringo'], :remark => 'Now let\'s try a different name...'}
-    progN run1, run2 do <<-END_CODE
-      puts 'I am a fortune-teller.  Tell me your name:'
-      name = gets.chomp
-      if name == 'Chris'
-        puts 'I see great things in your future.'
+    executa1 = {:input => ['Chris']}
+    executa2 = {:input => ['Ringo'], :remark => 'Agora vamos tentar um nome diferente...'}
+    progN executa1, executa2 do <<-END_CODE
+      puts 'Eu sou um vidente. Diga-me seu nome:'
+      nome = gets.chomp
+      if nome == 'Chris'
+        puts 'Vejo coisas maravilhosas no seu futuro.'
       else
-        puts 'Your future is... Oh my!  Look at the time!'
-        puts 'I really have to go, sorry!'
+        puts 'Seu futuro é... Ó, Deus! Olha a hora!'
+        puts 'Eu tenho que ir, mil perdões!'
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Branching is kind of like coming to a fork in the code:  Do
-      we take the path for people whose #{code "name == 'Chris'"},
-      or #{code 'else'} do we take the other path?
+      Decidir é como deparar com uma bifurcação no código: tomamos
+      o caminho para as pessoas com o #{code "nome == 'Chris'"} ou
+      o #{code 'else'}, tomamos o outro caminho?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      And just like the branches of a tree, you can have branches
-      which themselves have branches:
+      E como várias situações na vida, você pode tomar decisões que
+      levam a outras decisões:
       END_PARAGRAPH
     end
-    run1 = {:input => ['chris', 'yes']}
-    run2 = {:input => ['Chris'], :remark => 'Fine, I\'ll capitalize it...'}
-    progN run1, run2 do <<-END_CODE
-      puts 'Hello, and welcome to 7th grade English.'
-      puts 'My name is Mrs. Gabbard.  And your name is...?'
-      name = gets.chomp
+    executa1 = {:input => ['chris', 'sim']}
+    executa2 = {:input => ['Chris'], :remark => 'Está bem, vou capitalizar...'}
+    progN executar1, executar2 do <<-END_CODE
+      puts 'Olá, e bem-vindo à aula de Português.'
+      puts 'Meu nome é professora Hélia. Seu nome é...?'
+      nome = gets.chomp
       
-      if name == name.capitalize
-        puts 'Please take a seat, ' + name + '.'
+      if nome == nome.capitalize
+        puts 'Por favor, sente-se, ' + name + '.'
       else
-        puts name + '?  You mean ' + name.capitalize + ', right?'
-        puts 'Don\\'t you even know how to spell your name??'
-        reply = gets.chomp
+        puts name + '?  Você quer dizer ' + name.capitalize + ', não é?'
+        puts 'Você não sabe nem grafar seu nome??'
+        resposta = gets.chomp
         
-        if reply.downcase == 'yes'
-          puts 'Hmmph!  Well, sit down!'
+        if resposta.downcase == 'sim'
+          puts 'Hunf! Vá, sente-se!'
         else
-          puts 'GET OUT!!'
+          puts 'FORA!!!'
         end
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Sometimes it might get confusing trying to figure out
-      where all of the #{code 'if'}s, #{code 'else'}s, and
-      #{code 'end'}s go.  What I do is write the #{code 'end'}
-      <em>at the same time</em> I write the #{code 'if'}.  So
-      as I was writing the above program, this is how it looked
-      first:
+      Às vezes pode ficar confuso entender onde colocar os
+      #{code 'if'}s, #{code 'else'}s e #{code 'end'}s. O que eu faço
+      é escrever o #{code 'end'} <em>ao mesmo tempo</em> que escrevo
+      o #{code 'if'}. Então enquanto eu estava escrevendo o programa
+      acima, ele estava primeiro assim:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
-      puts 'Hello, and welcome to 7th grade English.'
-      puts 'My name is Mrs. Gabbard.  And your name is...?'
-      name = gets.chomp
+      puts 'Olá, e bem-vindo à aula de Português.'
+      puts 'Meu nome é professora Hélia. Seu nome é...?'
+      nome = gets.chomp
       
-      if name == name.capitalize
+      if nome == nome.capitalize
       else
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Then I filled it in with <dfn>comments</dfn>, stuff
-      in the code the computer will ignore:
+      Aí eu preenchi com <dfn>comentários</dfn>, coisas no
+      código que o computador irá ignorar:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
-      puts 'Hello, and welcome to 7th grade English.'
-      puts 'My name is Mrs. Gabbard.  And your name is...?'
-      name = gets.chomp
+      puts 'Olá, e bem-vindo à aula de Português.'
+      puts 'Meu nome é professora Hélia. Seu nome é...?'
+      nome = gets.chomp
       
-      if name == name.capitalize
-        #  She's civil.
+      if nome == nome.capitalize
+        #  Ela é cordial.
       else
-        #  She gets mad.
+        #  Ela fica brava.
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Anything after a #{code '#'} is
-      considered a comment (unless, of course, you
-      are in a string).  After that, I replaced the comments
-      with working code.  Some people like to leave the comments
-      in; personally, I think well-written code usually speaks
-      for itself.  I used to use more comments, but the more
-      "fluent" in Ruby I become, the less I use them.  I actually
-      find them distracting much of the time.  It's a personal
-      choice; you'll find your own (usually evolving) style.
-      So my next step looked like this:
+      Qualquer coisa após um #{code '#'} é considerado um comentário (a
+      não ser, é claro, que você esteja em uma string). Após preencher
+      com comentários, substituí-os por código funcional. Algumas
+      pessoas gostam de deixá-los no arquivo; pessoalmente, creio
+      que código bem-escrito fala por si. Eu costumava escrever
+      mais comentários, mas quanto mais "fluente" fico em Ruby, menos
+      faço uso deles. Eles me distraem boa parte do tempo. É uma escolha
+      individual; você vai encontrar o seu estilo (normalmente em
+      constante evolução). Então meu próximo passo ficou assim:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
-      puts 'Hello, and welcome to 7th grade English.'
-      puts 'My name is Mrs. Gabbard.  And your name is...?'
-      name = gets.chomp
+      puts 'Olá, e bem-vindo à aula de Português.'
+      puts 'Meu nome é professora Hélia. Seu nome é...?'
+      nome = gets.chomp
       
-      if name == name.capitalize
-        puts 'Please take a seat, ' + name + '.'
+      if nome == nome.capitalize
+        puts 'Por favor, sente-se, ' + name + '.'
       else
-        puts name + '?  You mean ' + name.capitalize + ', right?'
-        puts 'Don\\'t you even know how to spell your name??'
-        reply = gets.chomp
+        puts name + '?  Você quer dizer ' + name.capitalize + ', não é?'
+        puts 'Você não sabe nem grafar seu nome??'
+        resposta = gets.chomp
         
-        if reply.downcase == 'yes'
+        if resposta.downcase == 'sim'
         else
         end
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Again, I wrote down the #{code 'if'}, #{code 'else'}, and
-      #{code 'end'} all at the same time.  It really helps me keep
-      track of "where I am" in the code.  It also makes the job
-      seem easier because I can focus on one small part, like
-      filling in the code between the #{code 'if'} and the
-      #{code 'else'}.  The other benefit of doing it this way
-      is that the computer can understand the program at any
-      stage.  Every one of the unfinished versions of the
-      program I showed you would run.  They weren't finished,
-      but they were working programs.  That way I could test it
-      as I wrote it, which helped to see how it was coming along
-      and where it still needed work.  When it passed all
-      of the tests, that's how I knew I was done!
+      Mais uma vez escrevi #{code 'if'}, #{code 'else'} e #{code 'end'}
+      ao mesmo tempo. Realmente me ajuda a saber "onde estou" no código.
+      Também faz com que o trabalho parece mais fácil porque posso me 
+      concentrar em uma parte pequena, como preencher o código entre
+      #{code 'if'} e #{code 'else'}. Uma outra vantagem de fazê-lo
+      desta maneira é que o computador pode entender o programa em
+      qualquer estágio. Qualquer uma das versões inacabadas do
+      programa que eu lhe mostrei rodariam. Elas não estavam terminadas,
+      mas eram programas funcionais. Desta maneira eu pude testar
+      enquanto escrevia, o que me ajudou a ver como o programa
+      progredia e o que precisava ser melhorado. Quando ele passou
+      em todos os testes, eu soube que estava pronto!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      These tips will help you write programs with branching,
-      but they also help with the other main type of flow control:
+      Essas dicas vão ajudá-lo a escrever programas que tomam decisões,
+      mas também ajudam com outro tipo central de controle de fluxo:
       END_PARAGRAPH
     end
-    h2 {'Looping'}
+    h2 {'Repetição (Looping)'}
     para do <<-END_PARAGRAPH
-      Often, you'll want your computer to do the same thing over and
-      over again&mdash;after all, that's what computers are supposed to
-      be so good at.
+      Você vai querer com alguma freqüência que o computador faça a mesma
+      coisa várias e várias vezes&mdash;afinal, é nisso que os computadores
+      em teoria são bons.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      When you tell your computer to keep repeating something,
-      you also need to tell it when to stop.  Computers never get bored,
-      so if you don't tell it to stop, it won't.  We make sure this
-      doesn't happen by telling the computer to repeat certain parts
-      of a program #{code 'while'} a certain condition is true.  This
-      works very similarly to how #{code 'if'} works:
+      Quando você manda o seu computador ficar repetindo algo, você
+      também precisa dizê-lo quando parar. Computadores nunca se entediam,
+      então se você não mandar o seu parar, ele não parará. Garantimos
+      que isso não aconteça ao dizermos que ele deve repetir certas partes
+      de um programa #{code 'while'} (N.T.&mdash;enquanto) uma condição
+      especificada for verdadeira. Isso funciona bem parecido com como
+      #{code 'if'} funciona:
       END_PARAGRAPH
     end
-    prog ['Hello?', 'Hi!', 'Very nice to meet you.', 'Oh... how sweet!', 'bye'] do <<-END_CODE
-      command = ''
+    prog ['Olá?', 'Oi!', 'Muito prazer em conhecê-lo.', 'Ah... que amor!', 'tchau'] do <<-END_CODE
+      comando = ''
       
-      while command != 'bye'
-        puts command
-        command = gets.chomp
+      while comando != 'tchau'
+        puts comando
+        comando = comando.chomp
       end
       
-      puts 'Come again soon!'
+      puts 'Volte logo!'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      And that's a loop.  (You may have noticed the blank line at the
-      beginning of the output; it's from the first #{code 'puts'}, before
-      the first #{code 'gets'}.  How would you change the program to get
-      rid of this first line.  Test it!  Did it work <em>exactly</em>
-      like the program above, other than that first blank line?)
+      E isso é um loop (você deve ter notado a linha em branco no começo
+      da saída; ela vem do primeiro #{code 'puts'}, antes do primeiro
+      #{code 'gets'}. Como você modificaria o programa para se livrar
+      dessa primeira linha? Teste! Funcionou <em>exatamente</em> como o
+      programa acima, fora aquela primeira linha em branco?).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Loops allow you to do all kinds of interesting things, as I'm sure
-      you can imagine.  However, they can also cause problems if you
-      make a mistake.  What if your computer gets trapped in an infinite
-      loop?  If you think this may have happened, just hold down the
-      <kbd>Ctrl</kbd> key and press <kbd>C</kbd>.
+      Loops permitem que você faça várias coisas interessantes, como sei
+      que você pode imaginar. Contudo, eles também podem causar problemas
+      se você cometer algum erro. E se o computador ficar preso num loop
+      infinito? Se você acha que isso pode ter acontecido, é só segurar
+      a tecla <kbd>Ctrl</kbd> e pressionar <kbd>C</kbd>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Before we start playing around with loops, though,
-      let's learn a few things to make our job easier.
+      Antes de começarmos a brincar com loops, vamos aprender algumas
+      coisinhas para facilitar nossa vida.
       END_PARAGRAPH
     end
-    h2 {'A Little Bit of Logic'}
+    h2 {'Um Pouco de Lógica'}
     para do <<-END_PARAGRAPH
-      Let's take a look at our first branching program again.  What if
-      my wife came home, saw the program, tried it out, and it didn't
-      tell her what a lovely name <em>she</em> had?  I wouldn't want to
-      hurt her feelings (or sleep on the couch), so let's rewrite it:
+      Vamos dar uma olhada no noss primeiro programa com decisões. E
+      se minha esposa chegasse em casa, visse o programa, tentasse usá-lo
+      e ele não dissesse que nome bonito <em>ela</em> tem? Eu não
+      gostaria de magoá-la (ou de dormir no sofá), então vamos reescrevê-lo:
       END_PARAGRAPH
     end
     prog ['Katy'] do <<-END_CODE
-      puts 'Hello, what\\'s your name?'
-      name = gets.chomp
-      puts 'Hello, ' + name + '.'
-      if name == 'Chris'
-        puts 'What a lovely name!'
+      puts 'Olá, qual é o seu nome?'
+      nome = gets.chomp
+      puts 'Olá, ' + name + '.'
+      if nome == 'Chris'
+        puts 'Que nome bonito!'
       else
         if name == 'Katy'
-          puts 'What a lovely name!'
+          puts 'Que nome bonito!'
         end
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Well, it works... but it isn't a very pretty program.  Why not?
-      Well, the best
-      rule I ever learned in programming was the <dfn>DRY</dfn> rule:
-      <dfn>Don't Repeat Yourself</dfn>.  I could probably write a small
-      book just on why that is such a good rule.  In our case, we
-      repeated the line #{code "puts 'What a lovely name!'"}.  Why is
-      this such a big deal?  Well, what if I made a spelling mistake
-      when I rewrote it?  What if I wanted to change it from
-      #{code "'lovely'"} to #{code "'beautiful'"} on both lines?
-      I'm lazy, remember?  Basically, if
-      I want the program to do the same thing when it gets
-      #{code "'Chris'"} or #{code "'Katy'"}, then it should really
-      <em>do the same thing</em>:
+      Bom, funciona... mas não é lá um programa muito bonito. E por quê?
+      A melhor regra que eu aprendi sobre programação foi a regra
+      <dfn>DRY</dfn>: <dfn>Don't Repeat Yourself</dfn>
+      (N.T.&mdash;Não Se Repita). Eu poderia escrever um livro só sobre
+      o quão boa é essa regra. No nosso caso, repetimos a linha 
+      #{code 'Que nome bonito!'}. Por que é que isso é um problema? Bem,
+      e se eu cometi um erro de digitação quando eu reescrevi? E se eu
+      quosesse mudar de #{code 'bonito'} para #{'gracioso'} em ambas
+      as linhas? Eu sou preguiçoso, lembra? Basicamente, se eu quero
+      que meu programa faça a mesma coisa quando receber #{code 'Chris'} ou
+      #{code 'Katy'}, então ele reamente deve fazer <em>a mesma coisa</em>:
       END_PARAGRAPH
     end
     prog ['Katy'] do <<-END_CODE
-      puts 'Hello, what\\'s your name?'
-      name = gets.chomp
-      puts 'Hello, ' + name + '.'
-      if (name == 'Chris' or name == 'Katy')
-        puts 'What a lovely name!'
+      puts 'Olá, qual é o seu nome?'
+      nome = gets.chomp
+      puts 'Olá, ' + name + '.'
+      if (nome == 'Chris' or nome == 'Katy')
+        puts 'Que nome bonito!'
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Much better.  In order to make it work, I used #{code 'or'}.
-      The other <em>logical operators</em> are #{code 'and'} and 
-      #{code 'not'}.  It is always a good idea to use parentheses
-      when working with these.  Let's see how they work:
+      Muito melhor.  Para que funcionasse, usei #{code 'or'}. Os outros
+      <em>operadores lógicos</em> são #{code 'and'} e #{code 'not'}. É
+      sempre bom usar parênteses ao trabalhar com eles. Vamos ver como
+      funcionam:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      iAmChris  = true
-      iAmPurple = false
-      iLikeFood = true
-      iEatRocks = false
+      euSouChris  = true
+      euSouRoxo = false
+      euAmoComida = true
+      euComoPedras = false
       
-      puts (iAmChris  and iLikeFood)
-      puts (iLikeFood and iEatRocks)
-      puts (iAmPurple and iLikeFood)
-      puts (iAmPurple and iEatRocks)
+      puts (euSouChris and euAmoComida)
+      puts (euAmoComida and euComoPedras)
+      puts (euSouRoxo and euAmoComida)
+      puts (euSouRoxo and euComoPedras)
       puts
-      puts (iAmChris  or iLikeFood)
-      puts (iLikeFood or iEatRocks)
-      puts (iAmPurple or iLikeFood)
-      puts (iAmPurple or iEatRocks)
+      puts (euSouChris or euAmoComida)
+      puts (euAmoComida or euComoPedras)
+      puts (euSouRoxo or euAmoComida)
+      puts (euSouRoxo or euComoPedras)
       puts
-      puts (not iAmPurple)
-      puts (not iAmChris )
+      puts (not euSouRoxo)
+      puts (not euSouChris)
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      The only one of these which might trick you is
-      #{code 'or'}.  In English, we often use "or" to mean
-      "one or the other, but not both."  For example, your
-      mom might say, "For dessert, you can have pie or cake."
-      She did <em>not</em> mean you could have them both!
-      A computer, on the other hand, uses #{code 'or'} to mean "one or the other,
-      or both."  (Another way of saying it is, "at least one of
-      these is true.")  This is why computers are more fun than
-      moms.
+      O único deles que pode enganá-lo é #{code 'or'} (N.T.&mdash-ou). 
+      Em português, usa-se "ou" para dizer "um ou outro, mas não os dois".
+      Por exemplo, sua mãe pode lhe dizer: "Para sobremesa você pode escolher
+      torta ou bolo". Ela <em>não</em> deu a opção de escolher os dois!
+      Um computador, por outro lado, entende #{code 'or'} como "ou ou outro,
+      ou os dois" (outro jeito de colocar é "ao menos um destes é verdadeiro").
+      É por isso que computadores são mais legais que mães.
       END_PARAGRAPH
     end
-    h2 {'A Few Things to Try'}
+    h2 {'Umas Coisinhas Para Tentar'}
     para do <<-END_PARAGRAPH
-      &bull; <em>"99 bottles of beer on the wall..."</em>  Write a program
-      which prints out the lyrics to that beloved classic, that
-      field-trip favorite: "99 Bottles of Beer on the Wall."
-      END_PARAGRAPH
-    end
-    para do <<-END_PARAGRAPH
-      &bull; Write a Deaf Grandma program.  Whatever you say
-      to grandma (whatever you type in), she should respond with
-      #{output 'HUH?!  SPEAK UP, SONNY!'}, unless you shout it (type in
-      all capitals).  If you shout, she can hear you (or at least
-      she thinks so) and yells back, #{output 'NO, NOT SINCE 1938!'}  To
-      make your program <em>really</em> believable, have grandma
-      shout a different year each time; maybe any year at random
-      between 1930 and 1950.  (This part is optional, and would be
-      much easier if you read the section on Ruby's random number
-      generator at the end of the #{makeLink 'methods', :generateMethods}
-      chapter.)  You can't stop talking to grandma
-      until you shout #{input 'BYE'}.<br />
-      <em><strong>Hint:</strong>  Don't forget about
-      </em>#{code 'chomp'}<em>!  </em>#{code "'BYE'"}<em>with an
-      Enter is not the same as </em>#{code "'BYE'"}<em> without
-      one!</em><br />
-      <em><strong>Hint 2:</strong>  Try to think about what parts
-      of your program should happen over and over again.  All
-      of those should be in your </em>#{code 'while'}<em> loop.</em>
+      &bull; <em>"Um elefante incomoda muita gente..."</em>  Escreva um
+      programa que imprima a letra para o clássico das viagens de
+      carro, com um limite de 100 elefantes.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      &bull; Extend your Deaf Grandma program:  What if grandma
-      doesn't want you to leave?  When you shout #{input 'BYE'}, she
-      could pretend not to hear you.  Change your previous
-      program so that you have to shout #{input 'BYE'} three times
-      <em>in a row</em>.  Make sure to test your program:
-      if you shout #{input 'BYE'} three times, but not in a row, you
-      should still be talking to grandma.
+      &bull; Escreva um programa Velha Surda.  O que quer que
+      você diga à velha (o que quer que você digite), ela tem
+      que responder com #{output 'QUE?! FALA MAIS ALTO!'}, a não
+      ser que você grite (digite tudo em maiúsculas). Se você 
+      gritar, ela pode lhe ouvir (ou ao menos pensa que pode), e
+      sempre grita #{output 'NÃO, NÃO DESDE 1938!'}  Para fazer seu
+      programa ser realmente verossímil, faça a velha gritar
+      um número diferente a cada vez; talvez qualquer ano aleatório
+      entre 1930 e 1950 (a última parte é opcional, e ficaria muito
+      mais fácil se você lesse a seção sobre o gerador de números
+      randômicos do Ruby no capítulo sobre 
+      #{makeLink 'methods', :generateMethods}  Você não pode parar
+      de falar com a velha enquanto não gritar #{input 'TCHAU'}.<br />
+      <em><strong>Dica:</strong> Não esqueça do </em>#{code 'chomp'}
+      <em>!  </em>#{code "'TCHAU'"} com um enter não é a mesma coisa que
+      #{code "'TCHAU'"} sem!
+      <em><strong>Dica 2:</strong>  Tente pensar em que partes do programa
+      as coisas acontecem repetidamente. Todas elas devem estar no seu
+      loop #{code 'while'}.</em>
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      &bull; Leap Years.  Write a program which will ask for
-      a starting year and an ending year, and then #{code 'puts'}
-      all of the leap years between them (and including them,
-      if they are also leap years).  Leap years are years divisible
-      by four (like 1984 and 2004).  However, years divisible
-      by 100 are <em>not</em> leap years (such as 1800 and
-      1900) <strong><em>unless</em></strong> they are divisible
-      by 400 (like 1600 and 2000, which were in fact leap years).
-      <em>(Yes, it's all pretty
-      confusing, but not as confusing has having July in the
-      middle of the winter, which is what would eventually
-      happen.)</em>
+      &bull; Estenda o seu programa Velha Surda: e se a velha
+      não quiser que você vá embora? Quando você gritar #{input 'TCHAU'},
+      ela pode fingir que não lhe ouve. Mude seu programa anterior
+      para que você tenha que gritar #{input 'TCHAU'} três vezes <em>em
+      seqüência</em>. Teste bem o seu programa: se você gritar 
+      #{input 'TCHAU'} três vezes, mas não em seqüência, você tem
+      que continuar falando com a velha.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      When you finish those, take a break!  You've learned a lot
-      already.  Congratulations!  Are you surprised at the number
-      of things you can tell a computer to do?  A few more chapters
-      and you'll be able to program just about anything.  Seriously!
-      Just look at all the things you can do now that you couldn't
-      do without looping and branching.
+      &bull; Anos bissextos. Escreva um programa que pergunte um
+      ano inicial e um ano final, e imprima com #{code 'puts'} todos
+      os anos bissextos entre eles (e os incluindo, se eles também
+      forem bissextos). Anos bissextos são sempre divisíveis por
+      quatro (como 1984 e 2004). Contudo, anos divisíveis por 100
+      <em>não</em> são bissextos (como 1800 e 1900)
+      <strong><em>a não ser que</em</strong>sejam divisíveis por
+      400 (como 1600 e 2000, que foram de fato anos bissextos).
+      <em>(Sim, é bem confuso, mas não tão confuso como ter dezembro
+      no meio do inverno, que é o que aconteceria no fim).</em>
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Now let's learn about a new kind of
-      object, one which keeps track of lists of other objects:
+      Quando você terminá-las, descanse um pouco! Você já aprendeu
+      muitas coisas. Parabéns. Você está surpreso com a quantidade
+      de coisas que se pode mandar o computador fazer? Alguns capítulos
+      mais e você vai poder programar praticamente tudo. Sério mesmo!
+      Veja só tudo que você pode fazer que não podia antes de aprender
+      sobre loops e decisões.
+      END_PARAGRAPH
+    end
+    para do <<-END_PARAGRAPH
+      Agora vamos aprender sobre um novo tipo de objeto, que
+      controla listas de outros objetos:
       #{makeLink 'arrays', :generateArrays}.
       END_PARAGRAPH
     end
