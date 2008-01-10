@@ -62,10 +62,10 @@ module Setup
       deles programas completos que você pode rodar no seu próprio
       computador. Para deixar o código mais legível, eu colorí partes dele
       com cores diferentes. (Por exemplo, números são sempre
-      <span class="L2Pcode"><span class="L2Pnumber">#{@@NUMBER_COLOR}</span></span>.)
+      <span class="L2Pcode"><span class="L2Pnumber">#{NUMBER_COLOR}</span></span>.)
       Qualquer coisa que você tiver que digitar estará sempre em a 
-      #{input @@INPUT_DESC}, e qualquer coisa que o programa imprimir
-      estará em um #{output @@OUTPUT_DESC}.
+      #{input INPUT_DESC}, e qualquer coisa que o programa imprimir
+      estará em um #{output OUTPUT_DESC}.
       END_PARAGRAPH
     end
     #para do <<-END_PARAGRAPH
@@ -77,10 +77,10 @@ module Setup
     #  run on your own computer.  To make the code easier to
     #  read, I have colored parts of the code different
     #  colors.  (For example, numbers are always
-    #  <span class="L2Pcode"><span class="L2Pnumber">#{@@NUMBER_COLOR}</span></span>.)
+    #  <span class="L2Pcode"><span class="L2Pnumber">#{NUMBER_COLOR}</span></span>.)
     #  Anything you are supposed to type in will be in a
-    #  #{input @@INPUT_DESC}, and anything a program prints
-    #  out will be in a #{output @@OUTPUT_DESC}.
+    #  #{input INPUT_DESC}, and anything a program prints
+    #  out will be in a #{output OUTPUT_DESC}.
     #  END_PARAGRAPH
     #end
     para do <<-END_PARAGRAPH

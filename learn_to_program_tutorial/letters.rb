@@ -14,7 +14,7 @@ module Letters
       pensar nas letras impressas em um banner.)
       Para tornar mais fácil ver apenas que parte do código está em uma string,
       Eu colorirei as strings
-      <span class="L2Pcode"><span class="L2Pstring">#{@@STRING_COLOR}</span></span>.
+      <span class="L2Pcode"><span class="L2Pstring">#{STRING_COLOR}</span></span>.
       Aqui estão algumas strings:
       END_PARAGRAPH
     end

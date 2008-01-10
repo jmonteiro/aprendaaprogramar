@@ -148,7 +148,7 @@ module Arrays
       One important difference is that the method #{code 'each'}
       is just that:  a method.  #{code 'while'} and #{code 'end'}
       (much like #{code 'do'}, #{code 'if'}, #{code 'else'}, and all the other
-      <span class="L2Pcode"><span class="L2Pkeyword">#{@@KEYWORD_COLOR}</span></span>
+      <span class="L2Pcode"><span class="L2Pkeyword">#{KEYWORD_COLOR}</span></span>
       words) are not methods.  They are a fundamental part of the Ruby
       language, just like #{code '='} and parentheses; kind of
       like punctuation marks in English.

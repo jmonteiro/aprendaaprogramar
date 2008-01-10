@@ -1,5 +1,7 @@
 # colocar no seu httpd.conf
 # no mac, o path é /private/etc/httpd/users/nome_do_usuario.conf
+# 
+# Alterar LINKADDR no learn_to_program_tutorial.rb de acordo com seu ambiente
 
 AddHandler cgi-script .rb
 

@@ -14,8 +14,22 @@ require 'stringio'
 
 Dir.glob('learn_to_program_tutorial/*').each { |file| require file }
 
-LINKADDR   = '/LearnToProgram/'
+LINKADDR   = '/~<SEU_USUARIO_AQUI>/LearnToProgram/index.rb'
 FRLTP_ADDR = 'http://pragmaticprogrammer.com/titles/fr_ltp'
+
+HLINE = '<div class="fleur"><div class="fleur_stem">&nbsp;</div></div>'
+
+#  If you decide to change coloring or formatting of this tutorial,
+#  you'll want to change these to something appropriate.
+NUMBER_COLOR  = 'green'
+STRING_COLOR  = 'red'
+KEYWORD_COLOR = 'blue'
+INPUT_DESC    = 'white box'
+OUTPUT_DESC   = 'blue box'
+
+#  Delimiter for input to sample code, since it comes out
+#  right alongside the output.  Must not be html escapable.
+INPUT = "%%%'f'o'o'"
 
 class LearnToProgramTutorial
   include LearnToProgram

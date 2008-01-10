@@ -49,7 +49,7 @@ module Main
         div(:id=>'contentPane') do
           if chapter
             h1 {chapTitle}
-            puts @@HLINE
+            puts HLINE
             method(chapter[1]).call
           else # TOC
             h2 { 'Um lugar para o futuro programador começar' }
@@ -111,7 +111,7 @@ module Main
               querer dar uma olhada <a href="#{FRLTP_ADDR}">no livro</a>.
               END_PARAGRAPH
             end
-            puts @@HLINE
+            puts HLINE
             h2 { 'Notas Para Professores' }
             para do <<-END_PARAGRAPH
               Há algumas normas de conduta que eu tentei seguir.
@@ -180,7 +180,7 @@ module Main
               não gaste muito tempo tentando fazer exercícios bons.
               END_PARAGRAPH
             end
-            puts @@HLINE
+            puts HLINE
             h2 { 'Sobre o Tutorial Original' }
             para do <<-END_PARAGRAPH
               As páginas do tutorial (esta página, inclusive) são geradas por um
@@ -205,7 +205,7 @@ module Main
                 '<img src="/images/PoweredByRuby.png" alt="powered by Ruby" width="234" height="60" />'+
               '</a>'
             end
-            puts @@HLINE
+            puts HLINE
             h2 { 'Acknowledgements' }
             para do <<-END_PARAGRAPH
               Finalizando, eu gostaria de agradecer a todos da lista ruby-talk
@@ -226,7 +226,7 @@ module Main
             end
           end
           
-          puts @@HLINE
+          puts HLINE
           para(:style=>'padding-bottom: 20px;') { "&copy; 2003-#{Time.now.year} Chris Pine" }
         end # contentPane
       end # pageWidth

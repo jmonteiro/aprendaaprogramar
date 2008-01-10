@@ -114,12 +114,12 @@ module Classes
         colorArray = []  #  same as Array.new
         colorHash  = {}  #  same as Hash.new
 
-        colorArray[0]         = '#{@@STRING_COLOR}'
-        colorArray[1]         = '#{@@NUMBER_COLOR}'
-        colorArray[2]         = '#{@@KEYWORD_COLOR}'
-        colorHash['strings']  = '#{@@STRING_COLOR}'
-        colorHash['numbers']  = '#{@@NUMBER_COLOR}'
-        colorHash['keywords'] = '#{@@KEYWORD_COLOR}'
+        colorArray[0]         = '#{STRING_COLOR}'
+        colorArray[1]         = '#{NUMBER_COLOR}'
+        colorArray[2]         = '#{KEYWORD_COLOR}'
+        colorHash['strings']  = '#{STRING_COLOR}'
+        colorHash['numbers']  = '#{NUMBER_COLOR}'
+        colorHash['keywords'] = '#{KEYWORD_COLOR}'
 
         colorArray.each do |color|
           puts color
