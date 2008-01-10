@@ -5,28 +5,27 @@ module BlocksProcs
 
     def generateBlocksProcs
       para do <<-END_PARAGRAPH
-        This is definitely one of the coolest features of Ruby.  Some
-        other languages have this feature, though they may call it
-        something else (like <dfn>closures</dfn>), but most of the
-        more popular ones don't, and it's a shame.
+        Esta é, definitivamente, um dos recursos mais legais de Ruby. Algumas
+        outras linguagens têm esse recurso, porém elas podem chamar isso
+        de formas diferentes (como <dfn>closures</dfn>), mas muitas
+        das mais populares não, o que é uma vergonha.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        So what is this cool new thing?  It's the ability to take
-        a <dfn>block</dfn> of code (code in between #{code 'do'}
-        and #{code 'end'}), wrap it up in an object (called a
-        <dfn>proc</dfn>), store it in a variable or pass it to a
-        method, and run the code in the block whenever you feel
-        like (more than once, if you want).  So it's kind of like
-        a method itself, except that it isn't bound to an object
-        (it <em>is</em> an object), and you can store it or pass
-        it around like you can with any object.  I think it's example
-        time:
+        Então o que é essa nova coisa legal? É a habilidade de pegar
+        um <dfn>bloco</dfn> de código (código entre #{code 'do'}
+        e #{code 'end'}), amarrar tudo em um objeto (chamado de
+        <dfn>proc</dfn>), armazenar isso em uma variável e passar isso
+        para um método, e rodar o código do bloco quando você quiser
+        (mais de uma vez, se você quiser). Então, é como se fosse um método,
+        exceto pelo fato de que isso não está em um objeto (isso <em>é</em> um objeto),
+        e você pode armazená-lo ou passá-lo adiante, como com qualquer outro objeto.
+        Acho que é hora de um exemplo:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
         toast = Proc.new do
-          puts 'Cheers!'
+          puts 'Olá!'
         end
 
         toast.call
