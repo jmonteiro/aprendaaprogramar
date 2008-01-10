@@ -12,7 +12,7 @@ module Menu
   end
   
   def menuTOC
-    para(:class=>'funnyMenuText') { '&laquo; the original tutorial &raquo;' }
+    para(:class=>'funnyMenuText') { '&laquo; o tutorial original &raquo;' }
     
     ol(:start=>'0', :style=>'padding-top: 15px; padding-bottom: 15px;') do
       @chapters.sort_by{|x| x[0]}.each do |aChapNum, aChapter|
@@ -23,22 +23,22 @@ module Menu
     end
     
     para do <<-END_PARAGRAPH
-      (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Japanese translation</a>
+      (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
       by&nbsp;Shin&nbsp;Nishiyama.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">French translation</a>
+      (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
       by&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Russian translation</a>
+      (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
       by&nbsp;Mikhail&nbsp;Shokhirev.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      (<a href="http://gcarst.googlepages.com/komgodtigang">Danish translation</a>
+      (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
       by&nbsp;Gunner&nbsp;Carstens.)
       END_PARAGRAPH
     end
