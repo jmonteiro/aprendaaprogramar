@@ -70,81 +70,80 @@ module BlocksProcs
       end
       h2 { 'Métodos que Recebem Procs' }
       para do <<-END_PARAGRAPH
-        When we pass a proc into a method, we can control how, if, or how many times we call
-        the proc.  For example, let's say there's something we want to do before and after
-        some code is run:
+        Quando passamos uma proc em um método, nós podemos controlar como, se ou quantas vezes
+        nós vamos chamar a proc. Por exemplo, deixe-me dizer que há uma coisa que nós queremos
+        fazer antes e depois que um código é executado:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        def doSelfImportantly someProc
-          puts 'Everybody just HOLD ON!  I have something to do...'
-          someProc.call
-          puts 'Ok everyone, I\\'m done.  Go on with what you were doing.'
+        def FacaUmaCoisaImportante umaProc
+          puts 'Todo mundo apenas ESPERE! Eu tenho uma coisa a fazer...'
+          umaProc.call
+          puts 'Certo pessoa, Eu terminei. Voltem a fazer o que estavam fazendo.'
         end
 
-        sayHello = Proc.new do
-          puts 'hello'
+        digaOla = Proc.new do
+          puts 'olá'
         end
 
-        sayGoodbye = Proc.new do
-          puts 'goodbye'
+        digaTchau = Proc.new do
+          puts 'tchau'
         end
 
-        doSelfImportantly sayHello
-        doSelfImportantly sayGoodbye
+        FacaUmaCoisaImportante digaOla
+        FacaUmaCoisaImportante digaTchau
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Maybe that doesn't appear particulary fabulous... but it is.  :-)
-        It's all too common in programming to have strict requirements about what
-        must be done when.  If you want to save a file, for example, you have to
-        open the file, write out the information you want it to have, and then close
-        the file.  If you forget to close the file, Bad Things(tm) can happen.  But
-        each time you want to save or load a file, you have to do the same thing:
-        open the file, do what you <em>really</em> want to do, then close the file.
-        It's tedious and easy to forget.  In Ruby, saving (or loading) files works
-        similarly to the code above, so you don't have to worry about anything but
-        what you actually want to save (or load).  (In the next chapter I'll show you
-        where to find out how to do things like save and load files.)
+        Talvez isso não pareça tão fabuloso... mas é. :-)
+        É muito comum em programação que alguns requesitos críticos sejam executados.
+        Se você grava um arquivo, por exemplo, você deve abrir o arquivo, escrever
+        o que quiser lá dentro e então fechar o arquivo. Se você se esquecer de fechar o arquivo,
+        Coisas Ruins(tm) podem acontecer. Mas toda a vez que você quiser salvar ou carregar um arquivo,
+        você deve fazer a mesma coisa: abrir o arquivo, fazer o que você <em>realmente</em> quiser com ele
+        e então fechar o arquivo. Isso é entediante e fácil de esquecer. Em Ruby, salver (ou carregar)
+        arquivos funciona similarmente com o código anterior, então você não precisa se preocupar
+        com nada além de o que você quer salvar (ou carregar) (No próximo capítulo eu vou lhe
+        mostrar como fazer coisas como salvar e carregar arquivos).
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        You can also write methods which will determine how many times, or even
-        <em>if</em> to call a proc.  Here's a method which will call the proc passed in
-        about half of the time, and another which will call it twice:
+        Você pode também escrever métodos que vão determinar quantas vezes, ou mesmo
+        <em>se</em> uma proc será chamada. Aqui está um método que irá chamar uma proc
+        metade do tempo, e outra que irá chamar a proc duas vezes.
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        def maybeDo someProc
+        def talvezFaca umaProc
           if rand(2) == 0
-            someProc.call
+            umaProc.call
           end
         end
 
-        def twiceDo someProc
-          someProc.call
-          someProc.call
+        def FacaDuasVezes umaProc
+          umaProc.call
+          umaProc.call
         end
 
-        wink = Proc.new do
-          puts '<wink>'
+        piscar = Proc.new do
+          puts '<piscada>'
         end
 
-        glance = Proc.new do
-          puts '<glance>'
+        olhandofixamente = Proc.new do
+          puts '<olhando fixamente>'
         end
 
-        maybeDo wink
-        maybeDo glance
-        twiceDo wink
-        twiceDo glance
+        talvezFaca piscar
+        talvezFaca olhandofixamente
+        FacaDuasVezes piscar
+        FacaDuasVezes olhandofixamente
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        (If you reload this page a few times, you'll see the output change.)  These are some of
-        the more common uses of procs which enable us to do things we simply could not have done
-        using methods alone.  Sure, you could write a method to wink twice, but you couldn't write
-        one to just do <em>something</em> twice!
+        (Se você recarregar essa página algumas vezes, você verá que a saída muda)
+        Esses são alguns dos usos mais comuns de procs, que nos possibilita fazer coisas que nós
+        simplesmente não poderíamos fazer usando apenas métodos. Claro, você pode escrever um método
+        que "pisque" duas vezes, mas você não pode escrever um que apenas faça <em>qualquer coisa</em> duas vezes!
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
