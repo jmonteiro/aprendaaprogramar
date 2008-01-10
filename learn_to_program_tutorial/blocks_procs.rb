@@ -262,21 +262,12 @@ module BlocksProcs
         dois (definir o método e passar o <em>bloco</em> diretamente ao método,
         sem usar uma proc), uma vez que na maior parte das vezes você não
         vai querer usar a proc ou o bloco depois que o passar para um método.
-        Bem, você não sabe, mas Ruby tem isso para nós!
-        Ok, so this has been sort of academically interesting, but also
-        sort of a hassle to use.  A lot of the problem is that there are
-        three steps you have to go through (defining the method, making
-        the proc, and calling the method with the proc), when it sort of
-        feels like there should only be two (defining the method, and
-        passing the <em>block</em> right into the method, without using
-        a proc at all), since most of the time you don't want to use the
-        proc/block after you pass it into the method.  Well, wouldn't you
-        know, Ruby has it all figured out for us!  In fact, you've already
-        been doing it every time you use iterators.
+        Bem, você não sabe, mas Ruby tem isso para nós! Na verdade,
+        você já estava fazendo isso todas as vezes que usou interadores.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        I'll show you a quick example first, then we'll talk about it.
+        Eu vou mostrar a você um exemplo rápido, então nós vamos falar sobre isso.
         END_PARAGRAPH
       end
       #  HACK ALERT!!!  (I can't get to the global namespace transparently
