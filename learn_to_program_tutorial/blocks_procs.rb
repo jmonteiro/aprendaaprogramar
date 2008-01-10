@@ -196,66 +196,73 @@ module BlocksProcs
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        The #{code 'inspect'} method is a lot like #{code 'to_s'}, except
-        that the string it returns tries to show you the ruby code for
-        building the object you passed it.  Here it shows us the whole
-        array returned by our first call to #{code 'doUntilFalse'}.  Also, you might
-        notice that we never actually squared that #{code '0'} on the end of that
-        array, but since #{code '0'} squared is still just #{code '0'}, we didn't have to.
-        And since #{code 'alwaysFalse'} was, you know, always #{code 'false'},
-        #{code 'doUntilFalse'} didn't do anything at all the second time we
-        called it; it just returned what was passed in.
+        O método #{code 'inspect'} é muito parecido com o #{code 'to_s'}, exceto
+        pelo fato de que a string retornada tenta mostrar para você o código em ruby
+        que está construindo o objeto que você passou. Aqui ele nos mostra todo o vetor
+        retornado pela nossa primeira chamada a #{code 'facaAteFalso'}. Você também deve
+        ter notado que nós nunca elevamos aquele #{code '0'} ao quadrado, no fim do vetor. Já que
+        #{code '0'} elevado ao quadrado continua apenas #{code '0'}, nós não precisamos fazer isso.
+        E já que #{code 'sempreFalso'} foi, você sabe, sempre #{code 'falso'},
+        #{code 'facaAteFalso'} não fez nada na segunda vez que a chamamos; apenas retornou o que
+        lhe foi passada.
         END_PARAGRAPH
       end
-      h2 { 'Methods Which Return Procs' }
+      h2 { 'Métodos que Retornam Procs' }
       para do <<-END_PARAGRAPH
-        One of the other cool things you can do with procs is to create
-        them in methods and return them.  This allows all sorts of crazy
-        programming power (things with impressive names, like
-        <dfn>lazy evaluation</dfn>, <dfn>infinite data structures</dfn>,
-        and <dfn>currying</dfn>),
-        but the fact is that I almost never do this in practice, nor
-        can I remember seeing anyone else do this in their code.  I think
-        it's the kind of thing you don't usually end up having to do in Ruby,
-        or maybe Ruby just encourages you to find other solutions; I don't
-        know.  In any case, I will only touch on this briefly.
+        Uma das outras coisas legais que você pode fazer com procs é
+        criá-las em métodos e retorná-las. Isso permite toda uma sorte
+        de poderes de programação malucos (coisas com nomes impressionantes,
+        como <dfn>avaliação preguiçosa</dfn>, <dfn>estrutura de dados infinita</dfn>,
+        e <dfn>temperando com curry</dfn>), mas o fato é de que eu nunca faço isso
+        na prática e eu não me lembro de ter visto ninguém fazendo isso. Eu acho
+        que isso é o tipo de coisa que você acaba não fazendo em Ruby, ou talvez
+        Ruby apenas encoraje-o a achar outras soluções: eu não sei. De qualquer forma,
+        eu vou tocar no assunto apenas brevemente.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        In this example, #{code 'compose'} takes two procs and returns a new
-        proc which, when called, calls the first proc and passes its result
-        into the second proc.
+        Nesse exemplo, #{code 'compor'} recebe duas procs e retorna uma nova proc
+        que, quando chamada, chama uma terceira proc e passa seu resultado
+        para a segunda proc.
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        def compose proc1, proc2
+        def compor proc1, proc2
           Proc.new do |x|
             proc2.call(proc1.call(x))
           end
         end
 
-        squareIt = Proc.new do |x|
+        quadrado = Proc.new do |x|
           x * x
         end
 
-        doubleIt = Proc.new do |x|
+        dobre = Proc.new do |x|
           x + x
         end
 
-        doubleThenSquare = compose doubleIt, squareIt
-        squareThenDouble = compose squareIt, doubleIt
+        dobreeEleve = compor dobre, quadrado
+        eleveeDobre = compor quadrado, dobre
 
-        puts doubleThenSquare.call(5)
-        puts squareThenDouble.call(5)
+        puts dobreeEleve.call(5)
+        puts eleveeDobre.call(5)
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Notice that the call to #{code 'proc1'} had to be inside the
-        parentheses for #{code 'proc2'} in order for it to be done first.
+        Note que a chamada para #{code 'proc1'} deve ser inserida
+        entre parenteses dentro de #{code 'proc2'}, para que seja executada primeiro.
         END_PARAGRAPH
       end
-      h2 { 'Passing Blocks (Not Procs) into Methods' }
+      h2 { 'Passando Blocos (E Não Procs) para Métodosinto' }
       para do <<-END_PARAGRAPH
+        Certo, isso foi muito interessante academicamente, mas de pouca
+        utilidade prática. Uma porção desse problema é que há três passos
+        que você deve seguir (definir o método, construir a proc e chamar
+        o método com a proc), quando eles podem ser resumidos em apenas
+        dois (definir o método e passar o <em>bloco</em> diretamente ao método,
+        sem usar uma proc), uma vez que na maior parte das vezes você não
+        vai querer usar a proc ou o bloco depois que o passar para um método.
+        Bem, você não sabe, mas Ruby tem isso para nós!
         Ok, so this has been sort of academically interesting, but also
         sort of a hassle to use.  A lot of the problem is that there are
         three steps you have to go through (defining the method, making
