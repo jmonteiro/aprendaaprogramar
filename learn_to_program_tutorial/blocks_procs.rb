@@ -273,15 +273,15 @@ module BlocksProcs
       #  HACK ALERT!!!  (I can't get to the global namespace transparently
       #                  from inside the StringIO object in a mod_ruby script.)
       arrayClassHack = <<-END_CODE
-          def eachEven(&wasABlock_nowAProc)
-            isEven = true  #  We start with "true" because arrays start with 0, which is even.
+          def cadaComparacao(&eraUmBloco_agoraUmaProc)
+            eIgual = true  # Nós começamos com "verdadeiro" porque vetores começam com 0, mesmo se iguais.
 
-            self.each do |object|
-              if isEven
-                wasABlock_nowAProc.call object
+            self.each do |objeto
+              if eIgual
+                eraUmBloco_agoraUmaProc.call objeto
               end
 
-              isEven = (not isEven)  #  Toggle from even to odd, or odd to even.
+              eIgual = (not eIgual)  # Comutando entre igual para diferente, ou de diferente para igual.
             end
           end
         END_CODE
@@ -295,93 +295,96 @@ module BlocksProcs
   #{arrayClassHack}
         end
 
-        ['apple', 'bad apple', 'cherry', 'durian'].eachEven do |fruit|
-          puts 'Yum!  I just love '+fruit+' pies, don\\'t you?'
+        ['maçã', 'maçã podre', 'cereja', 'mamona'].cadaComparacao do |fruta|
+          puts 'Hum! Eu adoro tortas de '+fruta+', você não?'
         end
 
         #  Remember, we are getting the even-numbered elements
         #  of the array, all of which happen to be odd numbers,
         #  just because I like to cause problems like that.
-        [1, 2, 3, 4, 5].eachEven do |oddBall|
-          puts oddBall.to_s+' is NOT an even number!'
+        [1, 2, 3, 4, 5].cadaComparacao do |BolaEstranha|
+          puts BolaEstranha.to_s+' não é um número!'
         end
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        So to pass in a block to #{code 'eachEven'}, all we had to do was stick
-        the block after the method.  You can pass a block into any method this
-        way, though many methods will just ignore the block.  In order to make
-        your method <em>not</em> ignore the block, but grab it and turn it into
-        a proc, put the name of the proc at the end of your method's parameter
-        list, preceded by an ampersand (#{code '&'}).  So that part is a little
-        tricky, but not too bad, and you only have to do that once (when you
-        define the method).  Then you can use the method over and over again,
-        just like the built-in methods which take blocks, like #{code 'each'}
-        and #{code 'times'}.  (Remember #{code '5.times do'}...?)
+        Para passar um bloco para #{code 'cadaComparacao'}, tudo o que temos que fazer
+        é anexar o bloco após o método. Você pode passar um bloco para qualquer método
+        dessa maneira, apesar de que muitos métodos vão apenas ignorar o bloco. Para
+        fazer seu método <em>não</em> ignorar o bloco, mas pegá-lo e transformá-lo em
+        uma proc, ponha o nome da prco no começo da lista dos parâmetros do seu método,
+        precedido por um 'e' comercial (#{code '&'}). Essa parte é um pequeno truque,
+        mas não é tão ruim, e você apenas precisa fazer isso uma vez (quando você
+        define o método). Então você pode usar o método de novo, e de novo e de novo,
+        assim como os métodos da linguagem que aceitam blocos, como o #{code 'each'}
+        e o #{code 'times'} (Lembra-se do #{code '5.times do'}...?).
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        If you get confused, just remember what #{code 'eachEven'} is supposed to do:  call
-        the block passed in with every other element in the array.  Once
-        you've written it and it works, you don't need to think about what it's
-        actually doing under the hood ("which block is called when??"); in
-        fact, that's exactly <em>why</em> we write methods like this:  so we
-        never have to think about how they work again.  We just use them.
+        Se você estiver confuso, apenas lembre-se do que supostamente o método
+        #{code 'cadaComparacao'} faz: chama o bloco passado como parâmetro para
+        cada elemento no vetor. Depois que você o escrever e ele estar funcionando,
+        você não vai precisar pensar sobre o que está acontecendo atualmente por baixo
+        dos panos ("qual bloco é chamado quando??"); na verdade, é exatamente <em>por isso</em>
+        que escrevemos métodos assim: nós nunca mais vamos precisar para para pensar
+        em como eles funcionam de novo. Nós apenas os usamos.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        I remember one time I wanted to be able to time how long different
-        sections of a program were taking.  (This is also known as
-        <dfn>profiling</dfn> the code.)  So I wrote a method which takes
-        the time before running the code, then it runs it, then it takes
-        the time again at the end and figures out the difference.  I can't
-        find the code right now, but I don't need it; it probably
-        went something like this:
+        Eu lembro que uma vez eu quis cronometrar quanto tempo cada
+        seção do meu código estava demorando (Isso é algo conhecido como
+        <dfn>sumarizar</dfn> o código). Então, eu escrevi um método que
+        pegava o tempo antes de executar o código, o executava e então
+        fazia uma nova medição do tempo e me retornava a diferença. Eu
+        não estou conseguindo achar o código agora, mas eu não preciso disso:
+        provavelmente é um código parecido com esse:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        def profile descriptionOfBlock, &block
-          startTime = Time.now
+        def sumario descricaoDoBloco, &bloco
+          tempoInicial = Time.now
 
-          block.call
+          bloco.call
 
-          duration = Time.now - startTime
+          duracao = Time.now - tempoInicial
 
-          puts descriptionOfBlock+':  '+duration.to_s+' seconds'
+          puts descricaoDoBloco+': '+duracao.to_s+' segundos'
         end
 
-        profile '25000 doublings' do
-          number = 1
+        sumario 'dobrando 25000 vezes' do
+          numero = 1
 
           25000.times do
-            number = number + number
+            numero = numero + numero
           end
 
-          puts number.to_s.length.to_s+' digits'  #  That is, the number of digits in this HUGE number.
+          puts numero.to_s.length.to_s+' dígitos'  #  É isso mesmo: o número de dígitos nesse número ENORME.
         end
 
-        profile 'count to a million' do
-          number = 0
+        sumario 'contando até um milhão' do
+          numero = 0
 
           1000000.times do
-            number = number + 1
+            numero = numero + 1
           end
         end
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        How simple!  How elegant!  With that tiny method,
-        I can now easily time any section of any program that I want to; I
-        just throw the code in a block and send it to #{code 'profile'}.
-        What could be simpler?  In most languages, I would have to explicitly
-        add that timing code (the stuff in #{code 'profile'}) around every
-        section which I wanted to time.  In Ruby, however, I get to keep it
-        all in one place, and (more importantly) out of my way!
+        Que simplicidade! Que elegância! Com aquele pequeno método
+        eu posso, agora, facilmente cronometrar qualquer seção, de qualquer
+        programa, que eu queira, eu apenas preciso jogar o código para um bloco
+        e enviar ele para o #{code 'sumario'}.
+        O que poderia ser mais simples? Em muitas linguagens, eu teria que
+        adicionar explicitamente o código de cronometragem (tudo o que está
+        em #{code 'sumario'}) em volta de qualquer seção que eu queira medir.
+        Em Ruby, porém, eu deixo tudo em um só lugar, e (o mais importante)
+        fora do meu caminho!
         END_PARAGRAPH
       end
-      h2 {'A Few Things to Try'}
+      h2 {'Algumas Coisinhas Para Tentar'}
       para do <<-END_PARAGRAPH
-        &bull; <em>Grandfather Clock</em>.  Write a method which takes a block
+        &bull; <em>Relógio do Avô</em>.  Write a method which takes a block
         and calls it once for each hour that has passed today.  That way, if I
         were to pass in the block #{code "do puts 'DONG!' end"}, it would chime
         (sort of) like a grandfather clock.  Test your method
