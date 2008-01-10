@@ -49,10 +49,10 @@ module LearnToProgram
   end
   
   def escapeOutputNotInput (output)
-    md = /#{@@INPUT}.*?#{@@INPUT.reverse}/.match output
+    md = /#{INPUT}.*?#{INPUT.reverse}/.match output
     if md
       CGI::escapeHTML(md.pre_match) +
-      CGI::escapeHTML(md[0]).sub(/#{@@INPUT}/,'<span class="L2Pinput">').sub(/#{@@INPUT.reverse}/,'</span>') +
+      CGI::escapeHTML(md[0]).sub(/#{INPUT}/,'<span class="L2Pinput">').sub(/#{INPUT.reverse}/,'</span>') +
       escapeOutputNotInput(md.post_match)
     else
       CGI::escapeHTML output
@@ -155,7 +155,7 @@ module LearnToProgram
         ['gets', 'getc', 'read'].each do |meth|
           define_method(meth) do |*params|
             inStr = input.method(meth).call(*params)
-            puts @@INPUT+inStr.chomp+(@@INPUT.reverse)  #  Echo input.
+            puts INPUT+inStr.chomp+(INPUT.reverse)  #  Echo input.
             inStr
           end
         end
