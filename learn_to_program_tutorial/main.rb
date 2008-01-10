@@ -32,9 +32,9 @@ module Main
             img(:id=>'titlePic', :width=>'418', :height=>'108', :src=>'/images/titleLTP.gif', :alt=>'Aprendendo a Programar')
             puts '</a>'
           end
-          puts '<a href="'+LINKADDR+'">'
+          puts '<a href="'+LINKADDR+'index.rb">'
           puts '  <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"'
-          puts '    src="/images/locketLTP.png" />'
+          puts '    src="images/locketLTP.png" />'
           puts '</a>'
         end
         div(:id=>'menuPane') do

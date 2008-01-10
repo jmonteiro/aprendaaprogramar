@@ -5,154 +5,148 @@ module Methods
   
   def generateMethods
     para do <<-END_PARAGRAPH
-      So far we've seen a number of different methods,
-      #{code 'puts'} and #{code 'gets'}
-      and so on (<em><strong>Pop Quiz:</strong>  List all
-      of the methods we have seen so far!
-      There are ten of them; the answer is below.</em>),
-      but we haven't really talked about what methods are.
-      We know what they do, but
-      we don't know what they are.
+      Até agora nós vimos uma porção de métodos diferentes,
+      #{code 'puts'} e #{code 'gets'}
+      dentre outros (<em><strong>Pop Quiz:</strong>  Liste todos
+      os métodos que vimos até agora!
+      Foram dez deles; a resposta está mais em baixo.</em>),
+      mas nós não conversamos realmente sobre o que são métodos.
+      Nós sabemos o que eles fazem, mas
+      não sabemos o que eles são.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      But really, that <em>is</em> what they are:  things
-      that do stuff.  If objects (like strings,
-      integers, and floats) are the nouns in the Ruby
-      language, then methods are like the verbs.
-      And, just like in English, you can't have a
-      verb without a noun to <em>do</em> the verb.
-      For example, ticking isn't something that just
-      happens; a clock (or a watch or something)
-      has to do it.  In English we would say, "The
-      clock ticks."  In Ruby we would say
-      #{code 'clock.tick'} (assuming that #{code 'clock'}
-      was a Ruby object, of course).
-      Programmers might say we were "calling #{code 'clock'}'s
-      #{code 'tick'} method,"
-      or that we "called #{code 'tick'} on #{code 'clock'}."
+      Mas na verdade, isso <em>é</em> o que eles são:  coisas
+      que fazem coisas.  Se objetos (como strings,
+      inteiros e floats) são os substantivos na linguagem Ruby,
+      os métodos são como os verbos.
+      E, assim como no Português, você não pode ter um
+      verbo sem um substantivo para <em>executar</em> o verbo.
+      Por exemplo, contar o tempo não é algo que simplesmente acontece;
+      um relógio (ou cronômetro, ou algo parecido) deve fazê-lo. Em
+      Português diríamos "O relógio conta o tempo". Em Ruby dizemos
+      #{code 'relogio.tick'} (assumindo que #{code 'relogio'}
+      é um objeto Ruby, claro).
+      Programadores podem dizer que estamos "chamando o método
+      #{code 'tick'} do #{code 'relogio'},"
+      ou que "chamamos #{code 'tick'} no #{code 'relogio'}."
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So, did you take the quiz?  Good.  Well, I'm
-      sure you remembered the methods
-      #{code 'puts'}, #{code 'gets'}, and #{code 'chomp'},
-      since we just covered those.
-      You probably also got our conversion methods,
-      #{code 'to_i'}, #{code 'to_f'},
-      and #{code 'to_s'}.  However, did you get
-      the other four?  Why, it's none other
-      than our old arithmetic buddies #{code '+'},
-      #{code '-'}, #{code '*'}, and #{code '/'}!
+      E então, você respondeu o quiz? Bom. Bem, tenho
+      certeza que você lembrou dos métodos
+      #{code 'puts'}, #{code 'gets'} e #{code 'chomp'},
+      que acabamos de ver. Você também provavelmente
+      lembrou dos métodos de conversão,
+      #{code 'to_i'}, #{code 'to_f'}
+      e #{code 'to_s'}.  No entanto, você descobriu os
+      outros quatro?  Por que, não eram ninguém menos
+      que nossos velhos amigos da aritimética #{code '+'},
+      #{code '-'}, #{code '*'} e #{code '/'}!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So as I was saying, just as every verb needs
-      a noun, so every method needs an object.
-      It's usually easy to tell which object is
-      performing the method:  it's what comes right
-      before the dot, like in our #{code 'clock.tick'}
-      example, or in #{code '101.to_s'}.
-      Sometimes, however, it's not quite as
-      obvious; like with the arithmetic methods.  As
-      it turns out, #{code '5 + 5'} is really
-      just a shortcut way of writing #{code '5.+ 5'}.
-      For example:
+      Então como eu estava dizendo, assim como todo verbo precisa
+      de um substantivo, todo método precisa de um objeto.
+      Geralmente é fácil dizer qual objeto está executando o
+      método: é aquilo que vem logo antes do ponto, como
+      no nosso exemplo do #{code 'relogio.tick'}, ou em
+      #{code '101.to_s'}.
+      As vezes, no entanto, isso não é tão óbvio; como com os
+      métodos aritiméticos. A bem da verdade,
+      #{code '5 + 5'} é realmente apenas um atalho para se
+      escrever #{code '5.+ 5'}.
+      Por exemplo:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts 'hello '.+ 'world'
+      puts 'olá '.+ 'mundo'
       puts (10.* 9).+ 9
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      It isn't very pretty, so we won't ever write
-      it like that; however, it's important to
-      understand what is <em>really</em> happening.
-      (On my machine, that also gives me a <dfn>warning</dfn>:
+      Não é muito bonito, então nós nunca iremos escrever desse jeito;
+      no entanto, é importante entender o que <em>realmente</em> está
+      acontecendo.
+      (Na minha máquina, isso também me dá um <dfn>aviso</dfn>:
       #{output 'warning: parenthesize argument(s) for future version'}.
-      It still ran the code just fine, but it's telling me that
-      it's having trouble figuring out what I mean, and to use
-      more parentheses in the future.)
-      This also gives us a deeper understanding
-      of why we can do #{code "'pig'*5"} but we
-      can't do #{code "5*'pig'"}:  #{code "'pig'*5"} is
-      telling #{code "'pig'"} to do the multiplying,
-      but #{code "5*'pig'"} is telling #{code '5'}
-      to do the multiplying.  #{code "'pig'"} knows how
-      to make #{code '5'} copies of itself and
-      add them all together; however, #{code '5'}
-      will have a much more difficult time of making
-      #{code "'pig'"} copies of <em>itself</em>
-      and adding them together.
+      O código ainda rodou sem problemas, mas ele está me dizendo que está com
+      problemas para descobrir o que eu quis dizer e para usar mais parênteses no
+      futuro).
+      Isso também nos dá um entendimento mais profundo sobre por que podemos fazer
+      #{code "'porco'*5"} mas não #{code "5*'porco'"}:  #{code "'porco'*5"} está
+      dizendo ao #{code "'porco'"} para se multiplicar,
+      mas #{code "5*'porco'"} está pedindo ao #{code '5'}
+      que se multiplique.  #{code "'porco'"} sabe como fazer
+      #{code '5'} cópias de si mesmo e juntá-las; no entanto, #{code '5'}
+      vai ter muito mais dificuldade para fazer
+      #{code "'porco'"} cópias de <em>si mesmo</em>
+      e juntá-las.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      And, of course, we still have #{code 'puts'}
-      and #{code 'gets'} to explain.  Where are their
-      objects?  In English, you can sometimes leave
-      out the noun; for example, if a villain
-      yells "Die!", the implicit noun is whoever
-      he is yelling at.  In Ruby, if I say
-      #{code "puts 'to be or not to be'"}, what
-      I am really saying is
+      E, claro, nós ainda temos o #{code 'puts'}
+      e o #{code 'gets'} para explicar.  Onde estão seus
+      objetos?  Em Português, você pode as vezes omitir o
+      substantivo; por exemplo, se um vilão grita "Morra!",
+      o substantivo implícito é a pessoa com quem ele está
+      gritando. Em Ruby, se dissermos
+      #{code "puts 'ser ou não ser'"}, o que 
+      eu realmente estou dizendo é
       #{code "self.puts 'to be or not to be'"}.
-      So what is #{code 'self'}?  It's a special variable
-      which points to whatever object you are in.
-      We don't even know how to be <em>in</em>
-      an object yet, but until we find out, we
-      are always going to be in a big object which
-      is... the whole program!  And lucky for us,
-      the program has a few methods of its own,
-      like #{code 'puts'} and #{code 'gets'}.
-      Watch this:
+      Então o que é #{code 'self'}?  É uma variável especial
+      que aponta para o objeto onde você está.
+      Nós nem sabemos como esar <em>em</em> um
+      objeto ainda, mas até descobrirmos, nós
+      estaremos sempre em um grande objeto que é...
+      o programa inteiro! E para nossa sorte, o 
+      programa tem alguns métodos próprios, como
+      #{code 'puts'} e #{code 'gets'}.
+      Preste atenção:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      iCantBelieveIMadeAVariableNameThisLongJustToPointToA3 = 3
-      puts iCantBelieveIMadeAVariableNameThisLongJustToPointToA3
-      self.puts iCantBelieveIMadeAVariableNameThisLongJustToPointToA3
+      naoAcreditoQueFizUmNomeDeVariavelTaoGrandeApenasParaGuardarUm3 = 3
+      puts naoAcreditoQueFizUmNomeDeVariavelTaoGrandeApenasParaGuardarUm3
+      self.puts naoAcreditoQueFizUmNomeDeVariavelTaoGrandeApenasParaGuardarUm3
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      If you didn't entirely follow all of that,
-      that's OK.  The important thing to take away from
-      all of this is that every method is being
-      done by some object, even if it doesn't have
-      a dot in front of it.  If you understand
-      that, then you're all set.
+      Se você não acompanhou tudo o que aconteceu, não tem problema.
+      A coisa importante para aprender disso tudo é que cada
+      métodos está sendo executado pelo mesmo objeto, mesmo
+      que ele não esteja na sua frente. Se você entender isso, então
+      está preparado.
       END_PARAGRAPH
     end
-    h2 {'Fancy String Methods'}
+    h2 {'Métodos Elegantes da String'}
     para do <<-END_PARAGRAPH
-      Let's learn a few fun string methods.  You don't
-      have to memorize them all; you can
-      just look up this page again if you forget
-      them.  I just want to show you a <em>small</em>
-      part of what strings can do.  In fact, I
-      can't remember even half of the string methods myself&mdash;but
-      that's fine, because there are great references
-      on the internet with all of the string
-      methods listed and explained.  (I will show
-      you where to find them at the end of this tutorial.)
-      Really, I don't even <em>want</em> to know
-      all the string methods; it's kind of like knowing every
-      word in the dictionary.  I can speak English
-      just fine without knowing every word in
-      the dictionary... and isn't that really the whole
-      point of the dictionary?  So you don't <em>have</em>
-      to know what's in it?
+      Vamos aprender alguns métodos divertidos da string.
+      Você não precisa memorizar todos eles; você pode
+      apenas olhar nessa página novamente se esquecê-los.
+      Eu só quero mostrar uma <em>pequena</em> parte do que
+      as strings podem fazer. Na verdade, eu mesmo não lembro
+      da metade dos métodos da string&mdash;mas não tem
+      problema, pois existem ótimas referências na internet
+      com todos os métodos da string listados e explicados.
+      (Vou mostrar onde encontrá-los no final deste tutorial.)
+      Pra falar a verdade, eu nem <em>quero</em> saber todos
+      os métodos da string; é como saber todas as palavras do
+      dicionário. Eu posso falar Português muito bem sem saber
+      todas as palavras do dicionário... e esse não é exatamente
+      o propósito do dicionário? Para que você não <em>precise</em>
+      saber tudo que está nele?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So, our first string method is #{code 'reverse'},
-      which gives a backwards version of a string:
+      Então, nosso primeiro método da string é o #{code 'reverse'},
+      que nos dá uma versão ao contrário da string:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      var1 = 'stop'
-      var2 = 'stressed'
-      var3 = 'Can you pronounce this sentence backwards?'
+      var1 = 'pare'
+      var2 = 'radar'
+      var3 = 'Você consegue pronunciar esta frase ao contrário?'
       
       puts var1.reverse
       puts var2.reverse
@@ -163,123 +157,119 @@ module Methods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      As you can see, #{code 'reverse'} doesn't reverse the
-      original string; it just makes
-      a new backwards version of it.  That's why #{code 'var1'}
-      is still #{code "'stop'"}
-      even after we called #{code 'reverse'} on #{code 'var1'}.
+      Como você pode ver, #{code 'reverse'} não inverte a
+      string original; ela apenas faz uma nova versão ao contrário dela.
+      É por isso que #{code 'var1'} ainda é #{code "'pare'"}
+      mesmo após a chamada a #{code 'reverse'} em #{code 'var1'}.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Another string method is #{code 'length'}, which tells
-      us the number of characters (including
-      spaces) in the string:
-      END_PARAGRAPH
-    end
-    prog ['Christopher David Pine'] do <<-END_CODE
-      puts 'What is your full name?'
-      name = gets.chomp
-      puts 'Did you know there are ' + name.length + ' characters in your name, ' + name + '?'
-      END_CODE
-    end
-    para do <<-END_PARAGRAPH
-      Uh-oh!  Something went wrong, and it looks like it happened sometime after the line
-      #{code 'name = gets.chomp'}...  Do you see the problem?  See if you can figure it out.
-      END_PARAGRAPH
-    end
-    para do <<-END_PARAGRAPH
-      The problem is with #{code 'length'}:  it gives us a number, but we want a string.  Easy enough,
-      we'll just throw in a #{code 'to_s'} (and cross our fingers):
+      Outro método da string é #{code 'length'}, que nos diz
+      o número de caracteres (incluindo espaços) na string:
       END_PARAGRAPH
     end
     prog ['Christopher David Pine'] do <<-END_CODE
-      puts 'What is your full name?'
-      name = gets.chomp
-      puts 'Did you know there are ' + name.length.to_s + ' characters in your name, ' + name + '?'
+      puts 'Qual o seu nome completo?'
+      nome = gets.chomp
+      puts 'Você sabia que seu nome possui ' + nome.length + ' caracteres, ' + nome + '?'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      No, I did not know that.  <strong>Note:</strong>  that's the number of
-      <em>characters</em> in my name, not the number of <em>letters</em>
-      (count 'em).  I guess we could write a program which
-      asks for your first, middle, and last names individually, and then
-      adds those lengths together... hey, why don't you do that!  Go ahead,
-      I'll wait.
+      Uh-oh! Algo deu errado, e parece que isso aconteceu após a linha
+      #{code 'nome = gets.chomp'}...  Você enxerga o problema?  Veja se consegue descobrir.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Did you do it?  Good!  It's nice to program, isn't it?
-      After a few more chapters, though, you'll be amazed at
-      what you can do.
+      O problema está em #{code 'length'}:  ele te dá um número, mas queremos uma string.
+      Fácil o bastante, vamos colocar um  #{code 'to_s'} (e cruzar os dedos):
+      END_PARAGRAPH
+    end
+    prog ['Christopher David Pine'] do <<-END_CODE
+      puts 'Qual o seu nome completo?'
+      nome = gets.chomp
+      puts 'Você sabia que seu nome possui ' + nome.length.to_s + ' caracteres, ' + nome + '?'
+      END_CODE
+    end
+    para do <<-END_PARAGRAPH
+      Não, eu não sabia disso.  <strong>Nota:</strong>  este é o número de
+      <em>caracteres</em> no meu nome, não o número de <em>letras</em>
+      (conte-as).  Eu acho que conseguimos escrever um programa que
+      pergunta seu primeiro nome, nome do meio e sobrenome individualmente e
+      soma todos os tamanhos... hey, por que você não faz isso!  Vá em frente,
+      eu espero.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So, there are also a number of string methods which change the case
-      (uppercase and lowercase) of your string.  #{code 'upcase'} changes
-      every lowercase letter to uppercase, and #{code 'downcase'} changes
-      every uppercase letter to lowercase.  #{code 'swapcase'} switches
-      the case of every letter in the string, and finally, #{code 'capitalize'}
-      is just like #{code 'downcase'}, except that it switches the first
-      character to uppercase (if it is a letter).
+      Pronto? Bom! É um programa legal, não é?
+      Depois de mais uns capítulos, entretanto, você vai ficar maravilhado com
+      o que conseguirá fazer.
+      END_PARAGRAPH
+    end
+    para do <<-END_PARAGRAPH
+      Então, existem alguns métodos da string que conseguem mudar a caixa (maiúsculas
+      e minúsculas) da sua string.  #{code 'upcase'} muda todas as letras minúsculas
+      para maiúsculas, e #{code 'downcase'} muda todas as letras maiúsculas para
+      minúsculas.  #{code 'swapcase'} troca a caixa de todas as letras da string e,
+      finalmente, #{code 'capitalize'} é parecido com #{code 'downcase'}, exceto que
+      ele troca o primeiro caractere para maiúsculo (se for uma letra).
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      letters = 'aAbBcCdDeE'
-      puts letters.upcase
-      puts letters.downcase
-      puts letters.swapcase
-      puts letters.capitalize
+      letras = 'aAbBcCdDeE'
+      puts letras.upcase
+      puts letras.downcase
+      puts letras.swapcase
+      puts letras.capitalize
       puts ' a'.capitalize
-      puts letters
+      puts letras
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Pretty standard stuff.  As you can see from the line
-      #{code "puts ' a'.capitalize"}, the method #{code 'capitalize'}
-      only capitalizes the first <em>character</em>, not the first
-      <em>letter</em>.  Also, as we have seen before, throughout all of
-      these method calls, #{code 'letters'} remains unchanged.  I don't mean
-      to belabor the point, but it's important to understand.  There are
-      some methods which <em>do</em> change the associated object, but we haven't
-      seen any yet, and we won't for some time.
+      Coisas bem simples. Como você pode ver na linha
+      #{code "puts ' a'.capitalize"}, o método #{code 'capitalize'}
+      apenas deixa em maiúsculo o primeiro <em>caractere</em>, não a primeira
+      <em>letra</em>.  Também, como vimos anteriormente, durante todas essas chamadas
+      de métodos, #{code 'letras'} continuou inalterada.  Eu não quero me prolongar nesse
+      ponto, mas é importante entender.  Existem alguns métodos que <em>mudam</em> o
+      objeto associado, mas ainda não vimos nenhum, e nem iremos ver durante algum tempo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      The last of the fancy string methods we'll look at
-      are for visual formatting.
-      The first one, #{code 'center'}, adds spaces to the beginning and
-      end of the string to make it centered.  However, just like you have
-      to tell #{code 'puts'} what you want it to print, and #{code '+'}
-      what you want it to add, you have to tell #{code 'center'} how
-      wide you want your centered string to be.  So if I wanted to center
-      the lines of a poem, I would do it like this:
+      O último método elegante da string que iremos ver é
+      para formatação visual.
+      O primeiro, #{code 'center'}, adiciona espaços no começo e no
+      fim da string para torná-la centralizada. No entanto, assim como
+      você precisa dizer ao #{code 'puts'} o que quer que seja impresso, e ao
+      #{code '+'} o que quer que seja adicionado, você precisa dizer ao
+      #{code 'center'} a largura do quão centralizado quer a string.  Então
+      se eu quiser centralizar as linhas de um poema, eu faria assim:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      lineWidth = 50
-      puts(                'Old Mother Hubbard'.center(lineWidth))
-      puts(               'Sat in her cupboard'.center(lineWidth))
-      puts(         'Eating her curds an whey,'.center(lineWidth))
-      puts(          'When along came a spider'.center(lineWidth))
-      puts(         'Which sat down beside her'.center(lineWidth))
-      puts('And scared her poor shoe dog away.'.center(lineWidth))
+      larguraDaLinha = 50
+      puts(                'Old Mother Hubbard'.center(larguraDaLinha))
+      puts(               'Sat in her cupboard'.center(larguraDaLinha))
+      puts(         'Eating her curds an whey,'.center(larguraDaLinha))
+      puts(          'When along came a spider'.center(larguraDaLinha))
+      puts(         'Which sat down beside her'.center(larguraDaLinha))
+      puts('And scared her poor shoe dog away.'.center(larguraDaLinha))
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Hmmm... I don't think that's how that nursery rhyme goes, but I'm
-      too lazy to look it up.  (Also, I wanted to line up the
-      #{code '.center lineWidth'} part, so I put in those extra spaces
-      before the strings.  This is just because I think it is prettier
-      that way.  Programmers often have strong feelings about what is pretty
-      in a program, and they often disagree about it.  The more you
-      program, the more you will come into your own style.)  Speaking of
-      being lazy, laziness isn't always
-      a bad thing in programming.  For example, see how I stored the
-      width of the poem in the variable #{code 'lineWidth'}?  This was so that
-      if I want to go back later and make the poem wider, I only have to
-      change the very top line of the program, instead of every line which
-      does centering.  With a very long poem, this could save me a lot of
-      time.  That kind of laziness is really a virtue in programming.
+      Hmmm... Eu não acho que essa rima é assim, mas sou muito preguiçoso
+      para procurar.  (Também, eu queria alinhar a parte do
+      #{code '.center lineWidth'}, por isso acrescentei espaços extra antes
+      das strings.  Isso é só por que acho que fica mais bonito assim.
+      Programadores geralmente têm fortes sentimentos sobre o que é
+      bonito num programa, e eles geralmente discordam sobre o assunto.
+      Quanto mais você programar, mais vai descobrir seu próprio estilo).
+      Falando em ser preguiçoso, a preguiça nem sempre é algo ruim na programação.
+      Por exemplo, viu como eu guardei a largura do poema numa variável
+      #{code 'lineWidth'}?  Fiz isso pois se quiser tornar o poema mais
+      largo mais tarde, só precisarei mudar a primeira linha do programa,
+      ao invés de todas as linhas que são centralizadas.  Com um poema muito
+      longo, isso poderia me poupar um bom tempo. Esse tipo de preguiça é na
+      verdade uma virtude na programação.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
