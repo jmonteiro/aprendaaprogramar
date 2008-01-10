@@ -24,51 +24,51 @@ module BlocksProcs
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        toast = Proc.new do
+        saudacao = Proc.new do
           puts 'Olá!'
         end
 
-        toast.call
-        toast.call
-        toast.call
+        saudacao.call
+        saudacao.call
+        saudacao.call
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        So I created a proc (which I think is supposed to be short for
-        "procedure", but far more importantly, it rhymes with "block")
-        which held the block of code, then I #{code 'call'}ed the proc
-        three times.  As you can see, it's a lot like a method.
+        Eu criei uma proc (eu acho que é abreviatura para "procedimento",
+        mas o que importa é que rima com "block") que tem um bloco de código, então
+        eu chamei (#{code 'call'}) a proc três vezes.
+        Como você pode ver, parece, em muito, com um método.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Actually, it's even more like a method than I have shown you, because
-        blocks can take parameters:
+        Atualmente, é muito mais parecido com um método do que eu mostrei para você,
+        porque blocos podem receber parâmetros:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        doYouLike = Proc.new do |aGoodThing|
-          puts 'I *really* like '+aGoodThing+'!'
+        VoceGostade = Proc.new do |umaBoaCoisa|
+          puts 'Eu *realmente* gosto de '+aGoodThing+'!'
         end
 
-        doYouLike.call 'chocolate'
-        doYouLike.call 'ruby'
+        VoceGostade.call 'chocolate'
+        VoceGostade.call 'ruby'
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Ok, so we see what blocks and procs are, and how to use them, but what's
-        the point?  Why not just use methods?  Well, it's because there are some
-        things you just can't do with methods.  In particular, you can't pass
-        methods into other methods (but you can pass procs into methods), and methods
-        can't return other methods (but they can return procs).  This is simply because
-        procs are objects; methods aren't.
+        Certo, então nós vimos o que blocos e procs são e como os usar, mas e daí?
+        Por que não usar apenas métodos? Bem, isso é porque existem algumas coisas
+        que você não pode fazer com métodos. Particularmente, você não pode passar
+        métodos para outros métodos (mas você pode passar procs para métodos), e
+        métodos não podem retornar outros métodos (mas podem retornar procs). É apenas
+        por isso que procs são objetos; métodos não.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        (By the way, is any of this looking familiar?  Yep, you've seen blocks before... when
-        you learned about iterators.  But let's talk more about that in a bit.)
+        (De qualquer forma, isso parece familiar? Sim, você já viu blocos antes... quando
+        você aprendeu sobre interadores. Mas vamos voltar a falar disso daqui a pouco.)
         END_PARAGRAPH
       end
-      h2 { 'Methods Which Take Procs' }
+      h2 { 'Métodos que Recebem Procs' }
       para do <<-END_PARAGRAPH
         When we pass a proc into a method, we can control how, if, or how many times we call
         the proc.  For example, let's say there's something we want to do before and after
