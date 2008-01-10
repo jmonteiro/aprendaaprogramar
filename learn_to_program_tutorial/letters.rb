@@ -5,33 +5,31 @@ module Letters
   
   def generateLetters
     para do <<-END_PARAGRAPH
-      So we've learned all about #{makeLink('numbers', :generateNumbers)},
-      but what about letters?  words?  text?
+      Então, nós já aprendemos tudo sobre #{makeLink('números', :generateNumbers)},
+      mas e as letras? Palavras? Textos?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      We refer to groups of letters in a program as <dfn>strings</dfn>.  (You can
-      think of printed letters being strung together on a banner.)
-      To make it easier to see just what part of the code is in a string,
-      I'll color strings
-      <span class="L2Pcode"><span class="L2Pstring">#{@@STRING_COLOR}</span></span>.
-      Here are some strings:
+      Nós nos referimos a grupos de letras em um programa como <dfn>strings</dfn> (Você
+      pode pensar em letras impressas juntas ao longo de um banner).
+      Para ficar mais fácil de entender quais partes do código são strings,
+      Eu vou colorir as strings em <span class="L2Pcode"><span class="L2Pstring">#{@@STRING_COLOR}</span></span>.
+      Aqui tem alguns exemplos de strings:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
       'Hello.'
       'Ruby rocks.'
-      '5 is my favorite number... what is yours?'
-      'Snoopy says #%^?&*@! when he stubs his toe.'
+      '5 é meu número favorito... qual é o seu?'
+      'Snoopy diz #%^?&*@! quando alguém pisa no seu pé.'
       '     '
       ''
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      As you can see, strings can have punctuation, digits, symbols,
-      and spaces in them... more than just letters.  That last string
-      doesn't have anything in it at all; we would call that an
-      <dfn>empty string</dfn>.
+      Como você pode ver, strings podem ter pontuaćão, dígitos, símbolos
+      e espaços... muito mais do que apenas letras. A última string
+      não tem nada: nós a chamamos de <dfn>string vazia</dfn>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
