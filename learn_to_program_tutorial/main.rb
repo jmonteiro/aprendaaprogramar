@@ -52,37 +52,37 @@ module Main
             puts @@HLINE
             method(chapter[1]).call
           else # TOC
-            h2 { 'Um lugar para o futuro programador come&ccedil;ar' }
+            h2 { 'Um lugar para o futuro programador começar' }
             para do <<-END_PARAGRAPH
-              Eu acho que tudo isso come&ccedil;ou em 2002. Eu estava pensando
-              em ensinar programa&ccedil;&atilde;o, e como uma grande linguagem como
-              Ruby seria &oacute;tima para aprender a como programar.  Quer dizer, n&oacute;s est&aacute;vamos
-              todos excitados com Ruby pelo seu poder, eleg&acirc;ncia e por ser realmente divertido,
-              mas me pareceu que ele seria, tamb&eacute;m um excelente guia para aprender a programar.
+              Eu acho que tudo isso começou em 2002. Eu estava pensando
+              em ensinar programação, e como uma grande linguagem como
+              Ruby seria ótima para aprender a como programar.  Quer dizer, nós estávamos
+              todos excitados com Ruby pelo seu poder, elegância e por ser realmente divertido,
+              mas me pareceu que ele seria, também um excelente guia para aprender a programar.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              Infelizmente, n&atilde;o havia muita documenta&ccedil;&atilde;o sobre Ruby
-              destinada aos iniciantes, naquela &eacute;poca. Alguns de n&oacute;s,
-              na comunidade, est&aacute;vamos falando sobre como um tutorial 
-              "Ruby for the Nuby" era necess&aacute;rio,
-              e, mais gen&eacute;ricamente, um tutorial ensinando a programar, como um todo.
+              Infelizmente, não havia muita documentação sobre Ruby
+              destinada aos iniciantes, naquela época. Alguns de nós,
+              na comunidade, estávamos falando sobre como um tutorial 
+              "Ruby for the Nuby" era necessário,
+              e, mais genéricamente, um tutorial ensinando a programar, como um todo.
               Quanto mais eu pensava nisso, mais eu tinha a dizer (o que me surpreendeu
-              um pouco). At&aacute; que algu&eacute;m finalmente disse: &quot;Chris, porque voc&ecirc;
-              n&atilde;o escreve um tutorial ao inv&eacute;s de ficar falando sobre isso?&quot;.
-              Ent&atilde;o eu o fiz.
+              um pouco). Atá que alguém finalmente disse: "Chris, porque você
+              não escreve um tutorial ao invés de ficar falando sobre isso?".
+              Então eu o fiz.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              E isso n&atilde;o foi muito bom. Eu tive todas essas boas id&eacute;ias que eram boas
+              E isso não foi muito bom. Eu tive todas essas boas idéias que eram boas
               <em>em teoria</em>, mas a atual tarefa de fazer um grande tutorial
-              para n&atilde;o-programadores foi muito mais desafiador
-              do que eu poderia prever. (Quer dizer, pareciam boas para mim, mas eu j&aacute;
+              para não-programadores foi muito mais desafiador
+              do que eu poderia prever. (Quer dizer, pareciam boas para mim, mas eu já
               sabia como programar.)
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              O que me salvou foi que eu fiz com que fosse f&aacute;cil para as pessoas
+              O que me salvou foi que eu fiz com que fosse fácil para as pessoas
               falarem comigo, e eu sempre tentei ajudar as pessoas quando elas empacavam.
               Quando eu via um monte de gente empacando em uma parte,
               eu a reescrevia. Isso deu muito trabalho, mas lentamente foi se tornando melhor
@@ -90,74 +90,73 @@ module Main
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              Um par de anos depois, isso estava ficando realmente bom.  :-) T&aacute;o bom,
-              na verdade, que eu j&aacute; estava pronto para anunciar sua finaliza&ccedil;&atilde;o, e
+              Um par de anos depois, isso estava ficando realmente bom.  :-) Táo bom,
+              na verdade, que eu já estava pronto para anunciar sua finalização, e
               partir para outra coisa. E justamente nesse instante houve a
-              oportunidade de transformar esse tutorial em um livro. Uma vez que o b&aacute;sico
-              j&aacute; estava pronto, eu achei que n&atilde;o haveria maiores problemas.
-              I apenas precisaria clarificar umas coisas, adicionar alguns exerc&iacute;cios a mais, talvez
-              alguns exemplos a mais, um pouquinho mais de cap&iacute;tulos, enviar ele para uns 50 revisores...
+              oportunidade de transformar esse tutorial em um livro. Uma vez que o básico
+              já estava pronto, eu achei que não haveria maiores problemas.
+              I apenas precisaria clarificar umas coisas, adicionar alguns exercícios a mais, talvez
+              alguns exemplos a mais, um pouquinho mais de capítulos, enviar ele para uns 50 revisores...
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              Isso me tomou outro ano, mas agora eu acho que est&aacute; realmente
-              <em>muito</em> bom, grande parte gra&ccedil;as as centenas
+              Isso me tomou outro ano, mas agora eu acho que está realmente
+              <em>muito</em> bom, grande parte graças as centenas
               de boas almas que me ajudaram a escrever esse livro.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              O que est&aacute; nesse site &eacute; o tutorial original, quase inalterado
-              desde 2004. Para o melhor e mais atualizado, voc&ecirc; poder&aacute;
+              O que está nesse site é o tutorial original, quase inalterado
+              desde 2004. Para o melhor e mais atualizado, você poderá
               querer dar uma olhada <a href="#{FRLTP_ADDR}">no livro</a>.
               END_PARAGRAPH
             end
             puts @@HLINE
             h2 { 'Notas Para Professores' }
             para do <<-END_PARAGRAPH
-              H&aacute; algumas normas de conduta que eu tentei seguir.
+              Há algumas normas de conduta que eu tentei seguir.
               Eu acho que elas tornam o processo de aprendizado muito mais suave;
-              ensinar a programar j&aacute; &eacute; dif&iacute;cil por si s&oacute;. Se voc&ecirc; est&aacute;
-              ensinando ou guiando algu&eacute;m pelas vias hakcers, essas id&eacute;ias podem lhe ajudar tamb&eacute;m.
+              ensinar a programar já é difícil por si só. Se você está
+              ensinando ou guiando alguém pelas vias hakcers, essas idéias podem lhe ajudar também.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              Primeiramente, eu tentei separar os conceitos o m&aacute;ximo poss&iaacute;vel,
+              Primeiramente, eu tentei separar os conceitos o máximo possível,
               assim o estudante tem que aprender apenas um conceito de cada vez.
-              Isso foi dif&iacute;cil no come&ccedil;o, mas um <em>pouco</em> mais f&aacute;cil
-              depois que eu peguei a pr&aacute;tica. Algumas coisas devem ser faladas
+              Isso foi difícil no começo, mas um <em>pouco</em> mais fácil
+              depois que eu peguei a prática. Algumas coisas devem ser faladas
               antes de outras, but I was amazed at how little of
               a precedence hierarchy there really is. Eventualmente, eu apenas tive que
               seguir uma ordem, e eu tentei arrumar as coisas de tal maneira
-              que cada nova se&ccedil;&atilde;o seja motivada pela anterior.
+              que cada nova seção seja motivada pela anterior.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              Outro princ&iacute;pio que eu tinha em mente era de ensinar apenas uma maneira
-              de fazer alguma coisa. Isso &eacute; um benef&iacute;cio &oacute;bvio em um tutorial
+              Outro princípio que eu tinha em mente era de ensinar apenas uma maneira
+              de fazer alguma coisa. Isso é um benefício óbvio em um tutorial
               para pessoas que nunca programaram antes. Por um motivo:
-              uma maneira de fazer uma coisa &eacute; mais f&aacute;cil de aprender do que duas. Por&eacute;m
-              o mais importante benef&iacute;cio, &eacute; que quanto menos coisas voc&ecirc;
+              uma maneira de fazer uma coisa é mais fácil de aprender do que duas. Porém
+              o mais importante benefício, é que quanto menos coisas você
               ensinar a um novo programador, mais criativo e esperto
-              ele tem que ser em sua programa&ccedil;&atilde;o. J&aacute; que muito da programa&ccedil;&atilde;o
-              &eacute; a resolu&ccedil;&atilde;o de problemas, torna-se crucial o encorajamento em todos os est&aacute;gios
-              poss&iacute;veis.
+              ele tem que ser em sua programação. Já que muito da programação
+              é a resolução de problemas, torna-se crucial o encorajamento em todos os estágios
+              possíveis.
               END_PARAGRAPH
             end
             para do <<-END_PARAGRAPH
-              I have tried to piggy-back programming concepts onto concepts
-              the new programmer already has; to present ideas in such a way
-              that their intuition will carry the load, rather than the
-              tutorial.  Object-Oriented programming lends itself to this
-              quite well.  I was able to begin referring to "objects" and
-              different "kinds of objects" pretty early in the tutorial,
-              slipping those phrases in at the most innocent of moments.
-              I wasn't saying anything like "everything in Ruby is an
-              object," or "numbers and strings are kinds of objects,"
-              because these statements really don't mean anything to
-              a new programmer.  Instead, I would talk about strings
-              (not "string objects"), and sometimes I would refer to
-              "objects", simply meaning "the things in these programs."
-              The fact that all these <em>things</em> in Ruby <em>are</em> objects
+              Eu tentei traçar um paralelo entre os conceitos de programação
+              com os conceitos que um novo programador já tenha;
+              para apresentar as idéias de uma maneira que sua intuição
+              o fará entender, ao invés do tutorial apenas despejar informações.
+              Programação Orientada a Objetos faz isso, por si só muito bem.
+              Eu fui capaz de me referir a "objetos" e diferentes "tipos de objetos"
+              muito rapidamente nesse tutorial, soltando essas informações nos mais
+              inocentes momentos. Eu não falei nada do tipo "tudo em Ruby é um objeto"
+              ou "números e strings são tipos de objetos", porque essas
+              coisas não dizem nada para um novo programador. Ao invés disso,
+              eu vou falar sobre strings (e não sobre "objetos do tipo string"),
+              e algumas vezes eu vou me referir a "objetos", apenas no sentido de "as coisas
+              nesses programas". O fato de que todas essas <em>coisas</em> em Ruby <em>são</em> objetos
               made this sort of sneakiness on my part work so well.
               END_PARAGRAPH
             end
