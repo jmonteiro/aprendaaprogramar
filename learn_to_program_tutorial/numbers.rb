@@ -5,9 +5,9 @@ module Numbers
   
   def generateNumbers
     para do <<-END_PARAGRAPH
-      Now that you've gotten everything #{makeLink('setup', :generateSetup)},
-      let's write a program!  Open up your favorite text
-      editor and type in the following:
+      Agora que você já #{makeLink('arranjou', :generateSetup)}
+      tudo, vamos escrever um programa! Abra seu editor de texto
+      favorito e digite o seguinte:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
@@ -15,17 +15,18 @@ module Numbers
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Save your program (yes, that's a program!) as #{input 'calc.rb'}
-      (the <strong>.rb</strong> is what we usually put at the end of
-      programs written in Ruby).  Now run your program by typing #{input 'ruby calc.rb'}
-      into your command line.  It should have put a #{output '3'} on your screen.
-      See, programming isn't so hard, now is it?
+      Salve seu programa (sim, isso é um programa!) como #{input 'calc.rb'}
+      (o <strong>.rb</strong> é o que normalmente colocamos no final de
+      programas escritos em Ruby). Agora rode o seu programa digitando
+      #{input 'ruby calc.rb'} na linha de comando. Ele deve ter posto
+      #{output '3'} na sua tela. Viu como programar não é tão difícil?
       END_PARAGRAPH
     end
-    h2 {'Introduction to '+(code 'puts')}
+    h2 {'Introdução ao '+(code 'puts')}
     para do <<-END_PARAGRAPH
-      So what's going on in that program?  I'm sure you can guess what the
-      #{code '1+2'} does; our program is basically the same as:
+      O que é então que está acontecendo no programa? Tenho certeza que você
+      é capaz de adivinhar o quê #{code '1+2'} faz; nosso programa é
+      praticamente a mesma coisa que:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
@@ -33,20 +34,21 @@ module Numbers
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      #{code 'puts'} simply writes onto the screen whatever comes after it.
+      #{code 'puts'} simplesmente escreve na tela tudo que
+      vem depois dele.
       END_PARAGRAPH
     end
-    h2 {'Integer and Float'}
+    h2 {'Inteiro e Float'}
     para do <<-END_PARAGRAPH
-      In most programming languages (and Ruby is no exception)
-      numbers without decimal points are called <dfn>integers</dfn>, and
-      numbers with decimal points are usually called
-      <dfn>floating-point numbers</dfn>,
-      or more simply, <dfn>floats</dfn>.
+      Na maioria das linguagens de programação (e não é diferente no Ruby)
+      números sem pontos decimais são chamados de <dfn>inteiros</dfn>, e
+      números com pontos decimais normalmente são chamados de
+      <dfn>números de ponto-flutuante</dfn>,
+      ou mais singelamente, <dfn>floats</dfn>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Here are some integers:
+      Eis alguns inteiros:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
@@ -57,7 +59,7 @@ module Numbers
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      And here are some floats:
+      E aqui estão alguns floats:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
@@ -68,27 +70,28 @@ module Numbers
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      In practice, most programs don't use floats; only integers.
-      (After all, no one wants to look at 7.4 emails, or browse 1.8
-      webpages, or listen to 5.24 of their favorite songs...)
-      Floats are used more for academic purposes (physics experiments and such)
-      and for 3D graphics.  Even most money programs use integers; they just
-      keep track of the number of pennies!
+      Na prática, a maioria dos programas não usa floats;
+      apenas inteiros.
+      (Afinal, ninguém quer ler 7.4 emails, ou navegar 1.8 páginas,
+      ou ouvir 5.24 músicas favoritas)
+      Floats são usados mais freqüentemente para fins acadêmicos
+      (experimentos de física e afins) e para gráficos 3D.
+      Mesmo a maioria dos programas que lidam com dinheiro usam
+      inteiros; eles só ficam contando as moedinhas!
       END_PARAGRAPH
     end
-    h2 {'Simple Arithmetic'}
+    h2 {'Aritmética Simples'}
     para do <<-END_PARAGRAPH
-      So far, we've got all the makings of a simple calculator.
-      (Calculators always use floats, so if you want your computer
-      to act just like a calculator, you should also use floats.)  For addition
-      and subtraction, we use <kbd>+</kbd> and <kbd>-</kbd>,
-      as we saw.  For multiplication, we use <kbd>*</kbd>,
-      and for division we use <kbd>/</kbd>.  Most keyboards have
-      these keys in the numeric keypad on the far right side.
-      If you have a smaller keyboard or a laptop, though, you can just use
-      <kbd>Shift 8</kbd> and <kbd>/</kbd> (same key as the
-      <kbd>?</kbd> key).  Let's try to expand our calc.rb program a little.
-      Type in the following and then run it.
+      Até agora, temos tudo que é necessário para uma calculadora simples.
+      (Calculadoras sempre usam floats, então se você quer que seu
+      computador aja como uma calculadora, você também deve usar floats.)
+      Para adição e subtração, usamos <kbd>+</kbd> e <kbd>-</kbd>, como
+      vimos. Para multiplicação, usamos <kbd>*</kbd>, e para divisão
+      usamos <kbd>/</kbd>. A maioria dos teclados possui essas
+      teclas no teclado numérico. Se você tem teclado menor ou um laptop,
+      você pode usar <kbd>Shift 8</kbd> e <kbd>/</kbd> (fica na mesma
+      tecla que <kbd>?</kbd>). Vamos tentar expandir um pouco nosso calc.rb.
+      Digite o seguinte e depois rode.
       END_PARAGRAPH
     end
     prog [], 'This is what the program returns:' do <<-END_CODE
@@ -99,12 +102,12 @@ module Numbers
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      (The spaces in the program are not important; they just make
-      the code easier to read.)  Well, that wasn't too surprising.
-      Now let's try it with integers:
+      (Os espaços no programa não são importantes; eles só deixam
+      o código mais legível.) Bom, não foi lá muito surpreendente.
+      Vamos tentar agora com inteiros.
       END_PARAGRAPH
     end
-    prog [], 'Mostly the same, right?' do <<-END_CODE
+    prog [], 'Basicamente a mesma coisa, não é?' do <<-END_CODE
       puts 1+2
       puts 2*3
       puts 5-8
@@ -112,27 +115,28 @@ module Numbers
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Uh... except for that last one!
-      But when you do arithmetic with integers, you'll get integer answers.
-      When your computer can't get the "right" answer, it always rounds down.
-      (Of course, #{output '4'} <em>is</em> the right answer in integer arithmetic
-      for #{code '9/2'}; just maybe not the answer you were expecting.)
+      Ahn... tirando aquele último ali!
+      Quando você faz aritmética com inteiros, você recebe respostas em
+      inteiros. Quando seu computador não sabe dar a resposta "certa", ele
+      sempre arredonda para baixo. (Claro, #{output '4'} <em>é</em> a
+      resposta certa em aritmética de inteiros para #{code '9/2'}; só
+      pode não ser o que você estava esperando.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Perhaps you're wondering what integer division is good for.  Well, let's
-      say you're going to the movies, but you only have $9.  Here in
-      Portland, you can see a movie at the Bagdad for 2 bucks.  How many movies
-      can you see there?  #{code '9/2'}... #{output '4'} movies.  4.5
-      is definitely <em>not</em> the right answer in this case; they will
-      not let you watch half of a movie, or let half of you in to
-      see a whole movie... some things just aren't divisible.
+      Talvez você esteja se perguntado para que divisão de inteiros serve.
+      Bem, vamos dizer que você vai ao cinema, mas só tem $ 9. Aqui em
+      Portland, você pode ver um filme no Bagdad por 2 pilas. A quantos
+      filmes você pode assistir lá? #{code '9/2'}... #{output '4'} filmes.
+      4.5 <em>não</em> é a resposta certa neste caso; eles não vão deixar
+      você ver metade de um filme, ou metade de você ver um filme inteiro...
+      algumas coisas não são divisíveis.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So now experiment with some programs of your own!  If you want
-      to write more complex expressions, you can use parentheses.
-      For example:
+      Agora experimente com alguns programas seus! Se você quiser
+      escrever expressões mais complexas, você pode usar parênteses.
+      Por exemplo:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -140,26 +144,26 @@ module Numbers
       puts 98 + (59872 / (13*8)) * -52
       END_CODE
     end
-    h2 {'A Few Things to Try'}
+    h2 {'Umas Coisinhas Para Tentar'}
     para do
-      puts 'Write a program which tells you:'
+      puts 'Escreva um programa que lhe dê:'
     end
     ul do
-      li {'how many hours are in a year?'}
-      li {'how many minutes are in a decade?'}
-      li {'how many seconds old are you?'}
-      li {'how many chocolates do you hope to eat in your life? <br />'+
-          '<em><strong>Warning:</strong>  This part of the program could take a while to compute!</em>'}
+      li {'quantas horas há num ano?'}
+      li {'quantos minutos há numa década?'}
+      li {'qual é a sua idade em segundos?'}
+      li {'quantos chocolates você pretende comer na vida? <br />'+
+          '<em><strong>Aviso:</strong>  Esta parte do programa pode demorar um pouco para computar!</em>'}
     end
     para do
-      puts "Here's a tougher question:"
+      puts "Eis uma pergunta mais difícil:"
     end
     ul do
-      li {"If I am #{(Time.now - Time.mktime(1976,8,3)).to_i / 1000000} million seconds old, how old am I?"}
+      li {"Se minha idade é de #{(Time.now - Time.mktime(1976,8,3)).to_i / 1000000} milhões de segundos, qual é minha idade em anos?"}
     end
     para do <<-END_PARAGRAPH
-      When you're done playing around with numbers, let's have a look
-      at some #{makeLink('letters', :generateLetters)}.
+      Quando você cansar de brincar com números, vamos dar uma
+      olhada em algumas #{makeLink('letras', :generateLetters)}.
       END_PARAGRAPH
     end
   end
