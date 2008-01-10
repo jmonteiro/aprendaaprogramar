@@ -1,104 +1,105 @@
 module Letters
   #
-  #  LETTERS
+  #  LETRAS
   #
   
   def generateLetters
     para do <<-END_PARAGRAPH
-      Então, nós já aprendemos tudo sobre #{makeLink('números', :generateNumbers)},
-      mas e as letras? Palavras? Textos?
+      Assim nós aprendemos tudo sobre #{makeLink('numbers', :generateNumbers)},
+      mas que tal letras?  palavras?  texto?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Nós nos referimos a grupos de letras em um programa como <dfn>strings</dfn> (Você
-      pode pensar em letras impressas juntas ao longo de um banner).
-      Para ficar mais fácil de entender quais partes do código são strings,
-      Eu vou colorir as strings em <span class="L2Pcode"><span class="L2Pstring">#{@@STRING_COLOR}</span></span>.
-      Aqui tem alguns exemplos de strings:
+      Nós nos referimos aos grupos de letras em um programa como <dfn>strings</dfn>.  (Você pode
+      pensar nas letras impressas em um banner.)
+      Para tornar mais fácil ver apenas que parte do código está em uma string,
+      Eu colorirei as strings
+      <span class="L2Pcode"><span class="L2Pstring">#{@@STRING_COLOR}</span></span>.
+      Aqui estão algumas strings:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
-      'Hello.'
-      'Ruby rocks.'
+      'Olá.'
+      'Ruby detona.'
       '5 é meu número favorito... qual é o seu?'
-      'Snoopy diz #%^?&*@! quando alguém pisa no seu pé.'
+      'Snoopy diz #%^?&*@! quando ele tropeça.'
       '     '
       ''
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Como você pode ver, strings podem ter pontuaćão, dígitos, símbolos
-      e espaços... muito mais do que apenas letras. A última string
-      não tem nada: nós a chamamos de <dfn>string vazia</dfn>.
+      Como você pode ver, strings podem ter pontuação, dígitos, simbolos,
+      e espaços nelas... mais do que apenas letras.  Esta última string
+      não tem nada nela; nós poderíamos chamá-la <dfn>string vazia</dfn>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      We have been using #{code 'puts'} to print numbers;
-      let's try it with some strings:
+      Nós usamos #{code 'puts'} para imprimir números;
+      vamos tentar com algumas strings:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts 'Hello, world!'
+      puts 'Olá, mundo!'
       puts ''
-      puts 'Good-bye.'
+      puts 'Adeus.'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      That worked out well.  Now try some strings of your own.
+      Isso funcionou bem.  Agora tente algumas strings de sua autoria.
       END_PARAGRAPH
     end
-    h2 {'String Arithmetic'}
+    h2 {'Aritmética de Strings'}
     para do <<-END_PARAGRAPH
-      Just as you can do arithmetic on numbers, you can also do
-      arithmetic on strings!  Well, sort of... you can add strings, anyway.
-      Let's try to add two strings and see what
-      #{code 'puts'} does with that.
+      Assim como você pode fazer aritmética com números, você também pode fazer
+      aritmética com strings!  Bem, tipo... você pode adicionar strings, de qualquer maneira.
+      Vamos tentar adicionar duas strings e ver o que
+      #{code 'puts'} faz com elas.
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts 'I like' + 'apple pie.'
+      puts 'Eu gosto de' + 'torta de maçã.'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Whoops!  I forgot to put a space between #{code "'I like'"} and #{code "'apple pie.'"}.
-      Spaces don't matter usually, but they matter inside strings.
-      (It's true what they say:  computers don't do what you <em>want</em>
-      them to do, only what you <em>tell</em> them to do.)  Let's try that again:
+      Oopa!  Eu esqueci de colocar espaço entre #{code "'Eu gosto de'"} e #{code "'torta de maçã.'"}.
+      Espaços não têm importância normalmente, mas eles têm importância dentro de strings.
+      (É verdade o que eles dizem:  computadores não fazem o que você <em>quer</em>
+      que eles façam, apenas o que você <em>diz</em> para eles fazerem.)  Vamos tentar novamente:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts 'I like ' + 'apple pie.'
-      puts 'I like' + ' apple pie.'
+      puts 'Eu gosto de ' + 'torta de maçã.'
+      puts 'Eu gosto de' + ' torta de maçã.'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      (As you can see, it didn't matter which string I added the space to.)
+      (Como você pode ver, não importa em qual string eu adicionei o espaço.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So you can add strings, but you can also multiply them!
-      (By a number, anyway.)  Watch this:
+      Então você pode adicionar strings, mas você pode também multiplicá-las!
+      (Por um número, de qualquer maneira.)  Observe isto:
       END_PARAGRAPH
     end
-    prog [], '(Just kidding... it really does this:)', 'batting her eyes' do <<-END_CODE
-      puts 'blink ' * 4
+    prog [], '(Brincadeirinha... realmente faz isto:)', 'piscando os olhos dela' do <<-END_CODE
+      puts 'piscar ' * 4
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      If you think about it, this makes perfect sense.  After all,
-      #{code '7*3'} really just means #{code '7+7+7'}, so #{code "'moo'*3"} just
-      means #{code "'moo'+'moo'+'moo'"}.
+      Se você analisar, isto faz um perfeito sentido.  Concluindo,
+      #{code '7*3'} realmente significa #{code '7+7+7'}, assim #{code "'muu'*3"} 
+      significa #{code "'muu'+'muu'+'muu'"}.
       END_PARAGRAPH
     end
     h2 {"#{code '12'} vs #{code "'12'"}"}
     para do <<-END_PARAGRAPH
-      Before we get any further, we should make sure we understand the
-      difference between <em>numbers</em> and <em>digits</em>.
-      #{code '12'} is a number, but #{code "'12'"} is a string of two digits.
+      Antes de nós avançarmos, nós deveríamos assegurar que nós entendemos a
+      diferença entre <em>números</em> e <em>dígitos</em>.
+      #{code '12'} é um número, mas #{code "'12'"} é uma string de dois dígitos.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Let's play around with this for a while:
+      Vamos brincar com isto por enquanto:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -108,7 +109,7 @@ module Letters
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      How about this:
+      Que tal isto:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -118,14 +119,14 @@ module Letters
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      These examples were pretty straightforward.  However, if you're not too
-      careful with how you mix your strings and your numbers, you might run into...
+      Estes exemplos foram bem diretos.  Entretando, se você não for muito
+      cuidadoso em como misturar strings e seus números, você poderá cair em...
       END_PARAGRAPH
     end
-    h2 {'Problems'}
+    h2 {'Problemas'}
     para do <<-END_PARAGRAPH
-      At this point you may have tried out a few things which
-      <em>didn't</em> work.  If not, here are a few:
+      Neste ponto você pode ter tentado umas poucas coisas que
+      <em>não</em> funcionaram.  Se não, aqui estão algumas:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -134,9 +135,9 @@ module Letters
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Hmmm... an error message.  The problem is that you
-      can't really add a number to a string, or multiply a
-      string by another string.  It doesn't make any more sense than does this:
+      Hummmm... uma mensagem de erro.  O problema é que você
+      não pode realmente adicionar um número a uma string, ou multiplicar uma
+      string por outra.  Isto não faz mais sentido do que isto:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
@@ -145,49 +146,49 @@ module Letters
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Something else to be aware of:  you can write #{code "'pig'*5"} in a program,
-      since it just means #{code '5'} sets of the string #{code "'pig'"} all added
-      together.  However,
-      you <em>can't</em> write #{code "5*'pig'"}, since that means #{code "'pig'"}
-      sets of the number #{code '5'}, which is just silly.
+      Alguma coisa a mais para ter cuidado:  você pode escrever #{code "'porco'*5"} em um programa,
+      pois isto signifique #{code '5'} conjuntos da string #{code "'porco'"} todas adicionadas
+      juntas.  Entretanto,
+      você <em>não</em> pode escrever #{code "5*'porco'"}, pois isto significa #{code "'porco'"}
+      conjuntos do número #{code '5'}, o que é uma tolice.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Finally, what if I want a program to print out
-      #{output 'You\'re swell!'}?  We can try this:
+      Finalmente, e se eu quiser um programa para imprimir
+      #{output 'Marca d'água!'}?  Nós podemos tentar isto:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
-      puts 'You're swell!'
+      puts 'Marca d'água!'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Well, <em>that</em> won't work; I won't even try to run it.
-      The computer thought we were done with the string.
-      (This is why it's nice to have a text editor which does
-      <dfn>syntax coloring</dfn> for you.)  So how do we let
-      the computer know we want to stay in the string?  We have
-      to <dfn>escape</dfn> the apostophe, like this:
+      Bem, <em>isto</em> não funcionará; Eu nem mesmo tentarei executar isto.
+      O computador pensou que nós tivessemos termidado com a string.
+      (Isto é o porquê é bom ter um editor de textos que faz
+      <dfn>coloração de sintaxe</dfn> para você.)  Então como nós faremos para
+      o computador saber que nós queremos continuar com a string?  Nós temos
+      que fazer um <dfn>escape</dfn> do apóstrofo, desta forma:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts 'You\\'re swell!'
+      puts 'Marca d\\'água!'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      The backslash is the escape character.  In other words, if you have
-      a backslash and another character, they are sometimes translated
-      into a new character.  The only things the backslash escapes,
-      though, are the apostrophe and the backslash itself.  (If you
-      think about it, escape characters must always escape themselves.)
-      A few examples are in order here, I think:
+      A contra-barra é o caracter de escape.  Em outras palavras, se você tem
+      uma contra-barra e um outro caracter, eles algumas vezes serão traduzidos
+      em um novo caracter.  As únicas coisas que a contra-barra faz escape,
+      portanto, são o apóstrofo e a própria contra-barra.  (Se você
+      analisar, caracteres de escape devem sempre fazer o escape deles mesmo.)
+      Alguns exemplos estão em ordem aqui, eu acho:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      puts 'You\\'re swell!'
-      puts 'backslash at the end of a string:  \\\\'
-      puts 'up\\\\down'
-      puts 'up\\down'
+      puts 'Marca d\\'água!'
+      puts 'contra-barra no fim da string:  \\\\'
+      puts 'para cima\\\\para baixo'
+      puts 'para cima\\para baixo'
       END_CODE
     end
     para do <<-END_PARAGRAPH
