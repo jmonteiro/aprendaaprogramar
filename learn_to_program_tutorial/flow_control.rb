@@ -196,7 +196,7 @@ module FlowControl
       Aí eu preenchi com <dfn>comentários</dfn>, coisas no
       código que o computador irá ignorar:
       END_PARAGRAPH
-
+	end
     prog false do <<-END_CODE
       puts 'Olá, e bem-vindo à aula de Português.'
       puts 'Meu nome é professora Hélia. Seu nome é...?'
