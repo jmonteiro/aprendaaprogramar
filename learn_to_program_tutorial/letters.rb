@@ -81,7 +81,7 @@ module Letters
       (Por um número, de qualquer forma). Veja isso:
       END_PARAGRAPH
     end
-    prog [], '(Estou brincando... ele realmente faz isso:)', 'piscando os olhos dela' do <<-END_CODE
+    prog [], '(Estou brincando... ele na verdade faz isso:)', 'piscando os olhos dela' do <<-END_CODE
       puts 'piscar ' * 4
       END_CODE
     end
