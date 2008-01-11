@@ -5,90 +5,86 @@ module Arrays
   
   def generateArrays
     para do <<-END_PARAGRAPH
-      Let's write a program which asks us to type in as many words
-      as we want (one word per line, continuing until we just press
-      <kbd>Enter</kbd> on an empty line), and which then repeats
-      the words back to us in alphabetical order.  OK?
+      Vamos escrever um programa que nos permita entrar com quantas
+      palavras quisermos (uma por linha, até pressionarmos <kbd>Enter</kbd>
+      em uma linha vazia), e depois mostre as palavras em ordem alfabética. Ok?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So... first we'll&mdash;uh... um... hmmm...  Well, we could&mdash;er...
-      um...
+      Então... primeiro nós iremos.. bem.. hum... Bom, poderíamos.. rsrsrs..
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      You know, I don't think we can do it.  We need a way to store
-      an unknown amount of words, and how to keep track of them all
-      together, so they don't get mixed up with other variables.  We
-      need to put them in some sort of a list.  We need <dfn>arrays</dfn>.
+      Certo, Não sei se podemos fazer isso. Precisamos de uma forma de armazenar
+      um número qualquer de palavras, e de podermos acessá-las sem que se misturem
+      com as outras variáveis. Precisamos colocá-las num tipo de lista. Precisamos
+      dos <dfn>arrays</dfn>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      An array is just a list in your computer.  Every slot in
-      the list acts like a variable:  you can see what object
-      a particular slot points to, and you can make it point to a
-      different object.  Let's take a look at some arrays:
+      Um array é apenas uma lista em seu computador. Cada item da lista
+      se comporta como uma variável: você pode ver qual objeto um item está
+      apontando, e você pode fazê-lo apontar para um outro objeto.
+      Vamos dar uma olhada em alguns arrays:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
       []
       [5]
-      ['Hello', 'Goodbye']
+      ['Olá', 'Tchau']
       
-      flavor = 'vanilla'             #  This is not an array, of course...
-      [89.9, flavor, [true, false]]  #  ...but this is.
+      sabor = 'baunilha'             #  isto não é um array, claro...
+      [89.9, sabor, [true, false]]  #  ...mas isto é.
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      So first we have an empty array, then an array holding
-      a single number, then an array holding two strings.
-      Next, we have a simple assignment; then an
-      array holding three objects, the last
-      of which is the array #{code '[true, false]'}.  Remember,
-      variables aren't objects, so our last array is really
-      pointing to float, a <em>string</em>, and an array.  Even if we
-      were to set #{code 'flavor'} to
-      point to something else, that wouldn't change the
-      array.
+      Primeiro nós temos um array vazio, então um array contendo
+      um único número, então um array contendo duas strings.
+      Depois, temos uma atribuição simples; e aí um array 
+      contendo três objetos, sendo que o último é um outro 
+      array #{code '[true, false]'}. Lembre-se, variáveis não 
+      são objetos, então, nosso último array está realmente
+      apontando a para um float, uma <em>string</em> e um array.
+      Mesmo que nós mudássemos o valor de #{code 'flavor'}, isso 
+      não mudaria o array.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      To help us find a particular object in an array, each
-      slot is given an index number.  Programmers (and, incidentally,
-      most mathematicians) start counting from zero, though,
-      so the first slot in the array is slot zero.  Here's
-      how we would reference the objects in an array:
+      Para nos ajudar a encontrar um objeto qualquer num array,
+      cada item tem um número de indexação. Programadores (e, aliás,
+      a maioria dos matemáticos) inicia contando do zero, então,
+      o primeiro item do array é o item zero. Veja como podemos
+      referenciar os objetos em um array:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      names = ['Ada', 'Belle', 'Chris']
+      nomes = ['Ana', 'Maria', 'Cris']
       
-      puts names
-      puts names[0]
-      puts names[1]
-      puts names[2]
-      puts names[3]  #  This is out of range.
+      puts nomes
+      puts nomes[0]
+      puts nomes[1]
+      puts nomes[2]
+      puts nomes[3]  #  Isto está fora do intervalo
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      So, we see that #{code 'puts names'} prints each name in
-      the array #{code 'names'}.  Then we use #{code 'puts names[0]'}
-      to print out the "first" name in the array, and
-      #{code 'puts names[1]'} to print the "second"... I'm sure this seems
-      confusing, but you <em>do</em> get used to it.  You just have to really
-      start <em>thinking</em> that counting begins at zero, and
-      stop using words like "first" and "second".
-      If you go out to a five-course meal, don't talk about
-      the "first" course; talk about course zero
-      (and in your head, be thinking #{code 'course[0]'}).
-      You have five fingers on your right hand, and their
-      numbers are 0, 1, 2, 3, and 4.  My wife and I are
-      jugglers.  When we juggle six clubs, we are juggling
-      clubs 0-5.  Hopefully in the next few months, we'll
-      be able to juggle club 6 (and thus be juggling seven
-      clubs between us).  You'll know you've got it when you
-      start using the word "zeroth".  :-) Yes, it's a real
-      word; ask any programmer or mathematician.
+      Vemos então, que #{code 'puts nomes'} imprime cada nome do
+      array #{code 'nomes'}. Então usamos #{code 'puts nomes[0]'}
+      para imprimir o "primeiro" nome do array e #{code 'puts nomes[1]'}
+      para imprimir o "segundo"... Tenho certeza que parece confuso,
+      mas você <em>deve</em> se acostumar com isso. Você deve realmente
+      começar a <em>acreditar</em> que contar inicia do zero e parar
+      de usar palavras como "primeiro" e "segundo".
+      Se você for num rodízio de pizza, não fale sobre o "primeiro"
+      pedaço; fale sobre o pedaço zero (e na sua cabeça 
+      pense #{code 'course[0]'}).
+      Você tem 5 dedos na sua mão e seus números são 0, 1, 2, 3 e 4.
+      Minha esposa e eu somos malabariasta. Quando fazemos malabares
+      com 6 pinos, estamos equilibrando os pinos 0 à 5. Felizmente,
+      em alguns meses, estaremos equilibrando o pino 6 (e portanto, 
+      equilibrando 7 pinos). Você saberá que conseguiu quando
+      começar a usar o termo "zerésimo" :-) Sim, é uma palavra real..
+      Pergunte a um programador ou matemático..
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
