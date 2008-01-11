@@ -94,7 +94,7 @@ module Numbers
       Digite o seguinte e depois rode.
       END_PARAGRAPH
     end
-    prog [], 'This is what the program returns:' do <<-END_CODE
+    prog [], 'Isto é o que o programa retorna:' do <<-END_CODE
       puts 1.0 + 2.0
       puts 2.0 * 3.0
       puts 5.0 - 8.0
@@ -149,8 +149,8 @@ module Numbers
       puts 'Escreva um programa que lhe dê:'
     end
     ul do
-      li {'quantas horas há num ano?'}
-      li {'quantos minutos há numa década?'}
+      li {'quantas horas há em um ano?'}
+      li {'quantos minutos há em uma década?'}
       li {'qual é a sua idade em segundos?'}
       li {'quantos chocolates você pretende comer na vida? <br />'+
           '<em><strong>Aviso:</strong>  Esta parte do programa pode demorar um pouco para computar!</em>'}
