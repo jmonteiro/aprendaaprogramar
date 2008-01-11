@@ -5,20 +5,20 @@ module Classes
 
     def generateClasses
       para do <<-END_PARAGRAPH
-        So far we've seen several different kinds, or
-        <dfn>classes</dfn>, of objects:
-        strings, integers, floats, arrays, and a few special objects
-        (#{code 'true'}, #{code 'false'}, and #{code 'nil'}) which
-        we'll talk about later.
-        In Ruby, these classes are always capitalized:  #{code 'String'},
+        Até agora nós vimos vários tipos diferentes, ou
+        <dfn>classes</dfn>, de objetos:
+        strings, integers, floats, arrays, e alguns objetos especiais
+        (#{code 'true'}, #{code 'false'}, e #{code 'nil'}) que
+        iremos falar mais sobre mais tarde.
+        Em Ruby, essas classes tem sempre a primeira letra maiúscula:  #{code 'String'},
         #{code 'Integer'}, #{code 'Float'}, #{code 'Array'}... etc.
-        In general, if we want to create a new object of a
-        certain class, we use #{code 'new'}:
+        Em geral, se queremos criar um novo objeto de uma
+        certa classe, nós usamos #{code 'new'}:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        a = Array.new  + [12345]  #  Array  addition.
-        b = String.new + 'hello'  #  String addition.
+        a = Array.new  + [12345]  #  Adição em Array.
+        b = String.new + 'hello'  #  Adição em String.
         c = Time.new
 
         puts 'a = '+a.to_s
@@ -27,23 +27,23 @@ module Classes
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Because we can create arrays and strings using
-        #{code '[...]'} and #{code "'...'"} respectively, we rarely create
-        them using #{code 'new'}.  (Though it's not really obvious
-        from the above example, #{code 'String.new'} creates
-        an empty string, and #{code 'Array.new'} creates an empty
-        array.)  Also, numbers are special exceptions:  you can't
-        create an integer with #{code 'Integer.new'}.  You just have
-        to write the integer.
+        Pelo fato de querermos criar arrays e strings usando
+        #{code '[...]'} e #{code "'...'"} respectivamente, nós raramente os criamos 
+        usando #{code 'new'}.  (Embora realmente não seja óbvio
+        pelo exemplo acima, #{code 'String.new'} cria 
+        uma string vazia, e #{code 'Array.new'} cria um array
+        vazio.)  Além disso, números são excessões especiais:  você não pode
+        criar um Inteiro com #{code 'Integer.new'}.  Você tem que
+        escrever o Inteiro.
         END_PARAGRAPH
       end
       h2 {"The #{code 'Time'} Class"}
       para do <<-END_PARAGRAPH
-        So what's the story with this #{code 'Time'} class?
-        #{code 'Time'} objects represent moments in time.  You can
-        add (or subtract) numbers to (or from) times to get new times:
-        adding #{code '1.5'} to a time makes a new time one-and-a-half
-        seconds later:
+        Portanto qual é a história da classe #{code 'Time'}?
+        Objetos #{code 'Time'} representam momentos no tempo. Você pode
+        adicionar (ou subtrair) numbers para (ou de) tempos para ter novos tempos:
+        adicionando #{code '1.5'} a um tempo faz um novo tempo um segundo e meio
+        depois:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
