@@ -42,6 +42,7 @@ class LearnToProgramTutorial
   include Methods
   include FlowControl
   include Arrays
+  include DefMethods
   include Classes
   include BlocksProcs
   include Beyond

@@ -154,7 +154,7 @@ module FlowControl
     end
     executa1 = {:input => ['chris', 'sim']}
     executa2 = {:input => ['Chris'], :remark => 'Está bem, vou capitalizar...'}
-    progN executar1, executar2 do <<-END_CODE
+    progN executa1, executa2 do <<-END_CODE
       puts 'Olá, e bem-vindo à aula de Português.'
       puts 'Meu nome é professora Hélia. Seu nome é...?'
       nome = gets.chomp
