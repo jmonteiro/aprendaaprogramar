@@ -13,7 +13,7 @@ module Letters
       Nós nos referimos a grupos de letras em um programa como <dfn>strings</dfn> (Você
       pode pensar em letras impressas juntas ao longo de um banner).
       Para ficar mais fácil de entender quais partes do código são strings,
-      Eu vou colorir as strings em <span class="L2Pcode"><span class="L2Pstring">#{@@STRING_COLOR}</span></span>.
+      Eu vou colorir as strings em <span class="L2Pcode"><span class="L2Pstring">#{STRING_COLOR}</span></span>.
       Aqui tem alguns exemplos de strings:
       END_PARAGRAPH
     end
