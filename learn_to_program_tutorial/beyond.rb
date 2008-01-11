@@ -137,7 +137,7 @@ module Beyond
     end
     prog do <<-END_CODE
       #  Estas palavras são de um programa que escrevi para gerar
-      #  baboseiras parecidas com Inglês. Bacana, não?
+      #  baboseiras em inglês. Bacana, não?
       puts 'grobably combergearl kitatently thememberate' if 5 == 2**2 + 1**1
       puts 'enlestrationshifter supposine follutify blace' unless 'Chris'.length == 5
       END_CODE
