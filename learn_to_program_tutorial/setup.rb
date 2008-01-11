@@ -84,50 +84,90 @@ module Setup
     #  END_PARAGRAPH
     #end
     para do <<-END_PARAGRAPH
-      If you come across something you don't understand, or you
-      have a question which wasn't answered, write it down and
-      keep reading!  It's quite possible that the answer will
-      come in a later chapter.  However, if your question was
-      not answered by the last chapter, I will tell you where
-      you can go to ask it.  There are lots of wonderful people
-      out there more than willing to help; you just need to know
-      where they are.
+      Se você encontrar algo que não entende, ou se você tiver
+      uma pergunta que não foi respondida, tome nota e continue a ler!
+      É bem possível que a resposta venha em um capítulo mais para frente.
+      Porém, se sua pergunta não for respondida até o último
+      capítulo, eu te mostrarei onde você pode ir para perguntar.
+      Existem muitas pessoas maravilhosas lá fora mais que dispostas a
+      ajudar; você só precisa saber onde elas estão.
       END_PARAGRAPH
     end
+    #para do <<-END_PARAGRAPH
+    #  If you come across something you don't understand, or you
+    #  have a question which wasn't answered, write it down and
+    #  keep reading!  It's quite possible that the answer will
+    #  come in a later chapter.  However, if your question was
+    #  not answered by the last chapter, I will tell you where
+    #  you can go to ask it.  There are lots of wonderful people
+    #  out there more than willing to help; you just need to know
+    #  where they are.
+    #  END_PARAGRAPH
+    #end
     para do <<-END_PARAGRAPH
-      But first we need to download and install Ruby onto your
-      computer.
+      Mas primeiro nós precisamos baixar e instalar o Ruby no nosso
+      computador.
       END_PARAGRAPH
     end
-    h2 {'Windows Installation'}
+    h2 {'Instalação no Windows'}
     para do <<-END_PARAGRAPH
-      The Windows installation of Ruby is a breeze.  First, you
-      need to download the
-      <a href="http://rubyinstaller.rubyforge.org/">Ruby installer</a>.
-      There might be a couple of versions to choose from; this tutorial
-      is using version #{RUBY_VERSION}, so make sure what you download is at
-      least as recent as that.  (I would just get the latest
-      version available.)  Then simply run the installation program.
-      It will ask you where you want to install Ruby.  Unless you have
-      a good reason for it, I would just install it in the default
-      location.
+      A instalação do Ruby no Windows é muito fácil. Primeiro, você
+      precisa baixar o 
+      <a href="http://rubyinstaller.rubyforge.org/">Instalador Ruby</a>.
+      Pode haver mais do que uma versão para escolher; este tutorial
+      usa a versão #{RUBY_VERSION}, então assegure-se de que o que você
+      baixar seja ao menos tão recente quanto ela. (Eu pegaria a última versão
+      disponível.) Então simplesmente rode o programa de instalação.
+      Ele perguntará onde você gostaria de instalar o Ruby. A não ser que
+      você tenha uma boa razão para não fazer isso, eu instalaria no lugar 
+      recomendado.
       END_PARAGRAPH
     end
+    #h2 {'Windows Installation'}
+    #para do <<-END_PARAGRAPH
+    #  The Windows installation of Ruby is a breeze.  First, you
+    #  need to download the
+    #  <a href="http://rubyinstaller.rubyforge.org/">Ruby installer</a>.
+    #  There might be a couple of versions to choose from; this tutorial
+    #  is using version #{RUBY_VERSION}, so make sure what you download is at
+    #  least as recent as that.  (I would just get the latest
+    #  version available.)  Then simply run the installation program.
+    #  It will ask you where you want to install Ruby.  Unless you have
+    #  a good reason for it, I would just install it in the default
+    #  location.
+    #  END_PARAGRAPH
+    #end
     para do <<-END_PARAGRAPH
-      In order to program, you need to be able to write programs and
-      to run programs.  To do this, you will need a text editor and a
-      command line.
+      Para programar, você precisa poder escrever programas e roda-los.
+      Para fazer isso, você vai precisar de um editor de texto e uma 
+      linha de comando    
       END_PARAGRAPH
-    end
+    end ## linha de comando?
+    
+    #para do <<-END_PARAGRAPH   
+      #In order to program, you need to be able to write programs and
+      #to run programs.  To do this, you will need a text editor and a
+      #command line.
+      #END_PARAGRAPH
+    #end
     para do <<-END_PARAGRAPH
-      The Ruby installer comes with a lovely text editor called SciTE
-      (the Scintilla Text Editor).  You can run SciTE by selecting it
-      from the start menu.  If you would like your code to be colored
-      like the examples in this tutorial, download these files and
-      put them in your SciTE folder (<kbd>c:/ruby/scite</kbd> if you chose the
-      default location):
+      O instalador do Ruby vem com um editor de texto adorável chamado
+      SciTE (the Scintilla Text Editor). Você pode rodar o Scite 
+      selecionando-o no menu de início. Se você quiser que o seu código
+      seja colorido como os exemplos deste tutorial, baixe estes arquivos
+      e coloque-os na sua pasta SciTE (<kbd>c:/ruby/scite</kbd> se você escolher
+      o local recomendado).
       END_PARAGRAPH
     end
+    #para do <<-END_PARAGRAPH
+    #  The Ruby installer comes with a lovely text editor called SciTE
+    #  (the Scintilla Text Editor).  You can run SciTE by selecting it
+    #  from the start menu.  If you would like your code to be colored
+    #  like the examples in this tutorial, download these files and
+    #  put them in your SciTE folder (<kbd>c:/ruby/scite</kbd> if you chose the
+    #  default location):
+    #  END_PARAGRAPH
+    #end
     ul do
       li {'<a href="'+LINKADDR+'SciTEGlobal.properties">Global Properties</a>'}
       li {'<a href="'+LINKADDR+'ruby.properties">Ruby Properties</a>'}
