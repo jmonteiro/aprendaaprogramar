@@ -273,77 +273,77 @@ module Methods
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So, about that centering... you may have noticed that it isn't quite
-      as beautiful as what a word processor would have done.  If you really
-      want perfect centering (and maybe a nicer font), then you should just use
-      a word processor!  Ruby is a wonderful tool, but no tool is the right
-      tool for <em>every</em> job.
+      Então, em relação à centralização... você deve ter percebido que não está
+      tão bonito quanto um processador de texto teria feito. Se você realmente
+      quer centralização perfeita (e talvez uma fonte melhor), então você
+      deveria apenas usar um processador de texto!  Ruby é uma ferramenta
+      maravilhosa, mas nenhuma ferramenta é a ferramenta certa para
+      <em>qualquer</em> trabalho.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      The other two string formatting methods are #{code 'ljust'} and
-      #{code 'rjust'}, which stand for <dfn>left justify</dfn> and
-      <dfn>right justify</dfn>.  They are similar to #{code 'center'}, except
-      that they pad the string with spaces on the right and left sides,
-      respectively.  Let's take a look at all three in action:
+      Os outros dois métodos de formatação da string são #{code 'ljust'} e
+      #{code 'rjust'}, que fazem o texto <dfn>justificado à esquerda</dfn> and
+      <dfn>justificado à direita</dfn>.  Eles são parecidos com o #{code 'center'},
+      exceto que eliminam os espaços em branco da string do lado direito e esquerdo,
+      respectivamente.  Vamos ver os três em ação:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      lineWidth = 40
+      larguraDaLinha = 40
       str = '--> text <--'
-      puts str.ljust  lineWidth
-      puts str.center lineWidth
-      puts str.rjust  lineWidth
-      puts str.ljust (lineWidth/2) + str.rjust (lineWidth/2)
+      puts str.ljust  larguraDaLinha
+      puts str.center larguraDaLinha
+      puts str.rjust  larguraDaLinha
+      puts str.ljust (larguraDaLinha/2) + str.rjust (larguraDaLinha/2)
       END_CODE
     end
-    h2 {'A Few Things to Try'}
+    h2 {'Umas Coisinhas Para Tentar'}
     para do <<-END_PARAGRAPH
-      &bull; Write an Angry Boss program.  It should rudely ask what you want.
-      Whatever you answer, the Angry Boss should yell it back to you, and
-      then fire you.  For example, if you type in #{input 'I want a raise.'}, it should yell back
-      #{output 'WHADDAYA MEAN "I WANT A RAISE."?!?  YOU\'RE FIRED!!'}
+      &bull; Escreva um programa do Chefe Zangado.  Ele deve perguntar o que você quer de forma rude.
+      Qualquer que for sua resposta, o Chefe Zangado vai gritar de volta para você, e então
+      despedí-lo.  Por exemplo, se você digitar #{input 'Eu quero um aumento.'}, ele deve gritar
+      de volta #{output 'O QUE VOCÊ QUER DIZER COM "EU QUERO UM AUMENTO."?!?  VOCÊ ESTÁ DESPEDIDO!!'}
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      &bull; So here's something for you to do in order to play around more with
-      #{code 'center'}, #{code 'ljust'}, and #{code 'rjust'}:  Write a program
-      which will display a Table of Contents so that it looks like this:
+      &bull; Eis aqui algo para você fazer para brincar um pouco mais com
+      #{code 'center'}, #{code 'ljust'} e #{code 'rjust'}:  Escreva um programa
+      que irá mostrar uma Tabela de Conteúdo de forma que fique parecida com:
       END_PARAGRAPH
     end
     puts '<pre class="L2PoutputBlock">' +
-          '                Table of Contents                ' + $/ +
-          '                                                 ' + $/ +
-          'Chapter 1:  Numbers                        page 1' + $/ +
-          'Chapter 2:  Letters                       page 72' + $/ +
-          'Chapter 3:  Variables                    page 118' + $/ +
+          '                Tabela de Conteúdo                ' + $/ +
+          '                                                  ' + $/ +
+          'Capítulo 1:  Números                      página 1' + $/ +
+          'Capítulo 2:  Letras                      página 72' + $/ +
+          'Capítulo 3:  Variáveis                  página 118' + $/ +
           '</pre>'
-    h2 {'Higher Math'}
+    h2 {'Matemática Avançada'}
     para do <<-END_PARAGRAPH
-      <em>(This section is totally optional.  It assumes a fair degree
-      of mathematical knowledge.  If you aren't interested, you
-      can go straight to #{makeLink 'Flow Control', :generateFlowControl}
-      without any problems.  However, a quick look at the section
-      on <strong>Random Numbers</strong> might come in handy.)</em>
+      <em>(Esta seção é totalmente opcional. Ela assume um certo nível
+      de conhecimento matemático. Se você não estiver interessado, você pode
+      ir direto para o #{makeLink 'Controle de Fluxo', :generateFlowControl}
+      sem nenhum problema.  No entanto, uma breve passada pela seção de
+      <strong>Números Aleatórios</strong> pode ser útil.)</em>
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      There aren't nearly as many number methods as there are string methods
-      (though I still don't know them all off the top of my head).  Here, we'll
-      look at the rest of the arithmetic methods, a random number generator,
-      and the #{code 'Math'} object, with its trigonometric and transcendental
-      methods.
+      Não exitem tantos métodos nos números quanto nas strings
+      (apesar de eu ainda não ter decorado todos).  Aqui, iremos olhar no
+      resto dos métodos de aritimética, um gerador de números aleatórios e
+      no objeto #{code 'Math'}, com seus métodos trigonométricos e transcendentais.
       END_PARAGRAPH
     end
-    h2 {'More Arithmetic'}
+    h2 {'Mais Aritimética'}
     para do <<-END_PARAGRAPH
-      The other two arithmetic methods are #{code '**'} (exponentiation)
-      and #{code '%'} (modulus).  So if you want to say "five squared"
-      in Ruby, you would write it as #{code '5**2'}.  You can also use
-      floats for your exponent, so if you want the square root of 5, you
-      could write #{code '5**0.5'}.  The modulus method gives you the remainder
-      after division by a number.  So, for example, if I divide 7 by 3,
-      I get 2 with a remainder of 1.  Let's see it working in a program:
+      Os outros dois métodos aritiméticos são #{code '**'} (exponenciação)
+      e #{code '%'} (módulo).  Então se você quer dizer "cinco ao quadrado"
+      em Ruby, você escreveria #{code '5**2'}.  Você também pode usar
+      floats para seu expoente, então se você quiser a raiz quadrada de 5,
+      você pode escrever #{code '5**0.5'}.  O método módulo lhe dá o resta da
+      divisão por um número.  Então, por exemplo, se eu divido 7 por 3,
+      eu tenho 2 com resto 1. Vamos vê-los em ação num programa:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -355,16 +355,18 @@ module Methods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      From that last line, we learn that a (non-leap) year has some number
-      of weeks, plus one day.  So if your birthday was on a Tuesday this year,
-      it will be on a Wednesday next year.  You can also use floats with the modulus
-      method.  Basically, it works the only sensible way it could... but I'll
-      let you play around with that.
+      Pela última linha, aprendemos que um ano (não-bissexto) tem um certo
+      número de semanas, mais um dia. Então se seu aniversário caiu numa
+      Terça-feira este ano, ele será numa Quarta-feira no ano que vem.
+      Você também pode usar floats com o método módulo.  Basicamente, ele
+      funciona da única maneira razoável que consegue... Mas eu vou deixar
+      você brincar um pouco com isso.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      There's one last method to mention before we check out the random number
-      generator:  #{code 'abs'}.  It just takes the absolute value of the number:
+      Tem um último método para ser mencionado antes de vermos o gerador de
+      números aleatórios:  #{code 'abs'}.  Ele simplesmente pega o valor absoluto
+      de um número:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -372,20 +374,19 @@ module Methods
       puts((2-5).abs)
       END_CODE
     end
-    h2 {'Random Numbers'}
+    h2 {'Números Aleatórios'}
     para do <<-END_PARAGRAPH
-      Ruby comes with a pretty nice random number generator.  The method to get
-      a randomly chosen number is #{code 'rand'}.  If you call #{code 'rand'} just like
-      that, you'll get a float greater than or equal to #{code '0.0'} and less
-      than #{code '1.0'}.  If you give #{code 'rand'} an integer (#{code '5'}
-      for example), it will give you an integer greater than or equal to
-      #{code '0'} and less than #{code '5'} (so five possible numbers,
-      from #{code '0'} to #{code '4'}).
+      Ruby vem com um gerador de números aleatórios bem legal.  O método que
+      escolhe aleatoriamente um número é o #{code 'rand'}.  Se você chamar #{code 'rand'}
+      simplesmente assim, você vai ter um float maior ou igual a #{code '0.0'} e menor
+      que #{code '1.0'}.  Se você der um inteiro (#{code '5'} por exemplo) para o #{code 'rand'},
+      ele vai te dar um inteiro maior ou igual a #{code '0'} e menor que #{code '5'} (então são
+      cinco números possíveis, de #{code '0'} até #{code '4'}).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Let's see #{code 'rand'} in action.  (If you reload this page, these numbers will
-      change each time.  You did know I was actually running these programs, didn't you?)
+      Vamos ver o #{code 'rand'} em ação.  (Se você recarregar esta página, estes números vão
+      mudar a cada vez.  Você sabia que eu estou realmente rodando estes programas, não sabia?)
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -399,28 +400,28 @@ module Methods
       puts(rand(1))
       puts(rand(1))
       puts(rand(99999999999999999999999999999999999999999999999999999999999))
-      puts('The weatherman said there is a '+rand(101).to_s+'% chance of rain,')
-      puts('but you can never trust a weatherman.')
+      puts('O homem do tempo disse que existe '+rand(101).to_s+'% de chance de chover,')
+      puts('mas você não pode nunca confiar num homem do tempo.')
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Note that I used #{code 'rand(101)'} to get back numbers from #{code '0'}
-      to #{code '100'}, and that #{code 'rand(1)'} always
-      gives back #{code '0'}.  Not understanding the range of possible return
-      values is the biggest mistake I see people make with #{code 'rand'}; even professional
-      programmers; even in finished products you can buy at the store.  I even
-      had a CD player once which, if set on "Random Play," would play every song but
-      the last one...  (I wonder what would have happened if I had put in a CD with
-      only one song on it?)
+      Perceba que eu usei #{code 'rand(101)'} para conseguir os números de #{code '0'}
+      até #{code '100'}, e que #{code 'rand(1)'} sempre retorna #{code '0'}.  Não entender o
+      intervalo dos possíveis valores retornados é o maior erro que eu vejo as pessoas
+      cometerem ao usar #{code 'rand'}; mesmo programadores profissionais; mesmo em
+      produtos terminados que você pode comprar na loja.  Eu inclusive tive um tocador de CD
+      que, se configurado para "Tocar Aleatoriamente", iria tocar todas as músicas menos
+      a última...  (Eu imagino o que aconteceria se eu colocasse um CD com apenas uma música
+      nele?)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Sometimes you might want #{code 'rand'} to return the <em>same</em> random numbers
-      in the same sequence on two different runs of your program.  (For example, once I
-      was using randomly generated numbers to create a randomly generated world for a computer
-      game.  If I found a world that I really liked, perhaps I would want to play on it
-      again, or send it to a friend.)  In order to do this, you need to set the
-      <em>seed</em>, which you can do with #{code 'srand'}.  Like this:
+      As vezes você pode querer que #{code 'rand'} retorne os <em>mesmos</em> números aleatórios
+      na mesma sequência em duas execuções diferentes do seu programa.  (Por exemplo, uma vez eu
+      estava usando números aleatórios gerados para criar um mundo gerado aleatoriamente num
+      jogo de computador.  Se eu encontrasse um mundo que eu realmente gostasse, talvez eu quisesse
+      jogar nele novamente, ou mandá-lo para um amigo).  Para isso, você precisa configurar
+      a <em>semente</em>, que você consegue fazer com #{code 'srand'}.  Desta forma:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -440,17 +441,16 @@ module Methods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      It will do the same thing every time you seed it with the same number.  If you want
-      to get different numbers again (like what happens if you never use
-      #{code 'srand'}), then just call #{code 'srand 0'}.  This seeds it with a
-      really weird number, using (among other things) the current time on
-      your computer, down to the millisecond.
+      Ele fará a mesma coisa sempre que você alimentá-lo com a mesma semente.  Se você quer
+      voltar a ter números diferentes (como acontece quando você nunca usa
+      #{code 'srand'}), então apenas chame #{code 'srand 0'}.  Isso alimenta o gerador com
+      um número realmente estranho, usando (dentre outras coisas) a hora atual do seu
+      computador, com precisão de milisegundos.
       END_PARAGRAPH
     end
-    h2 {"The #{code 'Math'} Object"}
+    h2 {"O Objeto #{code 'Math'}"}
     para do <<-END_PARAGRAPH
-      Finally, let's look at the #{code 'Math'} object.  We might as well
-      jump right in:
+      Finalmente, vamos olhar para o objeto #{code 'Math'}.  Vamos começar de uma vez:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -463,21 +463,20 @@ module Methods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      The first thing you noticed was probably the #{code '::'}
-      notation.  Explaining the <dfn>scope operator</dfn> (which is what that is)
-      is really beyond the, uh... scope of this tutorial.  No pun
-      intended.  I swear.  Suffice it to say, you can use
-      #{code 'Math::PI'} just like you would expect to.
+      A primeira coisa que você percebeu foi provavelmente a notação do #{code '::'}.  Explicar
+      o <dfn>operador de escopo</dfn> (que é o que ele é) está um pouco além do, uh... escopo
+      deste tutorial.  Não é nenhum trocadilho.  Eu juro.  Basta dizer que você pode usar
+      #{code 'Math::PI'} exatamente da forma como você espera.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      As you can see, #{code 'Math'} has all of the things you would
-      expect a decent scientific calculator to have.  And as always,
-      the floats are <em>really close</em> to being the right answers.
+      Como você pode ver, #{code 'Math'} tem todas as coisas que você esperaria que
+      uma calculadora científica decente tivesse.  E, como sempre, os floats estão
+      <em>realmente perto</em> de serem as respostas certas.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So now let's #{makeLink 'flow', :generateFlowControl}!
+      Então vamos entrar no #{makeLink 'fluxo', :generateFlowControl}!
       END_PARAGRAPH
     end
   end
