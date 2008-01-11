@@ -6,8 +6,9 @@ module FlowControl
   def generateFlowControl
     para do <<-END_PARAGRAPH
       Ahhhh, controle de fluxo. É aqui que tudo se junta. Ainda que
-      este capítulo seja mais curto e fácil que o capítulo sobre #{makeLink 'métodos', :generateMethods}, ele vai abrir um mundo de possibilidades
-      de programação
+      este capítulo seja mais curto e fácil que o capítulo sobre
+      #{makeLink 'métodos', :generateMethods}, ele vai abrir um mundo de
+      possibilidades de programação.
       Após este capítulo, poderemos escrever programas realmente interativos;
       antes fizemos programas que <em>dizem</em> coisas diferentes
       dependendo do que você escreve, mas após este capítulo eles
@@ -18,12 +19,9 @@ module FlowControl
     h2 {'Métodos de Comparação'}
     para do <<-END_PARAGRAPH
       Vamos correr nesta parte para chegar logo à próxima seção,
-      <strong>Decisões</strong>, onde tudo que é legal acontece.
+      <strong>Ramificações</strong>, onde tudo que é legal acontece.
       Para ver se um objeto é maior ou menor que outro, usamos
       os métodos #{code '>'} e #{code '<'}, assim:
-      stuff happens.  So, to see if one object is greater than
-      or less than another, we use the methods #{code '>'}
-      and #{code '<'}, like this:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -60,7 +58,7 @@ module FlowControl
     para do <<-END_PARAGRAPH
       E é claro que também podemos comparar strings. Quando strings
       são comparadas, leva-se em conta seus <dnf>ordenamentos
-      lexicográficos</dfn> o que trocando em miúdos significa a ordem delas
+      lexicográficos</dfn> o que, trocando em miúdos, significa a ordem delas
       no dicionário. #{code 'cachorro'} vem antes de #{code 'gato'} no
       dicionário, então:
       END_PARAGRAPH
@@ -70,30 +68,31 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Há um porém, contudo: os computadores costumam ordenar letras
+      Há um porém: os computadores costumam ordenar letras
       maiúsculas antes de minúsculas, como se viessem antes (é assim que
       guardam as letras em fontes, por exemplo: todas as letras
       maiúsculas primeiro, seguidas das minúsculas).
       Isso significa que o computador vai pensar que #{code "'Zoológico'"} vem
-      antes de #{code "'abelha'"}, então se você quiser descobrir que
+      antes de #{code "'abelha'"}, então se você quiser descobrir qual
       palavra viria primeiro num dicionário de verdade, use #{code 'downcase'}
       (ou #{code 'upcase'} ou #{code 'capitalize'}) em ambas as palavras
       antes de tentar compará-las.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Uma última observação antes de <strong>Decisões</strong>: os métodos de
-      comparação não estão nos dando as strings #{code "'true'"} e
-      #{code "'false'"}; elas estão nos dando os objetos especiais
+      Uma última observação antes de <strong>Ramificações</strong>: os
+      métodos de comparação não estão nos dando as strings #{code "'true'"}
+      e #{code "'false'"}; elas estão nos dando os objetos especiais
       #{code 'true'} e #{code 'false'} (claro, #{code 'true.to_s'} nos dá
       #{code "'true'"}, que é como #{code 'puts'} imprimiu #{code "'true'"}.)
       #{code 'true'} e #{code 'false'} são usados o tempo todo em...
       END_PARAGRAPH
     end
-    h2 {'Decisões (Branching)'}
+    h2 {'Ramificações (Branching)'}
     para do <<-END_PARAGRAPH
-      Decidir é um conceito simples, mas poderoso. Na verdade, é tão simples
-      que aposto que nem tenho que explicá-lo; deixe eu lhe mostrar:
+      "Ramificações" é um conceito simples, mas poderoso. Na verdade,
+      é tão simples que aposto que nem tenho que explicá-lo; deixe
+      eu lhe mostrar:
       END_PARAGRAPH
     end
     executa1 = {:input => ['Chris']}
@@ -108,7 +107,7 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      E isso é decidir. Se o que vem depois de #{code 'if'} (N.T.&mdash;se) é
+      E isso é ramificar. Se o que vem depois de #{code 'if'} (N.T.&mdash;se) é
       #{code 'true'}, nós executamos o código entre #{code 'if'} e 
       #{code 'end'}. Se o que vem depois de #{code 'if'} é #{code 'false'},
       não executamos nada. Claro e simples.
@@ -116,9 +115,9 @@ module FlowControl
     end
     para do <<-END_PARAGRAPH
       Eu indentei o código entre #{code 'if'} e #{code 'end'} porque
-      acho que fica mais fácil acompanhar as decisões assim. Quase
+      acho que fica mais fácil acompanhar as ramificações assim. Quase
       todos os programadores fazem isso, independente da linguagem
-      em que estejam programando. Pode não parecer muito útil neste
+      em que estejam trabalhando. Pode não parecer muito útil neste
       exemplo pequeno, mas quando as coisas ficam mais complexas,
       faz uma baita diferença.
       END_PARAGRAPH
@@ -143,14 +142,14 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Decidir é como deparar com uma bifurcação no código: tomamos
+      Ramificar é como deparar com uma bifurcação no código: tomamos
       o caminho para as pessoas com o #{code "nome == 'Chris'"} ou
-      o #{code 'else'}, tomamos o outro caminho?
+      #{code 'else'}, tomamos o outro caminho?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      E como várias situações na vida, você pode tomar decisões que
-      levam a outras decisões:
+      E como os galhos de uma árvore, você pode ter ramificações
+      que contêm suas próprias ramificações:
       END_PARAGRAPH
     end
     executa1 = {:input => ['chris', 'sim']}
@@ -197,7 +196,7 @@ module FlowControl
       Aí eu preenchi com <dfn>comentários</dfn>, coisas no
       código que o computador irá ignorar:
       END_PARAGRAPH
-    end
+
     prog false do <<-END_CODE
       puts 'Olá, e bem-vindo à aula de Português.'
       puts 'Meu nome é professora Hélia. Seu nome é...?'
@@ -214,7 +213,7 @@ module FlowControl
       Qualquer coisa após um #{code '#'} é considerado um comentário (a
       não ser, é claro, que você esteja em uma string). Após preencher
       com comentários, substituí-os por código funcional. Algumas
-      pessoas gostam de deixá-los no arquivo; pessoalmente, creio
+      pessoas gostam de deixá-los no arquivo; particularmente, creio
       que código bem-escrito fala por si. Eu costumava escrever
       mais comentários, mas quanto mais "fluente" fico em Ruby, menos
       faço uso deles. Eles me distraem boa parte do tempo. É uma escolha
@@ -243,7 +242,7 @@ module FlowControl
     para do <<-END_PARAGRAPH
       Mais uma vez escrevi #{code 'if'}, #{code 'else'} e #{code 'end'}
       ao mesmo tempo. Realmente me ajuda a saber "onde estou" no código.
-      Também faz com que o trabalho parece mais fácil porque posso me 
+      Também faz com que o trabalho pareça mais fácil porque posso me 
       concentrar em uma parte pequena, como preencher o código entre
       #{code 'if'} e #{code 'else'}. Uma outra vantagem de fazê-lo
       desta maneira é que o computador pode entender o programa em
@@ -256,7 +255,7 @@ module FlowControl
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Essas dicas vão ajudá-lo a escrever programas que tomam decisões,
+      Essas dicas vão ajudá-lo a escrever programas que se ramificam,
       mas também ajudam com outro tipo central de controle de fluxo:
       END_PARAGRAPH
     end
@@ -273,8 +272,8 @@ module FlowControl
       então se você não mandar o seu parar, ele não parará. Garantimos
       que isso não aconteça ao dizermos que ele deve repetir certas partes
       de um programa #{code 'while'} (N.T.&mdash;enquanto) uma condição
-      especificada for verdadeira. Isso funciona bem parecido com como
-      #{code 'if'} funciona:
+      especificada for verdadeira. O funcionamento é bem parecido com o de
+      #{code 'if'}:
       END_PARAGRAPH
     end
     prog ['Olá?', 'Oi!', 'Muito prazer em conhecê-lo.', 'Ah... que amor!', 'tchau'] do <<-END_CODE
@@ -297,11 +296,11 @@ module FlowControl
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Loops permitem que você faça várias coisas interessantes, como sei
-      que você pode imaginar. Contudo, eles também podem causar problemas
-      se você cometer algum erro. E se o computador ficar preso num loop
-      infinito? Se você acha que isso pode ter acontecido, é só segurar
-      a tecla <kbd>Ctrl</kbd> e pressionar <kbd>C</kbd>.
+      Loops, ou repetições, permitem que você faça várias coisas
+      interessantes, como sei que você pode imaginar. Contudo, eles também
+      podem causar problemas se você cometer algum erro. E se o computador
+      ficar preso num loop infinito? Se você acha que isso pode ter acontecido,
+      é só segurar a tecla <kbd>Ctrl</kbd> e pressionar <kbd>C</kbd>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -311,7 +310,7 @@ module FlowControl
     end
     h2 {'Um Pouco de Lógica'}
     para do <<-END_PARAGRAPH
-      Vamos dar uma olhada no noss primeiro programa com decisões. E
+      Vamos dar uma olhada no nosso primeiro programa com ramificações. E
       se minha esposa chegasse em casa, visse o programa, tentasse usá-lo
       e ele não dissesse que nome bonito <em>ela</em> tem? Eu não
       gostaria de magoá-la (ou de dormir no sofá), então vamos reescrevê-lo:
@@ -338,10 +337,10 @@ module FlowControl
       o quão boa é essa regra. No nosso caso, repetimos a linha 
       #{code 'Que nome bonito!'}. Por que é que isso é um problema? Bem,
       e se eu cometi um erro de digitação quando eu reescrevi? E se eu
-      quosesse mudar de #{code 'bonito'} para #{'gracioso'} em ambas
+      quisesse mudar de #{code 'bonito'} para #{'gracioso'} em ambas
       as linhas? Eu sou preguiçoso, lembra? Basicamente, se eu quero
       que meu programa faça a mesma coisa quando receber #{code 'Chris'} ou
-      #{code 'Katy'}, então ele reamente deve fazer <em>a mesma coisa</em>:
+      #{code 'Katy'}, então ele realmente deve fazer <em>a mesma coisa</em>:
       END_PARAGRAPH
     end
     prog ['Katy'] do <<-END_CODE
@@ -385,7 +384,7 @@ module FlowControl
       Em português, usa-se "ou" para dizer "um ou outro, mas não os dois".
       Por exemplo, sua mãe pode lhe dizer: "Para sobremesa você pode escolher
       torta ou bolo". Ela <em>não</em> deu a opção de escolher os dois!
-      Um computador, por outro lado, entende #{code 'or'} como "ou ou outro,
+      Um computador, por outro lado, entende #{code 'or'} como "ou um ou outro,
       ou os dois" (outro jeito de colocar é "ao menos um destes é verdadeiro").
       É por isso que computadores são mais legais que mães.
       END_PARAGRAPH
@@ -403,13 +402,13 @@ module FlowControl
       que responder com #{output 'QUE?! FALA MAIS ALTO!'}, a não
       ser que você grite (digite tudo em maiúsculas). Se você 
       gritar, ela pode lhe ouvir (ou ao menos pensa que pode), e
-      sempre grita #{output 'NÃO, NÃO DESDE 1938!'}  Para fazer seu
+      sempre responde #{output 'NÃO, NÃO DESDE 1938!'}  Para fazer seu
       programa ser realmente verossímil, faça a velha gritar
       um número diferente a cada vez; talvez qualquer ano aleatório
       entre 1930 e 1950 (a última parte é opcional, e ficaria muito
       mais fácil se você lesse a seção sobre o gerador de números
       randômicos do Ruby no capítulo sobre 
-      #{makeLink 'methods', :generateMethods}  Você não pode parar
+      #{makeLink 'métodos', :generateMethods}  Você não pode parar
       de falar com a velha enquanto não gritar #{input 'TCHAU'}.<br />
       <em><strong>Dica:</strong> Não esqueça do </em>#{code 'chomp'}
       <em>!  </em>#{code "'TCHAU'"} com um enter não é a mesma coisa que
@@ -448,7 +447,7 @@ module FlowControl
       de coisas que se pode mandar o computador fazer? Alguns capítulos
       mais e você vai poder programar praticamente tudo. Sério mesmo!
       Veja só tudo que você pode fazer que não podia antes de aprender
-      sobre loops e decisões.
+      sobre loops e ramificações.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
