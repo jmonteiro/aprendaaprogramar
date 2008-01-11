@@ -79,7 +79,7 @@ module Arrays
       pedaço; fale sobre o pedaço zero (e na sua cabeça 
       pense #{code 'pedaco[0]'}).
       Você tem 5 dedos na sua mão e seus números são 0, 1, 2, 3 e 4.
-      Minha esposa e eu somos malabariasta. Quando fazemos malabares
+      Minha esposa e eu somos malabariastas. Quando fazemos malabares
       com 6 pinos, estamos equilibrando os pinos 0 à 5. Felizmente,
       em alguns meses, estaremos equilibrando o pino 6 (e portanto, 
       equilibrando 7 pinos). Você saberá que conseguiu quando
