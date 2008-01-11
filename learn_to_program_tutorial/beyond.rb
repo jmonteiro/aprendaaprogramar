@@ -37,16 +37,16 @@ module Beyond
     end
     para do <<-END_PARAGRAPH
 			Há muito mais do que isso a respeito do irb, mas você pode aprender 
-			tudo sobre ele no pickaxe.
+			tudo sobre ele no Pickaxe.
       END_PARAGRAPH
     end
     h2 {'O Pickaxe: "Programming Ruby"'}
     para do <<-END_PARAGRAPH
 			<em>O</em> livro sobre Ruby absolutamente a não perder é 
 			"Programming Ruby, The pragmáticas Programador's Guide",
-			de Andrew Hunt e David Thomas (os Programadores Pragmáticos -Pragmatic Programmers-).
+			de Andrew Hunt e David Thomas (os Pragmatic Programmers).
 			Embora eu recomende altamente de escolher a 
-			<a href="http://www.pragmaticprogrammer.com/titles/ruby/">2ª edição </a> 
+			<a href="http://www.pragmaticprogrammer.com/titles/ruby/">2ª edição</a>
 			deste livro excelente, com a cobertura de todas as últimas novidades do Ruby, 
 			você também pode obter uma versão on-line grátis de pouco mais antiga (mas ainda relevante). 
 			(Na verdade, se você instalou a versão do Ruby para Windows, você já tem ela).
@@ -72,14 +72,14 @@ module Beyond
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-			E por que é chamado de "o pickaxe" -picareta-? 
-			Pois bem, há uma imagem de um pickaxe na capa do livro. 
+			E por que é chamado de "o Pickaxe" (picareta)?
+            Pois bem, há uma imagem de uma picareta na capa do livro.
 			É um nome bobo, eu suponho, mas pegou.
       END_PARAGRAPH
     end
     h2 {'Ruby-Talk: a Mailing List do Ruby'}
     para do <<-END_PARAGRAPH
-			Mesmo com o irb e o pickaxe, às vezes você ainda pode não dar conta sozinho. 
+			Mesmo com o irb e o Pickaxe, às vezes você ainda pode não dar conta sozinho.
 			Ou talvez você queira saber se alguém já fez o que você está fazendo, 
 			para ver se você pode utilizá-lo.
 			Nestes casos, o melhor lugar é rubi-talk, a Mailing List do Ruby. 
@@ -91,7 +91,7 @@ module Beyond
     para do <<-END_PARAGRAPH
       <strong>ATENÇÃO:</strong> Existe um <em>grande</em> número de e-mails 
 			na lista todos os dias. Tenho a minha automaticamente enviada para 
-			uma outra pasta de mail para que ela não fique no meu caminho.
+			outra pasta de mail para que ela não fique no meu caminho.
 			Se simplesmente não quer lidar com todos os e-mails, no entanto, 
 			você não precisa lidar!
 			A mailing list ruby-talk é espelhada no newsgroup comp.lang.ruby, 
@@ -103,8 +103,8 @@ module Beyond
     h2 {'Tim Toady'}
     para do <<-END_PARAGRAPH
 			Tenho tentado proteger você de algo com o que vai esbarrar em breve, 
-			é o conceito de TMTOWTDI (pronunciado como "Tim Toady"): Há Mais De 
-			Uma Maneira Para Fazer Isso -There's More Than One Way To Do It-.
+            é o conceito de TMTOWTDI (pronunciado como "Tim Toady"): There's More
+            Than One Way To Do It (Há Mais De Uma Maneira Para Fazer Isso).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -121,11 +121,11 @@ module Beyond
 			muito código diversificado. Por exemplo, posso pensar em pelo menos 
 			cinco outras maneiras de criar uma string (além de circundar algum 
 			texto com aspas simples), e cada um deles funciona de maneira um pouco 
-			diferente. Eu só lhe mostrou o mais simples dos seis.
+			diferente. Eu só lhe mostrei o mais simples dos seis.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-			E quando conversamos sobre ramificação -decisões-, mostrei para você 
+			E quando conversamos sobre ramificações, mostrei para você
 			#{code 'if'}, mas não lhe mostrei #{code 'unless'}. 
 			Eu vou deixá-lo entender isso no irb.
       END_PARAGRAPH
@@ -182,12 +182,12 @@ module Beyond
 			Se fosse algo como #{code 'call_the_hidden_block'} ou algo assim, 
 			faria <em>muito</em> mais sentido para mim. Muitas pessoas dizem que 
 			#{code 'yield'} faz sentido para elas. Mas acho que esse é o propósito de 
-			TMTOWTDI: eles fazem do jeito delas, e vou fazê-lo à minha maneira.
+			TMTOWTDI: elas fazem do jeito delas, e eu vou fazer à minha maneira.
       END_PARAGRAPH
     end
     h2 {'O FIM'}
     para do <<-END_PARAGRAPH
-			Use-o para o bem e não o mal. :-) E se você achou este tutorial útil 
+			Use-o para o bem e não para o mal. :-) E se você achou este tutorial útil 
 			(ou confuso, ou se você encontrou um erro), 
 			<a href="mailto:chris@pine.fm">me faça saber</a>!
       END_PARAGRAPH
