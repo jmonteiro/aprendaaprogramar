@@ -384,20 +384,21 @@ module BlocksProcs
       end
       h2 {'Algumas Coisinhas Para Tentar'}
       para do <<-END_PARAGRAPH
-        &bull; <em>Relógio do Avô</em>.  Write a method which takes a block
-        and calls it once for each hour that has passed today.  That way, if I
-        were to pass in the block #{code "do puts 'DONG!' end"}, it would chime
-        (sort of) like a grandfather clock.  Test your method
-        out with a few different blocks (including the one I just gave you).
-        <em><strong>Hint:</strong>  You can use
-        </em>#{code 'Time.now.hour'}<em> to get the current hour.
-        However, this returns a number between </em>#{code '0'}<em> and </em>#{code '23'}<em>,
-        so you will have to alter those numbers in order to get ordinary clock-face
-        numbers (</em>#{code '1'}<em> to </em>#{code '12'}<em>).</em>
+        &bull; <em>Relógio Cuco</em>. Escreva um método que pegue um bloco
+        e o chame de hora em hora. Assim, se eu passar o bloco #{code "do puts 'DONG!' end"},
+        ele deve tocar como um relógio cuco. Teste seu método com diferentes
+        blocos (inclusive o que eu mostrei para você).
+        <em><strong>Dica:</strong> Você pode usar
+        </em>#{code 'Time.now.hour'}<em> para pegar a hora atual.
+        Porém, isso retorna um número entre </em>#{code '0'}<em> e </em>#{code '23'}<em>,
+        então você deve alterar esses números para os números de um relógio normal, entre
+        (</em>#{code '1'}<em> e </em>#{code '12'}<em>).</em>
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        &bull; <em>Program Logger</em>.  Write a method called #{code 'log'}, which
+        &bull; <em>Logger do programa</em>. Escreva um método chamado #{code 'log'}, que
+        pegue uma string como descrição de um bloco e, é claro, um bloco. Similarmente ao
+        #{code 'FacaUmaCoisaImportante'}, essa deve which
         takes a string description of a block and, of course, a block.  Similar to
         #{code 'doSelfImportantly'}, it should #{code 'puts'} a string telling
         that it has started the block, and another string at the end telling you
