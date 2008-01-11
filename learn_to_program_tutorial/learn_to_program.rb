@@ -5,7 +5,7 @@ module LearnToProgram
     @depth = 0
     @page  = []
     
-    #  'format' is a hidden page for testing formatting.
+    #  'format' é uma página escondida para testar a formatação.
     @chapters = {'format'=>['Formatting Page',          		:generateFormattingPage]}
     @chapters['00'     ] = ['Iniciando',                		:generateSetup]
     @chapters['01'     ] = ['Números',                  		:generateNumbers]
@@ -59,7 +59,7 @@ module LearnToProgram
     end
   end
   
-  def syntaxColor (str)  #  str has probably already been html-escaped.
+  def syntaxColor (str)  #  str provavelmente possui html-escaped.
     lines = str.split /\n/
     #  L2Pcomment
     #  L2Pstring
@@ -68,7 +68,7 @@ module LearnToProgram
     #  L2Pdefinition
     
     lines.collect! do |line|
-      #line += ' '  #  for splitting... Do we need this?
+      #line += ' '  #  para dividir... Precisamos disso?
       md = /'|#/.match line
       if md  #  Comment or string.
         syntaxColor(md.pre_match) + 
@@ -83,7 +83,7 @@ module LearnToProgram
             md[0]
           end
         end
-      else  #  No comment nor string.
+      else  #  sem comentários nem string.
         keywords = %w[__FILE__ and end in or self unless __LINE__
                       begin ensure redo super until BEGIN break do
                       false next rescue then when END case else for
@@ -134,9 +134,9 @@ module LearnToProgram
     '<span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">'+str+'</span>'
   end
   
-  #  This is the cool part...
+  #  Essa é a parte legal...
   def executeCode (code, input)
-    #  Wrap code to catch errors and to stop SystemExit.
+    #  Encapsula o código para pegar erros e não ocorrer SystemExit.
     code = <<-END_CODE
       begin
         #{code}
@@ -162,10 +162,10 @@ module LearnToProgram
       end
     end
     
-    #  Pass these methods to strIO:
+    #  Passa esses métodos para strIO:
     kernelMethods = ['puts', 'putc', 'gets']
     
-    #  Swap out Kernel methods...
+    # Métodos de Swap out Kernel...
     kernelMethods.each do |meth|
       Kernel.module_eval "alias __temp__tutorial__#{meth}__ #{meth}"
       Kernel.module_eval do
@@ -177,11 +177,11 @@ module LearnToProgram
     
     begin
       strIO.instance_eval code
-    rescue Exception => error  #  Catch parse errors.
+    rescue Exception => error  #  Captura erros durante o parse.
       return error.inspect
     end
     
-    #  ...and swap them back in.
+    #  ...e faz o swap de volta.
     kernelMethods.each do |meth|
       Kernel.module_eval "alias #{meth} __temp__tutorial__#{meth}__"
     end
@@ -190,7 +190,7 @@ module LearnToProgram
   end
   
   
-  #  Tags (or similar)
+  #  Tags (ou similar)
   
   def para (attributes = {}, &block)
     method_missing(:p, attributes, &block)
@@ -210,7 +210,7 @@ module LearnToProgram
   def progN (*trialRuns)
     code = yield
     
-    #  Trim leading whitespace.
+    #  Retirando espaços em branco.
     lines = code.split $/
     numSpaces = lines[0].length - lines[0].sub(/ */, '').length
     lines.each do |line|
@@ -236,7 +236,7 @@ module LearnToProgram
     nil
   end
   
-  #  Makes a tag.
+  #  Cria uma tag.
   def method_missing (methodSymbol, attributes = {})
     methodName = methodSymbol.to_s
     
