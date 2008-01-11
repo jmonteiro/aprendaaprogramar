@@ -169,111 +169,111 @@ module Setup
     #  END_PARAGRAPH
     #end
     ul do
-      li {'<a href="'+LINKADDR+'SciTEGlobal.properties">Global Properties</a>'}
-      li {'<a href="'+LINKADDR+'ruby.properties">Ruby Properties</a>'}
+      li {'<a href="'+LINKADDR+'SciTEGlobal.properties">Propriedades Globais</a>'}
+      li {'<a href="'+LINKADDR+'ruby.properties">Propriedades do Ruby</a>'}
     end
     para do <<-END_PARAGRAPH
-      It would also be a good idea to create a folder somewhere to keep
-      all of your programs.  Make sure that when you save a program,
-      you save it into this folder.
+      Seria também uma boa idéia criar um diretório em algum lugar para manter
+      todos os seus programas.  Tenha certeza que quando você salvar um programa,
+      esteja salvando neste diretório.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      To get to your command line, select Command Prompt from the
-      Accessories folder in your start menu.  You will want to
-      navigate to the folder where you are keeping your programs.
-      Typing #{input 'cd ..'} will take you up one folder, and
-      #{input 'cd foldername'} would put you inside the folder
-      named <kbd>foldername</kbd>.  To see all of the folders
-      in your current folder, type #{input 'dir /ad'}.
+      Para ir para sua linha de comando, selecione Prompt de Comando da pasta
+      Acessórios do seu menu Iniciar.  Você vai querer 
+      navegar para o diretório onde você está mantendo seus programas.
+      Digitando #{input 'cd ..'} levará você para o diretório anterior, e
+      #{input 'cd nome_do_diretorio'} coloria você dentro do diretório
+      chamado <kbd>nome_do_diretorio</kbd>.  Para ver todos seus diretórios
+      dentro do diretório atual, digite #{input 'dir /ad'}.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      And that's it!  You're all set to
-      #{makeLink 'learn to program', :generateNumbers}.
+      E é isto!  Você está pronto para
+      #{makeLink 'aprender a programar', :generateNumbers}.
       END_PARAGRAPH
     end
-    h2 {'Macintosh Installation'}
+    h2 {'Instalação para Macintosh'}
     para do <<-END_PARAGRAPH
-      If you have Mac OS X 10.2 (Jaguar), then you already have
-      Ruby on your system!  What could be easier?
-      Unfortunately, I don't think you can use Ruby on Mac OS X 10.1 and earlier.
-      END_PARAGRAPH
-    end
-    para do <<-END_PARAGRAPH
-      In order to program, you need to be able to write programs and
-      to run programs.  To do this, you will need a text editor and a
-      command line.
+      Se você tiver um Mac OS X 10.2 (Jaguar), então você já tem
+      Ruby no seu sistema!  O que poderia ser mais fácil?
+      Infelizmente, eu não acho que você pode usar Ruby no Mac OS X 10.1 e versões anteriores.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Your command line is accessible through the Terminal
-      application (found in Applications/Utilities).
+      Para programar, você precisa ser capaz de escrever programas e
+      executar os programas.  Para fazer isto, você precisará de um editor de textos e 
+      uma linha de comando.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      For a text editor, you can use whatever one you are familiar
-      or comfortable with.  If you use TextEdit, however, make sure
-      you save your programs as text-only!  Otherwise your programs
-      <em>will not work</em>.  Other options for programming are
-      emacs, vi, and pico, which are all accessible from the
-      command line.
+      Sua linha de comando está acessível através da aplicação
+      Terminal (encontrada em Aplicações/Utilidades).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      And that's it!  You're all set to
-      #{makeLink 'learn to program', :generateNumbers}.
-      END_PARAGRAPH
-    end
-    h2 {'Linux Installation'}
-    para do <<-END_PARAGRAPH
-      First, you will want to check and see if you have Ruby installed
-      already.  Type #{input 'which ruby'}.  If it says something like
-      #{output '/usr/bin/which: no ruby in (...)'}, then you need to
-      <a href="http://www.ruby-lang.org/en/20020102.html">download Ruby</a>,
-      otherwise see what version of Ruby you are running with
-      #{input 'ruby -v'}.  If it is older than the latest stable build
-      on the above download page, you might want to upgrade.
+      Para um editor de textos, você pode usar qualquer um que você esteja familiar
+      ou confortável para usar.  Se você usa TextEdit, entretanto, tenha certeza
+      que você está salvando seus programas como somente-texto!  Caso contrário seus programas
+      <em>não funcionarão</em>.  Outras opções para programar são
+      emacs, vi, e pico, que estão todos acessíveis via
+      linha de comando.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      If you are the root user, then you probably don't need any
-      instructions for installing Ruby.  If you aren't, you might want
-      to ask your system administrator to install it for you.  (That way
-      everyone on that system could use Ruby.)
+      E é isto!  Você está pronto para
+      #{makeLink 'aprender a programar', :generateNumbers}.
+      END_PARAGRAPH
+    end
+    h2 {'Instalação em Linux'}
+    para do <<-END_PARAGRAPH
+      Primeiro, você vai quere checar e ver se você já tem Ruby
+      instalado.  Digite #{input 'which ruby'}.  Se este comando responder algo como
+      #{output '/usr/bin/which: no ruby in (...)'}, então você precisa
+      <a href="http://www.ruby-lang.org/en/20020102.html">fazer o download do Ruby</a>,
+      caso contrário veja que versão do Ruby você possui com
+      #{input 'ruby -v'}.  Se for mais velha do que a última versão estável
+      na página de download acima, você poderia atualizá-lo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Otherwise, you can just install it so that only you can use it.
-      Move the file you downloaded to a temporary directory, like
-      <kbd>$HOME/tmp</kbd>.  If the name of the file is
-      <kbd>ruby-1.6.7.tar.gz</kbd>, you can open it with
-      #{input 'tar zxvf ruby-1.6.7.tar.gz'}.  Change directory
-      to the directory you just created (in this example,
+      Se você for o usuário root, então você provavelmente não precisa de qualquer
+      instrução para instalar o Ruby.  Se você não for, você poderia pedir
+      ao seu administrador de sistema para instalá-lo para você.  (Desta forma
+      todos neste sistema poderiam usar Ruby.)
+      END_PARAGRAPH
+    end
+    para do <<-END_PARAGRAPH
+      Caso contrário, você pode apenas instalá-lo tal que apenas você possa usá-lo.
+      Mova o arquivo baixado para um diretório temporário, como
+      <kbd>$HOME/tmp</kbd>.  Se o nome do arquivo for
+      <kbd>ruby-1.6.7.tar.gz</kbd>, você pode abrí-lo com
+      #{input 'tar zxvf ruby-1.6.7.tar.gz'}.  Mude do diretório
+      para o diretório que acabou de ser criado (neste exemplo,
       #{input 'cd ruby-1.6.7'}).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Configure your installation by typing
-      #{input './configure --prefix=$HOME'}).  Next type
-      #{input 'make'}, which will build your Ruby interpreter.
-      This might take a few minutes.  After that is done, type
-      #{input 'make install'} to install it.
+      Configure sua instalação digitando
+      #{input './configure --prefix=$HOME'}).  Depois digite
+      #{input 'make'}, que construirá seu interpretador Ruby.
+      Isto pode levar alguns minutos.  Apost isto ter terminado, digite
+      #{input 'make install'} para instalá-lo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Next, you'll want to add <kbd>$HOME/bin</kbd> to your
-      command search path by editing your <kbd>$HOME/.bashrc</kbd>
-      file.  (You might have to log out and back in again for
-      this to take effect.)  After you do that, test your installation:
-      #{input 'ruby -v'}.  If that tells you what version of Ruby you
-      have, you can now delete the files
-      in <kbd>$HOME/tmp</kbd> (or wherever you put them).
+      Depois, você vai querer adicionar <kbd>$HOME/bin</kbd> para seu
+      caminho de busca de comandos,a variável de ambiente PATH, editando seu arquivo <kbd>$HOME/.bashrc</kbd>.
+	    (Você pode ter que se deslogar e logar novamente para que 
+      isto tome efeito.)  Após ter feito isto, teste sua instalação:
+      #{input 'ruby -v'}.  Se mostrar a você qual a versão do Ruby que você
+      tem, você pode agora remover os arquivos 
+      em <kbd>$HOME/tmp</kbd> (ou onde quer que você os colocou).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      And that's it!  You're all set to
-      #{makeLink 'learn to program', :generateNumbers}.
+      E é isto!  Você está pronto para
+      #{makeLink 'aprender a programar', :generateNumbers}.
       END_PARAGRAPH
     end
   end
