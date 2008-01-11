@@ -21,11 +21,11 @@ HLINE = '<div class="fleur"><div class="fleur_stem">&nbsp;</div></div>'
 
 #  If you decide to change coloring or formatting of this tutorial,
 #  you'll want to change these to something appropriate.
-NUMBER_COLOR  = 'green'
-STRING_COLOR  = 'red'
-KEYWORD_COLOR = 'blue'
-INPUT_DESC    = 'white box'
-OUTPUT_DESC   = 'blue box'
+NUMBER_COLOR  = 'verde'
+STRING_COLOR  = 'vermelho'
+KEYWORD_COLOR = 'azul'
+INPUT_DESC    = 'caixa branca'
+OUTPUT_DESC   = 'caixa azul'
 
 #  Delimiter for input to sample code, since it comes out
 #  right alongside the output.  Must not be html escapable.
