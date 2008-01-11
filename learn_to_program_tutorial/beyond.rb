@@ -5,148 +5,150 @@ module Beyond
   
   def generateBeyond
     para do <<-END_PARAGRAPH
-      So where do we go now?  If you have a question, who can you
-      ask?  What if you want your program to open a webpage, send
-      an email, or resize a digital picture?  Well, there are many,
-      many places to find Ruby help.  Unfortunately,
-      that's sort of unhelpful, isn't it?  :-)
+      Então, onde é que podemos ir agora? Se você tiver uma pergunta, 
+      para quem pode perguntar?
+      E se você quer que seu programa abra uma página da Web, envie um e-mail, 
+      ou redimensione uma foto digital?
+      Pois bem, há muitos, muitos lugares onde encontrar ajuda para Ruby. 
+      Infelizmente, essa resposta nao tem muita utilidade, não é? :-)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      For me, there are really only three places I look for Ruby help.
-      If it's a small question, and I think I can experiment on my own
-      to find the answer, I use <dfn>irb</dfn>.  If it's a bigger question,
-      I look it up in my <dfn>pickaxe</dfn>.  And if I just can't figure
-      it out on my own, then I ask for help on <dfn>ruby-talk</dfn>.
+			Para mim, realmente existem apenas três lugares onde procuro para ajuda 
+			para o Ruby.
+			Se for uma pequena questão e eu acho que posso experimentar sozinho para 
+			encontrar a resposta, uso <dfn>irb</dfn>.
+			Se for uma questão maior, procuro no meu <dfn>pickaxe</dfn>.
+			E se simplesmente não consigo dar conta do recado, então peço ajuda na 
+			lista <dfn>ruby-talk</dfn>.
       END_PARAGRAPH
     end
-    h2 {'IRB:  Interactive Ruby'}
+    h2 {'IRB: Ruby interativo'}
     para do <<-END_PARAGRAPH
-      If you installed Ruby, then you installed irb.  To use it, just
-      go to your command prompt and type #{input 'irb'}.  When you are
-      in irb, you can type in any ruby expression you want, and it will tell you
-      the value of it.  Type in #{input '1 + 2'}, and it will tell you
-      #{output '3'}.  (Note that you don't have to use #{code 'puts'}.)
-      It's kind of like a giant Ruby calculator.  When you are done,
-      just type in #{input 'exit'}.
-      END_PARAGRAPH
-    end
-    para do <<-END_PARAGRAPH
-      There's a lot more to irb than this, but you can learn all about
-      it in the pickaxe.
-      END_PARAGRAPH
-    end
-    h2 {'The Pickaxe:  "Programming Ruby"'}
-    para do <<-END_PARAGRAPH
-      Absolutely <em>the</em> Ruby book to get is "Programming Ruby,
-      The Pragmatic Programmer's Guide", by David Thomas and Andrew
-      Hunt (the Pragmatic Programmers).  While I highly recommend
-      picking up the
-      <a href="http://www.pragmaticprogrammer.com/titles/ruby/">2nd edition</a>
-      of this excellent book, with all of
-      the latest Ruby covered, you can also get a slightly older
-      (but still mostly relevant) version for free online.
-      (Actually, if you installed the
-      Windows version of Ruby, you already have it.)
+			Se você instalou Ruby, então você instalou irb. Para usá-lo, basta ir 
+			ao seu prompt de comando e digitar #{input 'irb'}.
+			Quando você estiver em irb, você pode digitar qualquer expressão ruby 
+			que você queira, e ele devolverá o valor da mesma. 
+			Digite #{input '1 + 2'}, e devolverá #{output '3'}. 
+			(Note que você não precisa usar #{code 'puts'}).
+			É como uma espécie de calculadora Ruby gigante. Quando tiver concluído, 
+			digite simplesmente #{input 'exit'}.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      You can find just about everything about Ruby, from the basic
-      to the advanced, in this book.  It's easy to read; it's comprehensive;
-      it's just about perfect.  I wish every language had a book of
-      this quality.  At the back of the book, you'll find a huge section
-      detailing every method in every class, explaining it and giving
-      examples.  I just love this book!
+			Há muito mais do que isso a respeito do irb, mas você pode aprender 
+			tudo sobre ele no pickaxe.
+      END_PARAGRAPH
+    end
+    h2 {'O Pickaxe: "Programming Ruby"'}
+    para do <<-END_PARAGRAPH
+			<em>O</em> livro sobre Ruby absolutamente a não perder é 
+			"Programming Ruby, The pragmáticas Programador's Guide",
+			de Andrew Hunt e David Thomas (os Programadores Pragmáticos -Pragmatic Programmers-).
+			Embora eu recomende altamente de escolher a 
+			<a href="http://www.pragmaticprogrammer.com/titles/ruby/">2ª edição </a> 
+			deste livro excelente, com a cobertura de todas as últimas novidades do Ruby, 
+			você também pode obter uma versão on-line grátis de pouco mais antiga (mas ainda relevante). 
+			(Na verdade, se você instalou a versão do Ruby para Windows, você já tem ela).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      There are a number of places you can get it (including
-      the Pragmatic Programmers' own site), but my favorite place
-      is at <a href="http://www.ruby-doc.org/docs/ProgrammingRuby/">ruby-doc.org</a>.
-      That version has a nice table of contents on the side,
-      as well as an index.  (ruby-doc.org has lots of other
-      great documentation as well, such as for the Core API and
-      Standard Library... basically, it documents everything Ruby
-      comes with right out of the box.
-      <a href="http://www.ruby-doc.org/">Check it out.</a>)
+			Você pode encontrar praticamente tudo sobre Ruby, do básico ao avançado, 
+			neste livro. É fácil de ler; é abrangente; é quase perfeito. Desejo que 
+			todas as línguagens (de programação) tenham um livro desta qualidade. 
+			Na parte final do livro, você encontrará uma enorme seção detalhando 
+			cada método em cada classe, explicando-o e dando exemplos. 
+			Eu simplesmente amo este livro!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      And why is it called "the pickaxe"?  Well, there's a picture
-      of a pickaxe on the cover of the book.  It's a silly name, I
-      guess, but it stuck.
-      END_PARAGRAPH
-    end
-    h2 {'Ruby-Talk:  the Ruby Mailing List'}
-    para do <<-END_PARAGRAPH
-      Even with irb and the pickaxe, sometimes you still can't figure
-      it out.  Or perhaps you want to know if someone already did
-      whatever it is you are working on, to see if you could use it
-      instead.  In these cases, the place to go is ruby-talk, the Ruby
-      Mailing List.  It's full of friendly, smart, helpful people.
-      To learn more about it, or to subscribe, look
-      <a href="http://www.ruby-lang.org/en/20020104.html">here</a>.
+			Há um número de lugares onde você pode obtê-lo (incluindo o próprio 
+			site do Pragmatic Programmers), mas o meu lugar favorito é no 
+      <a href="http://www.ruby-doc.org/docs/ProgrammingRuby/">ruby-doc.org</a>.
+			Esta versão tem um bom índice de conteúdos, bem como um índice. 
+			(no ruby-doc.org tem muitas outras ótimas documentações, tais como a 
+			Core API e a Standard Library... Basicamente, isso documenta tudo que 
+			vem com o Ruby. <a href="http://www.ruby-doc.org/">Verifique.</a>).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      <strong>WARNING:</strong>  There's a <em>lot</em> of mail on the
-      mailing list every day.  I have mine automatically sent to a
-      different mail folder so that it doesn't get in my way.  If you
-      just don't want to deal with all that mail, though, you don't
-      have to!  The ruby-talk mailing list is mirrored to the newsgroup
-      comp.lang.ruby, and vice versa, so you can see the same messages
-      there.  Either way, you see the same messages, just in a slightly
-      different format.
+			E por que é chamado de "o pickaxe" -picareta-? 
+			Pois bem, há uma imagem de um pickaxe na capa do livro. 
+			É um nome bobo, eu suponho, mas pegou.
+      END_PARAGRAPH
+    end
+    h2 {'Ruby-Talk: a Mailing List do Ruby'}
+    para do <<-END_PARAGRAPH
+			Mesmo com o irb e o pickaxe, às vezes você ainda pode não dar conta sozinho. 
+			Ou talvez você queira saber se alguém já fez o que você está fazendo, 
+			para ver se você pode utilizá-lo.
+			Nestes casos, o melhor lugar é rubi-talk, a Mailing List do Ruby. 
+			É cheia de gente amigável, inteligente, colaborativa. 
+			Para saber mais sobre ela, ou para se inscrever, procure 
+			<a href="http://www.ruby-lang.org/en/20020104.html">aqui</a>.
+      END_PARAGRAPH
+    end
+    para do <<-END_PARAGRAPH
+      <strong>ATENÇÃO:</strong> Existe um <em>grande</em> número de e-mails 
+			na lista todos os dias. Tenho a minha automaticamente enviada para 
+			uma outra pasta de mail para que ela não fique no meu caminho.
+			Se simplesmente não quer lidar com todos os e-mails, no entanto, 
+			você não precisa lidar!
+			A mailing list ruby-talk é espelhada no newsgroup comp.lang.ruby, 
+			e vice-versa, assim você pode ver as mesmas mensagens lá.
+			De qualquer maneira, você verá as mesmas mensagens, apenas em um 
+			formato ligeiramente diferente.
       END_PARAGRAPH
     end
     h2 {'Tim Toady'}
     para do <<-END_PARAGRAPH
-      Something I have tried to shield you from, but which you will
-      surely run in to soon, is the concept of TMTOWTDI (pronounced
-      "Tim Toady"):  There's More Than One Way To Do It.
+			Tenho tentado proteger você de algo com o que vai esbarrar em breve, 
+			é o conceito de TMTOWTDI (pronunciado como "Tim Toady"): Há Mais De 
+			Uma Maneira Para Fazer Isso -There's More Than One Way To Do It-.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Now some will tell you what a wonderful thing TMTOWTDI is, while
-      others feel quite differently.  I don't really have strong feelings
-      about it in general, but I think it's a <em>terrible</em> way to
-      teach someone how to program.  (As if learning one way to do something
-      wasn't challenging and confusing enough!)
+			Agora alguns vão lhe dizer que TMTOWTDI é uma coisa maravilhosa, 
+			enquanto outros se sentem bastante diferente.
+			Eu realmente não tenho fortes sentimentos sobre o assunto em geral, 
+			mas eu acho que é uma péssima maneira de ensinar para alguém como programar. 
+			(Como se aprender uma maneira de fazer alguma coisa não fosse 
+			suficientemente desafiante e confuso!).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      However, now that you are moving beyond this tutorial, you'll
-      be seeing much more diverse code.  For example, I can think of
-      at least five other ways to make a string (aside from surrounding
-      some text in single quotes), and each one works slightly differently.
-      I only showed you the simplest of the six.
+			No entanto, agora que você está indo além deste tutorial, você verá 
+			muito código diversificado. Por exemplo, posso pensar em pelo menos 
+			cinco outras maneiras de criar uma string (além de circundar algum 
+			texto com aspas simples), e cada um deles funciona de maneira um pouco 
+			diferente. Eu só lhe mostrou o mais simples dos seis.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      And when we talked about branching, I showed you #{code 'if'},
-      but I didn't show you #{code 'unless'}.  I'll let you figure
-      that one out in irb.
+			E quando conversamos sobre ramificação -decisões-, mostrei para você 
+			#{code 'if'}, mas não lhe mostrei #{code 'unless'}. 
+			Eu vou deixá-lo entender isso no irb.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Another nice little shortcut you can use with #{code 'if'},
-      #{code 'unless'}, and #{code 'while'}, is the cute one-line version:
+			Outro agradável atalho que você pode usar com #{code 'if'}, 
+			#{code 'unless'}, #{code 'while'}, é a elegante versão de uma linha:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      #  These words are from a program I wrote to generate
-      #  English-like babble.  Cool, huh?
+      #  Estas palavras são de um programa que escrevi para gerar
+      #  Inglês-como babble. Bacana, não?
       puts 'grobably combergearl kitatently thememberate' if 5 == 2**2 + 1**1
       puts 'enlestrationshifter supposine follutify blace' unless 'Chris'.length == 5
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      And finally, there is another way of writing methods which take blocks
-      (not procs).  We saw the thing where we grabbed the block and turned
-      it into a proc using the #{code '&block'} trick in your parameter list
-      when you define the function.  Then, to call the block, you just use
-      #{code 'block.call'}.  Well, there's a shorter way (though I personally
-      find it more confusing).  Instead of this:
+			E, finalmente, há uma outra forma de escrever métodos que recebem blocos 
+			(não procs). Vimos isso onde recebemos o bloco e o transformamos em uma 
+			proc usando o truque do #{code '&block'} na lista de parâmetros quando 
+			se define a função. Depois, para chamar o bloco, você usa 
+			#{code 'block.call'}. Pois bem, há um caminho mais curto (embora 
+			pessoalmente eu o julgue mais confuso). Em vez disto:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -176,19 +178,18 @@ module Beyond
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      I don't know... what do you think?  Maybe it's just me, but...
-      #{code 'yield'}?!  If it was something like #{code 'call_the_hidden_block'}
-      or something, that would make a <em>lot</em> more sense to me.
-      A lot of people say #{code 'yield'} makes sense to them.  But
-      I guess that's what TMTOWTDI is all about:  they do it their way,
-      and I'll do it my way.
+			Não sei ... O que você acha? Talvez seja eu, mas... #{code 'yield'}?! 
+			Se fosse algo como #{code 'call_the_hidden_block'} ou algo assim, 
+			faria <em>muito</em> mais sentido para mim. Muitas pessoas dizem que 
+			#{code 'yield'} faz sentido para elas. Mas acho que esse é o propósito de 
+			TMTOWTDI: eles fazem do jeito delas, e vou fazê-lo à minha maneira.
       END_PARAGRAPH
     end
-    h2 {'THE END'}
+    h2 {'O FIM'}
     para do <<-END_PARAGRAPH
-      Use it for good and not evil.  :-)  And if you found this tutorial
-      useful (or confusing, or if you found an error),
-      <a href="mailto:chris@pine.fm">let me know</a>!
+			Use-o para o bem e não o mal. :-) E se você achou este tutorial útil 
+			(ou confuso, ou se você encontrou um erro), 
+			<a href="mailto:chris@pine.fm">me faça saber</a>!
       END_PARAGRAPH
     end
 
