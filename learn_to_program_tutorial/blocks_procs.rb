@@ -411,43 +411,45 @@ module BlocksProcs
             'Começando "um bloco um pouco menor"...' + $/ +
             '..."um bloco um pouco menor" terminou retornando:  5' + $/ +
             'Começando "um outro bloco"...' + $/ +
-            '..."um outro bloco" terminou retornando:  I like Thai food!' + $/ +
-            '..."bloco externo" terminou retornando:  false' + $/ +
+            '..."um outro bloco" terminou retornando: Eu gosto de comida tailandesa!' + $/ +
+            '..."bloco externo" terminou retornando: false' + $/ +
             '</pre>'
       para do <<-END_PARAGRAPH
-        &bull; <em>Better Logger</em>.  The output from that last logger was kind
-        of hard to read, and it would just get worse the more you used it.  It would
-        be so much easier to read if it indented the lines in the inner blocks.  To
-        do this, you'll need to keep track of how deeply nested you are every time
-        the logger wants to write something.  To do this, use a <dfn>global variable</dfn>,
-        a variable you can see from anywhere in your code.  To make a global variable,
-        just precede your variable name with #{code '$'}, like these:
-        #{code '$global'}, #{code '$nestingDepth'}, and #{code '$bigTopPeeWee'}.
-        In the end, your logger should output code like this:
+        &bull; <em>Um Logger aperfeiçoado</em>. A saída do último logger é muito difícil de
+        ler, e fica muito pior a medida que você for usando. Seria muito mais fácil de ler
+        se você identasse as linhas para os blocos internos. Para fazer isso, você vai precisar
+        saber how deeply nested you are every time the logger wants to write something. Para
+        fazer isso, use uma <dfn>variável global</dfn>, uma variável que você possa ver de
+        qualquer lugar de seu código. Para instânciar uma variável global, você deve
+        precedê-la com um #{code '$'}, assim: #{code '$global'}, #{code '$nestingDepth'},
+        e #{code '$bigTopPeeWee'}.
+        Enfim, seu logger deve ter uma saída parecida com essa:
         END_PARAGRAPH
       end
       puts '<pre class="L2PoutputBlock">' +
-            'Beginning "outer block"...' + $/ +
-            '  Beginning "some little block"...' + $/ +
-            '    Beginning "teeny-tiny block"...' + $/ +
-            '    ..."teeny-tiny block" finished, returning:  lots of love' + $/ +
-            '  ..."some little block" finished, returning:  42' + $/ +
-            '  Beginning "yet another block"...' + $/ +
-            '  ..."yet another block" finished, returning:  I love Indian food!' + $/ +
-            '..."outer block" finished, returning:  true' + $/ +
+            'Começando "bloco externo"...' + $/ +
+            '  Começando "um pequeno bloco"...' + $/ +
+            '    Começando "pequenino bloco"...' + $/ +
+            '    ..."pequenino bloco" terminou retornando: muito amor' + $/ +
+            '  ..."um pequeno bloco" terminou retornando: 42' + $/ +
+            '  Começando "um outro bloco"...' + $/ +
+            '  ..."um outro bloco" terminou retornando: Eu adoro comida indiana!' + $/ +
+            '..."bloco externo" terminou retornando: true' + $/ +
             '</pre>'
       para do <<-END_PARAGRAPH
-        Well, that's about all you're going to learn from this tutorial.
-        Congratulations!  You've learned a <em>lot</em>!  Maybe you don't feel
-        like you remember everything, or you skipped over some parts... really,
-        that's just fine.  Programming isn't about what you know; it's about
-        what you can figure out.  As long as you know where to find out the
-        things you forgot, you're doing just fine.  I hope you don't think
-        that I wrote all of this without looking things up every other minute!
-        Because I did.  I also got a lot of help with the code which runs all
-        of the examples in this tutorial.  But where was <em>I</em> looking
-        stuff up, and who was <em>I</em> asking for help?
-        #{makeLink 'Let me show you...', :generateBeyond}
+        Bem, isso é tudo que você aprendeu com esse tutorial.
+        Parabéns! Você aprendeu <em>muito</em! Talvez você sinta
+        como se você não lembrasse de nada, ou talvez você tenha
+        pulado algumas partes... Relaxe. Programação não é o que
+        você sabe, e sim o que você faz. A medida que você for
+        aprendendo onde procurar as coisas que você esquecer,
+        você está indo bem. Eu espero que você não ache que eu
+        escrevi tudo isso sem ficar conferindo a cada minuto!
+        Porque eu fiz isso. Eu também tive muita ajuda com os
+        códigos que rodam em todos os exemplos desse tutorial.
+        Mas onde <em>eu</em estava pesquisando tudo e a quem
+        <em>eu</em> estava pedindo ajuda?
+        #{makeLink 'Deixe-me conhecê-lo...', :generateBeyond}
         END_PARAGRAPH
       end
     end
