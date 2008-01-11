@@ -27,7 +27,7 @@ module Letters
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Como você pode ver, strings podem ter pontuaćão, dígitos, símbolos
+      Como você pode ver, strings podem ter pontuação, dígitos, símbolos
       e espaços... muito mais do que apenas letras. A última string
       não tem nada: nós a chamamos de <dfn>string vazia</dfn>.
       END_PARAGRAPH
