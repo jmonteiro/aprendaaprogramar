@@ -398,23 +398,21 @@ module BlocksProcs
       para do <<-END_PARAGRAPH
         &bull; <em>Logger do programa</em>. Escreva um método chamado #{code 'log'}, que
         pegue uma string como descrição de um bloco e, é claro, um bloco. Similarmente ao
-        #{code 'FacaUmaCoisaImportante'}, essa deve which
-        takes a string description of a block and, of course, a block.  Similar to
-        #{code 'doSelfImportantly'}, it should #{code 'puts'} a string telling
-        that it has started the block, and another string at the end telling you
-        that it has finished the block, and also telling you what the block returned.
-        Test your method by sending it a code block.  Inside the block, put <em>another</em>
-        call to #{code 'log'}, passing another block to it.  (This is called
-        <dfn>nesting</dfn>.)  In other words, your output should look something like this:
+        #{code 'FacaUmaCoisaImportante'}, essa deve retornar (#{code 'puts'}) uma string
+        dizendo que o bloco foi iniciado e outra string ao fim, dizendo que é o fim da
+        execução do bloco, e também dizendo o que o bloco retornou. Teste seu método
+        enviando um bloco de código. Dentro do bloco, coloque <em>outra</em> chamada para
+        #{code 'log'}, passando outro bloco para o mesmo (isto é chamado de <dfn>nesting</dfn>).
+        Em outras palavras, sua saída deve se parecer com isso:
         END_PARAGRAPH
       end
       puts '<pre class="L2PoutputBlock">' +
-            'Beginning "outer block"...' + $/ +
-            'Beginning "some little block"...' + $/ +
-            '..."some little block" finished, returning:  5' + $/ +
-            'Beginning "yet another block"...' + $/ +
-            '..."yet another block" finished, returning:  I like Thai food!' + $/ +
-            '..."outer block" finished, returning:  false' + $/ +
+            'Começando "bloco externo"...' + $/ +
+            'Começando "um bloco um pouco menor"...' + $/ +
+            '..."um bloco um pouco menor" terminou retornando:  5' + $/ +
+            'Começando "um outro bloco"...' + $/ +
+            '..."um outro bloco" terminou retornando:  I like Thai food!' + $/ +
+            '..."bloco externo" terminou retornando:  false' + $/ +
             '</pre>'
       para do <<-END_PARAGRAPH
         &bull; <em>Better Logger</em>.  The output from that last logger was kind
