@@ -12,7 +12,7 @@
 require 'cgi'
 require 'stringio'
 
-Dir.glob('learn_to_program_tutorial/*').each { |file| require file }
+Dir.glob(File.dirname(__FILE__) + '/learn_to_program_tutorial/*').each { |file| require_dependency file }
 
 LINKADDR   = '/'
 FRLTP_ADDR = 'http://pragmaticprogrammer.com/titles/fr_ltp'
@@ -32,6 +32,12 @@ OUTPUT_DESC   = 'caixa azul'
 INPUT = "%%%'f'o'o'"
 
 class LearnToProgramTutorial
+  @@NUMBER_COLOR  = NUMBER_COLOR 
+  @@STRING_COLOR  = STRING_COLOR 
+  @@KEYWORD_COLOR = KEYWORD_COLOR
+  @@INPUT_DESC    = INPUT_DESC   
+  @@OUTPUT_DESC   = OUTPUT_DESC  
+  
   include LearnToProgram
   include FormattingPage
   include Setup

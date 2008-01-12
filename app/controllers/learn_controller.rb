@@ -4,7 +4,7 @@ class LearnController < ApplicationController
   def index
     # captura a saída 
     request.cgi.instance_eval do
-      def out(options = 'text/plain') 
+      def out(options = 'text/plain', optional = true) 
         yield if block_given?
       end
     end
