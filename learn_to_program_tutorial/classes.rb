@@ -5,20 +5,21 @@ module Classes
 
     def generateClasses
       para do <<-END_PARAGRAPH
-        Até agora nós vimos vários tipos diferentes, ou
-        <dfn>classes</dfn>, de objetos:
-        strings, integers, floats, arrays, e alguns objetos especiais
-        (#{code 'true'}, #{code 'false'}, e #{code 'nil'}) que
-        iremos falar mais sobre mais tarde.
-        Em Ruby, essas classes tem sempre a primeira letra maiúscula:  #{code 'String'},
-        #{code 'Integer'}, #{code 'Float'}, #{code 'Array'}... etc.
-        Em geral, se queremos criar um novo objeto de uma
-        certa classe, nós usamos #{code 'new'}:
+        Até agora, nós vimos muitos tipos diferentes
+        de objetos, ou <dfn>classes</dfn>:
+        strings, inteiros, ponto flutuante, vetores
+        e alguns objetos especiais (#{code 'true'}, #{code 'false'} e #{code 'nil'}),
+        que vamos voltar a falar mais tarde.
+        Em Ruby, todas essas classes sempre começam
+        com maiúsculas: #{code 'String'}, #{code 'Integer'} (Inteiros),
+        #{code 'Float'} (Ponto Flutuante), #{code 'Array'} (Vetores) e etc.
+        Geralmente, se queremos criar um novo objeto
+        de uma certa classe, nós usamos o #{code 'new'}:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        a = Array.new  + [12345]  #  Adição em Array.
-        b = String.new + 'hello'  #  Adição em String.
+        a = Array.new  + [12345]  #  Adição de Vetores.
+        b = String.new + 'olá'  #  Adição com Strings.
         c = Time.new
 
         puts 'a = '+a.to_s
@@ -27,99 +28,101 @@ module Classes
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Pelo fato de querermos criar arrays e strings usando
-        #{code '[...]'} e #{code "'...'"} respectivamente, nós raramente os criamos 
-        usando #{code 'new'}.  (Embora realmente não seja óbvio
-        pelo exemplo acima, #{code 'String.new'} cria 
-        uma string vazia, e #{code 'Array.new'} cria um array
-        vazio.)  Além disso, números são excessões especiais:  você não pode
-        criar um Inteiro com #{code 'Integer.new'}.  Você tem que
-        escrever o Inteiro.
+        Como nós podemos criar vetores e strings usando
+        #{code '[...]'} e #{code "'...'"}, respectivamente,
+        nós raramente usamos o #{code 'new'} para isso (De qualquer
+        forma, não está muito claro, no exemplo anterior, que #{code 'String.new'}
+        cria uma string vazia e que #{code 'Array.new'} cria um
+        vetor vazio). Números, porém, são uma exceção: você não
+        pode criar um inteiro usando #{code 'Integer.new'}. Você
+        apenas tem que digitar o número.
         END_PARAGRAPH
       end
-      h2 {"The #{code 'Time'} Class"}
+      h2 {"A classe #{code 'Time'}"}
       para do <<-END_PARAGRAPH
-        Portanto qual é a história da classe #{code 'Time'}?
-        Objetos #{code 'Time'} representam momentos no tempo. Você pode
-        adicionar (ou subtrair) numbers para (ou de) tempos para ter novos tempos:
-        adicionando #{code '1.5'} a um tempo faz um novo tempo um segundo e meio
-        depois:
+        Está bem, e a classe #{code 'Time'}?
+        Objetos #{code 'Time'} representam momentos de tempo.
+        Você pode adicionar (ou subtrair) números para (ou de)
+        tempos para conseguir novos instantes: adicionando
+        #{code '1.5'} a um instante, retorna um novo instante
+        de um segundo e meio depois:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        time  = Time.new   #  The moment you got this web page.
-        time2 = time + 60  #  One minute later.
+        tempo  = Time.new    #  O instante em que você carrega esta página.
+        tempo2 = tempo + 60  #  Um minuto depois.
 
-        puts time
-        puts time2
+        puts tempo
+        puts tempo2
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Você pode também criar um tempo para um momento específico usando
-        #{code 'Time.mktime'}:
+        Você pode, também, fazer um tempo para um momento
+        específico usando #{code 'Time.mktime'}:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        puts Time.mktime(2000, 1, 1)          #  Y2K.
-        puts Time.mktime(1976, 8, 3, 10, 11)  #  When I was born.
+        puts Time.mktime(2000, 1, 1)          #  Ano 2000.
+        puts Time.mktime(1976, 8, 3, 10, 11)  #  Ano em que nasci.
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Aviso:  that's when I was born in Pacific Daylight Savings
-        Time (PDT).  When Y2K struck, though, it was Pacific
-        Standard Time (PST), at least to us West Coasters.  The
-        parentheses are to group the parameters to #{code 'mktime'}
-        together.  The more parameters you add, the more accurate your
-        time becomes.
+        Nota: quando eu nasci, estava em uso o Horário de Verão
+        do Pacífico (PDT, em Inglês). Quanto o ano 2000
+        chegou, porém, estava em uso o Horário Padrão do Pacífico
+        (PST, em Inglês), pelo menos para nós, da costa Oeste.
+        Os parênteses servem para agrupar os parâmetros para o
+        #{code 'mktime'}. Quanto mais parâmetros você adicionar,
+        #mais preciso o seu instante se tornará.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Você pode comparar tempos usando métodos de comparação
-        (um tempo recente é <em>menor</em> que um tempo futuro),
-        e se você subtrair um tempo do outro, você terá o
-        número de segundos entre eles.  Divirta-se com isso!
+        You can compare times using the comparison methods
+        (an earlier time is <em>less than</em> a later time),
+        and if you subtract one time from another, you'll get the
+        number of seconds between them.  Play around with it!
         END_PARAGRAPH
       end
       h2 {'A Few Things to Try'}
       para do <<-END_PARAGRAPH
-        &bull; Um bilhão de segundos...  Descubra o exato segundo que você
-        nasceu (se você puder).  Descubra quando você terá (ou
-        talvez quando você teve?) um bilhão de segundos de idade. Então
-        marque em seu calendário.
+        &bull; One billion seconds...  Find out the exact second you
+        were born (if you can).  Figure out when you will turn (or
+        perhaps when you did turn?) one billion seconds old.  Then
+        go mark your calendar.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        &bull; Feliz Aniversário! Pergunte em que ano uma pessoa nasceu,
-        o mês e o dia. Descruba a idade dela
-        e de um grande #{output 'SPANK!'} para cada aniversário
-        que ela já fez.
+        &bull; Happy Birthday!  Ask what year a person was born in,
+        then the month, then the day.  Figure out how old they are
+        and give them a big #{output 'SPANK!'} for each birthday
+        they have had.
         END_PARAGRAPH
       end
       h2 {"The #{code 'Hash'} Class"}
       para do <<-END_PARAGRAPH
-        Outra classe útil é a classe #{code 'Hash'}.  Hashes
-        são muito parecidos com arrays: eles tem uma série de variáveis que
-        podem apontar para objetos. Entretanto, no array, as
-        variáveis estão em sequência como uma linha, e cada uma é numerada
-        (começando em zero). Em um hash, as variáveis não estão 
-        numa linha (como se estivessem unidos mas de forma desordenada), e você
-        pode usar <em>qualquer</em> objeto para se referir a variável, não somente
-        um número.  É bom usar hashes hashes quado você tem uma série
-        de coisa que quer manter em ordem , mas elas não estão exatamente
-        em uma lista ordenada.  Por exemplo, as cores que uso para diferentes
-        partes do código que criam este tutorial:
+        Another useful class is the #{code 'Hash'} class.  Hashes
+        are a lot like arrays:  they have a bunch of slots which
+        can point to various objects.  However, in an array, the
+        slots are lined up in a row, and each one is numbered
+        (starting from zero).  In a hash, the slots aren't in
+        a row (they are just sort of jumbled together), and you
+        can use <em>any</em> object to refer to a slot, not just
+        a number.  It's good to use hashes when you have a bunch
+        of things you want to keep track of, but they don't really
+        fit into an ordered list.  For example, the colors I use for different
+        parts of the code which created this tutorial:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        colorArray = []  #  mesmo que Array.new
-        colorHash  = {}  #  mesmo que Hash.new
+        colorArray = []  #  same as Array.new
+        colorHash  = {}  #  same as Hash.new
 
-        colorArray[0]         = '#{STRING_COLOR}'
-        colorArray[1]         = '#{NUMBER_COLOR}'
-        colorArray[2]         = '#{KEYWORD_COLOR}'
-        colorHash['strings']  = '#{STRING_COLOR}'
-        colorHash['numbers']  = '#{NUMBER_COLOR}'
-        colorHash['keywords'] = '#{KEYWORD_COLOR}'
+        colorArray[0]         = '#{@@STRING_COLOR}'
+        colorArray[1]         = '#{@@NUMBER_COLOR}'
+        colorArray[2]         = '#{@@KEYWORD_COLOR}'
+        colorHash['strings']  = '#{@@STRING_COLOR}'
+        colorHash['numbers']  = '#{@@NUMBER_COLOR}'
+        colorHash['keywords'] = '#{@@KEYWORD_COLOR}'
 
         colorArray.each do |color|
           puts color
@@ -130,20 +133,20 @@ module Classes
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Se eu uso um array, tenho que me lembrar que a variável #{code '0'} é para
-        strings, slot #{code '1'} é para números, etc.  Mas se eu usar um hash, é
-        fácil!  Variável #{code "'strings'"} contém a cor das strings, é claro.
-        Nada para se lembrar.  Você deve ter notado que quando nós usamos
-        #{code 'each'}, os objetos em um hash não vieram na mesma
-        ordem que colocamos.  (Ao menos não quando eu escrevi isso.
-        Talvez eles venham agora... nunca se sabe com hashes.)  Arrays
-        são para manter as coisas em ordem, não hashes.
+        If I use an array, I have to remember that slot #{code '0'} is for
+        strings, slot #{code '1'} is for numbers, etc.  But if I use a hash, it's
+        easy!  Slot #{code "'strings'"} holds the color of the strings, of course.
+        Nothing to remember.  You might have noticed that when we used
+        #{code 'each'}, the objects in the hash didn't come out in the same
+        order we put them in.  (At least, they didn't when I wrote this.
+        Maybe they did just now... you never know with hashes.)  Arrays
+        are for keeping things in order, not hashes.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Embora as pessoas costumem usar strings para nomear as variáveis de um hash, você
-        poderia usar qualquer tipo de objeto, até mesmo arrays e outras hashes (mas eu não consigo
-        pensar porque você faria isso...):
+        Though people usually use strings to name the slots in a hash, you
+        could use any kind of object, even arrays and other hashes (though I can't
+        think of why you would want to do this...):
         END_PARAGRAPH
       end
       prog false do <<-END_CODE
@@ -155,22 +158,22 @@ module Classes
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Hashes e arrays são bons em coisas diferentes; cabe
-        a você decidir qual é melhor para o problema que for resolver.
+        Hashes and arrays are good for different things; it's up
+        to you to decide which one is best for a particular problem.
         END_PARAGRAPH
       end
       h2 {'Extending Classes'}
       para do <<-END_PARAGRAPH
-        No fim do capítulo passado, você escreveu um método para mostrar
-        o equivalente em Português de um determinado Inteiro. Entretanto, não era um método 
-        inteiro; era somente um método de "programa" genérico.  Não seria
-        bom se você pudesse escrever algo como #{code '22.to_eng'}
-        ao invés de #{code 'englishNumber 22'}?  Aqui está como você faria
-        isso:
+        At the end of the last chapter, you wrote a method to give
+        the English phrase for a given integer.  It wasn't an integer
+        method, though; it was just a generic "program" method.  Wouldn't
+        it be nice if you could write something like #{code '22.to_eng'}
+        instead of #{code 'englishNumber 22'}?  Here's how you would do
+        that:
         END_PARAGRAPH
       end
-      #  ALERT HACKER !!!  (Eu não posso pegar o namespace global trasparentemente
-      #                  de dentro de um objeto StringIO em um script mod_ruby.)
+      #  HACK ALERT!!!  (I can't get to the global namespace transparently
+      #                  from inside the StringIO object in a mod_ruby script.)
       integerClassHack = <<-END_CODE
           def to_eng
             if self == 5
@@ -183,34 +186,34 @@ module Classes
           end
         END_CODE
 
-      Integer.module_eval integerClassHack  #  Esta é a real definição do método.
-      #  Os seguintes definem um método em "outra" classe inteira:
-      #  FIM DO ALERTA HACKER!!!
+      Integer.module_eval integerClassHack  #  This is the real method definition.
+      #  The following defines a method in "another" integer class:
+      #  END HACK ALERT!!!
       prog do <<-END_CODE
         class Integer
 
   #{integerClassHack}
         end
 
-        #  Eu testo melhor com um par de números...
+        #  I'd better test on a couple of numbers...
         puts 5.to_eng
         puts 58.to_eng
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Bem , eu testei isso; Parece funcionar.  ;)
+        Well, I tested it; it seems to work.  ;)
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Portanto nós definimos um método inteiro entrando na classe
-        #{code 'Integer'}, definindo o método lá,
-        e saindo.  Agora todos os inteiros tem esse
-        (algo como incompleto) método.  De fato, se você não
-        gosta da forma que um método como
-        #{code 'to_s'} trabalha, você pode 
-        redefini-lo da mesma forma... mas eu não recomendo
-        isso!  É melhor manter os métodos antigos e criar 
-        novos quando você quer fazer algo novo.
+        So we defined an integer method by jumping into the
+        #{code 'Integer'} class, defining the method there,
+        and jumping back out.  Now all integers have this
+        (somewhat incomplete) method.  In fact, if you didn't
+        like the way a built-in method like
+        #{code 'to_s'} worked, you could just
+        redefine it in much the same way... but I don't recommend
+        it!  It's best to leave the old methods alone and to
+        make new ones when you want to do something new.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
