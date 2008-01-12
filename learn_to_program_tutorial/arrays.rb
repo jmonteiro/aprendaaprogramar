@@ -45,7 +45,7 @@ module Arrays
       array #{code '[true, false]'}. Lembre-se, variáveis não 
       são objetos, então, nosso último array está realmente
       apontando a para um float, uma <em>string</em> e um array.
-      Mesmo que nós mudássemos o valor de #{code 'flavor'}, isso 
+      Mesmo que nós mudássemos o valor de #{code 'sabor'}, isso 
       não mudaria o array.
       END_PARAGRAPH
     end
@@ -128,8 +128,8 @@ module Arrays
     para do <<-END_PARAGRAPH
       Então, o que aconteceu?  Bem, nós fomos capazes de passar por
       todos os objetos no array sem usar nenhum número, e
-      isto é definitivamente bom.  Traduzindo para o português, o programa
-      acima seria algo como:  Para #{code 'cada'} objecto
+      isto é muito bom.  Traduzindo para o português, o programa
+      acima seria algo como:  Para #{code 'cada'} objeto
       em #{code 'linguagens'}, aponte a variável #{code 'ling'}
       para o objeto e então #{code 'faça'}(do em inglês) tudo que eu disser,
       até que você chegue ao #{code 'fim'}(end em inglês).  (Como você sabe,
@@ -139,13 +139,13 @@ module Arrays
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Vocês poderia estar pensando consigo mesmo, "Isto é muito parecido
+      Vocês poderiam estar pensando consigo mesmo, "Isto é muito parecido
       com os laços de repetição (loops) que nós aprendemos anteriormente."  Sim, é similar.
-      Uma importante diferença é que o método #{code 'each'}
+      Uma diferença importante é que o método #{code 'each'}
       é apenas:  um método.  #{code 'while'} e #{code 'end'}
       (como #{code 'do'}, #{code 'if'}, #{code 'else'}, e todas as outras
       <span class="L2Pcode"><span class="L2Pkeyword">#{KEYWORD_COLOR}</span></span>
-      palavras) não são métodos.  Elas são uma parte fundamental da linguagem
+      palavras) não são métodos.  Elas são parte fundamental da linguagem
       Ruby, como #{code '='} e os parênteses; como as 
       marcas de pontuações no português.
       END_PARAGRAPH
@@ -187,7 +187,7 @@ module Arrays
       e #{code 'join'}, são específicos para arrays.  Ainda
       outros, como #{code 'push'} e #{code 'pop'},
       na verdade modificam o array.  E assim como com
-      os métodos de string, você não tem que lembrar de
+      os métodos de string, você não tem que se lembrar de
       todos estes, desde que você possa se lembrar onde
       achar informações sobre eles (bem aqui).
       END_PARAGRAPH
@@ -241,7 +241,7 @@ module Arrays
       remove o último objeto do array (e diz para você
       qual era este objeto).  #{code 'last'} é similar a #{code 'pop'}
       em dizer para você o que está no fim do array,
-      exceto que ele deixa o array em paz.
+      exceto que o #{code 'last'} deixa o array em paz.
       Novamente, #{code 'push'} e #{code 'pop'} <em>realmente
       modificam o array</em>:
       END_PARAGRAPH
@@ -262,7 +262,7 @@ module Arrays
     end
     h2 {'Algumas Coisas para Tentar'}
     para do <<-END_PARAGRAPH
-      &bull; Escreva o programa que nós falamos sobre ele no início
+      &bull; Escreva o programa que nós comentamos no início
       deste capítulo.<br />
       <em><strong>Dica:</strong>  Existe um adorável
       método de array que dará a você uma versão ordenada de um 
