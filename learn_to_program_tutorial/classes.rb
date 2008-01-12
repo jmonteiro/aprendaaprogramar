@@ -77,45 +77,47 @@ module Classes
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        You can compare times using the comparison methods
-        (an earlier time is <em>less than</em> a later time),
-        and if you subtract one time from another, you'll get the
-        number of seconds between them.  Play around with it!
+        Você pode comparar dois tempos utilizando os métodos
+        de comparação (um tempo anterior é <em>menor que</em
+        um tempo futuro), e se você subtrair um tempo de outro
+        você terá a diferença, em segundos, entre ambos.
+        Vamos brincar com isso um pouco!
         END_PARAGRAPH
       end
-      h2 {'A Few Things to Try'}
+      h2 {'Algumas Coisinhas Para Tentar'}
       para do <<-END_PARAGRAPH
-        &bull; One billion seconds...  Find out the exact second you
-        were born (if you can).  Figure out when you will turn (or
-        perhaps when you did turn?) one billion seconds old.  Then
-        go mark your calendar.
+        &bull; Um bilhão de segundos... Encontre o segundo exato
+        do seu nascimento (se você puder). Descubra quando você
+        fará (ou quando você fez?) um bilhão de segundos de idade.
+        Então vá marcar na sua folhinha.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        &bull; Happy Birthday!  Ask what year a person was born in,
-        then the month, then the day.  Figure out how old they are
-        and give them a big #{output 'SPANK!'} for each birthday
-        they have had.
+        &bull; Feliz Aniversário! Pergunte o ano de nascimento em
+        que uma pessoa nasceu. Então pergunte o mês e, finalmente,
+        o dia. Então descubra a idade dessa pessoa e lhe dê um
+        #{output 'PUXÃO DE ORELHA!'} para cada aniverśario
+        #que ela fez.
         END_PARAGRAPH
       end
-      h2 {"The #{code 'Hash'} Class"}
+      h2 {"A Classe #{code 'Hash'}"}
       para do <<-END_PARAGRAPH
-        Another useful class is the #{code 'Hash'} class.  Hashes
-        are a lot like arrays:  they have a bunch of slots which
-        can point to various objects.  However, in an array, the
-        slots are lined up in a row, and each one is numbered
-        (starting from zero).  In a hash, the slots aren't in
-        a row (they are just sort of jumbled together), and you
-        can use <em>any</em> object to refer to a slot, not just
-        a number.  It's good to use hashes when you have a bunch
-        of things you want to keep track of, but they don't really
-        fit into an ordered list.  For example, the colors I use for different
-        parts of the code which created this tutorial:
+        Outra classe muito útil é a classe #{code 'Hash'}. Hashes
+        são muito parecidos com vetores: eles têm um monte de
+        espaços que podem conter vários objetos. Porém, em um
+        vetor, os espaços são dispostos em uma linha, e cada um
+        é numerado (iniciando pelo zero). Em um Hash, porém, os
+        espaços não estão dispostos em uma linha (eles estão apenas
+        juntos), e você pode usar <em>qualquer</em> objeto para se
+        referir a um espaço, não apenas um número. É bom usar
+        hashes quando você tem uma porção de coisas que você quer
+        armazenar, mas que não têm, realmente, uma ordem. Por exemplo,
+        as cores que eu uso em diversas partes desse tutorial:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        colorArray = []  #  same as Array.new
-        colorHash  = {}  #  same as Hash.new
+        colorArray = []  #  o mesmo que Array.new
+        colorHash  = {}  #  o mesmo que Hash.new
 
         colorArray[0]         = '#{@@STRING_COLOR}'
         colorArray[1]         = '#{@@NUMBER_COLOR}'
@@ -133,37 +135,41 @@ module Classes
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        If I use an array, I have to remember that slot #{code '0'} is for
-        strings, slot #{code '1'} is for numbers, etc.  But if I use a hash, it's
-        easy!  Slot #{code "'strings'"} holds the color of the strings, of course.
-        Nothing to remember.  You might have noticed that when we used
-        #{code 'each'}, the objects in the hash didn't come out in the same
-        order we put them in.  (At least, they didn't when I wrote this.
-        Maybe they did just now... you never know with hashes.)  Arrays
-        are for keeping things in order, not hashes.
+        Se eu usar um vetor, eu tenho que me lembrar que o espaço #{code '0'}
+        é para strings, o slot #{code '1'} é para números e etc. Mas se eu
+        usar um Hash, fica fácil! O espaço #{code "'strings'"} armazena a cor
+        das strings, claro. Nada para lembrar.  Você deve ter norado que quando
+        eu usei o #{code 'each'}, os objetos no hash não vieram na mesma ordem
+        que eu os coloquei (Pelo menos não quando eu escrevi isso. Talvez agora
+        esteja em ordem... você nunca sabe a ordem com os hashes). Vetores servem
+        para colocar as coisas em ordem, os Hashes não.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Though people usually use strings to name the slots in a hash, you
-        could use any kind of object, even arrays and other hashes (though I can't
-        think of why you would want to do this...):
+        Apesar das pessosas normalmente usarem strings para nomear os
+        espaços em um hash, você pode usar qualquer tipo de objeto, até
+        mesmo vetores e outros hashes (apesar de eu não conseguir achar
+        uma razão para você fazer isso...):
         END_PARAGRAPH
       end
       prog false do <<-END_CODE
-        weirdHash = Hash.new
+        hashBizarro = Hash.new
 
-        weirdHash[12] = 'monkeys'
-        weirdHash[[]] = 'emptiness'
-        weirdHash[Time.new] = 'no time like the present'
+        hashBizarro[12] = 'macacos'
+        hashBizarro[[]] = 'totalmente vazio'
+        hashBizarro[Time.new] = 'nada melhor como o Presente'
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Hashes and arrays are good for different things; it's up
-        to you to decide which one is best for a particular problem.
+        Hashes e vetores são bons para coisas diferentes: a
+        escolha sobre qual resolve o seu problema melhor é sua,
+        e diferente para todos os problemas que você tiver.
         END_PARAGRAPH
       end
-      h2 {'Extending Classes'}
+      h2 {'Expandindo Classes'}
       para do <<-END_PARAGRAPH
+        No fim do último capítulo, você escreveu um método para
+        retornar 
         At the end of the last chapter, you wrote a method to give
         the English phrase for a given integer.  It wasn't an integer
         method, though; it was just a generic "program" method.  Wouldn't

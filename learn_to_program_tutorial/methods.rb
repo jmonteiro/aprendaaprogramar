@@ -41,7 +41,7 @@ module Methods
       #{code 'to_i'}, #{code 'to_f'}
       e #{code 'to_s'}.  No entanto, você descobriu os
       outros quatro?  Por que, não eram ninguém menos
-      que nossos velhos amigos da aritimética #{code '+'},
+      que nossos velhos amigos da matemática #{code '+'},
       #{code '-'}, #{code '*'} e #{code '/'}!
       END_PARAGRAPH
     end
@@ -65,7 +65,7 @@ module Methods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Não é muito bonito, então nós nunca iremos escrever desse jeito;
+      Não é muito bonito, então nós nunca mais vamos escrever desse jeito;
       no entanto, é importante entender o que <em>realmente</em> está
       acontecendo.
       (Na minha máquina, isso também me dá um <dfn>aviso</dfn>:
@@ -73,7 +73,7 @@ module Methods
       O código ainda rodou sem problemas, mas ele está me dizendo que está com
       problemas para descobrir o que eu quis dizer e para usar mais parênteses no
       futuro).
-      Isso também nos dá um entendimento mais profundo sobre por que podemos fazer
+      Isso também nos dá um entendimento mais profundo sobre porque podemos fazer
       #{code "'porco'*5"} mas não #{code "5*'porco'"}:  #{code "'porco'*5"} está
       dizendo ao #{code "'porco'"} para se multiplicar,
       mas #{code "5*'porco'"} está pedindo ao #{code '5'}
@@ -195,7 +195,7 @@ module Methods
       <em>caracteres</em> no meu nome, não o número de <em>letras</em>
       (conte-as).  Eu acho que conseguimos escrever um programa que
       pergunta seu primeiro nome, nome do meio e sobrenome individualmente e
-      soma todos os tamanhos... hey, por que você não faz isso!  Vá em frente,
+      some todos os tamanhos... Ei, por que você não faz isso?  Vá em frente,
       eu espero.
       END_PARAGRAPH
     end
@@ -256,7 +256,7 @@ module Methods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Hmmm... Eu não acho que essa rima é assim, mas sou muito preguiçoso
+      Hum... Eu não acho que essa rima é assim, mas sou muito preguiçoso
       para procurar.  (Também, eu queria alinhar a parte do
       #{code '.center lineWidth'}, por isso acrescentei espaços extra antes
       das strings.  Isso é só por que acho que fica mais bonito assim.
@@ -283,7 +283,7 @@ module Methods
     end
     para do <<-END_PARAGRAPH
       Os outros dois métodos de formatação da string são #{code 'ljust'} e
-      #{code 'rjust'}, que fazem o texto <dfn>justificado à esquerda</dfn> and
+      #{code 'rjust'}, que fazem o texto <dfn>justificado à esquerda</dfn> e
       <dfn>justificado à direita</dfn>.  Eles são parecidos com o #{code 'center'},
       exceto que eliminam os espaços em branco da string do lado direito e esquerdo,
       respectivamente.  Vamos ver os três em ação:
@@ -301,7 +301,7 @@ module Methods
     h2 {'Umas Coisinhas Para Tentar'}
     para do <<-END_PARAGRAPH
       &bull; Escreva um programa do Chefe Zangado.  Ele deve perguntar o que você quer de forma rude.
-      Qualquer que for sua resposta, o Chefe Zangado vai gritar de volta para você, e então
+      Qualquer que seja a sua resposta, o Chefe Zangado vai gritar de volta para você, e então
       despedí-lo.  Por exemplo, se você digitar #{input 'Eu quero um aumento.'}, ele deve gritar
       de volta #{output 'O QUE VOCÊ QUER DIZER COM "EU QUERO UM AUMENTO."?!?  VOCÊ ESTÁ DESPEDIDO!!'}
       END_PARAGRAPH
