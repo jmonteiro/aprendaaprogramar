@@ -575,96 +575,91 @@ module Classes
         podia ter deixado ela de fora, mas eu apenas quis
         reforçar a idéia de que certos métodos você podia
         fazer com um dragão, enquanto que outros aconteciam
-        com o dragão. 
-        We saw a few new things in that example.  The first is
-        simple:  #{code 'exit'} terminates the program right
-        then and there.  The second is the word #{code 'private'}
-        which we stuck right in the middle of our class definition.
-        I could have left it out, but I wanted to enforce the idea
-        of certain methods being things you can do to a dragon, and
-        others which simply happen within the dragon.  You can think
-        of these as being "under the hood":  unless you are an
-        automobile mechanic, all you really need to know is the gas
-        pedal, the brake pedal, and the steering wheel.  A programmer
-        might call those the <dfn>public interface</dfn> to your car.
-        How your airbag knows when to deploy, however, is internal to
-        the car; the typical user (driver) doesn't need to know about
-        this.
+        com o dragão. Você pode pensar nisso como "coisas por traz dos panos":
+        a não ser que você seja um mecânico de automóveis, tudo
+        o que você precisa saber sobre carros é o acelerador,
+        o freio e a direção. Um programador chama isso de
+        <dfn>interface pública</dfn, para o seu carro.
+        Como o seu airbag sabe a hora de funcionar, porém,
+        é algo interno ao carro; o usuário típico (o motorista)
+        não precisa saber disso.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Actually, for a bit more concrete example along those lines,
-        let's talk about how you might represent a car in a video
-        game (which happens to be my line of work).  First, you would
-        want to decide what you want your public interface to look like;
-        in other words, which methods should people be able to call on
-        one of your car objects?  Well, they need to be able to push
-        the gas pedal and the brake pedal, but they would also need to
-        be able to specify how hard they are pushing the pedal.  (There's
-        a big difference between flooring it and tapping it.)  They would
-        also need to be able to steer, and again, they would need to be
-        able to say how hard they are turning the wheel.  I suppose you
-        could go further and add a clutch, turn signals, rocket launcher,
-        afterburner, flux capacitor, etc... it depends
-        on what type of game you are making.
+        Agora, para um exemplo mais concreto nessa linha de raciocínio,
+        vamos falar um pouco sobre como você representaria um carro
+        em um jogo (o que é a minha linha de trabalho). Primeiro,
+        você precisa decidir como ira se parecer sua interface pública;
+        em outras palavras, quais métodos as pessoas podem chamar
+        do seus objetos do tipo carro? Bem, eles devem podem acelerar e
+        freiar, mas eles precisam, também, poder definir a força que
+        estão aplicando no pedal (Há uma grande diferença entre tocar o
+        acelerador e afundar o pé). Eles vão precisar também guiar, e
+        novamente, e dizer que força estão aplicando na direção. Eu
+        acho que você pode ir ainda mais longe e adicionar uma embreagem,
+        piscas, lançador de foguetes, incinerador traseiro, um condensador
+        de fluxo e etc... depende do tipo de jogo que você está fazendo.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Internal to a car object, though, there would need to be much
-        more going on; other things a car would need are a speed,
-        a direction, and a position (at the most basic).  These attributes
-        would be modified by pressing on the gas or brake pedals and
-        turning the wheel, of course, but the user would not be able
-        to set the position directly (which would be like warping).
-        You might also want to keep track of skidding or damage, if
-        you have caught any air, and so on.  These would all be internal
-        to your car object.
+        Os objetos internos a um carro, porém, são mais complexos:
+        outras coisas que um carro precisa são a velocidade, a
+        direção e a posição (ficando no básico). Esses atributos
+        serão modificados pressionando o pedal do acelerador ou o
+        de freio e girando o volante, claro, mas o usuário não deve
+        poder alterar essas informações diretamente (o que seria uma
+        distorção). Você pode querer checar a derrapagem ou o dano,
+        a resistência do ar e por aí vai. Tudo isso diz respeito
+        apenas ao carro. Tudo isso é interno ao carro.
         END_PARAGRAPH
       end
-      h2 {'A Few Things to Try'}
+      h2 {'Algumas Coisinhas Para Tentar'}
       para do <<-END_PARAGRAPH
-        &bull; Make an #{code 'OrangeTree'} class.  It should have a
-        #{code 'height'} method which returns its height, and a
-        #{code 'oneYearPasses'} method, which, when called, ages the tree
-        one year.  Each year the tree grows taller (however much you think
-        an orange tree should grow in a year), and after some number of
-        years (again, your call) the tree should die.  For the first few
-        years, it should not produce fruit, but after a while it should,
-        and I guess that older trees produce more each year than younger
-        trees... whatever you think makes most sense.  And, of course,
-        you should be able to #{code 'countTheOranges'} (which returns
-        the number of oranges on the tree), and #{code 'pickAnOrange'}
-        (which reduces the #{code '@orangeCount'} by one and returns a
-        string telling you how delicious the orange was, or else it just
-        tells you that there are no more oranges to pick this year).
-        Make sure that any oranges you don't pick one year fall off
-        before the next year.
-        END_PARAGRAPH
-      end
-      para do <<-END_PARAGRAPH
-        &bull; Write a program so that you can interact with your
-        baby dragon.  You should be able to enter commands like
-        #{input 'feed'} and #{input 'walk'}, and have those methods
-        be called on your dragon.  Of course, since what you are
-        inputting are just strings, you will have to have some sort
-        of <dfn>method dispatch</dfn>, where your program checks
-        which string was entered, and then calls the appropriate method.
+        &bull; Faça uma classe de #{code 'ArvoreDeLaranja'}. Ela deve
+        ter um método #{code 'altura'} que retorne sua altura, um método
+        chamado #{code 'passarUmAno'} que, quando chamado, faz a árvore
+        completar mais um ano de vida. Cada ano, a árvore cresce mais magra
+        (não importa o quão grande você ache que uma árvore de laranja
+        possa crescer em um ano), e depois de alguns anos (novamente,
+        você faz as chamadas) a árvore deve morrer. Nos primeiros anos,
+        ela não deve produzir frutos, mas depois de um tempo ela deve,
+        e eu acho que as árvores mais velhas produzem muito mais frutos
+        do que uma mais jovem com o passar dos anos... ou o que você
+        achar mais lógico. E, é claro, você deve poder #{code 'contarAsLaranjas'}
+        (o número de laranjas na árvore), e #{code 'pegarUmaLaranja'}
+        (que irá reduzir o #{code '@numeroDeLaranjas'} em um e retornar
+        uma string dizendo quão deliciosa a laranja estava, ou então
+        irá dizer que não há mais laranjas esse ano). Lembre-se de que
+        as laranjas que você não pegar esse ano devem cair antes do
+        próximo ano.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        And that's just about all there is to it!  But wait a second...
-        I haven't told you about any of those classes for doing things
-        like sending an email, or saving and loading files on your
-        computer, or how to create windows and buttons, or 3D worlds,
-        or anything!  Well, there are just <em>so many</em> classes
-        you can use that I can't possibly show you them all; I don't
-        even know what most of them are!  What I <em>can</em> tell
-        you is where to find out more about them, so you can learn
-        about the ones you want to program with.  Before I send you
-        off, though, there is just one more feature of Ruby you should
-        know about, something most languages don't have, but which I
-        simply could not live without:
-        #{makeLink 'blocks and procs', :generateBlocksProcs}.
+        &bull; Escreva um programa para que você possa
+        interagir com o seu filhote de dragão. Você deve
+        ser capaz de inserir comandos como #{input 'alimentar'}
+        e #{input 'quintal'}, e esses métodos devem ser
+        chamados no seu dragão. Logicamente que, como toda
+        a entrada será por strings, você deve ter uma forma
+        de <dfn>repassar os métodos</dfn>, onde seu programa
+        deve validar a string digitada e chamar o método
+        apropriado.
+        END_PARAGRAPH
+      end
+      para do <<-END_PARAGRAPH
+        E isso é tudo! Mas espere um pouco... Eu não disse nada a
+        você sobre classes para fazer coisas como mandar um e-mail,
+        ou salvar e carregar arquivos do seu computador, ou
+        como criar janelas e botões, ou mundos em 3D ou qualquer coisa!
+        Bem, há apenas <em>muitas</em> classes que você pode usar, e
+        isso torna impossível que eu mostre todas para você; mesmo eu
+        não conheço todas elas. O que eu <em>posso</em> dizer para você
+        é onde encontrar mais sobre elas, assim você pode aprender mais
+        sobre as que você quiser usar. Mas antes de mandar você embora,
+        há mais um recurso do Ruby que você deveria saber, algo que
+        a maioria das outras linguagens não tem, mas que eu simplesmente
+        não posso viver sem:
+        #{makeLink 'blocos e procs', :generateBlocksProcs}.
         END_PARAGRAPH
       end
 
