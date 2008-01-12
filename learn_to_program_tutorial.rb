@@ -14,7 +14,7 @@ require 'stringio'
 
 Dir.glob('learn_to_program_tutorial/*').each { |file| require file }
 
-LINKADDR   = '/~<SEU_USUARIO_AQUI>/LearnToProgram/'
+LINKADDR   = '/'
 FRLTP_ADDR = 'http://pragmaticprogrammer.com/titles/fr_ltp'
 
 HLINE = '<div class="fleur"><div class="fleur_stem">&nbsp;</div></div>'
