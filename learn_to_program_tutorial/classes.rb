@@ -169,26 +169,24 @@ module Classes
       h2 {'Expandindo Classes'}
       para do <<-END_PARAGRAPH
         No fim do último capítulo, você escreveu um método para
-        retornar 
-        At the end of the last chapter, you wrote a method to give
-        the English phrase for a given integer.  It wasn't an integer
-        method, though; it was just a generic "program" method.  Wouldn't
-        it be nice if you could write something like #{code '22.to_eng'}
-        instead of #{code 'englishNumber 22'}?  Here's how you would do
-        that:
+        retornar um número por extenso. Porém, esse não era um
+        método de inteiros: era um método genérico do programa.
+        Não seria mais legal se você pudesse escrever #{code '22.ext'}
+        ao inves de #{code 'porExtenso 22'}? Olha só como você
+        pode fazer isso:
         END_PARAGRAPH
       end
       #  HACK ALERT!!!  (I can't get to the global namespace transparently
       #                  from inside the StringIO object in a mod_ruby script.)
       integerClassHack = <<-END_CODE
-          def to_eng
+          def ext
             if self == 5
-              english = 'five'
+              porExtenso = 'cinco'
             else
-              english = 'fifty-eight'
+              porExtenso = 'cinqüenta e oito'
             end
 
-            english
+            porExtenso
           end
         END_CODE
 
@@ -201,364 +199,383 @@ module Classes
   #{integerClassHack}
         end
 
-        #  I'd better test on a couple of numbers...
-        puts 5.to_eng
-        puts 58.to_eng
+        #  Eu prefiro testar sempre em duplas...
+        puts 5.ext
+        puts 58.ext
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Well, I tested it; it seems to work.  ;)
+        Bem, eu testei; e nada explodiu. :)
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        So we defined an integer method by jumping into the
-        #{code 'Integer'} class, defining the method there,
-        and jumping back out.  Now all integers have this
-        (somewhat incomplete) method.  In fact, if you didn't
-        like the way a built-in method like
-        #{code 'to_s'} worked, you could just
-        redefine it in much the same way... but I don't recommend
-        it!  It's best to leave the old methods alone and to
-        make new ones when you want to do something new.
+        Nós definimos um método inteiro apenas "pulando"
+        dentro da classe #{code 'Integer'}, definindo o
+        método lá dentro e caindo fora. Agora todos os
+        inteiros tem esse sensacional (incompleto) método.
+        Na verdade, se você não gostar da forma como o
+        método nativo #{code 'to_s'} faz as coisas, você
+        pode simplesmente redefiní-lo da mesma forma...
+        mas eu não recomendo isso! É melhor deixar os métodos
+        antigos quietos em seu canto e fazer novos quando
+        você precisar de uma coisa nova.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        So... confused yet?  Let me go over that last program
-        some more.  So far, whenever we executed any code or
-        defined any methods, we did it in the default
-        "program" object.  In our last program, we left that
-        object for the first time and went into the class
-        #{code 'Integer'}.  We defined a method there (which
-        makes it an integer method) and all integers can
-        use it.  Inside that method we use #{code 'self'}
-        to refer to the object (the integer) using the method.
+        Confuso ainda? Deixe-me voltar até o último programa
+        mais um pouco. Até agora, quando nós executamos qualquer
+        código ou definido um método, nós o fizemos no objeto
+        "programa" padrão. No nosso último programa, nós saímos
+        daquele objeto pela primeira vez e fomos para dentro
+        da classe #{code 'Integer'}. Nós definimos um método
+        lá (o que o tornou um método inteiro) e todos os inteiros
+        podem usar ele. Dentro daquele métodos, nós usamos o
+        #{code 'self'} para nos referir ao objeto (o inteiro)
+        que estiver usando o método.
         END_PARAGRAPH
       end
-      h2 {'Creating Classes'}
+      h2 {'Criando Classes'}
       para do <<-END_PARAGRAPH
-        We've seen a number of different classes of objects.
-        However, it's easy to come up with kinds of objects
-        that Ruby doesn't have.  Luckily, creating a new
-        class is as easy as extending an old one.  Let's say
-        we wanted to make some dice in Ruby.  Here's how we
-        could make the Die class:
+        Nós já vimos um monte de objetos de classes diferentes.
+        Porém, é fácil criar tipos de objeto que o Ruby não
+        tenha. Por sorte, criar uma classe nova é tão fácil
+        como expandir uma classe já existente. Vamos supor
+        que eu queira rodar alguns dados no Ruby. Olhe
+        como podemos fazer uma classe chamada Dado:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        class Die
+        class Dado
 
-          def roll
+          def rolar
             1 + rand(6)
           end
 
         end
 
-        #  Let's make a couple of dice...
-        dice = [Die.new, Die.new]
+        #  Vamos fazer dois dados...
+        dados = [Dado.new, Dado.new]
 
-        #  ...and roll them.
-        dice.each do |die|
-          puts die.roll
+        #  ...e rolar cada um deles.
+        dados.each do |dado|
+          puts dado.rolar
         end
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        (If you skipped the section on random numbers,
-        #{code 'rand(6)'} just gives a random number between
-        #{code '0'} and #{code '5'}.)
+        (Se você pulou a parte que falava sobre números
+        aleatórios, #{code 'rand(6)'} apenas devolve
+        um número aleatório entre #{code '0'} e #{code '5'}).
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        And that's it!  Objects of our very own.  Roll the dice
-        a few times (with your reload button) and watch what
-        turns up.
+        Só isso! Objetos de nossa própria autoria. Role os dados
+        algumas vezes (utilizando o botão de "Atualizar" do seu
+        navegador) e veja o que acontece.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        We can define
-        all sorts of methods for our objects... but there's
-        something missing.  Working with these objects feels
-        a lot like programming before we learned about
-        variables.  Look at our dice, for example.  We can
-        roll them, and each time we do they give us a different
-        number.  But if we wanted to hang on to that number, we
-        would have to create a variable to point to the number.
-        It seems like any decent die should be able to <em>have</em>
-        a number, and that rolling the die should change the number.
-        If we keep track of the die, we shouldn't also have to keep track
-        of the number it is showing.
+        Nós podemos definir todo o tipo de métodos para
+        os nossos objetos... mas tem alguma coisa errada.
+        Trabalhando com esses objetos não mudou grande
+        coisa desde que aprendemos a mexer com variáveis.
+        Olhe o nosso dado, por exemplo. Cada vez que rolamos
+        ele, nós temos um número diferente. Mas se nós quisermos
+        salvar aquele número, nós temos que criar uma variável
+        e apontar para aquele número. E qualquer dado que
+        preste deve <em>ter</em> um número, e rolando o dado
+        deve mudar o número. Se nós armazenarmos o dado, nós
+        não temos como saber qual número ele está mostrando.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        However, if we try to store the number we rolled in a (local)
-        variable in #{code 'roll'}, it will be gone as soon as
-        #{code 'roll'} is finished.  We need to store the number in
-        a different kind of variable:
+        Porém, se nós tentarmos armazenar o número que nós tirmaos
+        no dado em uma variável (local) dentro de #{code 'rolar'},
+        o valor será perdido assim que o #{code 'rolar'} acabar.
+        Nós precisamos salvar esse número em um tipo diferente
+        de variável:
         END_PARAGRAPH
       end
-      h2 {'Instance Variables'}
+      h2 {'Variáveis de Instância'}
       para do <<-END_PARAGRAPH
-        Normally when we want to talk about a string, we will just
-        call it a <dfn>string</dfn>.  However, we could also call
-        it a <dfn>string object</dfn>.  Sometimes programmers might
-        call it <dfn>an instance of the class #{code 'String'}</dfn>, but this
-        is just a fancy (and rather long-winded) way of saying
-        <dfn>string</dfn>.  An <dfn>instance</dfn> of a class is just an
-        object of that class.
+        Normalmente quando falamos sobre strings, nós apenas nos
+        referimos a elas como <dfn>strings</dfn>. Porém, nós
+        poderíamos chamá-las de <dfn>Objetos do tipo String</dfn>.
+        Algumas vezes, alguns programadores podem chamá-las de
+        <dfn>instâncias da classe #{code 'String'}</dfn>, mas essa
+        é uma forma exagerada (e muito longa) de dizer <dfn>string</dfn>.
+        Uma <dfn>instância</dfn> de uma classe é apenas um objeto
+        daquela classe.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        So instance variables are just an object's variables.  A
-        method's local variables last until the method is finished.
-        An object's instance variables, on the other hand, will
-        last as long as the object does.  To tell instance variables
-        from local variables, they have #{code '@'} in front of
-        their names:
+        Portanto, variáveis de instância são como variáveis de
+        objeto. Uma variável local de um método ficam vivas até
+        que o método termine. Uma variável de instância de um
+        objeto, por outro lado, ficará viva enquanto o objeto
+        estiver vivo. Para diferenciar variáveis de instância
+        de variáveis locais, elas têm uma #{code '@'} na frente
+        dos seus nomes:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        class Die
+        class Dado
 
-          def roll
-            @numberShowing = 1 + rand(6)
+          def rolar
+            @numeroMostrado = 1 + rand(6)
           end
 
-          def showing
-            @numberShowing
+          def mostrado
+            @numeroMostrado
           end
 
         end
 
-        die = Die.new
-        die.roll
-        puts die.showing
-        puts die.showing
-        die.roll
-        puts die.showing
-        puts die.showing
+        dado = Dado.new
+        dado.rolar
+        puts dado.mostrado
+        puts dado.mostrado
+        dado.rolar
+        puts dado.mostrado
+        puts dado.mostrado
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Very nice!  So #{code 'roll'} rolls the die and
-        #{code 'showing'} tells us which number is showing.
-        However, what if we try to look at what's showing before
-        we've rolled the die (before we've set #{code '@numberShowing'})?
+        Muito legal! Agora o #{code 'rolar'} rola o dado
+        e o #{code 'mostrado'} nos diz qual é o número
+        que saiu.
+        Mas e se quisermos ver qual número saiu antes
+        de rolar o dado (antes de termos definido
+        #{code '@numeroMostrado'})?
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        class Die
+        class Dado
 
-          def roll
-            @numberShowing = 1 + rand(6)
+          def rolar
+            @numeroMostrado = 1 + rand(6)
           end
 
-          def showing
-            @numberShowing
+          def mostrado
+            @numeroMostrado
           end
 
         end
 
-        #  Since I'm not going to use this die again,
-        #  I don't need to save it in a variable.
-        puts Die.new.showing
+        #  Já que eu não vou mais usar esse dado,
+        #  eu não preciso salvá-lo em uma variável.
+        puts Dado.new.mostrado
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        Hmmm... well, at least it didn't give us an error.  Still,
-        it doesn't really make sense for a die to be "unrolled", or
-        whatever #{output 'nil'} is supposed to mean here.  It would
-        be nice if we could set up our new die object right when it's
-        created.  That's what #{code 'initialize'} is for:
+        Hum... Bem, pelo menos não deu erro. Espera aí, não faz
+        muito sentido um dado "não-rolado" ou o que quer que
+        #{output 'nil'} signifique aqui. Seria muito mais
+        bacana se nós pudessemos rolar o dado assim que ele
+        for criado. É isso que o #{code 'initialize'} faz:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        class Die
+        class Dado
 
           def initialize
-            #  I'll just roll the die, though we
-            #  could do something else if we wanted
-            #  to, like setting the die with 6 showing.
-            roll
+            #  Eu vou apenas rolar o dado, apesar de
+            #  podermos fazer qualquer coisa que
+            #  queiramos fazer, como colocar a face '6'
+            #  para cima
+            rolar
           end
 
-          def roll
-            @numberShowing = 1 + rand(6)
+          def rolar
+            @numeroMostrado = 1 + rand(6)
           end
 
-          def showing
-            @numberShowing
+          def mostrado
+            @numeroMostrado
           end
 
         end
 
-        puts Die.new.showing
+        puts Dado.new.mostrado
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        When an object is created, its #{code 'initialize'}
-        method (if it has one defined) is always called.
+        Quando um objeto é criado, o método #{code 'initialize'}
+        (se foi definido) é sempre chamado.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        Our dice are just about perfect.  The only thing that
-        might be missing is a way to set which side of a die
-        is showing... why don't you write a #{code 'cheat'}
-        method which does just that!  Come back when you're
-        done (and when you tested that it worked, of course).
-        Make sure that someone can't set the die to have a
-        #{code '7'} showing!
+        Nosso dado está quase perfeito. A única coisa que falta
+        é uma maneira de arrumar qual número está sendo mostrado...
+        Por que você não escreve o método #{code 'trapaca'}
+        que faça isso? Volte quando tiver terminado (e quando
+        você testar e funcionar, lógico). Apenas tenha certeza
+        de que ninguém pode fazer com o que o dado mostre
+        um #{code '7'}!
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
-        So that's some pretty cool stuff we just covered.  It's tricky,
-        though, so let me give another, more interesting example.
-        Let's say we want to make a simple virtual pet, a baby
-        dragon.  Like most babies, it should be able to eat, sleep,
-        and poop, which means we will need to be able to feed it,
-        put it to bed, and take it on walks.  Internally, our dragon
-        will need to keep track of if it is hungry, tired, or needs
-        to go, but we won't be able to see that when we interact
-        with our dragon, just like you can't ask a human baby,
-        "Are you hungry?".  We'll also add a few other fun ways
-        we can interact with our baby dragon, and when he is born
-        we'll give him a name.  (Whatever you pass into the
-        #{code 'new'} method is passed into the #{code 'initialize'}
-        method for you.)  Alright, let's give it a shot:
+        Foi muito legal o que fizemos até agora. Mas foi apenas uma
+        brincadeira, mesmo assim. Deixe-me mostrar um exemplo mais
+        interessante. Vamos fazer um bichinho virtual, um dragão bebê.
+        Assim como todos os bebês, ele deve conseguir comer, dormir e
+        "atender à natureza", o que significa que vamos ter que ter
+        como alimentá-lo, colocá-lo pra dormir e levar ele até o quintal.
+        Internamente, o nosso dragão precisa saber se está com fome,
+        cansado ou se precisa ir lá fora, mas nós não poderemos ver
+        isso enquanto estivermos interagindo com ele, assim como você
+        não pode perguntar a um bebê "você está com fome?". Então
+        nós vamos adicionar algumas maneiras legais para interagir
+        com nosso dragão bebê, e quando ele nascer nós vamos dar um
+        nome para ele (Qualquer coisa que você passe como parâmetro
+        para o método #{code 'new'} será passado para o método
+        #{code 'initialize'} para você). Certo, vamos tentar:
         END_PARAGRAPH
       end
       prog do <<-END_CODE
-        class Dragon
+        class Dragao
 
-          def initialize name
-            @name = name
-            @asleep = false
-            @stuffInBelly     = 10  #  He's full.
-            @stuffInIntestine =  0  #  He doesn't need to go.
+          def initialize nome
+            @nome = nome
+            @dormindo = false
+            @comidaEstomago  = 10 #  Ele está cheio
+            @comidaIntestino =  0 #  Ele não precisa ir ao quintal
 
-            puts @name + ' is born.'
+            puts @name + ' nasceu.'
           end
 
-          def feed
-            puts 'You feed ' + @name + '.'
-            @stuffInBelly = 10
-            passageOfTime
+          def alimentar
+            puts 'Você alimentou o ' + @name + '.'
+            @comidaEstomago = 10
+            passagemDeTempo
           end
 
-          def walk
-            puts 'You walk ' + @name + '.'
-            @stuffInIntestine = 0
-            passageOfTime
+          def quintal
+            puts 'Você levou o ' + @name + ' até o quintal.'
+            @comidaIntestino = 0
+            passagemDeTempo
           end
 
-          def putToBed
-            puts 'You put ' + @name + ' to bed.'
-            @asleep = true
+          def colocarNaCama
+            puts 'Você colocou o ' + @name + ' na cama.'
+            @dormindo = true
             3.times do
-              if @asleep
-                passageOfTime
+              if @dormindo
+                passagemDeTempo
               end
-              if @asleep
-                puts @name + ' snores, filling the room with smoke.'
+              if @dormindo
+                puts @name + ' está roncando e enchendo o quarto de fumaça.'
               end
             end
-            if @asleep
-              @asleep = false
-              puts @name + ' wakes up slowly.'
+            if @dormindo
+              @dormindo = false
+              puts @name + ' está acordando.'
             end
           end
 
-          def toss
-            puts 'You toss ' + @name + ' up into the air.'
-            puts 'He giggles, which singes your eyebrows.'
-            passageOfTime
+          def jogar
+            puts 'Você joga o ' + @name + ' no ar.'
+            puts 'Ele dá uma risadinha e queima suas sobrancelhas.'
+            passagemDeTempo
           end
 
-          def rock
-            puts 'You rock ' + @name + ' gently.'
-            @asleep = true
-            puts 'He briefly dozes off...'
-            passageOfTime
-            if @asleep
-              @asleep = false
-              puts '...but wakes when you stop.'
+          def balancar
+            puts 'Você balança o ' + @name + ' gentilmente.'
+            @dormindo = true
+            puts 'Ele começa a cochilar...'
+            passagemDeTempo
+            if @dormindo
+              @dormindo = false
+              puts '...mas acorda quando você pára.'
             end
           end
 
           private
 
-          #  "private" means that the methods defined here are
-          #  methods internal to the object.  (You can feed
-          #  your dragon, but you can't ask him if he's hungry.)
+          #  "private" significa que os métodos definidos aqui
+          #  são métodos internos do objeto. (Você pode
+          #  alimentá-lo, mas você não pode perguntar se
+          #  ele está com fome.)
 
-          def hungry?
-            #  Method names can end with "?".
-            #  Usually, we only do this if the method
-            #  returns true or false, like this:
-            @stuffInBelly <= 2
+          def comFome?
+            #  Nomes de métodos podem acabar com "?".
+            #  Normalmente, nós fazemos isso apenas
+            #  se o métodos retorna verdadeiro ou falso,
+            #  como esse:
+            @comidaEstomago <= 2
           end
 
-          def poopy?
-            @stuffInIntestine >= 8
+          def precisaSair?
+            @comidaIntestino >= 8
           end
 
-          def passageOfTime
-            if @stuffInBelly > 0
-              #  Move food from belly to intestine.
-              @stuffInBelly     = @stuffInBelly     - 1
-              @stuffInIntestine = @stuffInIntestine + 1
-            else  #  Our dragon is starving!
-              if @asleep
-                @asleep = false
-                puts 'He wakes up suddenly!'
+          def passagemDeTempo
+            if @comidaEstomago > 0
+              #  Mover a comida do estomago para o intestino.
+              @comidaEstomago  = @comidaEstomago  - 1
+              @comidaIntestino = @comidaIntestino + 1
+            else  #  Nosso dragão está faminto!
+              if @dormindo
+                @dormindo = false
+                puts 'Ele está acordando!'
               end
-              puts @name + ' is starving!  In desperation, he ate YOU!'
-              exit  #  This quits the program.
+              puts @name + ' está faminto! Em desespero, ele comeu VOCÊ!'
+              exit  #  Isso saí do programa.
             end
 
-            if @stuffInIntestine >= 10
-              @stuffInIntestine = 0
-              puts 'Whoops!  ' + @name + ' had an accident...'
+            if @comidaIntestino >= 10
+              @comidaIntestino = 0
+              puts 'Ops!  ' + @name + ' teve um acidente...'
             end
 
-            if hungry?
-              if @asleep
-                @asleep = false
-                puts 'He wakes up suddenly!'
+            if comFome?
+              if @dormindo
+                @dormindo = false
+                puts 'Ele está acordando!'
               end
-              puts @name + '\\'s stomach grumbles...'
+              puts 'O estomago do '@name + ' está roncando...'
             end
 
-            if poopy?
-              if @asleep
-                @asleep = false
-                puts 'He wakes up suddenly!'
+            if precisaSair?
+              if @dormindo
+                @dormindo = false
+                puts 'Ele está acordando!'
               end
-              puts @name + ' does the potty dance...'
+              puts @name + ' faz a dança para ir ao quintal...'
             end
           end
 
         end
 
-        pet = Dragon.new 'Norbert'
-        pet.feed
-        pet.toss
-        pet.walk
-        pet.putToBed
-        pet.rock
-        pet.putToBed
-        pet.putToBed
-        pet.putToBed
-        pet.putToBed
+        bichinho = Dragao.new 'Norbert'
+        bichinho.alimentar
+        bichinho.jogar
+        bichinho.quintal
+        bichinho.colocarNaCama
+        bichinho.balancar
+        bichinho.colocarNaCama
+        bichinho.colocarNaCama
+        bichinho.colocarNaCama
+        bichinho.colocarNaCama
         END_CODE
       end
       para do <<-END_PARAGRAPH
-        <em>Whew!</em>  Of course, it would be nicer if this was
-        an interactive program, but you can do that part later.
-        I was just trying to show the parts directly relating to
-        creating a new dragon class.
+        <em>UAU!</em> Claro que seria muito mais legal se 
+        esse fosse um programa interativo, mas você pode
+        fazer essa parte depois. Eu apenas estava tentando
+        mostrar as partes relacionadas diretamente a criar
+        uma nova classe do tipo Dragão.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
+        Nós dissemos um monte de coisas novas nesse exemplo.
+        A primeira é simples: #{code 'exit'} termina o
+        programa onde estiver. A segunda é a palavra #{code 'private'},
+        que nós colocamos bem no meio da nossa classe. Eu
+        podia ter deixado ela de fora, mas eu apenas quis
+        reforçar a idéia de que certos métodos você podia
+        fazer com um dragão, enquanto que outros aconteciam
+        com o dragão. 
         We saw a few new things in that example.  The first is
         simple:  #{code 'exit'} terminates the program right
         then and there.  The second is the word #{code 'private'}
