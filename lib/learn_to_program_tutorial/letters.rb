@@ -200,7 +200,6 @@ module Letters
     end
     para do <<-END_PARAGRAPH
       Se você tiver outra dúvida, apenas
-      If you have any other questions, just
       #{makeLink('continue lendo', :generateVariables)}!  Eu não posso
       responder a todas as questões <em>nesta</em> página.
       END_PARAGRAPH
