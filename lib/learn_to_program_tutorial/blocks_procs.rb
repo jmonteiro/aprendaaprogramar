@@ -47,7 +47,7 @@ module BlocksProcs
       end
       prog do <<-END_CODE
         VoceGostade = Proc.new do |umaBoaCoisa|
-          puts 'Eu *realmente* gosto de '+aGoodThing+'!'
+          puts 'Eu *realmente* gosto de '+umaBoaCoisa+'!'
         end
 
         VoceGostade.call 'chocolate'
