@@ -441,46 +441,46 @@ module Classes
             @comidaEstomago  = 10 #  Ele está cheio
             @comidaIntestino =  0 #  Ele não precisa ir ao quintal
 
-            puts @name + ' nasceu.'
+            puts @nome + ' nasceu.'
           end
 
           def alimentar
-            puts 'Você alimentou o ' + @name + '.'
+            puts 'Você alimentou o ' + @nome + '.'
             @comidaEstomago = 10
             passagemDeTempo
           end
 
           def quintal
-            puts 'Você levou o ' + @name + ' até o quintal.'
+            puts 'Você levou o ' + @nome + ' até o quintal.'
             @comidaIntestino = 0
             passagemDeTempo
           end
 
           def colocarNaCama
-            puts 'Você colocou o ' + @name + ' na cama.'
+            puts 'Você colocou o ' + @nome + ' na cama.'
             @dormindo = true
             3.times do
               if @dormindo
                 passagemDeTempo
               end
               if @dormindo
-                puts @name + ' está roncando e enchendo o quarto de fumaça.'
+                puts @nome + ' está roncando e enchendo o quarto de fumaça.'
               end
             end
             if @dormindo
               @dormindo = false
-              puts @name + ' está acordando.'
+              puts @nome + ' está acordando.'
             end
           end
 
           def jogar
-            puts 'Você joga o ' + @name + ' no ar.'
+            puts 'Você joga o ' + @nome + ' no ar.'
             puts 'Ele dá uma risadinha e queima suas sobrancelhas.'
             passagemDeTempo
           end
 
           def balancar
-            puts 'Você balança o ' + @name + ' gentilmente.'
+            puts 'Você balança o ' + @nome + ' gentilmente.'
             @dormindo = true
             puts 'Ele começa a cochilar...'
             passagemDeTempo
@@ -519,13 +519,13 @@ module Classes
                 @dormindo = false
                 puts 'Ele está acordando!'
               end
-              puts @name + ' está faminto! Em desespero, ele comeu VOCÊ!'
+              puts @nome + ' está faminto! Em desespero, ele comeu VOCÊ!'
               exit  #  Isso saí do programa.
             end
 
             if @comidaIntestino >= 10
               @comidaIntestino = 0
-              puts 'Ops!  ' + @name + ' teve um acidente...'
+              puts 'Ops!  ' + @nome + ' teve um acidente...'
             end
 
             if comFome?
@@ -533,7 +533,7 @@ module Classes
                 @dormindo = false
                 puts 'Ele está acordando!'
               end
-              puts 'O estomago do '@name + ' está roncando...'
+              puts 'O estomago do ' + @nome + ' está roncando...'
             end
 
             if precisaSair?
@@ -541,7 +541,7 @@ module Classes
                 @dormindo = false
                 puts 'Ele está acordando!'
               end
-              puts @name + ' faz a dança para ir ao quintal...'
+              puts @nome + ' faz a dança para ir ao quintal...'
             end
           end
 
