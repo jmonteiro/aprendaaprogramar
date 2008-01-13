@@ -415,145 +415,144 @@ module DefMethods
     end
     h2 {'Mais um Grande Exemplo'}
     para do <<-END_PARAGRAPH
-      Eu acho que outro 
-      I think another example method would be helpful here.
-      We'll call this one #{code 'englishNumber'}.
-      It will take a number, like #{code '22'},
-      and return the english version of it (in this case,
-      the string #{code "'twenty-two'"}).  For now, let's have it
-      only work on integers from #{code '0'} to #{code '100'}.
+      Eu acho que outro exemplo de método seria muito
+      útil aqui. Vamos chamar esse de #{code 'numeroPortugues'}.
+      Esse método vai pegar um número, como o #{code '22'}, e retornar
+      ele por extenso (nesse caso, a string #{code 'vinte e dois'}).
+      Por enquanto, vamos fazer ele trabalhar apenas com inteiros
+      entre #{code '0'} e #{code '100'}.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      <em>(<strong>NOTE:</strong>  This method uses a new trick
-      to return from a method early using the </em>#{code 'return'}<em>
-      keyword, and introduces a new twist on branching:
-      </em>#{code 'elsif'}<em>.  It should be clear in context
-      how these work.)</em>
+      <em>(<strong>NOTA:</strong> Esse método usa um novo truque
+      para retornar a partir de um método antes do fim usando
+      a palavra-chave </em>#{code 'return'}<em>, e introduz
+      um novo conceito: </em>#{code 'elsif'}<em>. Isso deve
+      ficar mais claro no contexto, mostrando como as coisas
+      funcionam).</em>
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      def englishNumber number
-        #  We only want numbers from 0-100.
-        if number < 0
-          return 'Please enter a number zero or greater.'
+      def numeroPortugues numero
+        #  Nós apenas queremos números entre 0 e 100.
+        if numero < 0
+          return 'Por favor, entre com um número maior ou igual a zero.'
         end
         if number > 100
-          return 'Please enter a number 100 or lesser.'
+          return 'Por favor, entre com um número menor ou igual a 100.'
         end
         
-        numString = ''  #  This is the string we will return.
+        numExtenso = ''  #  Esta é a string que vamos retornar.
         
-        #  "left" is how much of the number we still have left to write out.
-        #  "write" is the part we are writing out right now.
-        #  write and left... get it?  :)
-        left  = number
-        write = left/100          #  How many hundreds left to write out?
-        left  = left - write*100  #  Subtract off those hundreds.
+        #  "falta" é quanto do número ainda falta para escrevermos.
+        #  "escrevendo" é a parte que estamos escrevendo agora.
+        falta   = numero
+        escrevendo = falta/100               #  Quantas centenas faltam escrever?
+        falta   = falta - escrevendo*100  #  Subtraia essas centenas.
         
-        if write > 0
-          return 'one hundred'
+        if escrevendo > 0
+          return 'cem'
         end
         
-        write = left/10          #  How many tens left to write out?
-        left  = left - write*10  #  Subtract off those tens.
+        escrevendo = falta/10              #  Quantas dezenas faltam escrever?
+        falta  = falta - escrevendo*10  #  Subtraia essas dezenas.
         
-        if write > 0
-          if write == 1  #  Uh-oh...
-            #  Since we can't write "tenty-two" instead of "twelve",
-            #  we have to make a special exception for these.
-            if    left == 0
-              numString = numString + 'ten'
-            elsif left == 1
-              numString = numString + 'eleven'
-            elsif left == 2
-              numString = numString + 'twelve'
-            elsif left == 3
-              numString = numString + 'thirteen'
-            elsif left == 4
-              numString = numString + 'fourteen'
-            elsif left == 5
-              numString = numString + 'fifteen'
-            elsif left == 6
-              numString = numString + 'sixteen'
-            elsif left == 7
-              numString = numString + 'seventeen'
-            elsif left == 8
-              numString = numString + 'eighteen'
+        if escrevendo > 0
+          if escrevendo == 1  #  Oh-oh...
+            #  Já que não podemos escrever "dez e dois",
+            #  vamos fazer algo especial aqui
+            if falta == 0
+              numExtenso = numExtenso + 'dez'
+            elsif falta == 1
+              numExtenso = numExtenso + 'onze'
+            elsif falta == 2
+              numExtenso = numExtenso + 'doze'
+            elsif falta == 3
+              numExtenso = numExtenso + 'treze'
+            elsif falta == 4
+              numExtenso = numExtenso + 'catorze'
+            elsif falta == 5
+              numExtenso = numExtenso + 'quinze'
+            elsif falta == 6
+              numExtenso = numExtenso + 'dezesseis'
+            elsif falta == 7
+              numExtenso = numExtenso + 'dezessete'
+            elsif falta == 8
+              numExtenso = numExtenso + 'dezoito'
             elsif left == 9
-              numString = numString + 'nineteen'
+              numExtenso = numExtenso + 'dezenove'
             end
-            #  Since we took care of the digit in the ones place already,
-            #  we have nothing left to write.
-            left = 0
-          elsif write == 2
-            numString = numString + 'twenty'
+            #  Já que já cuidamos das unidades,
+            #  não temos mais nada a escrever.
+            falta = 0
+          elsif escrevendo == 2
+            numExtenso = numExtenso + 'vinte'
           elsif write == 3
-            numString = numString + 'thirty'
+            numExtenso = numExtenso + 'trinta'
           elsif write == 4
-            numString = numString + 'forty'
+            numExtenso = numExtenso + 'quarenta'
           elsif write == 5
-            numString = numString + 'fifty'
+            numExtenso = numExtenso + 'cinqüenta'
           elsif write == 6
-            numString = numString + 'sixty'
+            numExtenso = numExtenso + 'sessenta'
           elsif write == 7
-            numString = numString + 'seventy'
+            numExtenso = numExtenso + 'setenta'
           elsif write == 8
-            numString = numString + 'eighty'
+            numExtenso = numExtenso + 'oitenta'
           elsif write == 9
-            numString = numString + 'ninety'
+            numExtenso = numExtenso + 'noventa'
           end
           
-          if left > 0
-            numString = numString + '-'
+          if falta > 0
+            numExtenso = numExtenso + ' e '
           end
         end
         
-        write = left  #  How many ones left to write out?
-        left  = 0     #  Subtract off those ones.
+        escrevendo = falta  #  Quantos ainda faltam a escrever?
+        falta   = 0         #  Subtraia esses.
         
-        if write > 0
-          if    write == 1
-            numString = numString + 'one'
-          elsif write == 2
-            numString = numString + 'two'
-          elsif write == 3
-            numString = numString + 'three'
-          elsif write == 4
-            numString = numString + 'four'
-          elsif write == 5
-            numString = numString + 'five'
-          elsif write == 6
-            numString = numString + 'six'
-          elsif write == 7
-            numString = numString + 'seven'
-          elsif write == 8
-            numString = numString + 'eight'
-          elsif write == 9
-            numString = numString + 'nine'
+        if escrevendo > 0
+          if escrevendo == 1
+            numExtenso = numExtenso + 'um'
+          elsif escrevendo == 2
+            numExtenso = numExtenso + 'dois'
+          elsif escrevendo == 3
+            numExtenso = numExtenso + 'três'
+          elsif escrevendo == 4
+            numExtenso = numExtenso + 'quatro'
+          elsif escrevendo == 5
+            numExtenso = numExtenso + 'cinco'
+          elsif escrevendo == 6
+            numExtenso = numExtenso + 'seis'
+          elsif escrevendo == 7
+            numExtenso = numExtenso + 'sete'
+          elsif escrevendo == 8
+            numExtenso = numExtenso + 'oito'
+          elsif escrevendo == 9
+            numExtenso = numExtenso + 'nove'
           end
         end
         
-        if numString == ''
-          #  The only way "numString" could be empty is if
+        if numExtenso == ''
+          #  The only way "numExtenso" could be empty is if
           #  "number" is 0.
           return 'zero'
         end
         
         #  If we got this far, then we had a number somewhere
-        #  in between 0 and 100, so we need to return "numString".
-        numString
+        #  in between 0 and 100, so we need to return "numExtenso".
+        numExtenso
       end
       
-      puts englishNumber(  0)
-      puts englishNumber(  9)
-      puts englishNumber( 10)
-      puts englishNumber( 11)
-      puts englishNumber( 17)
-      puts englishNumber( 32)
-      puts englishNumber( 88)
-      puts englishNumber( 99)
-      puts englishNumber(100)
+      puts numeroPortugues(  0)
+      puts numeroPortugues(  9)
+      puts numeroPortugues( 10)
+      puts numeroPortugues( 11)
+      puts numeroPortugues( 17)
+      puts numeroPortugues( 32)
+      puts numeroPortugues( 88)
+      puts numeroPortugues( 99)
+      puts numeroPortugues(100)
       END_CODE
     end
     para do <<-END_PARAGRAPH
@@ -565,7 +564,7 @@ module DefMethods
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      def englishNumber number
+      def numeroPortugues number
         if number < 0  #  No negative numbers.
           return 'Please enter a number that isn\\'t negative.'
         end
@@ -575,7 +574,7 @@ module DefMethods
         
         #  No more special cases!  No more returns!
         
-        numString = ''  #  This is the string we will return.
+        numExtenso = ''  #  This is the string we will return.
         
         onesPlace = ['one',     'two',       'three',    'four',     'five',
                      'six',     'seven',     'eight',    'nine']
@@ -593,22 +592,22 @@ module DefMethods
         
         if write > 0
           #  Now here's a really sly trick:
-          hundreds  = englishNumber write
-          numString = numString + hundreds + ' hundred'
+          hundreds  = numeroPortugues write
+          numExtenso = numExtenso + hundreds + ' hundred'
           #  That's called "recursion".  So what did I just do?
           #  I told this method to call itself, but with "write" instead of
           #  "number".  Remember that "write" is (at the moment) the number of
-          #  hundreds we have to write out.  After we add "hundreds" to "numString",
+          #  hundreds we have to write out.  After we add "hundreds" to "numExtenso",
           #  we add the string ' hundred' after it.  So, for example, if
-          #  we originally called englishNumber with 1999 (so "number" = 1999),
+          #  we originally called numeroPortugues with 1999 (so "number" = 1999),
           #  then at this point "write" would be 19, and "left" would be 99.
-          #  The laziest thing to do at this point is to have englishNumber
+          #  The laziest thing to do at this point is to have numeroPortugues
           #  write out the 'nineteen' for us, then we write out ' hundred',
-          #  and then the rest of englishNumber writes out 'ninety-nine'.
+          #  and then the rest of numeroPortugues writes out 'ninety-nine'.
           
           if left > 0
             #  So we don't write 'two hundredfifty-one'...
-            numString = numString + ' '
+            numExtenso = numExtenso + ' '
           end
         end
         
@@ -619,20 +618,20 @@ module DefMethods
           if ((write == 1) and (left > 0))
             #  Since we can't write "tenty-two" instead of "twelve",
             #  we have to make a special exception for these.
-            numString = numString + teenagers[left-1]
+            numExtenso = numExtenso + teenagers[left-1]
             #  The "-1" is because teenagers[3] is 'fourteen', not 'thirteen'.
             
             #  Since we took care of the digit in the ones place already,
             #  we have nothing left to write.
             left = 0
           else
-            numString = numString + tensPlace[write-1]
+            numExtenso = numExtenso + tensPlace[write-1]
             #  The "-1" is because tensPlace[3] is 'forty', not 'thirty'.
           end
           
           if left > 0
             #  So we don't write 'sixtyfour'...
-            numString = numString + '-'
+            numExtenso = numExtenso + '-'
           end
         end
         
@@ -640,28 +639,28 @@ module DefMethods
         left  = 0     #  Subtract off those ones.
         
         if write > 0
-          numString = numString + onesPlace[write-1]
+          numExtenso = numExtenso + onesPlace[write-1]
           #  The "-1" is because onesPlace[3] is 'four', not 'three'.
         end
         
-        #  Now we just return "numString"...
-        numString
+        #  Now we just return "numExtenso"...
+        numExtenso
       end
       
-      puts englishNumber(  0)
-      puts englishNumber(  9)
-      puts englishNumber( 10)
-      puts englishNumber( 11)
-      puts englishNumber( 17)
-      puts englishNumber( 32)
-      puts englishNumber( 88)
-      puts englishNumber( 99)
-      puts englishNumber(100)
-      puts englishNumber(101)
-      puts englishNumber(234)
-      puts englishNumber(3211)
-      puts englishNumber(999999)
-      puts englishNumber(1000000000000)
+      puts numeroPortugues(  0)
+      puts numeroPortugues(  9)
+      puts numeroPortugues( 10)
+      puts numeroPortugues( 11)
+      puts numeroPortugues( 17)
+      puts numeroPortugues( 32)
+      puts numeroPortugues( 88)
+      puts numeroPortugues( 99)
+      puts numeroPortugues(100)
+      puts numeroPortugues(101)
+      puts numeroPortugues(234)
+      puts numeroPortugues(3211)
+      puts numeroPortugues(999999)
+      puts numeroPortugues(1000000000000)
       END_CODE
     end
     para do <<-END_PARAGRAPH
@@ -676,14 +675,14 @@ module DefMethods
     end
     h2 {'A Few Things to Try'}
     para do <<-END_PARAGRAPH
-      &bull; Expand upon #{code 'englishNumber'}.  First, put in
+      &bull; Expand upon #{code 'numeroPortugues'}.  First, put in
       thousands.  So it should return #{code "'one thousand'"}
       instead of #{code "'ten hundred'"} and #{code "'ten thousand'"}
       instead of #{code "'one hundred hundred'"}.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      &bull; Expand upon #{code 'englishNumber'} some more.
+      &bull; Expand upon #{code 'numeroPortugues'} some more.
       Now put in millions, so you get #{code "'one million'"}
       instead of #{code "'one thousand thousand'"}.  Then try adding
       billions and trillions.  How high can you go?
@@ -691,7 +690,7 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       &bull; How about #{code 'weddingNumber'}?  It should
-      work almost the same as #{code 'englishNumber'}, except
+      work almost the same as #{code 'numeroPortugues'}, except
       that it should insert the word "and" all over the place,
       returning things like #{code "'nineteen hundred and seventy and two'"},
       or however wedding invitations are supposed to look.  I'd give you more
@@ -701,7 +700,7 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       &bull; <em>"Ninety-nine bottles of beer..."</em>
-      Using #{code 'englishNumber'} and your old program, write out the
+      Using #{code 'numeroPortugues'} and your old program, write out the
       lyrics to this song the <em>right</em> way this time.
       Punish your computer:  have it start at 9999.  (Don't pick
       a number too large, though, because writing all of that to

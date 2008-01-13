@@ -90,7 +90,7 @@ module FlowControl
     end
     h2 {'Ramificações (Branching)'}
     para do <<-END_PARAGRAPH
-      "Ramificações" é um conceito simples, mas poderoso. Na verdade,
+      "Ramificação" é um conceito simples, mas poderoso. Na verdade,
       é tão simples que aposto que nem tenho que explicá-lo; deixe
       eu lhe mostrar:
       END_PARAGRAPH
@@ -100,7 +100,7 @@ module FlowControl
     progN executa1, executa2 do <<-END_CODE
       puts 'Olá, qual é o seu nome?'
       nome = gets.chomp
-      puts 'Olá, ' + name + '.'
+      puts 'Olá, ' + nome + '.'
       if nome == 'Chris'
         puts 'Que nome bonito!'
       end
@@ -114,7 +114,7 @@ module FlowControl
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Eu indentei o código entre #{code 'if'} e #{code 'end'} porque
+      Eu identei o código entre #{code 'if'} e #{code 'end'} porque
       acho que fica mais fácil acompanhar as ramificações assim. Quase
       todos os programadores fazem isso, independente da linguagem
       em que estejam trabalhando. Pode não parecer muito útil neste
@@ -160,10 +160,10 @@ module FlowControl
       nome = gets.chomp
       
       if nome == nome.capitalize
-        puts 'Por favor, sente-se, ' + name + '.'
+        puts 'Por favor, sente-se, ' + nome + '.'
       else
-        puts name + '?  Você quer dizer ' + name.capitalize + ', não é?'
-        puts 'Você não sabe nem grafar seu nome??'
+        puts nome + '?  Você quer dizer ' + nome.capitalize + ', não é?'
+        puts 'Você não sabe nem escrever seu nome??'
         resposta = gets.chomp
         
         if resposta.downcase == 'sim'
@@ -227,10 +227,10 @@ module FlowControl
       nome = gets.chomp
       
       if nome == nome.capitalize
-        puts 'Por favor, sente-se, ' + name + '.'
+        puts 'Por favor, sente-se, ' + nome + '.'
       else
-        puts name + '?  Você quer dizer ' + name.capitalize + ', não é?'
-        puts 'Você não sabe nem grafar seu nome??'
+        puts nome + '?  Você quer dizer ' + nome.capitalize + ', não é?'
+        puts 'Você não sabe nem escrever seu nome??'
         resposta = gets.chomp
         
         if resposta.downcase == 'sim'
@@ -262,8 +262,8 @@ module FlowControl
     h2 {'Repetição (Looping)'}
     para do <<-END_PARAGRAPH
       Você vai querer com alguma freqüência que o computador faça a mesma
-      coisa várias e várias vezes&mdash;afinal, é nisso que os computadores
-      em teoria são bons.
+      coisa várias e várias vezes&mdash;afinal, é nisso que os computadores,
+      em teoria, são bons.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -272,7 +272,7 @@ module FlowControl
       então se você não mandar o seu parar, ele não parará. Garantimos
       que isso não aconteça ao dizermos que ele deve repetir certas partes
       de um programa #{code 'while'} (N.T.&mdash;enquanto) uma condição
-      especificada for verdadeira. O funcionamento é bem parecido com o de
+      especificada for verdadeira. O funcionamento é bem parecido com o do
       #{code 'if'}:
       END_PARAGRAPH
     end
@@ -281,7 +281,7 @@ module FlowControl
       
       while comando != 'tchau'
         puts comando
-        comando = comando.chomp
+        comando = comando.gets.chomp
       end
       
       puts 'Volte logo!'
@@ -319,11 +319,11 @@ module FlowControl
     prog ['Katy'] do <<-END_CODE
       puts 'Olá, qual é o seu nome?'
       nome = gets.chomp
-      puts 'Olá, ' + name + '.'
+      puts 'Olá, ' + nome + '.'
       if nome == 'Chris'
         puts 'Que nome bonito!'
       else
-        if name == 'Katy'
+        if nome == 'Katy'
           puts 'Que nome bonito!'
         end
       end
@@ -346,7 +346,7 @@ module FlowControl
     prog ['Katy'] do <<-END_CODE
       puts 'Olá, qual é o seu nome?'
       nome = gets.chomp
-      puts 'Olá, ' + name + '.'
+      puts 'Olá, ' + nome + '.'
       if (nome == 'Chris' or nome == 'Katy')
         puts 'Que nome bonito!'
       end
@@ -419,7 +419,7 @@ module FlowControl
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      &bull; Estenda o seu programa Velha Surda: e se a velha
+      &bull; Melhore o seu programa Velha Surda: e se a velha
       não quiser que você vá embora? Quando você gritar #{input 'TCHAU'},
       ela pode fingir que não lhe ouve. Mude seu programa anterior
       para que você tenha que gritar #{input 'TCHAU'} três vezes <em>em
