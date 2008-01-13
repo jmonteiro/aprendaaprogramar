@@ -227,7 +227,7 @@ module Setup
     end
     h2 {'Instalação em Linux'}
     para do <<-END_PARAGRAPH
-      Primeiro, você vai quere checar e ver se você já tem Ruby
+      Primeiro, você vai querer checar e ver se você já tem Ruby
       instalado.  Digite #{input 'which ruby'}.  Se este comando responder algo como
       #{output '/usr/bin/which: no ruby in (...)'}, então você precisa
       <a href="http://www.ruby-lang.org/en/20020102.html">fazer o download do Ruby</a>,

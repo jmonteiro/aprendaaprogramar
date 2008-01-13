@@ -156,7 +156,7 @@ module Conversion
       que escrevamos um bando de programas divertidos...
       END_PARAGRAPH
     end
-    h2 {'The Methods '+(code 'gets')+' and '+(code 'chomp')}
+    h2 {'Os Métodos '+(code 'gets')+' e '+(code 'chomp')}
     para do <<-END_PARAGRAPH
       Se #{code 'puts'} significa <dfn>colocar string</dfn>, acho que
       você pode adivinhar o que #{code 'gets'} quer dizer (N.T.: get, em

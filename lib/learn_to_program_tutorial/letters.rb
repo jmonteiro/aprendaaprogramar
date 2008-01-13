@@ -44,7 +44,7 @@ module Letters
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Isso funcionou bem. Agora, tente uma strings você mesmo.
+      Isso funcionou bem. Agora, tente umas strings você mesmo.
       END_PARAGRAPH
     end
     h2 {'Aritimética das String'}
