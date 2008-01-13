@@ -277,17 +277,17 @@ module DefMethods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      There are actually <em>two</em> variables in that little
-      program named #{code 'var'}:  one inside #{code 'littlePest'},
-      and one outside of it.  When we called #{code 'littlePest var'},
-      we really just passed the string from one #{code 'var'} to
-      the other, so that both were pointing to the same string.
-      Then #{code 'littlePest'} pointed its own <em>local</em>
-      #{code 'var'} to #{code 'nil'}, but that did nothing to the
-      #{code 'var'} outside the method.
+      Há, atualmente, <em>duas</em> variáveis naquele pequeno
+      programa chamado #{code 'var'}: uma dentro do método
+      #{code 'pequenaPeste'} e uma fora dele. Quando você chamou
+      #{code 'pequenaPeste var'}, nós realmente passamos a stringe
+      que estava em #{code 'var'} para a outra, então as mesmas
+      estavam apontando para a mesma string. Então, o método #{code 'pequenaPeste'}
+      apontou a sua #{code 'var'} <em>local</em> para #{code 'nil'},
+      mas isso não fez nada com a #{code 'var'} de fora do método.
       END_PARAGRAPH
     end
-    h2 {'Return Values'}
+    h2 {'Retornando Valores'}
     para do <<-END_PARAGRAPH
       You may have noticed that some methods give you something
       back when you call them.  For example, #{code 'gets'}
