@@ -289,132 +289,133 @@ module DefMethods
     end
     h2 {'Retornando Valores'}
     para do <<-END_PARAGRAPH
-      You may have noticed that some methods give you something
-      back when you call them.  For example, #{code 'gets'}
-      <dfn>returns</dfn> a string (the string you typed in),
-      and the #{code '+'} method in #{code '5+3'}, (which is
-      really #{code '5.+(3)'}) returns #{code '8'}.  The
-      arithmetic methods for numbers return numbers, and the
-      arithmetic methods for strings return strings.
+      Você deve ter notado que alguns métodos devolvem alguma
+      coisa quando você os chama. Por exemplo, o método #{code 'gets'}
+      <dfn>retorna</dfn> uma string (a string que você digitas),
+      e o método #{code '+'} em #{code '5+3'}, (que é, na verdade #{code '5.+(3)'})
+      retorna #{code '8'}. Os métodos aritiméticos para números
+      retornam números, e os métodos aritiméticos para strings
+      retornam strings.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      It's important to understand the difference between methods
-      returning a value to where the method was called, and
-      your program outputting information to your screen, like
-      #{code 'puts'} does.  Notice that #{code '5+3'} returns
-      #{code '8'}; it does <strong>not</strong> output
-      #{output '8'}.
+      É importante entender a diferença entre métodos retornando
+      um valor para onde ele foi chamado, e o seu programa gerando
+      uma saída para a sua tela, como o #{code 'puts'} faz. Note
+      que #{code '5+3'} retorna #{code '8'}; ele <strong>não</strong>
+      imprime #{output '8'} na tela.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      So what <em>does</em> #{code 'puts'} return?  We never cared
-      before, but let's look at it now:
+      Então, <em>o que</em> o #{code 'puts'} retorna? Nós nunca
+      nos importamos antes, mas vamos dar uma olhadinha agora:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      returnVal = puts 'This puts returned:'
-      puts returnVal
+      valorRetorno = puts 'Este puts retornou:'
+      puts valorRetorno
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      So the first #{code 'puts'} returned #{code 'nil'}.  Though
-      we didn't test it, the second #{code 'puts'} did, too;
-      #{code 'puts'} always returns #{code 'nil'}.  Every method
-      has to return something, even if it's just #{code 'nil'}.
+      O primeiro #{code 'puts'} retornou #{code 'nil'}. Apesar
+      de não termos testado o segundo #{code 'puts'}, ele fez a
+      mesma coisa; #{code 'puts'} sempre retorna um #{code 'nil'}.
+      Todo o método tem que retornar alguma coisa, mesmo que
+      seja apenas um #{code 'nil'}.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Take a quick break and write a program
-      to find out what #{code 'sayMoo'} returned.
+      Faça uma pausa e escreva um programa que encontre
+      o que o método #{code 'digaMoo'} retornou.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Were you surprised?  Well, here's how it works:  the value
-      returned from a method is simply the last line of the method.  In
-      the case of #{code 'sayMoo'}, this means it returns
-      #{code "puts 'mooooooo...'*numberOfMoos"}, which is just
-      #{code 'nil'} since #{code 'puts'} always returns
-      #{code 'nil'}.  If we wanted all of our methods to
-      return the string #{code "'yellow submarine'"}, we
-      would just need to put <em>that</em> at the end of
-      them:
+      Você está surpreso? Bem, as coisas funcionam assim: o valor
+      de retorno de um método é simplesmente a última linha avaliada
+      do método. No caso do método #{code 'digaMoo'}, isso quer dizer
+      que ele retornou #{code "'puts mooooooo...'*numeroDeMoos"}, que
+      é um simples #{code 'nil'}, já que #{code 'puts'} sempre retorna
+      um #{code 'nil'}. Se nós quisermos que todos os nossos métodos
+      retornem a string #{code "'yellow submarine'"}, nós apenas
+      temos que colocar ela no fim deles:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      def sayMoo numberOfMoos
-        puts 'mooooooo...'*numberOfMoos
+      def digaMoo numeroDeMoos
+        puts 'mooooooo...'*numeroDeMoos
         'yellow submarine'
       end
       
-      x = sayMoo 2
+      x = digaMoo 2
       puts x
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      So, let's try that psychology experiment again,
-      but this time we'll write a method to ask the questions for us.
-      It will need to take the question as a parameter, and return
-      #{code 'true'} if they answered #{input 'yes'} and
-      #{code 'false'} if they answered #{input 'no'}.  (Even though
-      most of the time we just ignore the answer, it's still a
-      good idea for our method to return the answer.  This way we
-      can use it for the bed-wetting question, too.)
-      I'm also going to shorten the greeting and the debriefing,
-      just so this is easier to read:
+      Agora vamos tentar aquela pesquisa de psicologia de novo,
+      mas agora vamos escrever um método que faça a pergunta
+      para nós. Ele vai precisar pegar a questão como um
+      parâmetro e retornar #{code 'true'} se a resposta foi
+      #{input 'sim'} e #{code 'false'} se a resposta foi
+      #{input 'não'} (Mesmo que nós ignoremos a resposta
+      na maioria das vezes, é uma boa idéia fazer o método
+      retornar a resposta. Assim nós podemos usar isso para a
+      questão sobre molhar a cama).
+      Eu também vou dar uma resumida na saudação e no final,
+      apenas para ficar mais fácil de ler:
       END_PARAGRAPH
     end
-    prog ['yes','yes','no way!','NO','yes','yes','yes','yes','yes'] do <<-END_CODE
-      def ask question
-        goodAnswer = false
-        while (not goodAnswer)
-          puts question
-          reply = gets.chomp.downcase
+    prog ['sim','sim','de jeito nenhum!','NÃO','sim','sim','sim','sim','sim'] do <<-END_CODE
+      def pergunte pergunta
+        boaResposta = false
+        while (not boaResposta)
+          puts pergunta
+          replica = gets.chomp.downcase
           
-          if (reply == 'yes' or reply == 'no')
-            goodAnswer = true
-            if reply == 'yes'
-              answer = true
+          if (replica == 'sim' or replica == 'não')
+            boaResposta = true
+            if replica == 'sim'
+              resposta = true
             else
-              answer = false
+              resposta = false
             end
           else
-            puts 'Please answer "yes" or "no".'
+            puts 'Por favor, responda com "sim" ou "não".'
           end
         end
         
-        answer  #  This is what we return (true or false).
+        resposta #  É isso o que será retornado (true ou false).
       end
       
-      puts 'Hello, and thank you for...'
+      puts 'Olá e obrigado por...'
       puts
       
-      ask 'Do you like eating tacos?'      #  We ignore this return value.
-      ask 'Do you like eating burritos?'
-      wetsBed = ask 'Do you wet the bed?'  #  We save this return value.
-      ask 'Do you like eating chimichangas?'
-      ask 'Do you like eating sopapillas?'
-      ask 'Do you like eating tamales?'
-      puts 'Just a few more questions...'
-      ask 'Do you like drinking horchata?'
-      ask 'Do you like eating flautas?'
+      pergunta 'Você gosta de comer tacos?'          #  Nós ignoramos o valor de retorno desse método.
+      pergunta 'Você gosta de comer burritos?'
+      molhaCama = pergunta 'Você faz xixi na cama?'  #  Nós salvamos o retorno desse.
+      pergunta 'Você gosta de comer chimichangas?'
+      pergunta 'Você gosta de comer sopapillas?'
+      pergunta 'Você gosta de comer tamales?'
+      puts 'Apenas mais algumas perguntas...'
+      pergunta 'Você gosta de beber horchata?'
+      pergunta 'Você gosta de comer flautas?'
       
       puts
-      puts 'DEBRIEFING:'
-      puts 'Thank you for...'
+      puts 'QUESTIONÁRIO:'
+      puts 'Obrigado por...'
       puts
-      puts wetsBed
+      puts molhaCama
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Not bad, huh?  We were able to add more questions (and
-      adding questions is <em>easy</em> now), but our program
-      is still quite a bit shorter!  It's a big improvement
-      &mdash; a lazy programmer's dream.
+      Nada mal, hein? Nós podemos adicionar mais peguntas (e
+      adicionar mais perguntas é <em>fácil</em> agora), mas
+      nosso programa continuará pequeno! Isso é um grande
+      progresso&mdash; o sonho de todo o programador preguiçoso.
       END_PARAGRAPH
     end
-    h2 {'One More Big Example'}
+    h2 {'Mais um Grande Exemplo'}
     para do <<-END_PARAGRAPH
+      Eu acho que outro 
       I think another example method would be helpful here.
       We'll call this one #{code 'englishNumber'}.
       It will take a number, like #{code '22'},
