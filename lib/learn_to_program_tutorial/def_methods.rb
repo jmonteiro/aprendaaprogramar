@@ -16,7 +16,7 @@ module DefMethods
       eles me forneceram, eu tenho algo parecido com isso:
       END_PARAGRAPH
     end
-    prog ['sim','sim','de jeito nenhum!','NÃO','sim','sim'] do <<-END_CODE
+    prog ['sim','sim','de jeito nenhum!','NÃO','sim','sim','sim'] do <<-END_CODE
       puts 'Olá, e obrigado pelo seu tempo para me ajudar'
       puts 'com essa pesquisa. Minha pesquisa é sobre'
       puts 'como as pessoas se sentem com comida'
@@ -225,10 +225,10 @@ module DefMethods
     prog do <<-END_CODE
       def dobreEste num
         numVezes2 = num*2
-        puts 'O dobro de '+num.to_s+' é '+numTimes2.to_s
+        puts 'O dobro de '+num.to_s+' é '+numVezes2.to_s
       end
       
-      doubreEste 44
+      dobreEste 44
       END_CODE
     end
     para do <<-END_PARAGRAPH
@@ -243,10 +243,10 @@ module DefMethods
     prog do <<-END_CODE
       def dobreEste num
         numVezes2 = num*2
-        puts 'O dobro de '+num.to_s+' é '+numTimes2.to_s
+        puts 'O dobro de '+num.to_s+' é '+numVezes2.to_s
       end
       
-      doubreEste 44
+      dobreEste 44
       puts numVezes2.to_s
       END_CODE
     end
@@ -364,7 +364,7 @@ module DefMethods
       apenas para ficar mais fácil de ler:
       END_PARAGRAPH
     end
-    prog ['sim','sim','de jeito nenhum!','NÃO','sim','sim','sim','sim','sim'] do <<-END_CODE
+    prog ['sim','sim','de jeito nenhum!','NÃO','sim','sim','sim','sim','sim','sim'] do <<-END_CODE
       def pergunte pergunta
         boaResposta = false
         while (not boaResposta)
@@ -389,15 +389,15 @@ module DefMethods
       puts 'Olá e obrigado por...'
       puts
       
-      pergunta 'Você gosta de comer tacos?'          #  Nós ignoramos o valor de retorno desse método.
-      pergunta 'Você gosta de comer burritos?'
-      molhaCama = pergunta 'Você faz xixi na cama?'  #  Nós salvamos o retorno desse.
-      pergunta 'Você gosta de comer chimichangas?'
-      pergunta 'Você gosta de comer sopapillas?'
-      pergunta 'Você gosta de comer tamales?'
+      pergunte 'Você gosta de comer tacos?'          #  Nós ignoramos o valor de retorno desse método.
+      pergunte 'Você gosta de comer burritos?'
+      molhaCama = pergunte 'Você faz xixi na cama?'  #  Nós salvamos o retorno desse.
+      pergunte 'Você gosta de comer chimichangas?'
+      pergunte 'Você gosta de comer sopapillas?'
+      pergunte 'Você gosta de comer tamales?'
       puts 'Apenas mais algumas perguntas...'
-      pergunta 'Você gosta de beber horchata?'
-      pergunta 'Você gosta de comer flautas?'
+      pergunte 'Você gosta de beber horchata?'
+      pergunte 'Você gosta de comer flautas?'
       
       puts
       puts 'QUESTIONÁRIO:'
@@ -438,7 +438,7 @@ module DefMethods
         if numero < 0
           return 'Por favor, entre com um número maior ou igual a zero.'
         end
-        if number > 100
+        if numero > 100
           return 'Por favor, entre com um número menor ou igual a 100.'
         end
         
@@ -487,19 +487,19 @@ module DefMethods
             falta = 0
           elsif escrevendo == 2
             numExtenso = numExtenso + 'vinte'
-          elsif write == 3
+          elsif escrevendo == 3
             numExtenso = numExtenso + 'trinta'
-          elsif write == 4
+          elsif escrevendo == 4
             numExtenso = numExtenso + 'quarenta'
-          elsif write == 5
+          elsif escrevendo == 5
             numExtenso = numExtenso + 'cinqüenta'
-          elsif write == 6
+          elsif escrevendo == 6
             numExtenso = numExtenso + 'sessenta'
-          elsif write == 7
+          elsif escrevendo == 7
             numExtenso = numExtenso + 'setenta'
-          elsif write == 8
+          elsif escrevendo == 8
             numExtenso = numExtenso + 'oitenta'
-          elsif write == 9
+          elsif escrevendo == 9
             numExtenso = numExtenso + 'noventa'
           end
           
@@ -534,13 +534,14 @@ module DefMethods
         end
         
         if numExtenso == ''
-          #  The only way "numExtenso" could be empty is if
-          #  "number" is 0.
+          #  A única forma de "numExtenso" estar vazia é
+          #  se o "numero" for 0
           return 'zero'
         end
         
-        #  If we got this far, then we had a number somewhere
-        #  in between 0 and 100, so we need to return "numExtenso".
+        #  Se chemagmos aqui, então temos um
+        #  número entre 0 e 100, então precisamos
+        #  apenas retornar o "numExtenso"
         numExtenso
       end
       
@@ -556,6 +557,7 @@ module DefMethods
       END_CODE
     end
     para do <<-END_PARAGRAPH
+      Bem, 
       Well, there are certainly a few things about this program
       I don't like.  First, it has too much repetition.  Second,
       it doesn't handle numbers greater than 100.  Third, there
