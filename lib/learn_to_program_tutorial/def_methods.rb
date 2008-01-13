@@ -479,7 +479,7 @@ module DefMethods
               numExtenso = numExtenso + 'dezessete'
             elsif falta == 8
               numExtenso = numExtenso + 'dezoito'
-            elsif left == 9
+            elsif falta == 9
               numExtenso = numExtenso + 'dezenove'
             end
             #  Já que já cuidamos das unidades,
@@ -557,95 +557,97 @@ module DefMethods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Bem, 
-      Well, there are certainly a few things about this program
-      I don't like.  First, it has too much repetition.  Second,
-      it doesn't handle numbers greater than 100.  Third, there
-      are too many special cases, too many #{code 'return'}s.
-      Let's use some arrays and try to clean it up a bit:
+      Bem, ainda há algumas nesse programa que eu não gostei.
+      Primeiro: há muita repetição. Segundo: esse programa
+      não consegue lidar com números maiores do que 100. Terceiro:
+      há muitos casos especiais, muitos retornos (#{code 'return'}).
+      Vamos usar alguns vetores e tentar dar uma limpada:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      def numeroPortugues number
-        if number < 0  #  No negative numbers.
-          return 'Please enter a number that isn\\'t negative.'
+      def numeroPortugues numero
+        if numero < 0  #  Nada de números negativos.
+          return 'Por favor, digite um número positivo.'
         end
-        if number == 0
+        if numero == 0
           return 'zero'
         end
         
-        #  No more special cases!  No more returns!
+        #  Nada de casos especiais! Nada de retornos!
         
-        numExtenso = ''  #  This is the string we will return.
+        numExtenso = ''  #  Esta é a string que vamos retornar.
         
-        onesPlace = ['one',     'two',       'three',    'four',     'five',
-                     'six',     'seven',     'eight',    'nine']
-        tensPlace = ['ten',     'twenty',    'thirty',   'forty',    'fifty',
-                     'sixty',   'seventy',   'eighty',   'ninety']
-        teenagers = ['eleven',  'twelve',    'thirteen', 'fourteen', 'fifteen',
-                     'sixteen', 'seventeen', 'eighteen', 'nineteen']
+        unidades     = ['um'  , 'dois', 'tres', 'quatro', 'cinco',
+                        'seis', 'sete', 'oito', 'nove']
+        dezenas      = ['dez'     ,   'vinte'   ,    'trinta' ,   'quarenta',    'cinqüenta',
+                        'sessenta',   'sessenta',    'oitenta',   'noventa']
+        adolescentes = ['onze'     ,  'doze'    ,    'treze'  , 'catorze', 'quinze',
+                        'dezesseis',  'dezesete',    'dezoito', 'dezenove']
         
-        #  "left" is how much of the number we still have left to write out.
-        #  "write" is the part we are writing out right now.
-        #  write and left... get it?  :)
-        left  = number
-        write = left/100          #  How many hundreds left to write out?
-        left  = left - write*100  #  Subtract off those hundreds.
+        #  "falta" é quanto do número ainda falta escrever.
+        #  "escrevendo" é a parte que estamos escrevendo agora.
+        falta  = numero
+        escrevendo = falta/100          #  Quantas centenas ainda faltam escrever?
+        falta  = falta - escrevendo*100  #  Subtraia essas centenas.
         
-        if write > 0
-          #  Now here's a really sly trick:
-          hundreds  = numeroPortugues write
-          numExtenso = numExtenso + hundreds + ' hundred'
-          #  That's called "recursion".  So what did I just do?
-          #  I told this method to call itself, but with "write" instead of
-          #  "number".  Remember that "write" is (at the moment) the number of
-          #  hundreds we have to write out.  After we add "hundreds" to "numExtenso",
-          #  we add the string ' hundred' after it.  So, for example, if
-          #  we originally called numeroPortugues with 1999 (so "number" = 1999),
-          #  then at this point "write" would be 19, and "left" would be 99.
-          #  The laziest thing to do at this point is to have numeroPortugues
-          #  write out the 'nineteen' for us, then we write out ' hundred',
-          #  and then the rest of numeroPortugues writes out 'ninety-nine'.
+        if escrevendo > 0
+          #  Aqui está o truque sujo:
+          centenas   = numeroPortugues escrevendo
+          numExtenso = numExtenso + centenas + ' centos'
+          #  Isso é chamado "recursão". O que nós fizemos?
+          #  Eu disse para o método chamar a si mesmo, mas
+          #  passando "escrevendo" como parâmetro, ao invés
+          #  de "numero". Lembre-se de que "escrevendo" é
+          #  (agora) o número de dezenas que nós estamos escrevendo.
+          #  Depois de adicionarmos as "centenas" a "numExtenso",
+          #  nós adicionamos a string " centos". Então, se nós
+          #  chamamos numeroPortugues com 1999 (numero = 1999),
+          #  agora escrevendo será 19, e "falta" deve ser 99.
+          #  A coisa mais preguiçosa que fazemos aqui é
+          #  mandar o método numeroPortugues escrever o número
+          #  19 por extenso, e então adicionando "centos" ao
+          #  fim e escrevendo "noventa e nove" ao que falta.
+          #  Ficando, portanto, "dezenove centos e noventa e nove".
           
-          if left > 0
-            #  So we don't write 'two hundredfifty-one'...
-            numExtenso = numExtenso + ' '
+          if falta > 0
+            #  Nós não escrevemos dois centosecinqüenta e um'...
+            numExtenso = numExtenso + ' e '
           end
         end
         
-        write = left/10          #  How many tens left to write out?
-        left  = left - write*10  #  Subtract off those tens.
+        escrevendo = falta/10          #  How many tens falta to escrevendo out?
+        falta  = falta - escrevendo*10  #  Subtract off those tens.
         
-        if write > 0
-          if ((write == 1) and (left > 0))
-            #  Since we can't write "tenty-two" instead of "twelve",
-            #  we have to make a special exception for these.
-            numExtenso = numExtenso + teenagers[left-1]
-            #  The "-1" is because teenagers[3] is 'fourteen', not 'thirteen'.
+        if escrevendo > 0
+          if ((escrevendo == 1) and (falta > 0))
+            #  Não podemos escrever "dez e dois", temos que escrever "doze",
+            #  então vamos fazer uma exceção.
+            numExtenso = numExtenso + adolescentes[falta-1]
+            #  O "-1" aqui é porque adolescentes[3] é 'catorze', e não 'treze'.
             
-            #  Since we took care of the digit in the ones place already,
-            #  we have nothing left to write.
-            left = 0
+            #  Já que cuidamos do dígito das unidades,
+            #  não falta mais nada
+            falta = 0
           else
-            numExtenso = numExtenso + tensPlace[write-1]
-            #  The "-1" is because tensPlace[3] is 'forty', not 'thirty'.
+            numExtenso = numExtenso + dezenas[escrevendo-1]
+            #  E o "-1" aqui é porque dezenas[3] é 'quarenta', e não 'trinta'.
           end
           
-          if left > 0
-            #  So we don't write 'sixtyfour'...
-            numExtenso = numExtenso + '-'
+          if falta > 0
+            #  Como nós não escrevemos "sessentaequarto"...
+            numExtenso = numExtenso + ' e '
           end
         end
         
-        write = left  #  How many ones left to write out?
-        left  = 0     #  Subtract off those ones.
+        escrevendo = falta  #  Quantas unidades faltam ser escritas?
+        falta  = 0     #  Subtraia elas.
         
-        if write > 0
-          numExtenso = numExtenso + onesPlace[write-1]
-          #  The "-1" is because onesPlace[3] is 'four', not 'three'.
+        if escrevendo > 0
+          numExtenso = numExtenso + unidades[escrevendo-1]
+          #  Novamente: O "-1" aqui é porque unidades[3] é 'quatro', e não 'três'.
         end
         
-        #  Now we just return "numExtenso"...
+        #  Agora podemos, simplesmente, retornar o nosso "numExtenso"...
         numExtenso
       end
       
@@ -668,9 +670,9 @@ module DefMethods
     para do <<-END_PARAGRAPH
       <em>Ahhhh....</em> That's much, much better.  The program is
       fairly dense, which is why I put in so many comments.  It
-      even works for large numbers... though not quite as nicely
+      even works for large numeros... though not quite as nicely
       as one would hope.  For example, I think #{code "'one trillion'"}
-      would be a nicer return value for that last number, or even
+      would be a nicer return value for that last numero, or even
       #{code "'one million million'"} (though all three are correct).
       In fact, you can do that right now...
       END_PARAGRAPH
@@ -702,10 +704,10 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       &bull; <em>"Ninety-nine bottles of beer..."</em>
-      Using #{code 'numeroPortugues'} and your old program, write out the
+      Using #{code 'numeroPortugues'} and your old program, escrevendo out the
       lyrics to this song the <em>right</em> way this time.
       Punish your computer:  have it start at 9999.  (Don't pick
-      a number too large, though, because writing all of that to
+      a numero too large, though, because writing all of that to
       the screen takes your computer quite a while.  A hundred
       thousand bottles of beer takes some time; and if you pick
       a million, you'll be punishing yourself as well!
@@ -715,7 +717,7 @@ module DefMethods
       Congratulations!  At this point, you are a true
       programmer!  You have learned
       everything you need to build huge programs from scratch.
-      If you have ideas for programs you would like to write
+      If you have ideas for programs you would like to escrevendo
       for yourself, give them a shot!
       END_PARAGRAPH
     end
@@ -729,7 +731,7 @@ module DefMethods
       the code samples are actually being run every time the
       web page is loaded?  ;) Ruby has many different
       #{makeLink 'kinds of objects', :generateClasses}
-      we can use to help us write better programs faster.
+      we can use to help us escrevendo better programs faster.
       END_PARAGRAPH
     end
   end
