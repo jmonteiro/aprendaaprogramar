@@ -42,10 +42,10 @@ module Beyond
     end
     h2 {'O Pickaxe: "Programming Ruby"'}
     para do <<-END_PARAGRAPH
-			<em>O</em> livro sobre Ruby absolutamente a não perder é 
+			<em>O</em> livro sobre Ruby que você não pode perder de jeito nenhum é 
 			"Programming Ruby, The pragmáticas Programador's Guide",
-			de Andrew Hunt e David Thomas (os Pragmatic Programmers).
-			Embora eu recomende altamente de escolher a 
+			de Andrew Hunt e David Thomas (os Programadores Pragmáticos).
+			Embora eu recomende fortemente a 
 			<a href="http://www.pragmaticprogrammer.com/titles/ruby/">2ª edição</a>
 			deste livro excelente, com a cobertura de todas as últimas novidades do Ruby, 
 			você também pode obter uma versão on-line grátis de pouco mais antiga (mas ainda relevante). 
@@ -54,35 +54,36 @@ module Beyond
     end
     para do <<-END_PARAGRAPH
 			Você pode encontrar praticamente tudo sobre Ruby, do básico ao avançado, 
-			neste livro. É fácil de ler; é abrangente; é quase perfeito. Desejo que 
-			todas as línguagens (de programação) tenham um livro desta qualidade. 
+			neste livro. É fácil de ler; é abrangente; é quase perfeito. Eu gostaria
+      que todas as linguagens (de programação) tivessem um livro desse nível. 
 			Na parte final do livro, você encontrará uma enorme seção detalhando 
-			cada método em cada classe, explicando-o e dando exemplos. 
+			cada método de cada classe, explicando-o e dando exemplos. 
 			Eu simplesmente amo este livro!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-			Há um número de lugares onde você pode obtê-lo (incluindo o próprio 
+			Há um sem número de lugares onde você pode obtê-lo (incluindo o próprio 
 			site do Pragmatic Programmers), mas o meu lugar favorito é no 
       <a href="http://www.ruby-doc.org/docs/ProgrammingRuby/">ruby-doc.org</a>.
-			Esta versão tem um bom índice de conteúdos, bem como um índice. 
+			Esta versão tem um bom índice , bem como um índice remessivo
 			(no ruby-doc.org tem muitas outras ótimas documentações, tais como a 
-			Core API e a Standard Library... Basicamente, isso documenta tudo que 
-			vem com o Ruby. <a href="http://www.ruby-doc.org/">Verifique.</a>).
+			API Central (Core API) e a Biblioteca Padrão (Standard Library)...
+      Basicamente, isso documenta tudo que vem com o Ruby.
+      <a href="http://www.ruby-doc.org/">Verifique.</a>).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
 			E por que é chamado de "o Pickaxe" (picareta)?
             Pois bem, há uma imagem de uma picareta na capa do livro.
-			É um nome bobo, eu suponho, mas pegou.
+			É um nome bobo, eu acho, mas pegou.
       END_PARAGRAPH
     end
-    h2 {'Ruby-Talk: a Mailing List do Ruby'}
+    h2 {'Ruby-Talk: uma lista de discussão sobre Ruby'}
     para do <<-END_PARAGRAPH
 			Mesmo com o irb e o Pickaxe, às vezes você ainda pode não dar conta sozinho.
 			Ou talvez você queira saber se alguém já fez o que você está fazendo, 
 			para ver se você pode utilizá-lo.
-			Nestes casos, o melhor lugar é rubi-talk, a Mailing List do Ruby. 
+			Nestes casos, o melhor lugar é ruby-talk, a lista de discussão do Ruby. 
 			É cheia de gente amigável, inteligente, colaborativa. 
 			Para saber mais sobre ela, ou para se inscrever, procure 
 			<a href="http://www.ruby-lang.org/en/20020104.html">aqui</a>.
@@ -90,14 +91,12 @@ module Beyond
     end
     para do <<-END_PARAGRAPH
       <strong>ATENÇÃO:</strong> Existe um <em>grande</em> número de e-mails 
-			na lista todos os dias. Tenho a minha automaticamente enviada para 
-			outra pasta de mail para que ela não fique no meu caminho.
-			Se simplesmente não quer lidar com todos os e-mails, no entanto, 
-			você não precisa lidar!
-			A mailing list ruby-talk é espelhada no newsgroup comp.lang.ruby, 
-			e vice-versa, assim você pode ver as mesmas mensagens lá.
-			De qualquer maneira, você verá as mesmas mensagens, apenas em um 
-			formato ligeiramente diferente.
+			na lista todos os dias. Eu criei uma regra no meu cliente de e-mail
+      para que não fique tudo na mesma pasta. Mas se você não quiser ter
+      que fazer isso, você não precisa!
+      A lista de discussão ruby-talk tem um espelho no grupo de notícias
+      comp.lang.ruby, assim, você pode ver as mensagens por lá. Em suma,
+      você verá as mesmas mensagens, mas de uma maneira um pouco diferente.
       END_PARAGRAPH
     end
     h2 {'Tim Toady'}
@@ -152,35 +151,35 @@ module Beyond
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      def doItTwice(&block)
-        block.call
-        block.call
+      def facaDuasVezes(&bloco)
+        bloco.call
+        bloco.call
       end
       
-      doItTwice do
+      facaDuasVezes do
         puts 'murditivent flavitemphan siresent litics'
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      ...you do this:
+      ...você faz isso:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      def doItTwice
+      def facaDuasVezes
         yield
         yield
       end
       
-      doItTwice do
+      facaDuasVezes do
         puts 'buritiate mustripe lablic acticise'
       end
       END_CODE
     end
     para do <<-END_PARAGRAPH
 			Não sei ... O que você acha? Talvez seja eu, mas... #{code 'yield'}?! 
-			Se fosse algo como #{code 'call_the_hidden_block'} ou algo assim, 
-			faria <em>muito</em> mais sentido para mim. Muitas pessoas dizem que 
+			Se fosse algo como #{code 'chame_o_bloco_escondido'} (#{code 'call_the_hidden_block'})
+      ou algo assim, faria <em>muito</em> mais sentido para mim. Muitas pessoas dizem que 
 			#{code 'yield'} faz sentido para elas. Mas acho que esse é o propósito de 
 			TMTOWTDI: elas fazem do jeito delas, e eu vou fazer à minha maneira.
       END_PARAGRAPH
