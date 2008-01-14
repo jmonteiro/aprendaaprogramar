@@ -438,7 +438,7 @@ module BlocksProcs
             '</pre>'
       para do <<-END_PARAGRAPH
         Bem, isso é tudo que você aprendeu com esse tutorial.
-        Parabéns! Você aprendeu <em>muito</em! Talvez você sinta
+        Parabéns! Você aprendeu <em>muito</em> Talvez você sinta
         como se você não lembrasse de nada, ou talvez você tenha
         pulado algumas partes... Relaxe. Programação não é o que
         você sabe, e sim o que você faz. A medida que você for
@@ -447,7 +447,7 @@ module BlocksProcs
         escrevi tudo isso sem ficar conferindo a cada minuto!
         Porque eu fiz isso. Eu também tive muita ajuda com os
         códigos que rodam em todos os exemplos desse tutorial.
-        Mas onde <em>eu</em estava pesquisando tudo e a quem
+        Mas onde <em>eu</em> estava pesquisando tudo e a quem
         <em>eu</em> estava pedindo ajuda?
         #{makeLink 'Deixe-me conhecê-lo...', :generateBeyond}
         END_PARAGRAPH

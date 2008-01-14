@@ -668,31 +668,37 @@ module DefMethods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      <em>Ahhhh....</em> That's much, much better.  The program is
-      fairly dense, which is why I put in so many comments.  It
-      even works for large numeros... though not quite as nicely
-      as one would hope.  For example, I think #{code "'one trillion'"}
-      would be a nicer return value for that last numero, or even
-      #{code "'one million million'"} (though all three are correct).
-      In fact, you can do that right now...
+      <em>Ahhhh....</em> Agora está muito melhor. O programa
+      está um pouco maçante, mas é porque eu enchi de comentários.
+      Agora ele funciona para números grandes... embora não de
+      uma maneira muito elegante. Por exemplo, eu acho que #{code "'um trilhão'"}
+      seria muito mais elegante para o último número, do que #{code "'um milhão milhão'"}
+      (muito embora todas as três estejam corretas). Na verdade,
+      você pode fazer isso agora...
       END_PARAGRAPH
     end
-    h2 {'A Few Things to Try'}
+    h2 {'Algumas Coisinhas para Tentar'}
     para do <<-END_PARAGRAPH
-      &bull; Expand upon #{code 'numeroPortugues'}.  First, put in
-      thousands.  So it should return #{code "'one thousand'"}
-      instead of #{code "'ten hundred'"} and #{code "'ten thousand'"}
-      instead of #{code "'one hundred hundred'"}.
-      END_PARAGRAPH
-    end
-    para do <<-END_PARAGRAPH
-      &bull; Expand upon #{code 'numeroPortugues'} some more.
-      Now put in millions, so you get #{code "'one million'"}
-      instead of #{code "'one thousand thousand'"}.  Then try adding
-      billions and trillions.  How high can you go?
+      &bull; Melhore o método upon #{code 'numeroPortugues'}. Primeiro,
+      coloque os milhares. Ou seja, ele deve retornar #{code "'um mil'"}
+      ao inves de #{code "'dez centos'"} e #{code "'dez mil'"}
+      ao invés de #{code "'um centos centos'"}. Seria interessante
+      retornar #{code "'cem'"}, #{code "'duzentos'"} e etc. ao invés
+      de #{code "'um centos'"}, #{code "'dois centos'"} e etc. (muito embora
+      ambas as formas estejam corretas).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
+      &bull; Melhore o método #{code 'numeroPortugues'} um pouquinho
+      mais.
+      Coloque milhões agora, assim você conseguirá coisas como #{code "'um milhão'"}
+      ao invés de #{code "'um mil mil'"}. Depois tente adicionar
+      bilhões e trilhões. Quão longe você consegue ir?
+      END_PARAGRAPH
+    end
+    para do <<-END_PARAGRAPH
+      <em><strong>NOTA:</strong> Esse não é o padrão de nossa língua?
+      Não se torna desnecessário na tradução?</em>
       &bull; How about #{code 'weddingNumber'}?  It should
       work almost the same as #{code 'numeroPortugues'}, except
       that it should insert the word "and" all over the place,
@@ -703,35 +709,36 @@ module DefMethods
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      &bull; <em>"Ninety-nine bottles of beer..."</em>
-      Using #{code 'numeroPortugues'} and your old program, escrevendo out the
-      lyrics to this song the <em>right</em> way this time.
-      Punish your computer:  have it start at 9999.  (Don't pick
-      a numero too large, though, because writing all of that to
-      the screen takes your computer quite a while.  A hundred
-      thousand bottles of beer takes some time; and if you pick
-      a million, you'll be punishing yourself as well!
+      &bull; <em>"Um elefante incomoda muita gente..."</em>
+      Usando o método #{code 'numeroPortugues'}, escreva
+      esse clássico <em>corretamente</em> agora. Coloque
+      seu computador de castigo: faça ele contar 9999 elefantes
+      (Não exagere nos elefantes, porém. Escrever todos esses
+      elefantes na sua tela vai demorar um pouco. Se você
+      pensar em um milhão de elefantes, você vai acabar se
+      colocando de castigo!).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Congratulations!  At this point, you are a true
-      programmer!  You have learned
-      everything you need to build huge programs from scratch.
-      If you have ideas for programs you would like to escrevendo
-      for yourself, give them a shot!
+      Parabéns! Agora você já é um verdadeiro programador!
+      Você aprendeu tudo o que você precisava para
+      escrever grandes programas do zero. Se você tiver
+      idéias de programas que você gostaria de escrever
+      para você mesmo, tente agora!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Of course, building everything from scratch can be a
-      pretty slow process.  Why spend time writing code that
-      someone else already wrote?  
-      Would you like your program to send some email?
-      Would you like to save and load files on your computer?
-      How about generating web pages for a tutorial where
-      the code samples are actually being run every time the
-      web page is loaded?  ;) Ruby has many different
-      #{makeLink 'kinds of objects', :generateClasses}
-      we can use to help us escrevendo better programs faster.
+      Claro que escrever tudo do zero pode ser um processo
+      muito lento. Porque gastar tempo e energia escrevendo
+      um código que alguém já escreveu?
+      Você quer um programa que mande alguns e-mails?
+      Você gostaria de salvar e carregar arquivos em seu
+      computador?
+      Que tal gerar páginas da web para um tutorial onde
+      os exemplos de código sejam executados cada vez que
+      a página é carregada? :) Ruby tem muitos #{makeLink 'tipos diferentes de objetos', :generateClasses}
+      que podemos usar para nos ajudar a escrever programas
+      mais rapidamente.
       END_PARAGRAPH
     end
   end

@@ -10,7 +10,7 @@ module Beyond
       E se você quer que seu programa abra uma página da Web, envie um e-mail, 
       ou redimensione uma foto digital?
       Pois bem, há muitos, muitos lugares onde encontrar ajuda para Ruby. 
-      Infelizmente, essa resposta nao tem muita utilidade, não é? :-)
+      Infelizmente, essa resposta não tem muita utilidade, não é? :-)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -18,7 +18,7 @@ module Beyond
 			para o Ruby.
 			Se for uma pequena questão e eu acho que posso experimentar sozinho para 
 			encontrar a resposta, uso <dfn>irb</dfn>.
-			Se for uma questão maior, procuro no meu <dfn>pickaxe</dfn>.
+			Se for uma questão maior, procuro no meu <dfn>Pickaxe</dfn>.
 			E se simplesmente não consigo dar conta do recado, então peço ajuda na 
 			lista <dfn>ruby-talk</dfn>.
       END_PARAGRAPH
