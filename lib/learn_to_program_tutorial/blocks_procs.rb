@@ -302,8 +302,8 @@ module BlocksProcs
         #  Remember, we are getting the even-numbered elements
         #  of the array, all of which happen to be odd numbers,
         #  just because I like to cause problems like that.
-        [1, 2, 3, 4, 5].cadaComparacao do |BolaEstranha|
-          puts BolaEstranha.to_s+' não é um número!'
+        [1, 2, 3, 4, 5].cadaComparacao do |bola_estranha|
+          puts bola_estranha.to_s+' não é um número!'
         end
         END_CODE
       end

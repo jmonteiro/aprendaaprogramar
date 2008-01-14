@@ -17,7 +17,7 @@ module LearnToProgram
     @chapters['07'     ] = ['Arrays e Iteradores',       		:generateArrays]
     @chapters['08'     ] = ['Escrevendo seus Próprios Métodos', :generateDefMethod]
     @chapters['09'     ] = ['Classes',                 			:generateClasses]
-    @chapters['10'     ] = ['Blocos and Processos',        		:generateBlocksProcs]
+    @chapters['10'     ] = ['Blocos e Processos',        		:generateBlocksProcs]
     @chapters['11'     ] = ['Além deste Tutorial',	     		:generateBeyond]
   end
   
