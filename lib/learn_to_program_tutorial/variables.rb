@@ -29,7 +29,7 @@ module Variables
       mas o primeiro caracter tem de ser uma letra minúscula. Vamos rodar
       o último programa de novo, mas desta vez eu darei à string o nome de
       #{code 'minhaString'} (ainda que eu pudesse tê-la chamado de 
-      #{code 'str'} ou #{code 'minhaStringzinha'} ou {#code 'pedroPrimeiro'}).
+      #{code 'str'} ou #{code 'minhaStringzinha'} ou #{code 'pedroPrimeiro'}).
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -43,13 +43,13 @@ module Variables
       fez com #{code "'...você pode dizer aquilo de novo'"} no lugar. Você
       pode pensar na variável #{code 'minhaString'} como "apontando para" a 
       string #{code "'...você pode dizer aquilo de novo...'"}. Eis um exemplo
-      um tiquinho mais interessante:
+      um pouquinho mais interessante:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
       nome = 'Patricia Rosanna Jessica Mildred Oppenheimer'
-      puts 'Meu nome é ' + name + '.'
-      puts 'Nossa!  ' + name + ' é um nome bem longo!'
+      puts 'Meu nome é ' + nome + '.'
+      puts 'Nossa!  ' + nome + ' é um nome bem longo!'
       END_CODE
     end
     para do <<-END_PARAGRAPH

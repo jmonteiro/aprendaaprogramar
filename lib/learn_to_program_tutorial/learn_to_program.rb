@@ -6,7 +6,7 @@ module LearnToProgram
     @page  = []
     
     #  'format' é uma página escondida para testar a formatação.
-    @chapters = {'format'=>['Formatting Page',              		:generateFormattingPage]}
+    @chapters = {'format'=>['Página de Formatação',          		:generateFormattingPage]}
     @chapters['00'     ] = ['Iniciando',                    		:generateSetup]
     @chapters['01'     ] = ['Números',                       		:generateNumbers]
     @chapters['02'     ] = ['Letras',                   	    	:generateLetters]
@@ -275,8 +275,8 @@ module LearnToProgram
         end
       rescue Exception => e
         error_msg = <<-END_ERROR
-          <html><head><title>ERROR</title></head>
-          <body><h3>ERROR:  email Chris or Katy with this page's address</h3>
+          <html><head><title>ERRO</title></head>
+          <body><h3>ERRO: envie um e-mail para o Chris ou para a Katy com o seguinte endereço</h3>
           <pre><strong>#{e.class}:  #{CGI::escapeHTML(e.message)}</strong>
           #{e.backtrace.join("\n")}
           </pre>
