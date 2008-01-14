@@ -1,59 +1,59 @@
 module Arrays
   #
   #  ARRAYS AND ITERATORS
-  #
+  #						    
   
   def generateArrays
     para do <<-END_PARAGRAPH
       Vamos escrever um programa que nos permita entrar com quantas
-      palavras quisermos (uma por linha, atÈ pressionarmos <kbd>Enter</kbd>
-      em uma linha vazia), e depois mostre as palavras em ordem alfabÈtica. Ok?
+      palavras quisermos (uma por linha, at√© pressionarmos <kbd>Enter</kbd>
+      em uma linha vazia), e depois mostre as palavras em ordem alfab√©tica. Ok?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Ent„o... primeiro nÛs iremos.. bem.. hum... Bom, poderÌamos.. rsrsrs..
+      Ent√£o... primeiro n√≥s iremos.. bem.. hum... Bom, poder√≠amos.. rsrsrs..
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Certo, N„o sei se podemos fazer isso. Precisamos de uma forma de armazenar
-      um n˙mero qualquer de palavras, e de podermos acess·-las sem que se misturem
-      com as outras vari·veis. Precisamos coloc·-las num tipo de lista. Precisamos
+      Certo, N√£o sei se podemos fazer isso. Precisamos de uma forma de armazenar
+      um n√∫mero qualquer de palavras, e de podermos acess√°-las sem que se misturem
+      com as outras vari√°veis. Precisamos coloc√°-las num tipo de lista. Precisamos
       dos <dfn>arrays</dfn>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Um array È apenas uma lista em seu computador. Cada item da lista
-      se comporta como uma vari·vel: vocÍ pode ver qual objeto um item est·
-      apontando, e vocÍ pode fazÍ-lo apontar para um outro objeto.
+      Um array √© apenas uma lista em seu computador. Cada item da lista
+      se comporta como uma vari√°vel: voc√™ pode ver qual objeto um item est√°
+      apontando, e voc√™ pode faz√™-lo apontar para um outro objeto.
       Vamos dar uma olhada em alguns arrays:
       END_PARAGRAPH
     end
     prog false do <<-END_CODE
       []
       [5]
-      ['Ol·', 'Tchau']
+      ['Ol√°', 'Tchau']
       
-      sabor = 'baunilha'             #  isto n„o È um array, claro...
-      [89.9, sabor, [true, false]]  #  ...mas isto È.
+      sabor = 'baunilha'             #  isto n√£o √© um array, claro...
+      [89.9, sabor, [true, false]]  #  ...mas isto √©.
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Primeiro nÛs temos um array vazio, ent„o um array contendo
-      um ˙nico n˙mero, ent„o um array contendo duas strings.
-      Depois, temos uma atribuiÁ„o simples; e aÌ um array 
-      contendo trÍs objetos, sendo que o ˙ltimo È um outro 
-      array #{code '[true, false]'}. Lembre-se, vari·veis n„o 
-      s„o objetos, ent„o, nosso ˙ltimo array est· realmente
+      Primeiro n√≥s temos um array vazio, ent√£o um array contendo
+      um √∫nico n√∫mero, ent√£o um array contendo duas strings.
+      Depois, temos uma atribui√ß√£o simples; e a√≠ um array 
+      contendo tr√™s objetos, sendo que o √∫ltimo √© um outro 
+      array #{code '[true, false]'}. Lembre-se, vari√°veis n√£o 
+      s√£o objetos, ent√£o, nosso √∫ltimo array est√° realmente
       apontando a para um float, uma <em>string</em> e um array.
-      Mesmo que nÛs mud·ssemos o valor de #{code 'sabor'}, isso 
-      n„o mudaria o array.
+      Mesmo que n√≥s mud√°ssemos o valor de #{code 'sabor'}, isso 
+      n√£o mudaria o array.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       Para nos ajudar a encontrar um objeto qualquer num array,
-      cada item tem um n˙mero de indexaÁ„o. Programadores (e, ali·s,
-      a maioria dos matem·ticos) inicia contando do zero, ent„o,
-      o primeiro item do array È o item zero. Veja como podemos
+      cada item tem um n√∫mero de indexa√ß√£o. Programadores (e, ali√°s,
+      a maioria dos matem√°ticos) inicia contando do zero, ent√£o,
+      o primeiro item do array √© o item zero. Veja como podemos
       referenciar os objetos em um array:
       END_PARAGRAPH
     end
@@ -64,108 +64,108 @@ module Arrays
       puts nomes[0]
       puts nomes[1]
       puts nomes[2]
-      puts nomes[3]  #  Isto est· fora do intervalo
+      puts nomes[3]  #  Isto est√° fora do intervalo
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Vemos ent„o, que #{code 'puts nomes'} imprime cada nome do
-      array #{code 'nomes'}. Ent„o usamos #{code 'puts nomes[0]'}
+      Vemos ent√£o, que #{code 'puts nomes'} imprime cada nome do
+      array #{code 'nomes'}. Ent√£o usamos #{code 'puts nomes[0]'}
       para imprimir o "primeiro" nome do array e #{code 'puts nomes[1]'}
       para imprimir o "segundo"... Tenho certeza que parece confuso,
-      mas vocÍ <em>deve</em> se acostumar com isso. VocÍ deve realmente
-      comeÁar a <em>acreditar</em> que contar inicia do zero e parar
+      mas voc√™ <em>deve</em> se acostumar com isso. Voc√™ deve realmente
+      come√ßar a <em>acreditar</em> que contar inicia do zero e parar
       de usar palavras como "primeiro" e "segundo".
-      Se vocÍ for num rodÌzio de pizza, n„o fale sobre o "primeiro"
-      pedaÁo; fale sobre o pedaÁo zero (e na sua cabeÁa 
+      Se voc√™ for num rod√≠zio de pizza, n√£o fale sobre o "primeiro"
+      peda√ßo; fale sobre o peda√ßo zero (e na sua cabe√ßa 
       pense #{code 'pedaco[0]'}).
-      VocÍ tem 5 dedos na sua m„o e seus n˙meros s„o 0, 1, 2, 3 e 4.
+      Voc√™ tem 5 dedos na sua m√£o e seus n√∫meros s√£o 0, 1, 2, 3 e 4.
       Minha esposa e eu somos malabariastas. Quando fazemos malabares
-      com 6 pinos, estamos equilibrando os pinos 0 ‡ 5. Felizmente,
+      com 6 pinos, estamos equilibrando os pinos 0 √† 5. Felizmente,
       em alguns meses, estaremos equilibrando o pino 6 (e portanto, 
-      equilibrando 7 pinos). VocÍ saber· que conseguiu quando
-      comeÁar a usar o termo "zerÈsimo" :-) Sim, È uma palavra real..
-      Pergunte a um programador ou matem·tico..
+      equilibrando 7 pinos). Voc√™ saber√° que conseguiu quando
+      come√ßar a usar o termo "zer√©simo" :-) Sim, √© uma palavra real..
+      Pergunte a um programador ou matem√°tico..
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Finalmente, nÛs tentamos #{code 'puts nomes[3]'}, apenas veja o que
-      aconteceria.  VocÍ estava esperando um erro?  Algumas vezes quando
-      vocÍ faz um pergunta, sua pergunta n„o faz sentido (pelo
-      menos para seu computador); È quando obtÈm um erro.
-      Algumas vezes, entretanto, vocÍ pode fazer uma pergunta e a resposta
-      È <em>nada</em>.  O que est· na posiÁ„o trÍs?  Nada.
-      O que È #{code 'nomes[3]'}?  #{code 'nil'}:  A maneira Ruby
-      de dizer "nada".  #{code 'nil'} È um objeto especial
-      que basicamente significa "n„o È qualquer outro objeto."
+      Finalmente, n√≥s tentamos #{code 'puts nomes[3]'}, apenas veja o que
+      aconteceria.  Voc√™ estava esperando um erro?  Algumas vezes quando
+      voc√™ faz um pergunta, sua pergunta n√£o faz sentido (pelo
+      menos para seu computador); √© quando obt√©m um erro.
+      Algumas vezes, entretanto, voc√™ pode fazer uma pergunta e a resposta
+      √© <em>nada</em>.  O que est√° na posi√ß√£o tr√™s?  Nada.
+      O que √© #{code 'nomes[3]'}?  #{code 'nil'}:  A maneira Ruby
+      de dizer "nada".  #{code 'nil'} √© um objeto especial
+      que basicamente significa "n√£o √© qualquer outro objeto."
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Se toda esta numeraÁ„o divertida de posiÁıes de array est· confundindo
-      vocÍ, n„o tema!  Frequentemente, nÛs podemos evit·-la completamente 
-      usando v·rios mÈtodos de array, como este:
+      Se toda esta numera√ß√£o divertida de posi√ß√µes de array est√° confundindo
+      voc√™, n√£o tema!  Frequentemente, n√≥s podemos evit√°-la completamente 
+      usando v√°rios m√©todos de array, como este:
       END_PARAGRAPH
     end
-    h2 {"O MÈtodo #{code 'each'}"}
+    h2 {"O M√©todo #{code 'each'}"}
     para do <<-END_PARAGRAPH
-      #{code 'each'} nos permite fazer algo (o que quer que nÛs
-      desejemos) para #{code 'each'}(cada em portuguÍs) objeto pertencente ao array.  Assim, se nÛs
+      #{code 'each'} nos permite fazer algo (o que quer que n√≥s
+      desejemos) para #{code 'each'}(cada em portugu√™s) objeto pertencente ao array.  Assim, se n√≥s
       quisessemos dizer algo bom sobre cada linguagem no array
-      abaixo, nÛs farÌamos isto:
+      abaixo, n√≥s far√≠amos isto:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      linguagens = ['PortuguÍs', 'InglÍs', 'Ruby']
+      linguagens = ['Portugu√™s', 'Ingl√™s', 'Ruby']
       
       linguagens.each do |ling|
         puts 'Eu adoro ' + ling + '!'
-        puts 'VocÍ n„o?'
+        puts 'Voc√™ n√£o?'
       end
       
-      puts 'E vamos ouvÌ-lo sobre C++!'
+      puts 'E vamos ouv√≠-lo sobre C++!'
       puts '...'
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Ent„o, o que aconteceu?  Bem, nÛs fomos capazes de passar por
-      todos os objetos no array sem usar nenhum n˙mero, e
-      isto È muito bom.  Traduzindo para o portuguÍs, o programa
+      Ent√£o, o que aconteceu?  Bem, n√≥s fomos capazes de passar por
+      todos os objetos no array sem usar nenhum n√∫mero, e
+      isto √© muito bom.  Traduzindo para o portugu√™s, o programa
       acima seria algo como:  Para #{code 'cada'} objeto
-      em #{code 'linguagens'}, aponte a vari·vel #{code 'ling'}
-      para o objeto e ent„o #{code 'faÁa'}(do em inglÍs) tudo que eu disser,
-      atÈ que vocÍ chegue ao #{code 'fim'}(end em inglÍs).  (Como vocÍ sabe,
-      C++ È uma outra linguagem de programaÁ„o.  … muito mais difÌcil de aprender
-      do que Ruby; normalmente, um programa C++ ser· muitas vezes
+      em #{code 'linguagens'}, aponte a vari√°vel #{code 'ling'}
+      para o objeto e ent√£o #{code 'fa√ßa'}(do em ingl√™s) tudo que eu disser,
+      at√© que voc√™ chegue ao #{code 'fim'}(end em ingl√™s).  (Como voc√™ sabe,
+      C++ √© uma outra linguagem de programa√ß√£o.  √â muito mais dif√≠cil de aprender
+      do que Ruby; normalmente, um programa C++ ser√° muitas vezes
       maior do que um programa Ruby que faz a mesma coisa.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      VocÍs poderiam estar pensando consigo mesmo, "Isto È muito parecido
-      com os laÁos de repetiÁ„o (loops) que nÛs aprendemos anteriormente."  Sim, È similar.
-      Uma diferenÁa importante È que o mÈtodo #{code 'each'}
-      È apenas:  um mÈtodo.  #{code 'while'} e #{code 'end'}
+      Voc√™s poderiam estar pensando consigo mesmo, "Isto √© muito parecido
+      com os la√ßos de repeti√ß√£o (loops) que n√≥s aprendemos anteriormente."  Sim, √© similar.
+      Uma diferen√ßa importante √© que o m√©todo #{code 'each'}
+      √© apenas:  um m√©todo.  #{code 'while'} e #{code 'end'}
       (como #{code 'do'}, #{code 'if'}, #{code 'else'}, e todas as outras
       <span class="L2Pcode"><span class="L2Pkeyword">#{KEYWORD_COLOR}</span></span>
-      palavras) n„o s„o mÈtodos.  Elas s„o parte fundamental da linguagem
-      Ruby, como #{code '='} e os parÍnteses; como as 
-      marcas de pontuaÁıes no portuguÍs.
+      palavras) n√£o s√£o m√©todos.  Elas s√£o parte fundamental da linguagem
+      Ruby, como #{code '='} e os par√™nteses; como as 
+      marcas de pontua√ß√µes no portugu√™s.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Mas n„o #{code 'each'}; #{code 'each'} È um apenas um outro
-      mÈtodo do array.  MÈtodos como #{code 'each'} que "atuam como"
-      loops s„o frequentemente chamados <dfn>iteradores</dfn>.
+      Mas n√£o #{code 'each'}; #{code 'each'} √© um apenas um outro
+      m√©todo do array.  M√©todos como #{code 'each'} que "atuam como"
+      loops s√£o frequentemente chamados <dfn>iteradores</dfn>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Uma coisa para notar sobre iteradores È que eles s„o
+      Uma coisa para notar sobre iteradores √© que eles s√£o
       sempre seguidos por #{code 'do'}...#{code 'end'}.
-      #{code 'while'} e #{code 'if'} nunca tÍm um #{code 'do'}
-      perto deles; nÛs apenas usamos #{code 'do'} com iteradores.
+      #{code 'while'} e #{code 'if'} nunca t√™m um #{code 'do'}
+      perto deles; n√≥s apenas usamos #{code 'do'} com iteradores.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Aqui est· um outro atraente iteradorzinho, mas n„o È um
-      mÈtodo de array... È um mÈtodo de inteiros!
+      Aqui est√° um outro atraente iteradorzinho, mas n√£o √© um
+      m√©todo de array... √© um m√©todo de inteiros!
       END_PARAGRAPH
     end
     prog do <<-END_CODE
@@ -174,22 +174,22 @@ module Arrays
       end
       END_CODE
     end
-    h2 {'Mais MÈtodos de Array'}
+    h2 {'Mais M√©todos de Array'}
     para do <<-END_PARAGRAPH
-      Ent„o nÛs aprendemos #{code 'each'},
-      mas existem muitos outros mÈtodos de array... quase tantos
-      quantos existem mÈtodos de string!  De fato, alguns
+      Ent√£o n√≥s aprendemos #{code 'each'},
+      mas existem muitos outros m√©todos de array... quase tantos
+      quantos existem m√©todos de string!  De fato, alguns
       deles (como #{code 'length'}, #{code 'reverse'},
       #{code '+'}, e #{code '*'})
       funcionam da mesma forma que funcionam para strings, exceto que eles
-      operam em posiÁıes de array mais do que em
+      operam em posi√ß√µes de array mais do que em
       letras de string.  Outros, como #{code 'last'}
-      e #{code 'join'}, s„o especÌficos para arrays.  Ainda
+      e #{code 'join'}, s√£o espec√≠ficos para arrays.  Ainda
       outros, como #{code 'push'} e #{code 'pop'},
       na verdade modificam o array.  E assim como com
-      os mÈtodos de string, vocÍ n„o tem que se lembrar de
-      todos estes, desde que vocÍ possa se lembrar onde
-      achar informaÁıes sobre eles (bem aqui).
+      os m√©todos de string, voc√™ n√£o tem que se lembrar de
+      todos estes, desde que voc√™ possa se lembrar onde
+      achar informa√ß√µes sobre eles (bem aqui).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -200,7 +200,7 @@ module Arrays
       END_PARAGRAPH
     end
     prog do <<-END_CODE
-      comidas = ['feijoada', 'tapioca', 'bolo de fub·']
+      comidas = ['feijoada', 'tapioca', 'bolo de fub√°']
       
       puts comidas
       puts
@@ -216,31 +216,31 @@ module Arrays
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Como vocÍ pode ver, #{code 'puts'} trata os arrays diferentemente
+      Como voc√™ pode ver, #{code 'puts'} trata os arrays diferentemente
       de outros objetos:  ele apenas chama #{code 'puts'} em cada um
-      dos objetos no array.  … por isso que chamar #{code 'puts'} para um
-      um array vazio 200 vezes n„o faz nada; o array n„o aponta
-      para nada, assim n„o h· nada para o #{code 'puts'} mostrar.  (Fazer
-      nada 200 vezes ainda È fazer nada.)
+      dos objetos no array.  √â por isso que chamar #{code 'puts'} para um
+      um array vazio 200 vezes n√£o faz nada; o array n√£o aponta
+      para nada, assim n√£o h√° nada para o #{code 'puts'} mostrar.  (Fazer
+      nada 200 vezes ainda √© fazer nada.)
       Tente chamar #{code 'puts'} para um array contendo outros arrays;
-      fez o que vocÍ esperava?
+      fez o que voc√™ esperava?
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      VocÍ tambÈm notou que eu deixei uma string vazia quando
+      Voc√™ tamb√©m notou que eu deixei uma string vazia quando
       eu quis #{code 'mostrar'} uma linha em branco?  Isto faz a mesma
       coisa.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       Agora vamos dar uma olhada em #{code 'push'}, #{code 'pop'},
-      e #{code 'last'}.  Os mÈtodos #{code 'push'} e #{code 'pop'}
-      s„o de alguma forma opostos,
-      assim como #{code '+'} e #{code '-'} s„o.  #{code 'push'} adiciona
+      e #{code 'last'}.  Os m√©todos #{code 'push'} e #{code 'pop'}
+      s√£o de alguma forma opostos,
+      assim como #{code '+'} e #{code '-'} s√£o.  #{code 'push'} adiciona
       um objeto no fim do seu array, e #{code 'pop'}
-      remove o ˙ltimo objeto do array (e diz para vocÍ
-      qual era este objeto).  #{code 'last'} È similar a #{code 'pop'}
-      em dizer para vocÍ o que est· no fim do array,
+      remove o √∫ltimo objeto do array (e diz para voc√™
+      qual era este objeto).  #{code 'last'} √© similar a #{code 'pop'}
+      em dizer para voc√™ o que est√° no fim do array,
       exceto que o #{code 'last'} deixa o array em paz.
       Novamente, #{code 'push'} e #{code 'pop'} <em>realmente
       modificam o array</em>:
@@ -262,32 +262,32 @@ module Arrays
     end
     h2 {'Algumas Coisas para Tentar'}
     para do <<-END_PARAGRAPH
-      &bull; Escreva o programa que nÛs comentamos no inÌcio
-      deste capÌtulo.<br />
-      <em><strong>Dica:</strong>  Existe um ador·vel
-      mÈtodo de array que dar· a vocÍ uma vers„o ordenada de um 
+      &bull; Escreva o programa que n√≥s comentamos no in√≠cio
+      deste cap√≠tulo.<br />
+      <em><strong>Dica:</strong>  Existe um ador√°vel
+      m√©todo de array que dar√° a voc√™ uma vers√£o ordenada de um 
       array:  </em>#{code 'sort'}<em>.  Use-o!</em>
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       &bull; Tente escrever o programa acima <em>sem</em> usar
-      o mÈtodo #{code 'sort'}.  Uma grande parte da programaÁ„o È
-      resolver problemas, assim pratique o m·ximo que vocÍ puder!
+      o m√©todo #{code 'sort'}.  Uma grande parte da programa√ß√£o √©
+      resolver problemas, assim pratique o m√°ximo que voc√™ puder!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      &bull; Re-escreva seu programa de Tabela de Conte˙dos (do capÌtulo
-      #{makeLink 'mÈtodos', :generateMethods}).  Inicie o programa
-      com um array que mantÈm todas as informaÁıes sobre sua Tabela
-      de Conte˙dos (nomes de capÌtulos, n˙meros de p·ginas, etc.).  Ent„o imprima
-      na tela a informaÁ„o do array em uma Tabela de Conte˙dos
+      &bull; Re-escreva seu programa de Tabela de Conte√∫dos (do cap√≠tulo
+      #{makeLink 'm√©todos', :generateMethods}).  Inicie o programa
+      com um array que mant√©m todas as informa√ß√µes sobre sua Tabela
+      de Conte√∫dos (nomes de cap√≠tulos, n√∫meros de p√°ginas, etc.).  Ent√£o imprima
+      na tela a informa√ß√£o do array em uma Tabela de Conte√∫dos
       formatada de forma bem bonita.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      AtÈ o momento aprendemos bastante sobre um n˙mero de mÈtodos diferentes.
-      Agora È hora de aprender como
-      #{makeLink 'fazer seus prÛprios mÈtodos', :generateDefMethod}.
+      At√© o momento aprendemos bastante sobre um n√∫mero de m√©todos diferentes.
+      Agora √© hora de aprender como
+      #{makeLink 'fazer seus pr√≥prios m√©todos', :generateDefMethod}.
       END_PARAGRAPH
     end
   end
