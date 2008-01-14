@@ -143,11 +143,11 @@ module Arrays
       com os laços de repetição (loops) que nós aprendemos anteriormente."  Sim, é similar.
       Uma diferença importante é que o método #{code 'each'}
       é apenas:  um método.  #{code 'while'} e #{code 'end'}
-      (como #{code 'do'}, #{code 'if'}, #{code 'else'}, e todas as outras
-      <span class="L2Pcode"><span class="L2Pkeyword">#{KEYWORD_COLOR}</span></span>
-      palavras) não são métodos.  Elas são parte fundamental da linguagem
-      Ruby, como #{code '='} e os parênteses; como as 
-      marcas de pontuações no português.
+      (como #{code 'do'}, #{code 'if'}, #{code 'else'}, e todas as outras palavras em
+      <span class="L2Pcode"><span class="L2Pkeyword">#{KEYWORD_COLOR}</span></span>)
+      não são métodos.  Elas são parte fundamental da linguagem
+      Ruby, como #{code '='} e os parênteses; como os sinais
+      de pontuações no português.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -170,7 +170,7 @@ module Arrays
     end
     prog do <<-END_CODE
       3.times do
-        puts 'Hip-Hip-Hooray!'
+        puts 'Hip-Hip-Urra!'
       end
       END_CODE
     end
@@ -178,13 +178,13 @@ module Arrays
     para do <<-END_PARAGRAPH
       Então nós aprendemos #{code 'each'},
       mas existem muitos outros métodos de array... quase tantos
-      quantos existem métodos de string!  De fato, alguns
+      quantos existem métodos de string! Na verdade, alguns
       deles (como #{code 'length'}, #{code 'reverse'},
       #{code '+'}, e #{code '*'})
       funcionam da mesma forma que funcionam para strings, exceto que eles
-      operam em posições de array mais do que em
-      letras de string.  Outros, como #{code 'last'}
-      e #{code 'join'}, são específicos para arrays.  Ainda
+      operam em posições de array ao inves de em
+      letras de string. Outros, como #{code 'last'}
+      e #{code 'join'}, são específicos para arrays. Ainda
       outros, como #{code 'push'} e #{code 'pop'},
       na verdade modificam o array.  E assim como com
       os métodos de string, você não tem que se lembrar de
@@ -220,8 +220,8 @@ module Arrays
       de outros objetos:  ele apenas chama #{code 'puts'} em cada um
       dos objetos no array.  É por isso que chamar #{code 'puts'} para um
       um array vazio 200 vezes não faz nada; o array não aponta
-      para nada, assim não há nada para o #{code 'puts'} mostrar.  (Fazer
-      nada 200 vezes ainda é fazer nada.)
+      para nada, assim não há nada para o #{code 'puts'} mostrar (Fazer
+      nada 200 vezes ainda é fazer nada).
       Tente chamar #{code 'puts'} para um array contendo outros arrays;
       fez o que você esperava?
       END_PARAGRAPH
@@ -280,7 +280,7 @@ module Arrays
       #{makeLink 'métodos', :generateMethods}).  Inicie o programa
       com um array que mantém todas as informações sobre sua Tabela
       de Conteúdos (nomes de capítulos, números de páginas, etc.).  Então imprima
-      na tela a informação do array em uma Tabela de Conteúdos
+      na tela a informação do array em uma Tabela de Conteúdos,
       formatada de forma bem bonita.
       END_PARAGRAPH
     end
