@@ -1,4 +1,4 @@
-module Arrays
+﻿module Arrays
   #
   #  ARRAYS AND ITERATORS
   #
@@ -88,13 +88,13 @@ module Arrays
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Finalmente, nós tentamos #{code 'puts names[3]'}, apenas veja o que
+      Finalmente, nós tentamos #{code 'puts nomes[3]'}, apenas veja o que
       aconteceria.  Você estava esperando um erro?  Algumas vezes quando
       você faz um pergunta, sua pergunta não faz sentido (pelo
       menos para seu computador); é quando obtém um erro.
       Algumas vezes, entretanto, você pode fazer uma pergunta e a resposta
       é <em>nada</em>.  O que está na posição três?  Nada.
-      O que é #{code 'names[3]'}?  #{code 'nil'}:  A maneira Ruby
+      O que é #{code 'nomes[3]'}?  #{code 'nil'}:  A maneira Ruby
       de dizer "nada".  #{code 'nil'} é um objeto especial
       que basicamente significa "não é qualquer outro objeto."
       END_PARAGRAPH
