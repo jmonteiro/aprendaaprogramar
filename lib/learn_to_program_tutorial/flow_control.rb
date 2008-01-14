@@ -58,7 +58,7 @@ module FlowControl
     para do <<-END_PARAGRAPH
       E é claro que também podemos comparar strings. Quando strings
       são comparadas, leva-se em conta seus <dnf>ordenamentos
-      lexicográficos</dfn> o que, trocando em miúdos, significa a ordem delas
+      lexicográficos</dfn>, o que, trocando em miúdos, significa a ordem delas
       no dicionário. #{code 'cachorro'} vem antes de #{code 'gato'} no
       dicionário, então:
       END_PARAGRAPH
@@ -114,7 +114,7 @@ module FlowControl
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Eu identei o código entre #{code 'if'} e #{code 'end'} porque
+      Eu indentei o código entre #{code 'if'} e #{code 'end'} porque
       acho que fica mais fácil acompanhar as ramificações assim. Quase
       todos os programadores fazem isso, independente da linguagem
       em que estejam trabalhando. Pode não parecer muito útil neste
@@ -211,7 +211,7 @@ module FlowControl
     end
     para do <<-END_PARAGRAPH
       Qualquer coisa após um #{code '#'} é considerado um comentário (a
-      não ser, é claro, que você esteja em uma string). Após preencher
+      não ser, é claro, que você esteja em uma string). Depois de preencher
       com comentários, substituí-os por código funcional. Algumas
       pessoas gostam de deixá-los no arquivo; particularmente, creio
       que código bem-escrito fala por si. Eu costumava escrever
@@ -297,7 +297,7 @@ module FlowControl
     end
     para do <<-END_PARAGRAPH
       Loops, ou repetições, permitem que você faça várias coisas
-      interessantes, como sei que você pode imaginar. Contudo, eles também
+      interessantes, como sei que você pode imaginar. Mas também
       podem causar problemas se você cometer algum erro. E se o computador
       ficar preso num loop infinito? Se você acha que isso pode ter acontecido,
       é só segurar a tecla <kbd>Ctrl</kbd> e pressionar <kbd>C</kbd>.
@@ -334,7 +334,7 @@ module FlowControl
       A melhor regra que eu aprendi sobre programação foi a regra
       <dfn>DRY</dfn>: <dfn>Don't Repeat Yourself</dfn>
       (N.T.&mdash;Não Se Repita). Eu poderia escrever um livro só sobre
-      o quão boa é essa regra. No nosso caso, repetimos a linha 
+      o quão boa ela é. No nosso caso, repetimos a linha 
       #{code 'Que nome bonito!'}. Por que é que isso é um problema? Bem,
       e se eu cometi um erro de digitação quando eu reescrevi? E se eu
       quisesse mudar de #{code 'bonito'} para #{'gracioso'} em ambas
@@ -380,7 +380,7 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      O único deles que pode enganá-lo é #{code 'or'} (N.T.&mdash-ou). 
+      O único deles que pode enganá-lo é #{code 'or'} (N.T.&mdash;ou). 
       Em português, usa-se "ou" para dizer "um ou outro, mas não os dois".
       Por exemplo, sua mãe pode lhe dizer: "Para sobremesa você pode escolher
       torta ou bolo". Ela <em>não</em> deu a opção de escolher os dois!
@@ -408,7 +408,7 @@ module FlowControl
       entre 1930 e 1950 (a última parte é opcional, e ficaria muito
       mais fácil se você lesse a seção sobre o gerador de números
       randômicos do Ruby no capítulo sobre 
-      #{makeLink 'métodos', :generateMethods}  Você não pode parar
+      #{makeLink 'métodos', :generateMethods}). Você não pode parar
       de falar com a velha enquanto não gritar #{input 'TCHAU'}.<br />
       <em><strong>Dica:</strong> Não esqueça do </em>#{code 'chomp'}
       <em>!  </em>#{code "'TCHAU'"} com um enter não é a mesma coisa que
@@ -435,7 +435,7 @@ module FlowControl
       forem bissextos). Anos bissextos são sempre divisíveis por
       quatro (como 1984 e 2004). Contudo, anos divisíveis por 100
       <em>não</em> são bissextos (como 1800 e 1900)
-      <strong><em>a não ser que</em></strong>sejam divisíveis por
+      <strong><em>a não ser que</em></strong> sejam divisíveis por
       400 (como 1600 e 2000, que foram de fato anos bissextos).
       <em>(Sim, é bem confuso, mas não tão confuso como ter dezembro
       no meio do inverno, que é o que aconteceria no fim).</em>
@@ -444,8 +444,8 @@ module FlowControl
     para do <<-END_PARAGRAPH
       Quando você terminá-las, descanse um pouco! Você já aprendeu
       muitas coisas. Parabéns. Você está surpreso com a quantidade
-      de coisas que se pode mandar o computador fazer? Alguns capítulos
-      mais e você vai poder programar praticamente tudo. Sério mesmo!
+      de coisas que se pode mandar o computador fazer? Mais alguns capítulos
+      e você vai poder programar praticamente tudo. Sério mesmo!
       Veja só tudo que você pode fazer que não podia antes de aprender
       sobre loops e ramificações.
       END_PARAGRAPH
