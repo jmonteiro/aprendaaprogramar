@@ -6,19 +6,19 @@ module LearnToProgram
     @page  = []
     
     #  'format' é uma página escondida para testar a formatação.
-    @chapters = {'format'=>['Formatting Page',          		:generateFormattingPage]}
-    @chapters['00'     ] = ['Iniciando',                		:generateSetup]
-    @chapters['01'     ] = ['Números',                  		:generateNumbers]
-    @chapters['02'     ] = ['Letras',                   		:generateLetters]
-    @chapters['03'     ] = ['Variáveis e Associação',   		:generateVariables]
-    @chapters['04'     ] = ['Misturando',               		:generateConversion]
-    @chapters['05'     ] = ['Mais Sobre Métodos',   		  	:generateMethods]
-    @chapters['06'     ] = ['Controle de Fluxo',      		 	:generateFlowControl]
-    @chapters['07'     ] = ['Arrays e Iteradores',       		:generateArrays]
+    @chapters = {'format'=>['Formatting Page',              		:generateFormattingPage]}
+    @chapters['00'     ] = ['Iniciando',                    		:generateSetup]
+    @chapters['01'     ] = ['Números',                       		:generateNumbers]
+    @chapters['02'     ] = ['Letras',                   	    	:generateLetters]
+    @chapters['03'     ] = ['Variáveis e Atribuições',      		:generateVariables]
+    @chapters['04'     ] = ['Misturando tudo',           		    :generateConversion]
+    @chapters['05'     ] = ['Mais Sobre Métodos',   		     	  :generateMethods]
+    @chapters['06'     ] = ['Controle de Fluxo',          		 	:generateFlowControl]
+    @chapters['07'     ] = ['Arrays e Iteradores',           		:generateArrays]
     @chapters['08'     ] = ['Escrevendo seus Próprios Métodos', :generateDefMethod]
-    @chapters['09'     ] = ['Classes',                 			:generateClasses]
-    @chapters['10'     ] = ['Blocos e Processos',        		:generateBlocksProcs]
-    @chapters['11'     ] = ['Além deste Tutorial',	     		:generateBeyond]
+    @chapters['09'     ] = ['Classes',                     			:generateClasses]
+    @chapters['10'     ] = ['Blocos e Procs',                		:generateBlocksProcs]
+    @chapters['11'     ] = ['Além deste Tutorial',	         		:generateBeyond]
   end
   
   def getChapter (method)
