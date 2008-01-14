@@ -6,10 +6,10 @@ module Setup
   def generateSetup
     para do <<-END_PARAGRAPH
       Quando você programa um computador, você tem que "falar" em 
-      uma lingua que o seu computador entenda: uma linguagem de 
+      uma língua que o seu computador entenda: uma linguagem de 
       programação. Existem muitas e muitas linguagens por aí, e muitas 
-      são excelentes. Neste tutorial eu escolhí usar a minha favorita, 
-      o <em>Ruby</em>.
+      são excelentes. Neste tutorial eu escolhi usar a minha favorita, 
+      <em>Ruby</em>.
       END_PARAGRAPH
     end
     #para do <<-END_PARAGRAPH
@@ -22,18 +22,19 @@ module Setup
     #  END_PARAGRAPH
     #end
     para do <<-END_PARAGRAPH
-      Além de ser a minha favorita, o Ruby também a linguagem mais
-      fácil que eu já vi (e eu já ví uma bela quantidade delas). Aliás,
+      Além de ser a minha favorita, Ruby também a linguagem mais
+      fácil que eu já vi (e eu já vi uma bela quantidade delas). Aliás,
       esta é a verdadeira razão pela qual estou escrevendo este tutorial:
-      Eu não decidí escrever este tutorial e aí escolhí Ruby por ser minha favorita;
-      ao invés disso, eu descobrí que o Ruby era tão fácil que eu decidí
-      que deveria haver um bom tutorial para iniciantes que usasse ela.
-      É a simplicidade do Ruby que inspirou este tutorial, não o fato que ela é
-      a minha favorita.
-      (Escrever um tutorial similar usando outra linguagem, C++ ou Java, teria tomado
-      centenas e centenas de páginas.) Mas não pense que o Ruby seja uma linguagem
-      para iniciantes só porque é fácil! Ela é uma linguagem poderosa, de nível profissional
-      como poucas.
+      Eu não decidi escrever este tutorial e aí escolhi Ruby por ser minha
+      favorita; ao invés disso, eu descobri que o Ruby era tão fácil que
+      eu decidi que deveria haver um bom tutorial que a usasse voltado
+      para iniciantes.
+      É a simplicidade do Ruby que inspirou este tutorial, não o fato
+      dela ser minha favorita.
+      (Escrever um tutorial similar usando outra linguagem, C++ ou Java, teria
+      tomado centenas e centenas de páginas.) Mas não pense que Ruby é
+      uma linguagem para iniciantes só porque é fácil! Ela é uma linguagem
+      poderosa, de nível profissional como poucas.
       END_PARAGRAPH
     end 
     #para do <<-END_PARAGRAPH      
@@ -58,9 +59,9 @@ module Setup
       Quando você escreve algo em uma linguagem humana, o que é escrito
       é chamado de texto. Quando você escreve algo em uma linguagem de 
       computador, o que é escrito é chamado de <dfn>código</dfn>. Eu incluí
-      vários examplos de código Ruby por todo este tutorial, a maioria 
+      vários exemplos de código Ruby por todo este tutorial, a maioria 
       deles programas completos que você pode rodar no seu próprio
-      computador. Para deixar o código mais legível, eu colorí partes dele
+      computador. Para deixar o código mais legível, eu colori partes dele
       com cores diferentes. (Por exemplo, números são sempre
       <span class="L2Pcode"><span class="L2Pnumber">#{NUMBER_COLOR}</span></span>.)
       Qualquer coisa que você tiver que digitar estará sempre em a 
@@ -86,10 +87,10 @@ module Setup
     para do <<-END_PARAGRAPH
       Se você encontrar algo que não entende, ou se você tiver
       uma pergunta que não foi respondida, tome nota e continue a ler!
-      É bem possível que a resposta venha em um capítulo mais para frente.
+      É bem possível que a resposta venha em um capítulo mais adiante.
       Porém, se sua pergunta não for respondida até o último
-      capítulo, eu te mostrarei onde você pode ir para perguntar.
-      Existem muitas pessoas maravilhosas lá fora mais que dispostas a
+      capítulo, eu lhe mostrarei onde você pode ir para perguntar.
+      Existem muitas pessoas maravilhosas por aí mais que dispostas a
       ajudar; você só precisa saber onde elas estão.
       END_PARAGRAPH
     end
@@ -114,7 +115,7 @@ module Setup
       A instalação do Ruby no Windows é muito fácil. Primeiro, você
       precisa baixar o 
       <a href="http://rubyinstaller.rubyforge.org/">Instalador Ruby</a>.
-      Pode haver mais do que uma versão para escolher; este tutorial
+      Pode haver mais de versão para escolher; este tutorial
       usa a versão #{RUBY_VERSION}, então assegure-se de que o que você
       baixar seja ao menos tão recente quanto ela. (Eu pegaria a última versão
       disponível.) Então simplesmente rode o programa de instalação.
@@ -138,9 +139,9 @@ module Setup
     #  END_PARAGRAPH
     #end
     para do <<-END_PARAGRAPH
-      Para programar, você precisa poder escrever programas e roda-los.
+      Para programar, você precisa poder escrever programas e rodá-los.
       Para fazer isso, você vai precisar de um editor de texto e uma 
-      linha de comando    
+      linha de comando.
       END_PARAGRAPH
     end ## linha de comando?
     
@@ -152,8 +153,8 @@ module Setup
     #end
     para do <<-END_PARAGRAPH
       O instalador do Ruby vem com um editor de texto adorável chamado
-      SciTE (the Scintilla Text Editor). Você pode rodar o Scite 
-      selecionando-o no menu de início. Se você quiser que o seu código
+      SciTE (the Scintilla Text Editor). Você pode rodar o SciTE 
+      selecionando-o no menu Iniciar. Se você quiser que o seu código
       seja colorido como os exemplos deste tutorial, baixe estes arquivos
       e coloque-os na sua pasta SciTE (<kbd>c:/ruby/scite</kbd> se você escolher
       o local recomendado).
@@ -174,16 +175,16 @@ module Setup
     end
     para do <<-END_PARAGRAPH
       Seria também uma boa idéia criar um diretório em algum lugar para manter
-      todos os seus programas.  Tenha certeza que quando você salvar um programa,
-      esteja salvando neste diretório.
+      todos os seus programas.  Tenha certeza que, quando você salvar um
+      programa, esteja salvando neste diretório.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       Para ir para sua linha de comando, selecione Prompt de Comando da pasta
       Acessórios do seu menu Iniciar.  Você vai querer 
-      navegar para o diretório onde você está mantendo seus programas.
-      Digitando #{input 'cd ..'} levará você para o diretório anterior, e
-      #{input 'cd nome_do_diretorio'} coloria você dentro do diretório
+      navegar para o diretório onde você mantém seus programas.
+      Digitar #{input 'cd ..'} levará você para o diretório anterior, e
+      #{input 'cd nome_do_diretorio'} colocará você dentro do diretório
       chamado <kbd>nome_do_diretorio</kbd>.  Para ver todos seus diretórios
       dentro do diretório atual, digite #{input 'dir /ad'}.
       END_PARAGRAPH
@@ -197,23 +198,25 @@ module Setup
     para do <<-END_PARAGRAPH
       Se você tiver um Mac OS X 10.2 (Jaguar), então você já tem
       Ruby no seu sistema!  O que poderia ser mais fácil?
-      Infelizmente, eu não acho que você pode usar Ruby no Mac OS X 10.1 e versões anteriores.
+      Infelizmente, eu não acho que você possa usar Ruby no Mac OS X 10.1
+      e versões anteriores.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       Para programar, você precisa ser capaz de escrever programas e
-      executar os programas.  Para fazer isto, você precisará de um editor de textos e 
+      executá-los. Para fazer isto, você precisará de um editor de textos e 
       uma linha de comando.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       Sua linha de comando está acessível através da aplicação
-      Terminal (encontrada em Aplicações/Utilidades).
+      Terminal (encontrada em Aplicações/Utilitários).
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Para um editor de textos, você pode usar qualquer um que você esteja familiar
-      ou confortável para usar.  Se você usa TextEdit, entretanto, tenha certeza
+      Para um editor de textos, você pode usar qualquer um com que você
+      esteja familiarizado ou se sinta confortável usando.
+      Se você usa TextEdit, entretanto, tenha certeza
       que você está salvando seus programas como somente-texto!  Caso contrário seus programas
       <em>não funcionarão</em>.  Outras opções para programar são
       emacs, vi, e pico, que estão todos acessíveis via
@@ -227,28 +230,29 @@ module Setup
     end
     h2 {'Instalação em Linux'}
     para do <<-END_PARAGRAPH
-      Primeiro, você vai querer checar e ver se você já tem Ruby
-      instalado.  Digite #{input 'which ruby'}.  Se este comando responder algo como
-      #{output '/usr/bin/which: no ruby in (...)'}, então você precisa
+      Primeiro, vale a pena checar se você já tem Ruby
+      instalado.  Digite #{input 'which ruby'}.  Se este comando responder
+      algo como #{output '/usr/bin/which: no ruby in (...)'}, então você precisa
       <a href="http://www.ruby-lang.org/en/20020102.html">fazer o download do Ruby</a>,
       caso contrário veja que versão do Ruby você possui com
       #{input 'ruby -v'}.  Se for mais velha do que a última versão estável
-      na página de download acima, você poderia atualizá-lo.
+      na página de download acima, pode ser bom atualizá-lo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Se você for o usuário root, então você provavelmente não precisa de qualquer
-      instrução para instalar o Ruby.  Se você não for, você poderia pedir
-      ao seu administrador de sistema para instalá-lo para você.  (Desta forma
-      todos neste sistema poderiam usar Ruby.)
+      Se você for o usuário root, então você provavelmente não precisa de
+      qualquer instrução para instalar o Ruby.  Se não for, você poderia
+      pedir ao seu administrador de sistema para instalá-lo para você.
+      (Desta forma todos neste sistema poderiam usar Ruby.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Caso contrário, você pode apenas instalá-lo tal que apenas você possa usá-lo.
+      Caso contrário, você pode apenas instalá-lo de forma que apenas
+      você possa usá-lo.
       Mova o arquivo baixado para um diretório temporário, como
       <kbd>$HOME/tmp</kbd>.  Se o nome do arquivo for
-      <kbd>ruby-1.6.7.tar.gz</kbd>, você pode abrí-lo com
-      #{input 'tar zxvf ruby-1.6.7.tar.gz'}.  Mude do diretório
+      <kbd>ruby-1.6.7.tar.gz</kbd>, você pode abri-lo com
+      #{input 'tar zxvf ruby-1.6.7.tar.gz'}.  Mude do diretório atual
       para o diretório que acabou de ser criado (neste exemplo,
       #{input 'cd ruby-1.6.7'}).
       END_PARAGRAPH
@@ -257,15 +261,16 @@ module Setup
       Configure sua instalação digitando
       #{input './configure --prefix=$HOME'}).  Depois digite
       #{input 'make'}, que construirá seu interpretador Ruby.
-      Isto pode levar alguns minutos.  Apost isto ter terminado, digite
+      Isto pode levar alguns minutos.  Após isto ter terminado, digite
       #{input 'make install'} para instalá-lo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Depois, você vai querer adicionar <kbd>$HOME/bin</kbd> para seu
-      caminho de busca de comandos,a variável de ambiente PATH, editando seu arquivo <kbd>$HOME/.bashrc</kbd>.
-	    (Você pode ter que se deslogar e logar novamente para que 
-      isto tome efeito.)  Após ter feito isto, teste sua instalação:
+      Em seguida, você vai querer adicionar <kbd>$HOME/bin</kbd> para seu
+      caminho de busca de comandos à variável de ambiente PATH, editando
+      seu arquivo <kbd>$HOME/.bashrc</kbd>.
+      (Você pode ter que se deslogar e logar novamente para que 
+      isto surte efeito.)  Após ter feito isto, teste sua instalação:
       #{input 'ruby -v'}.  Se mostrar a você qual a versão do Ruby que você
       tem, você pode agora remover os arquivos 
       em <kbd>$HOME/tmp</kbd> (ou onde quer que você os colocou).
