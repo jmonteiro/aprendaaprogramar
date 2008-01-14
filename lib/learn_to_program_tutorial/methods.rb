@@ -7,53 +7,53 @@ module Methods
     para do <<-END_PARAGRAPH
       Até agora nós vimos uma porção de métodos diferentes,
       #{code 'puts'} e #{code 'gets'}
-      dentre outros (<em><strong>Pop Quiz:</strong>  Liste todos
+      dentre outros (<em><strong>Teste Surpresa:</strong> Liste todos
       os métodos que vimos até agora!
-      Foram dez deles; a resposta está mais em baixo.</em>),
+      Foram dez deles; a resposta está mais embaixo.</em>),
       mas nós não conversamos realmente sobre o que são métodos.
-      Nós sabemos o que eles fazem, mas
-      não sabemos o que eles são.
+      Nós sabemos o que eles fazem, mas não sabemos o que eles são.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Mas na verdade, isso <em>é</em> o que eles são:  coisas
+      Mas, na verdade, isso <em>é</em> o que eles são: coisas
       que fazem coisas.  Se objetos (como strings,
       inteiros e floats) são os substantivos na linguagem Ruby,
       os métodos são como os verbos.
-      E, assim como no Português, você não pode ter um
-      verbo sem um substantivo para <em>executar</em> o verbo.
-      Por exemplo, contar o tempo não é algo que simplesmente acontece;
+      E, ao contrário do Português (em que há sujeitos indefinidos
+      e outras construções esotéricas), você não pode ter um
+      verbo sem um substantivo para <em>executar</em> o verbo. Mas mesmo
+      o Português trata a ausência de um substantivo como exceção:
+      por exemplo, contar o tempo não é algo que simplesmente acontece;
       um relógio (ou cronômetro, ou algo parecido) deve fazê-lo. Em
-      Português diríamos "O relógio conta o tempo". Em Ruby dizemos
-      #{code 'relogio.tick'} (assumindo que #{code 'relogio'}
+      Português diríamos: "O relógio conta o tempo". Em Ruby dizemos
+      #{code 'relogio.tiquetaque'} (presumindo que #{code 'relogio'}
       é um objeto Ruby, claro).
       Programadores podem dizer que estamos "chamando o método
-      #{code 'tick'} do #{code 'relogio'},"
-      ou que "chamamos #{code 'tick'} no #{code 'relogio'}."
+      #{code 'tiquetaque'} do #{code 'relogio'},"
+      ou que "chamamos #{code 'tiquetaque'} no #{code 'relogio'}."
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      E então, você respondeu o quiz? Bom. Bem, tenho
+      E então, você respondeu o quiz? Ótimo. Bem, tenho
       certeza que você lembrou dos métodos
       #{code 'puts'}, #{code 'gets'} e #{code 'chomp'},
       que acabamos de ver. Você também provavelmente
       lembrou dos métodos de conversão,
       #{code 'to_i'}, #{code 'to_f'}
       e #{code 'to_s'}.  No entanto, você descobriu os
-      outros quatro?  Por que, não eram ninguém menos
-      que nossos velhos amigos da matemática #{code '+'},
+      outros quatro?  Pois não eram ninguém menos
+      que nossos velhos amigos da matemática, #{code '+'},
       #{code '-'}, #{code '*'} e #{code '/'}!
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Então como eu estava dizendo, assim como todo verbo precisa
-      de um substantivo, todo método precisa de um objeto.
+      Como eu estava dizendo, todo método precisa de um objeto.
       Geralmente é fácil dizer qual objeto está executando o
       método: é aquilo que vem logo antes do ponto, como
-      no nosso exemplo do #{code 'relogio.tick'}, ou em
+      no nosso exemplo do #{code 'relogio.tiquetaque'}, ou em
       #{code '101.to_s'}.
-      As vezes, no entanto, isso não é tão óbvio; como com os
-      métodos aritiméticos. A bem da verdade,
+      Às vezes, no entanto, isso não é tão óbvio; como com os
+      métodos aritméticos. A bem da verdade,
       #{code '5 + 5'} é realmente apenas um atalho para se
       escrever #{code '5.+ 5'}.
       Por exemplo:
@@ -71,32 +71,31 @@ module Methods
       (Na minha máquina, isso também me dá um <dfn>aviso</dfn>:
       #{output 'warning: parenthesize argument(s) for future version'}.
       O código ainda rodou sem problemas, mas ele está me dizendo que está com
-      problemas para descobrir o que eu quis dizer e para usar mais parênteses no
+      problemas para descobrir o que eu quis dizer, e pedindo para usar mais parênteses no
       futuro).
-      Isso também nos dá um entendimento mais profundo sobre porque podemos fazer
-      #{code "'porco'*5"} mas não #{code "5*'porco'"}:  #{code "'porco'*5"} está
-      dizendo ao #{code "'porco'"} para se multiplicar,
-      mas #{code "5*'porco'"} está pedindo ao #{code '5'}
+      Isso também nos dá um entendimento mais profundo sobre por que
+      podemos fazer #{code "'porco'*5"} mas não #{code "5*'porco'"}:
+      #{code "'porco'*5"} está dizendo ao #{code "'porco'"} para se
+      multiplicar, mas #{code "5*'porco'"} está pedindo ao #{code '5'}
       que se multiplique.  #{code "'porco'"} sabe como fazer
       #{code '5'} cópias de si mesmo e juntá-las; no entanto, #{code '5'}
       vai ter muito mais dificuldade para fazer
-      #{code "'porco'"} cópias de <em>si mesmo</em>
-      e juntá-las.
+      #{code "'porco'"} cópias de <em>si mesmo</em> e juntá-las.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       E, claro, nós ainda temos o #{code 'puts'}
       e o #{code 'gets'} para explicar.  Onde estão seus
-      objetos?  Em Português, você pode as vezes omitir o
+      objetos?  Em Português, você pode às vezes omitir o
       substantivo; por exemplo, se um vilão grita "Morra!",
       o substantivo implícito é a pessoa com quem ele está
       gritando. Em Ruby, se dissermos
       #{code "puts 'ser ou não ser'"}, o que 
       eu realmente estou dizendo é
-      #{code "self.puts 'to be or not to be'"}.
+      #{code "self.puts 'ser ou não ser'"}.
       Então o que é #{code 'self'}?  É uma variável especial
       que aponta para o objeto onde você está.
-      Nós nem sabemos como esar <em>em</em> um
+      Nós nem sabemos como estar <em>em</em> um
       objeto ainda, mas até descobrirmos, nós
       estaremos sempre em um grande objeto que é...
       o programa inteiro! E para nossa sorte, o 
@@ -123,7 +122,7 @@ module Methods
     para do <<-END_PARAGRAPH
       Vamos aprender alguns métodos divertidos da string.
       Você não precisa memorizar todos eles; você pode
-      apenas olhar nessa página novamente se esquecê-los.
+      apenas olhar esta página novamente se esquecê-los.
       Eu só quero mostrar uma <em>pequena</em> parte do que
       as strings podem fazer. Na verdade, eu mesmo não lembro
       da metade dos métodos da string&mdash;mas não tem
@@ -134,7 +133,7 @@ module Methods
       os métodos da string; é como saber todas as palavras do
       dicionário. Eu posso falar Português muito bem sem saber
       todas as palavras do dicionário... e esse não é exatamente
-      o propósito do dicionário? Para que você não <em>precise</em>
+      o seu propósito? Para que você não <em>precise</em>
       saber tudo que está nele?
       END_PARAGRAPH
     end
@@ -146,7 +145,7 @@ module Methods
     prog do <<-END_CODE
       var1 = 'pare'
       var2 = 'radar'
-      var3 = 'Você consegue pronunciar esta frase ao contrário?'
+      var3 = 'Voce consegue pronunciar esta frase ao contrario?'
       
       puts var1.reverse
       puts var2.reverse
@@ -180,8 +179,8 @@ module Methods
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      O problema está em #{code 'length'}:  ele te dá um número, mas queremos uma string.
-      Fácil o bastante, vamos colocar um  #{code 'to_s'} (e cruzar os dedos):
+      O problema está em #{code 'length'}:  ele lhe dá um número, mas queremos uma string.
+      Fácil, vamos colocar um  #{code 'to_s'} (e cruzar os dedos):
       END_PARAGRAPH
     end
     prog ['Christopher David Pine'] do <<-END_CODE
@@ -206,7 +205,7 @@ module Methods
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Então, existem alguns métodos da string que conseguem mudar a caixa (maiúsculas
+      Existem alguns métodos da string que conseguem mudar a caixa (maiúsculas
       e minúsculas) da sua string.  #{code 'upcase'} muda todas as letras minúsculas
       para maiúsculas, e #{code 'downcase'} muda todas as letras maiúsculas para
       minúsculas.  #{code 'swapcase'} troca a caixa de todas as letras da string e,
@@ -229,7 +228,7 @@ module Methods
       #{code "puts ' a'.capitalize"}, o método #{code 'capitalize'}
       apenas deixa em maiúsculo o primeiro <em>caractere</em>, não a primeira
       <em>letra</em>.  Também, como vimos anteriormente, durante todas essas chamadas
-      de métodos, #{code 'letras'} continuou inalterada.  Eu não quero me prolongar nesse
+      de métodos, #{code 'letras'} continuou inalterada.  Eu não quero me alongar nesse
       ponto, mas é importante entender.  Existem alguns métodos que <em>mudam</em> o
       objeto associado, mas ainda não vimos nenhum, e nem iremos ver durante algum tempo.
       END_PARAGRAPH
@@ -241,7 +240,7 @@ module Methods
       fim da string para torná-la centralizada. No entanto, assim como
       você precisa dizer ao #{code 'puts'} o que quer que seja impresso, e ao
       #{code '+'} o que quer que seja adicionado, você precisa dizer ao
-      #{code 'center'} a largura do quão centralizado quer a string.  Então
+      #{code 'center'} a largura total da string a ser centralizada.  Então
       se eu quiser centralizar as linhas de um poema, eu faria assim:
       END_PARAGRAPH
     end
@@ -258,14 +257,14 @@ module Methods
     para do <<-END_PARAGRAPH
       Hum... Eu não acho que essa rima é assim, mas sou muito preguiçoso
       para procurar.  (Também, eu queria alinhar a parte do
-      #{code '.center lineWidth'}, por isso acrescentei espaços extra antes
+      #{code '.center larguraDaLinha'}, por isso acrescentei espaços extra antes
       das strings.  Isso é só por que acho que fica mais bonito assim.
-      Programadores geralmente têm fortes sentimentos sobre o que é
+      Programadores geralmente têm opiniões fortes sobre o que é
       bonito num programa, e eles geralmente discordam sobre o assunto.
       Quanto mais você programar, mais vai descobrir seu próprio estilo).
       Falando em ser preguiçoso, a preguiça nem sempre é algo ruim na programação.
       Por exemplo, viu como eu guardei a largura do poema numa variável
-      #{code 'lineWidth'}?  Fiz isso pois se quiser tornar o poema mais
+      #{code 'larguraDaLinha'}?  Fiz isso pois se quiser tornar o poema mais
       largo mais tarde, só precisarei mudar a primeira linha do programa,
       ao invés de todas as linhas que são centralizadas.  Com um poema muito
       longo, isso poderia me poupar um bom tempo. Esse tipo de preguiça é na
@@ -302,14 +301,14 @@ module Methods
     para do <<-END_PARAGRAPH
       &bull; Escreva um programa do Chefe Zangado.  Ele deve perguntar o que você quer de forma rude.
       Qualquer que seja a sua resposta, o Chefe Zangado vai gritar de volta para você, e então
-      despedí-lo.  Por exemplo, se você digitar #{input 'Eu quero um aumento.'}, ele deve gritar
+      despedi-lo.  Por exemplo, se você digitar #{input 'Eu quero um aumento.'}, ele deve gritar
       de volta #{output 'O QUE VOCÊ QUER DIZER COM "EU QUERO UM AUMENTO."?!?  VOCÊ ESTÁ DESPEDIDO!!'}
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       &bull; Eis aqui algo para você fazer para brincar um pouco mais com
       #{code 'center'}, #{code 'ljust'} e #{code 'rjust'}:  Escreva um programa
-      que irá mostrar uma Tabela de Conteúdo de forma que fique parecida com:
+      que irá mostrar um Índice de forma que fique parecido com:
       END_PARAGRAPH
     end
     puts '<pre class="L2PoutputBlock">' +
@@ -329,19 +328,20 @@ module Methods
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Não exitem tantos métodos nos números quanto nas strings
-      (apesar de eu ainda não ter decorado todos).  Aqui, iremos olhar no
-      resto dos métodos de aritimética, um gerador de números aleatórios e
-      no objeto #{code 'Math'}, com seus métodos trigonométricos e transcendentais.
+      Não há tantos métodos nos números quanto nas strings
+      (apesar de eu ainda não ter decorado todos).  Aqui, iremos olhar o
+      resto dos métodos de aritmética, um gerador de números aleatórios e
+      o objeto #{code 'Math'}, com seus métodos trigonométricos e
+      transcendentais.
       END_PARAGRAPH
     end
     h2 {'Mais Aritimética'}
     para do <<-END_PARAGRAPH
-      Os outros dois métodos aritiméticos são #{code '**'} (exponenciação)
-      e #{code '%'} (módulo).  Então se você quer dizer "cinco ao quadrado"
+      Os outros dois métodos aritméticos são #{code '**'} (exponenciação)
+      e #{code '%'} (módulo).  Então se você quisesse dizer "cinco ao quadrado"
       em Ruby, você escreveria #{code '5**2'}.  Você também pode usar
       floats para seu expoente, então se você quiser a raiz quadrada de 5,
-      você pode escrever #{code '5**0.5'}.  O método módulo lhe dá o resta da
+      você pode escrever #{code '5**0.5'}.  O método módulo lhe dá o resto da
       divisão por um número.  Então, por exemplo, se eu divido 7 por 3,
       eu tenho 2 com resto 1. Vamos vê-los em ação num programa:
       END_PARAGRAPH
@@ -357,7 +357,7 @@ module Methods
     para do <<-END_PARAGRAPH
       Pela última linha, aprendemos que um ano (não-bissexto) tem um certo
       número de semanas, mais um dia. Então se seu aniversário caiu numa
-      Terça-feira este ano, ele será numa Quarta-feira no ano que vem.
+      terça-feira este ano, ele será numa quarta-feira no ano que vem.
       Você também pode usar floats com o método módulo.  Basicamente, ele
       funciona da única maneira razoável que consegue... Mas eu vou deixar
       você brincar um pouco com isso.
@@ -365,8 +365,8 @@ module Methods
     end
     para do <<-END_PARAGRAPH
       Tem um último método para ser mencionado antes de vermos o gerador de
-      números aleatórios:  #{code 'abs'}.  Ele simplesmente pega o valor absoluto
-      de um número:
+      números aleatórios:  #{code 'abs'}.  Ele simplesmente pega o valor
+      absoluto de um número:
       END_PARAGRAPH
     end
     prog do <<-END_CODE
