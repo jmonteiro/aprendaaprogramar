@@ -146,7 +146,7 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       Ah! Muito melhor. (Para o caso de você não falar
-      francês, havia um pato francês no meio do prorgama.
+      francês, havia um pato francês no meio do programa.
       Na França, os patos fazem <em>"coin-coin</em>").
       END_PARAGRAPH
     end
@@ -165,13 +165,13 @@ module DefMethods
     end
     h2 {'Parâmetros de Métodos'}
     para do <<-END_PARAGRAPH
-      Você deve ter notado que se pode chama alguns métodos (como
+      Você deve ter notado que se podemos chamar alguns métodos (como
       o #{code 'gets'}, ou o #{code 'to_s'}, ou o #{code 'reverse'}...)
-      apenas com um objeto. Porém, outros métodos (como o #{code '+'},
+      apenas como um objeto. Porém, outros métodos (como o #{code '+'},
       o #{code '-'}, o #{code 'puts'}...) recebem <dfn>parâmetros</dfn>
       para dizer ao objeto o que fazer com o método. Por exemplo, você
       não diz apenas #{code '5+'}, certo? Você está dizendo ao #{code '5'}
-      para adicionar, mas você não o está dizendo <em>o que</em>
+      para adicionar, mas você não está dizendo <em>o que</em>
       adicionar.
       END_PARAGRAPH
     end
@@ -319,7 +319,7 @@ module DefMethods
       O primeiro #{code 'puts'} retornou #{code 'nil'}. Apesar
       de não termos testado o segundo #{code 'puts'}, ele fez a
       mesma coisa; #{code 'puts'} sempre retorna um #{code 'nil'}.
-      Todo o método tem que retornar alguma coisa, mesmo que
+      Todo método tem que retornar alguma coisa, mesmo que
       seja apenas um #{code 'nil'}.
       END_PARAGRAPH
     end
@@ -406,19 +406,19 @@ module DefMethods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Nada mal, hein? Nós podemos adicionar mais peguntas (e
+      Nada mal, hein? Nós podemos adicionar mais perguntas (e
       adicionar mais perguntas é <em>fácil</em> agora), mas
       nosso programa continuará pequeno! Isso é um grande
-      progresso&mdash; o sonho de todo o programador preguiçoso.
+      progresso &mdash; o sonho de todo programador preguiçoso.
       END_PARAGRAPH
     end
     h2 {'Mais um Grande Exemplo'}
     para do <<-END_PARAGRAPH
       Eu acho que outro exemplo de método seria muito
       útil aqui. Vamos chamar esse de #{code 'numeroPortugues'}.
-      Esse método vai pegar um número, como o #{code '22'}, e retornar
-      ele por extenso (nesse caso, a string #{code 'vinte e dois'}).
-      Por enquanto, vamos fazer ele trabalhar apenas com inteiros
+      Esse método vai pegar um número, como o #{code '22'}, e retorná-lo
+      por extenso (nesse caso, a string #{code 'vinte e dois'}).
+      Por enquanto, vamos fazê-lo trabalhar apenas com inteiros
       entre #{code '0'} e #{code '100'}.
       END_PARAGRAPH
     end
@@ -447,14 +447,14 @@ module DefMethods
         #  "escrevendo" é a parte que estamos escrevendo agora.
         falta   = numero
         escrevendo = falta/100               #  Quantas centenas faltam escrever?
-        falta   = falta - escrevendo*100  #  Subtraia essas centenas.
+        falta   = falta - escrevendo*100     #  Subtraia essas centenas.
         
         if escrevendo > 0
           return 'cem'
         end
         
         escrevendo = falta/10              #  Quantas dezenas faltam escrever?
-        falta  = falta - escrevendo*10  #  Subtraia essas dezenas.
+        falta  = falta - escrevendo*10     #  Subtraia essas dezenas.
         
         if escrevendo > 0
           if escrevendo == 1  #  Oh-oh...
@@ -556,7 +556,7 @@ module DefMethods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Bem, ainda há algumas nesse programa que eu não gostei.
+      Bem, ainda há algumas coisas nesse programa que eu não gostei.
       Primeiro: há muita repetição. Segundo: esse programa
       não consegue lidar com números maiores do que 100. Terceiro:
       há muitos casos especiais, muitos retornos (#{code 'return'}).
@@ -586,7 +586,7 @@ module DefMethods
         #  "falta" é quanto do número ainda falta escrever.
         #  "escrevendo" é a parte que estamos escrevendo agora.
         falta  = numero
-        escrevendo = falta/100          #  Quantas centenas ainda faltam escrever?
+        escrevendo = falta/100           #  Quantas centenas ainda faltam escrever?
         falta  = falta - escrevendo*100  #  Subtraia essas centenas.
         
         if escrevendo > 0
@@ -614,7 +614,7 @@ module DefMethods
           end
         end
         
-        escrevendo = falta/10          #  Quantas dezenas falta escrever?
+        escrevendo = falta/10           #  Quantas dezenas faltam escrever?
         falta  = falta - escrevendo*10  #  Subtraia dessas dezenas.
         
         if escrevendo > 0
@@ -633,13 +633,13 @@ module DefMethods
           end
           
           if falta > 0
-            #  Como nós não escrevemos "sessentaequarto"...
+            #  Como nós não escrevemos "sessentaequatro"...
             numExtenso = numExtenso + ' e '
           end
         end
         
         escrevendo = falta  #  Quantas unidades faltam ser escritas?
-        falta  = 0     #  Subtraia elas.
+        falta  = 0          #  Subtraia elas.
         
         if escrevendo > 0
           numExtenso = numExtenso + unidades[escrevendo-1]
