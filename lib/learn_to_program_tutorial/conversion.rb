@@ -185,7 +185,7 @@ module Conversion
       o seu nome para que ele lhe saude:
       END_PARAGRAPH
     end
-    prog ['Chris'], '<em>Eca!</em> Eu acabei de rodá-lo&mdash;Escrevi meu nome&mdash;e aconteceu isto:' do <<-END_CODE
+    prog ['Chris'], '<em>Eca!</em> Eu acabei de rodá-lo&mdash;escrevi meu nome&mdash;e aconteceu isto:' do <<-END_CODE
       puts 'Olá, qual é o seu nome?'
       name = gets
       puts 'Seu nome é ' + name + '?  Que nome bonito!'
