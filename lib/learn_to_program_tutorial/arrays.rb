@@ -15,7 +15,7 @@ module Arrays
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Certo, Não sei se podemos fazer isso. Precisamos de uma forma de armazenar
+      Certo, não sei se podemos fazer isso. Precisamos de uma forma de armazenar
       um número qualquer de palavras, e de podermos acessá-las sem que se misturem
       com as outras variáveis. Precisamos colocá-las num tipo de lista. Precisamos
       dos <dfn>arrays</dfn>.
@@ -52,7 +52,7 @@ module Arrays
     para do <<-END_PARAGRAPH
       Para nos ajudar a encontrar um objeto qualquer num array,
       cada item tem um número de indexação. Programadores (e, aliás,
-      a maioria dos matemáticos) inicia contando do zero, então,
+      a maioria dos matemáticos) iniciam contando do zero, então,
       o primeiro item do array é o item zero. Veja como podemos
       referenciar os objetos em um array:
       END_PARAGRAPH
@@ -80,7 +80,7 @@ module Arrays
       pense #{code 'pedaco[0]'}).
       Você tem 5 dedos na sua mão e seus números são 0, 1, 2, 3 e 4.
       Minha esposa e eu somos malabariastas. Quando fazemos malabares
-      com 6 pinos, estamos equilibrando os pinos 0 à 5. Felizmente,
+      com 6 pinos, estamos equilibrando os pinos 0 a 5. Felizmente,
       em alguns meses, estaremos equilibrando o pino 6 (e portanto, 
       equilibrando 7 pinos). Você saberá que conseguiu quando
       começar a usar o termo "zerésimo" :-) Sim, é uma palavra real..
@@ -90,7 +90,7 @@ module Arrays
     para do <<-END_PARAGRAPH
       Finalmente, nós tentamos #{code 'puts nomes[3]'}, apenas veja o que
       aconteceria.  Você estava esperando um erro?  Algumas vezes quando
-      você faz um pergunta, sua pergunta não faz sentido (pelo
+      você faz uma pergunta, sua pergunta não faz sentido (pelo
       menos para seu computador); é quando obtém um erro.
       Algumas vezes, entretanto, você pode fazer uma pergunta e a resposta
       é <em>nada</em>.  O que está na posição três?  Nada.
@@ -101,15 +101,15 @@ module Arrays
     end
     para do <<-END_PARAGRAPH
       Se toda esta numeração divertida de posições de array está confundindo
-      você, não tema!  Frequentemente, nós podemos evitá-la completamente 
+      você, não tema!  Freqüentemente, nós podemos evitá-la completamente 
       usando vários métodos de array, como este:
       END_PARAGRAPH
     end
     h2 {"O Método #{code 'each'}"}
     para do <<-END_PARAGRAPH
       #{code 'each'} nos permite fazer algo (o que quer que nós
-      desejemos) para #{code 'each'}(cada em português) objeto pertencente ao array.  Assim, se nós
-      quisessemos dizer algo bom sobre cada linguagem no array
+      desejemos) para #{code 'each'} (cada em português) objeto pertencente ao array.  Assim, se nós
+      quiséssemos dizer algo bom sobre cada linguagem no array
       abaixo, nós faríamos isto:
       END_PARAGRAPH
     end
@@ -131,15 +131,15 @@ module Arrays
       isto é muito bom.  Traduzindo para o português, o programa
       acima seria algo como:  Para #{code 'cada'} objeto
       em #{code 'linguagens'}, aponte a variável #{code 'ling'}
-      para o objeto e então #{code 'faça'}(do em inglês) tudo que eu disser,
-      até que você chegue ao #{code 'fim'}(end em inglês).  (Como você sabe,
+      para o objeto e então #{code 'faça'} (do em inglês) tudo que eu disser,
+      até que você chegue ao #{code 'fim'} (end em inglês).  (Como você sabe,
       C++ é uma outra linguagem de programação.  É muito mais difícil de aprender
       do que Ruby; normalmente, um programa C++ será muitas vezes
       maior do que um programa Ruby que faz a mesma coisa.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Vocês poderiam estar pensando consigo mesmo, "Isto é muito parecido
+      Vocês poderiam estar pensando consigo mesmos, "Isto é muito parecido
       com os laços de repetição (loops) que nós aprendemos anteriormente."  Sim, é similar.
       Uma diferença importante é que o método #{code 'each'}
       é apenas:  um método.  #{code 'while'} e #{code 'end'}
@@ -153,7 +153,7 @@ module Arrays
     para do <<-END_PARAGRAPH
       Mas não #{code 'each'}; #{code 'each'} é um apenas um outro
       método do array.  Métodos como #{code 'each'} que "atuam como"
-      loops são frequentemente chamados <dfn>iteradores</dfn>.
+      loops são freqüentemente chamados <dfn>iteradores</dfn>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -182,7 +182,7 @@ module Arrays
       deles (como #{code 'length'}, #{code 'reverse'},
       #{code '+'}, e #{code '*'})
       funcionam da mesma forma que funcionam para strings, exceto que eles
-      operam em posições de array ao inves de em
+      operam em posições de array ao invés de em
       letras de string. Outros, como #{code 'last'}
       e #{code 'join'}, são específicos para arrays. Ainda
       outros, como #{code 'push'} e #{code 'pop'},
