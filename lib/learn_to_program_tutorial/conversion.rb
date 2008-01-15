@@ -157,10 +157,10 @@ module Conversion
     end
     h2 {'Os Métodos '+(code 'gets')+' e '+(code 'chomp')}
     para do <<-END_PARAGRAPH
-      Se #{code 'puts'} significa <dfn>colocar string</dfn>, acho que
-      você pode adivinhar o que #{code 'gets'} quer dizer (N.T.: get, em
-      inglês, entre várias acepções, significa pegar, obter). E assim como
-      #{code 'puts'} sempre cospe strings, #{code 'gets'} vai apenas
+      Se #{code 'puts'} significa <dfn>colocar string</dfn> (N.T.: put significa
+      "colocar"), acho que você pode adivinhar o que #{code 'gets'} quer dizer
+      (N.T.: get, em inglês, entre várias acepções, significa pegar, obter).
+      E assim como #{code 'puts'} sempre cospe strings, #{code 'gets'} vai apenas
       obter strings. E de onde ele as pega?
       END_PARAGRAPH
     end
@@ -185,7 +185,7 @@ module Conversion
       o seu nome para que ele lhe saude:
       END_PARAGRAPH
     end
-    prog ['Chris'], '<em>Eca!</em> Eu acabei de rodá-lo&mdash;Escrevi meu nome, e aconteceu isto:' do <<-END_CODE
+    prog ['Chris'], '<em>Eca!</em> Eu acabei de rodá-lo&mdash;Escrevi meu nome&mdash;e aconteceu isto:' do <<-END_CODE
       puts 'Olá, qual é o seu nome?'
       name = gets
       puts 'Seu nome é ' + name + '?  Que nome bonito!'
@@ -212,14 +212,14 @@ module Conversion
     para do <<-END_PARAGRAPH
       Muito melhor! Perceba que já que #{code 'name'} aponta para 
       #{code 'gets.chomp'}, não temos que dizer #{code 'name.chomp'};
-      #{code 'name'} já foi #{code 'chomp'}ado.
+      #{code 'name'} já foi #{code 'mastiga'}do (N.T.: chomp, em Inglês
+      é "mastigar").
       END_PARAGRAPH
     end
     h2 {'Umas Coisinhas Para Tentar'}
     para do <<-END_PARAGRAPH
       &bull; Escreva um programa que peça o nome de uma pessoa, depois
-      o primeiro sobrenome, e por fim o último sobrenome. Por fim, faça 
-      com que ele cumprimente a pessoa usando seu nome completo.
+      o sobrenome. Por fim, faça com que ele cumprimente a pessoa usando seu nome completo.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
