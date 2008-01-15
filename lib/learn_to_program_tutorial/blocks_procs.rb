@@ -253,7 +253,7 @@ module BlocksProcs
         entre parenteses dentro de #{code 'proc2'}, para que seja executada primeiro.
         END_PARAGRAPH
       end
-      h2 { 'Passando Blocos (E Não Procs) para Métodosinto' }
+      h2 { 'Passando Blocos (E Não Procs) para Métodos' }
       para do <<-END_PARAGRAPH
         Certo, isso foi muito interessante academicamente, mas de pouca
         utilidade prática. Uma porção desse problema é que há três passos
@@ -270,8 +270,8 @@ module BlocksProcs
         Eu vou mostrar a você um exemplo rápido, então nós vamos falar sobre isso.
         END_PARAGRAPH
       end
-      #  HACK ALERT!!!  (I can't get to the global namespace transparently
-      #                  from inside the StringIO object in a mod_ruby script.)
+      #  HACK ALERT!!!  (Eu não posso chegar a um namespace global transparentemente
+      #                  de dentro do objeto StringIO em um script mod_ruby.)
       arrayClassHack = <<-END_CODE
           def cadaComparacao(&eraUmBloco_agoraUmaProc)
             eIgual = true  # Nós começamos com "verdadeiro" porque vetores começam com 0, mesmo se iguais.
@@ -286,9 +286,9 @@ module BlocksProcs
           end
         END_CODE
 
-      Array.module_eval arrayClassHack  #  This is the real method definition.
-      #  The following defines a method in "another" array class:
-      #  END HACK ALERT!!!
+      Array.module_eval arrayClassHack  #  Esta é a definição real do método.
+      #  A seguir é definido um método em "outra" classe de inteiros:
+      #  FIM HACK ALERT!!!
       prog do <<-END_CODE
         class Array
 
@@ -299,9 +299,9 @@ module BlocksProcs
           puts 'Hum! Eu adoro tortas de '+fruta+', você não?'
         end
 
-        #  Remember, we are getting the even-numbered elements
-        #  of the array, all of which happen to be odd numbers,
-        #  just because I like to cause problems like that.
+        #  Lembre-se, nós estamos pegando os mesmos elementos numerados
+        #  do array, todos que se relacionam com os outros números,
+        #  apenas porque goste de causar esse tipo de problema.
         [1, 2, 3, 4, 5].cadaComparacao do |bola_estranha|
           puts bola_estranha.to_s+' não é um número!'
         end
@@ -418,7 +418,7 @@ module BlocksProcs
         &bull; <em>Um Logger aperfeiçoado</em>. A saída do último logger é muito difícil de
         ler, e fica muito pior a medida que você for usando. Seria muito mais fácil de ler
         se você identasse as linhas para os blocos internos. Para fazer isso, você vai precisar
-        saber how deeply nested you are every time the logger wants to write something. Para
+        saber quão profundamente aninhado você está toda vez que for escrever algo no log. Para
         fazer isso, use uma <dfn>variável global</dfn>, uma variável que você possa ver de
         qualquer lugar de seu código. Para instânciar uma variável global, você deve
         precedê-la com um #{code '$'}, assim: #{code '$global'}, #{code '$nestingDepth'},
