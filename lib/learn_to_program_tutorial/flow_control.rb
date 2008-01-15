@@ -31,7 +31,7 @@ module FlowControl
     end
     para do <<-END_PARAGRAPH
       Tudo em ordem. Do mesmo modo, podemos descobrir se um objeto
-      é maior-ou-igual-que outro (ou menor-ou-igual-que) com os métodos
+      é maior-ou-igual-que (ou menor-ou-igual-que) outro com os métodos
       #{code '>='} e #{code '<='}.
       END_PARAGRAPH
     end
@@ -41,7 +41,7 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Finalmente, podemos descobrir se dois objetos são iguais
+      Por fim, podemos descobrir se dois objetos são iguais
       ou não usando #{code '=='} (que significa "estes objetos são iguais?")
       e #{code '!='} (que significa "estes objetos são diferentes?").
       É importante não confundir #{code '='} com #{code '=='}. #{code '='}
@@ -58,7 +58,7 @@ module FlowControl
     para do <<-END_PARAGRAPH
       E é claro que também podemos comparar strings. Quando strings
       são comparadas, leva-se em conta seus <dnf>ordenamentos
-      lexicográficos</dfn>, o que, trocando em miúdos, significa a ordem delas
+      lexicográficos</dfn>, que, trocando em miúdos, significa a ordem delas
       no dicionário. #{code 'cachorro'} vem antes de #{code 'gato'} no
       dicionário, então:
       END_PARAGRAPH
@@ -84,15 +84,15 @@ module FlowControl
       métodos de comparação não estão nos dando as strings #{code "'true'"}
       e #{code "'false'"}; elas estão nos dando os objetos especiais
       #{code 'true'} e #{code 'false'} (claro, #{code 'true.to_s'} nos dá
-      #{code "'true'"}, que é como #{code 'puts'} imprimiu #{code "'true'"}.)
+      #{code "'true'"}, que é como #{code 'puts'} imprimiu #{code "'true'"}).
       #{code 'true'} e #{code 'false'} são usados o tempo todo em...
       END_PARAGRAPH
     end
     h2 {'Ramificações (Branching)'}
     para do <<-END_PARAGRAPH
       "Ramificação" é um conceito simples, mas poderoso. Na verdade,
-      é tão simples que aposto que nem tenho que explicá-lo; deixe
-      eu lhe mostrar:
+      é tão simples que aposto que nem tenho que explicá-lo; deixa
+      eu mostrar para você:
       END_PARAGRAPH
     end
     executa1 = {:input => ['Chris']}
