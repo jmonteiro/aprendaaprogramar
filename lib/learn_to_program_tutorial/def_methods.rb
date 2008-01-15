@@ -5,28 +5,28 @@ module DefMethods
   
   def generateDefMethod
     para do <<-END_PARAGRAPH
-      Como vimos, repetições e interadores nos permitem
-      fazer a mesma coisa (rodar o mesmo código) de novo e
-      de novo e de novo. Porém, algums vezes nós queremos
+      Como vimos, repetições e iteradores nos permitem
+      fazer a mesma coisa (rodar o mesmo código) várias e
+      várias vezes. Porém, algumas vezes queremos
       fazer a mesma coisa um monte de vezes, mas de lugares
       diferentes do programa. Por exemplo, vamos supor que
       estejamos escrevendo um programa de questionário para
-      um estudante de psicologia. A partir dos estudantes
-      de psicologia que eu conheço e dos questionários que
-      eles me forneceram, eu tenho algo parecido com isso:
+      um estudante de psicologia. Levando em conta os estudantes
+      de psicologia que eu conheço e os questionários que
+      eles me forneceram, seria algo parecido com isto:
       END_PARAGRAPH
     end
     prog ['sim','sim','de jeito nenhum!','NÃO','sim','sim','sim'] do <<-END_CODE
       puts 'Olá, e obrigado pelo seu tempo para me ajudar'
       puts 'com essa pesquisa. Minha pesquisa é sobre'
       puts 'como as pessoas se sentem com comida'
-      puts 'Mexicana. Apenas pense sobre comida Mexicana'
+      puts 'mexicana. Apenas pense sobre comida mexicana'
       puts 'e tente responder, honestamente, cada questão'
       puts 'com "sim" ou "não". Minha pesquisa não tem'
-      puts 'nada há ver com quem molha a cama.'
+      puts 'nada a ver com quem molha a cama.'
       puts
       
-      #  Nós fazemos as questões, mas ignoramos as respostas.
+      #  Nós fazemos as perguntas, mas ignoramos as respostas.
       
       boaResposta = false
       while (not boaResposta)
@@ -92,28 +92,28 @@ module DefMethods
       end
       
       #  Faça mais um monte de perguntas sobre comida
-      #  Mexicana.
+      #  mexicana.
       
       puts
       puts 'QUESTIONÁRIO:'
-      puts 'Obrigado por dispender seu tempo em nos ajudar'
+      puts 'Obrigado por dispender seu tempo ao nos ajudar'
       puts 'com nossa pesquisa. Na verdade, essa pesquisa'
-      puts 'não tem nada há ver com comida Mexicana.'
+      puts 'não tem nada a ver com comida mexicana.'
       puts 'Mas é uma pesquisa sobre quem molha a cama.'
       puts 'As comidas mexicanas estavam lá apenas para'
-      puts 'baixar sua guarda na espença de fazer você'
+      puts 'baixar sua guarda na esperança de fazer você'
       puts 'responder mais honestamente. Obrigado novamente.'
       puts
       puts molhaCama
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Um lindo e longo programa, com um monte de repetição.
+      Um programa lindo e longo, com um monte de repetição.
       (Todas as seções de código que giram em torno de questões
-      sobre comida Mexicana são idênticas, e a questão sobre xixi
+      sobre comida mexicana são idênticas, e a questão sobre xixi
       na cama é ligeiramente diferente.)
       Repetição é uma coisa ruim. Mas nós não podemos fazer um grande
-      interador, porque algumas vezes nós queremos fazer alguma coisa
+      iterador, porque algumas vezes nós queremos fazer alguma coisa
       entre as questões. Em situações como essa, é melhor escrever
       um método. Veja como:
       END_PARAGRAPH
@@ -125,7 +125,7 @@ module DefMethods
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Anh... Nosso programa não disse #{output 'mooooooo...'}.
+      Ahn... Nosso programa não disse #{output 'mooooooo...'}.
       Por que não? Porque nós não o mandamos fazer isso.
       Nós apenas dissemos <em>como</em> fazer para dizer
       #{output 'mooooooo...'}, mas nós nunca o mandamos
@@ -146,7 +146,7 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       Ah! Muito melhor. (Para o caso de você não falar
-      Francês, havia um pato Francês no meio do prorgama.
+      francês, havia um pato francês no meio do prorgama.
       Na França, os patos fazem <em>"coin-coin</em>").
       END_PARAGRAPH
     end
@@ -157,27 +157,26 @@ module DefMethods
       exceções, como #{code '+'} ou #{code '=='}).
       Mas métodos não têm de sempre estar associados com
       objetos? Bem, sim, eles têm. E nesse caso (assim como com
-      o #{code 'puts'} e o #{code 'gets'}) , o método está
+      o #{code 'puts'} e o #{code 'gets'}), o método está
       associado apenas com o objeto representando o programa
       como um todo. No próximo capítulo nós vamos ver
-      como adicionar métodos para outros objetos. Mas primeiro...
+      como adicionar métodos a outros objetos. Mas primeiro...
       END_PARAGRAPH
     end
     h2 {'Parâmetros de Métodos'}
     para do <<-END_PARAGRAPH
-      Você deve ter notado que com alguns métodos (como
+      Você deve ter notado que se pode chama alguns métodos (como
       o #{code 'gets'}, ou o #{code 'to_s'}, ou o #{code 'reverse'}...)
-      você pode chamar apenas com um objeto. Porém, outros
-      métodos (como o #{code '+'}, o #{code '-'}, o #{code 'puts'}...)
-      recebem <dfn>parâmetros</dfn> para dizer ao objeto o que
-      fazer com o método. Por exemplo, você não diz apenas
-      #{code '5+'}, certo? Vpcê está dizendo ao #{code '5'}
+      apenas com um objeto. Porém, outros métodos (como o #{code '+'},
+      o #{code '-'}, o #{code 'puts'}...) recebem <dfn>parâmetros</dfn>
+      para dizer ao objeto o que fazer com o método. Por exemplo, você
+      não diz apenas #{code '5+'}, certo? Você está dizendo ao #{code '5'}
       para adicionar, mas você não o está dizendo <em>o que</em>
       adicionar.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Para adicioanr um parâmetro ao #{code 'digaMoo'} (o número
+      Para adicionar um parâmetro ao #{code 'digaMoo'} (o número
       de mugidos, por exemplo), nós podemos fazer o seguinte:
       END_PARAGRAPH
     end
@@ -188,7 +187,7 @@ module DefMethods
       
       digaMoo 3
       puts 'oink-oink'
-      digaMoo  #  Isso vai dar erro pois não foi passado nenhum parâmetro.
+      digaMoo  #  Isso vai dar erro porque não foi passado nenhum parâmetro.
       END_CODE
     end
     para do <<-END_PARAGRAPH
@@ -208,7 +207,7 @@ module DefMethods
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Se compararmos os objetos em Ruby aos substantivos em Português,
+      Se compararmos os objetos em Ruby aos substantivos em português,
       os métodos podem, da mesma forma, ser comparados aos verbos.
       Assim, você pode imaginar os parâmetros como advérbios (assim
       como em #{code 'digaMoo'}, onde o parâmetro nos diz <em>como</em>
@@ -278,9 +277,9 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       Há, atualmente, <em>duas</em> variáveis naquele pequeno
-      programa chamado #{code 'var'}: uma dentro do método
+      programa chamadas #{code 'var'}: uma dentro do método
       #{code 'pequenaPeste'} e uma fora dele. Quando você chamou
-      #{code 'pequenaPeste var'}, nós realmente passamos a stringe
+      #{code 'pequenaPeste var'}, nós realmente passamos a string
       que estava em #{code 'var'} para a outra, então as mesmas
       estavam apontando para a mesma string. Então, o método #{code 'pequenaPeste'}
       apontou a sua #{code 'var'} <em>local</em> para #{code 'nil'},
@@ -291,10 +290,10 @@ module DefMethods
     para do <<-END_PARAGRAPH
       Você deve ter notado que alguns métodos devolvem alguma
       coisa quando você os chama. Por exemplo, o método #{code 'gets'}
-      <dfn>retorna</dfn> uma string (a string que você digitas),
+      <dfn>retorna</dfn> uma string (a string que você digitou),
       e o método #{code '+'} em #{code '5+3'}, (que é, na verdade #{code '5.+(3)'})
-      retorna #{code '8'}. Os métodos aritiméticos para números
-      retornam números, e os métodos aritiméticos para strings
+      retorna #{code '8'}. Os métodos aritméticos para números
+      retornam números, e os métodos aritméticos para strings
       retornam strings.
       END_PARAGRAPH
     end
@@ -352,7 +351,7 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       Agora vamos tentar aquela pesquisa de psicologia de novo,
-      mas agora vamos escrever um método que faça a pergunta
+      mas desta vez vamos escrever um método que faça a pergunta
       para nós. Ele vai precisar pegar a questão como um
       parâmetro e retornar #{code 'true'} se a resposta foi
       #{input 'sim'} e #{code 'false'} se a resposta foi
@@ -581,7 +580,7 @@ module DefMethods
                         'seis', 'sete', 'oito', 'nove']
         dezenas      = ['dez'     ,   'vinte'   ,    'trinta' ,   'quarenta',    'cinqüenta',
                         'sessenta',   'sessenta',    'oitenta',   'noventa']
-        adolescentes = ['onze'     ,  'doze'    ,    'treze'  , 'catorze', 'quinze',
+        especiais =    ['onze'     ,  'doze'    ,    'treze'  , 'catorze', 'quinze',
                         'dezesseis',  'dezesete',    'dezoito', 'dezenove']
         
         #  "falta" é quanto do número ainda falta escrever.
@@ -615,15 +614,15 @@ module DefMethods
           end
         end
         
-        escrevendo = falta/10          #  How many tens falta to escrevendo out?
-        falta  = falta - escrevendo*10  #  Subtract off those tens.
+        escrevendo = falta/10          #  Quantas dezenas falta escrever?
+        falta  = falta - escrevendo*10  #  Subtraia dessas dezenas.
         
         if escrevendo > 0
           if ((escrevendo == 1) and (falta > 0))
             #  Não podemos escrever "dez e dois", temos que escrever "doze",
             #  então vamos fazer uma exceção.
-            numExtenso = numExtenso + adolescentes[falta-1]
-            #  O "-1" aqui é porque adolescentes[3] é 'catorze', e não 'treze'.
+            numExtenso = numExtenso + especiais[falta-1]
+            #  O "-1" aqui é porque especiais[3] é 'catorze', e não 'treze'.
             
             #  Já que cuidamos do dígito das unidades,
             #  não falta mais nada
@@ -672,14 +671,14 @@ module DefMethods
       está um pouco maçante, mas é porque eu enchi de comentários.
       Agora ele funciona para números grandes... embora não de
       uma maneira muito elegante. Por exemplo, eu acho que #{code "'um trilhão'"}
-      seria muito mais elegante para o último número, do que #{code "'um milhão milhão'"}
-      (muito embora todas as três estejam corretas). Na verdade,
-      você pode fazer isso agora...
+      seria muito mais elegante para o último número, ou mesmo
+      #{code "'um milhão milhão'"} (muito embora todas as três estejam
+      corretas). Na verdade, você pode fazer isso agora...
       END_PARAGRAPH
     end
     h2 {'Algumas Coisinhas para Tentar'}
     para do <<-END_PARAGRAPH
-      &bull; Melhore o método upon #{code 'numeroPortugues'}. Primeiro,
+      &bull; Melhore o método #{code 'numeroPortugues'}. Primeiro,
       coloque os milhares. Ou seja, ele deve retornar #{code "'um mil'"}
       ao inves de #{code "'dez centos'"} e #{code "'dez mil'"}
       ao invés de #{code "'um centos centos'"}. Seria interessante
@@ -694,18 +693,6 @@ module DefMethods
       Coloque milhões agora, assim você conseguirá coisas como #{code "'um milhão'"}
       ao invés de #{code "'um mil mil'"}. Depois tente adicionar
       bilhões e trilhões. Quão longe você consegue ir?
-      END_PARAGRAPH
-    end
-    para do <<-END_PARAGRAPH
-      <em><strong>NOTA:</strong> Esse não é o padrão de nossa língua?
-      Não se torna desnecessário na tradução?</em>
-      &bull; How about #{code 'weddingNumber'}?  It should
-      work almost the same as #{code 'numeroPortugues'}, except
-      that it should insert the word "and" all over the place,
-      returning things like #{code "'nineteen hundred and seventy and two'"},
-      or however wedding invitations are supposed to look.  I'd give you more
-      examples, but I don't fully understand it myself.  You might
-      need to contact a wedding coordinator to help you.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
@@ -729,7 +716,7 @@ module DefMethods
     end
     para do <<-END_PARAGRAPH
       Claro que escrever tudo do zero pode ser um processo
-      muito lento. Porque gastar tempo e energia escrevendo
+      muito lento. Por que gastar tempo e energia escrevendo
       um código que alguém já escreveu?
       Você quer um programa que mande alguns e-mails?
       Você gostaria de salvar e carregar arquivos em seu
