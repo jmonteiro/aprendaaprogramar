@@ -18,8 +18,8 @@ module FlowControl
     end
     h2 {'Métodos de Comparação'}
     para do <<-END_PARAGRAPH
-      Vamos correr nesta parte para chegar logo à próxima seção,
-      <strong>Ramificações</strong>, onde tudo que é legal acontece.
+      Vamos ser rápidos por aqui para chegar até as <strong>ramificações</strong>,
+      que é onde as coisas legais começam a acontecer.
       Para ver se um objeto é maior ou menor que outro, usamos
       os métodos #{code '>'} e #{code '<'}, assim:
       END_PARAGRAPH
@@ -30,7 +30,7 @@ module FlowControl
       END_CODE
     end
     para do <<-END_PARAGRAPH
-      Sem problema. Do mesmo modo, podemos descobrir se um objeto
+      Tudo em ordem. Do mesmo modo, podemos descobrir se um objeto
       é maior-ou-igual-que outro (ou menor-ou-igual-que) com os métodos
       #{code '>='} e #{code '<='}.
       END_PARAGRAPH
