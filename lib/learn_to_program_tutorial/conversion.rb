@@ -125,13 +125,12 @@ module Conversion
     end
     para do <<-END_PARAGRAPH
       Por que é que essas três imprimem a mesma coisa? Tudo bem, as duas
-      últimas deveriam, mesmo, já que #{code '20.to_s'} <em>é</em>
+      últimas deveriam mesmo, já que #{code '20.to_s'} <em>é</em>
       #{code "'20'"}. Mas e a primeira, o inteiro #{code '20'}? Falando nisso,
       faz algum sentido escrever <em>o inteiro</em> 20? Quando você escreve
       um <em>2</em> e depois um <em>0</em> num papel, você está escrevendo
       uma string, não um inteiro. <em>O inteiro</em> 20 é o número de dedos
-      das mãos e dos pés que eu possuo, e não um <em>2</em> seguido de um
-      <em>0</em>.
+      que eu possuo, e não um <em>2</em> seguido de um <em>0</em>.
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
