@@ -73,7 +73,7 @@ module Classes
         (PST, em Inglês), pelo menos para nós, da costa Oeste.
         Os parênteses servem para agrupar os parâmetros para o
         #{code 'mktime'}. Quanto mais parâmetros você adicionar,
-        #mais preciso o seu instante se tornará.
+        mais preciso o seu instante se tornará.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
@@ -97,7 +97,7 @@ module Classes
         que uma pessoa nasceu. Então pergunte o mês e, finalmente,
         o dia. Então descubra a idade dessa pessoa e lhe dê um
         #{output 'PUXÃO DE ORELHA!'} para cada aniverśario
-        #que ela fez.
+        que ela fez.
         END_PARAGRAPH
       end
       h2 {"A Classe #{code 'Hash'}"}
@@ -138,7 +138,7 @@ module Classes
         Se eu usar um vetor, eu tenho que me lembrar que o espaço #{code '0'}
         é para strings, o slot #{code '1'} é para números e etc. Mas se eu
         usar um Hash, fica fácil! O espaço #{code "'strings'"} armazena a cor
-        das strings, claro. Nada para lembrar.  Você deve ter norado que quando
+        das strings, claro. Nada para lembrar.  Você deve ter notado que quando
         eu usei o #{code 'each'}, os objetos no hash não vieram na mesma ordem
         que eu os coloquei (Pelo menos não quando eu escrevi isso. Talvez agora
         esteja em ordem... você nunca sabe a ordem com os hashes). Vetores servem
@@ -157,7 +157,7 @@ module Classes
 
         hashBizarro[12] = 'macacos'
         hashBizarro[[]] = 'totalmente vazio'
-        hashBizarro[Time.new] = 'nada melhor como o Presente'
+        hashBizarro[Time.new] = 'nada melhor que o Presente'
         END_CODE
       end
       para do <<-END_PARAGRAPH
@@ -172,12 +172,12 @@ module Classes
         retornar um número por extenso. Porém, esse não era um
         método de inteiros: era um método genérico do programa.
         Não seria mais legal se você pudesse escrever #{code '22.ext'}
-        ao inves de #{code 'porExtenso 22'}? Olha só como você
+        ao invés de #{code 'porExtenso 22'}? Olha só como você
         pode fazer isso:
         END_PARAGRAPH
       end
-      #  HACK ALERT!!!  (I can't get to the global namespace transparently
-      #                  from inside the StringIO object in a mod_ruby script.)
+      #  HACK ALERT!!!  (Eu não posso chegar a um namespace global transparentemente
+      #                  de dentro do objeto StringIO em um script mod_ruby.)
       integerClassHack = <<-END_CODE
           def ext
             if self == 5
@@ -190,9 +190,9 @@ module Classes
           end
         END_CODE
 
-      Integer.module_eval integerClassHack  #  This is the real method definition.
-      #  The following defines a method in "another" integer class:
-      #  END HACK ALERT!!!
+      Integer.module_eval integerClassHack  #  Esta é a definição real do método.
+      #  A seguir é definido um método em "outra" classe de inteiros:
+      #  FIM HACK ALERT!!!
       prog do <<-END_CODE
         class Integer
 
@@ -215,7 +215,7 @@ module Classes
         inteiros tem esse sensacional (incompleto) método.
         Na verdade, se você não gostar da forma como o
         método nativo #{code 'to_s'} faz as coisas, você
-        pode simplesmente redefiní-lo da mesma forma...
+        pode simplesmente redefini-lo da mesma forma...
         mas eu não recomendo isso! É melhor deixar os métodos
         antigos quietos em seu canto e fazer novos quando
         você precisar de uma coisa nova.
@@ -511,7 +511,7 @@ module Classes
 
           def passagemDeTempo
             if @comidaEstomago > 0
-              #  Mover a comida do estomago para o intestino.
+              #  Mover a comida do estômago para o intestino.
               @comidaEstomago  = @comidaEstomago  - 1
               @comidaIntestino = @comidaIntestino + 1
             else  #  Nosso dragão está faminto!
@@ -520,7 +520,7 @@ module Classes
                 puts 'Ele está acordando!'
               end
               puts @nome + ' está faminto! Em desespero, ele comeu VOCÊ!'
-              exit  #  Isso saí do programa.
+              exit  #  Isso sai do programa.
             end
 
             if @comidaIntestino >= 10
@@ -533,7 +533,7 @@ module Classes
                 @dormindo = false
                 puts 'Ele está acordando!'
               end
-              puts 'O estomago do ' + @nome + ' está roncando...'
+              puts 'O estômago do ' + @nome + ' está roncando...'
             end
 
             if precisaSair?
@@ -575,7 +575,7 @@ module Classes
         podia ter deixado ela de fora, mas eu apenas quis
         reforçar a idéia de que certos métodos você podia
         fazer com um dragão, enquanto que outros aconteciam
-        com o dragão. Você pode pensar nisso como "coisas por traz dos panos":
+        com o dragão. Você pode pensar nisso como "coisas por trás dos panos":
         a não ser que você seja um mecânico de automóveis, tudo
         o que você precisa saber sobre carros é o acelerador,
         o freio e a direção. Um programador chama isso de
@@ -589,7 +589,7 @@ module Classes
         Agora, para um exemplo mais concreto nessa linha de raciocínio,
         vamos falar um pouco sobre como você representaria um carro
         em um jogo (o que é a minha linha de trabalho). Primeiro,
-        você precisa decidir como ira se parecer sua interface pública;
+        você precisa decidir como irá se parecer sua interface pública;
         em outras palavras, quais métodos as pessoas podem chamar
         do seus objetos do tipo carro? Bem, eles devem podem acelerar e
         freiar, mas eles precisam, também, poder definir a força que
@@ -617,7 +617,7 @@ module Classes
       para do <<-END_PARAGRAPH
         &bull; Faça uma classe de #{code 'ArvoreDeLaranja'}. Ela deve
         ter um método #{code 'altura'} que retorne sua altura, um método
-        chamado #{code 'passarUmAno'} que, quando chamado, faz a árvore
+        chamado #{code 'passar_um_ano'} que, quando chamado, faz a árvore
         completar mais um ano de vida. Cada ano, a árvore cresce mais magra
         (não importa o quão grande você ache que uma árvore de laranja
         possa crescer em um ano), e depois de alguns anos (novamente,
@@ -625,9 +625,9 @@ module Classes
         ela não deve produzir frutos, mas depois de um tempo ela deve,
         e eu acho que as árvores mais velhas produzem muito mais frutos
         do que uma mais jovem com o passar dos anos... ou o que você
-        achar mais lógico. E, é claro, você deve poder #{code 'contarAsLaranjas'}
-        (o número de laranjas na árvore), e #{code 'pegarUmaLaranja'}
-        (que irá reduzir o #{code '@numeroDeLaranjas'} em um e retornar
+        achar mais lógico. E, é claro, você deve poder #{code 'contar_as_laranjas'}
+        (o número de laranjas na árvore), e #{code 'pegar_uma_laranja'}
+        (que irá reduzir o #{code '@numero_de_laranjas'} em um e retornar
         uma string dizendo quão deliciosa a laranja estava, ou então
         irá dizer que não há mais laranjas esse ano). Lembre-se de que
         as laranjas que você não pegar esse ano devem cair antes do
