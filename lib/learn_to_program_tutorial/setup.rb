@@ -22,14 +22,14 @@ module Setup
     #  END_PARAGRAPH
     #end
     para do <<-END_PARAGRAPH
-      Além de ser a minha favorita, Ruby também a linguagem mais
-      fácil que eu já vi (e eu já vi uma bela quantidade delas). Aliás,
+      Além de ser a minha favorita, Ruby também é a linguagem mais
+      fácil que eu já vi (e eu já vi uma boa quantidade delas). Aliás,
       esta é a verdadeira razão pela qual estou escrevendo este tutorial:
       Eu não decidi escrever este tutorial e aí escolhi Ruby por ser minha
       favorita; ao invés disso, eu descobri que o Ruby era tão fácil que
       eu decidi que deveria haver um bom tutorial que a usasse voltado
       para iniciantes.
-      É a simplicidade do Ruby que inspirou este tutorial, não o fato
+      Foi a simplicidade do Ruby que inspirou este tutorial, não o fato
       dela ser minha favorita.
       (Escrever um tutorial similar usando outra linguagem, C++ ou Java, teria
       tomado centenas e centenas de páginas.) Mas não pense que Ruby é
@@ -62,11 +62,11 @@ module Setup
       vários exemplos de código Ruby por todo este tutorial, a maioria 
       deles programas completos que você pode rodar no seu próprio
       computador. Para deixar o código mais legível, eu colori partes dele
-      com cores diferentes. (Por exemplo, números são sempre
+      com cores diferentes. (Por exemplo, números estão sempre em
       <span class="L2Pcode"><span class="L2Pnumber">#{NUMBER_COLOR}</span></span>.)
-      Qualquer coisa que você tiver que digitar estará sempre em a 
+      Qualquer coisa que você tiver que digitar estará sempre numa
       #{input INPUT_DESC}, e qualquer coisa que o programa imprimir
-      estará em um #{output OUTPUT_DESC}.
+      estará em uma #{output OUTPUT_DESC}.
       END_PARAGRAPH
     end
     #para do <<-END_PARAGRAPH
@@ -180,7 +180,7 @@ module Setup
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
-      Para ir para sua linha de comando, selecione Prompt de Comando da pasta
+      Para ir para sua linha de comando, selecione Prompt de Comando na pasta
       Acessórios do seu menu Iniciar.  Você vai querer 
       navegar para o diretório onde você mantém seus programas.
       Digitar #{input 'cd ..'} levará você para o diretório anterior, e
@@ -270,7 +270,7 @@ module Setup
       caminho de busca de comandos à variável de ambiente PATH, editando
       seu arquivo <kbd>$HOME/.bashrc</kbd>.
       (Você pode ter que se deslogar e logar novamente para que 
-      isto surte efeito.)  Após ter feito isto, teste sua instalação:
+      isto surta efeito.)  Após ter feito isto, teste sua instalação:
       #{input 'ruby -v'}.  Se mostrar a você qual a versão do Ruby que você
       tem, você pode agora remover os arquivos 
       em <kbd>$HOME/tmp</kbd> (ou onde quer que você os colocou).
