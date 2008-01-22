@@ -67,8 +67,8 @@ module Main
             end
 
             para do <<-END_PARAGRAPH
-              Eu, Fabio Akita, <a href="http://www.akitaonrails.com/2008/1/15/vamos-traduzir-o-learn-to-program">surgi</a>
-              com esta idéia em Janeiro de 2008. Fiz o anúncio no meu site e na lista rails-br e foi um
+              Eu, <b>Fabio Akita</b>, <a href="http://www.akitaonrails.com/2008/1/15/vamos-traduzir-o-learn-to-program">surgi</a>
+              com esta sugestão em Janeiro de 2008. Fiz o anúncio no meu blog e na lista rails-br e foi um
               movimento incrívei: dezenas de voluntários se candidataram a ajudar. Graças a isso a tradução
               e revisão não durou uma semana! Fico extremamente satisfeito em ter essa amostra da
               comunidade se auto-ajudando. Espero ter a oportunidade de conduzir mais trabalhos desta
@@ -77,8 +77,19 @@ module Main
             end
 
             para do <<-END_PARAGRAPH
-              Meus agradecimentos e parabéns aos tradutores/revisores: Reginaldo Russinholi, Oliver, Vitor, Danilo Sato,
-              Larini, Davi Vidal, Max, Ricardo Yasuda, Lucas Húngaro, Anderson Leite.
+              Meus agradecimentos e parabéns aos tradutores/revisores: 
+              <a href="http://www.dtsato.com/">Danilo Sato</a>,
+              <a href="http://presto.stellar.com.br/">Davi Vidal</a>, 
+              Reginaldo Russinholi, 
+              <a href="http://www.oliverbarnes.com/">Oliver Azevedo Barnes</a>, 
+              <a href="http://dodecaphonic.blogspot.com/">Vitor Peres</a>, 
+              Larini, 
+              Max, Ricardo Yasuda, 
+              <a href="http://makemesimple.com/blog/">Lucas Húngaro</a>, 
+              Anderson Leite.
+              
+              Agradeço também a todos que se voluntariaram, mas havia mais colaboradores que capítulos para
+              traduzir e sobrou gente :-) Acho que é um bom sinal!
               END_PARAGRAPH
             end
 
