@@ -38,6 +38,7 @@ class LearnToProgramTutorial
   @@INPUT_DESC    = INPUT_DESC   
   @@OUTPUT_DESC   = OUTPUT_DESC  
   
+  include Intro
   include LearnToProgram
   include FormattingPage
   include Setup

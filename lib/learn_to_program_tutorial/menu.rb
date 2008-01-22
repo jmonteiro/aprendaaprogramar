@@ -22,23 +22,28 @@ module Menu
     end
     
     para do <<-END_PARAGRAPH
+      (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+      END_PARAGRAPH
+    end
+    para do <<-END_PARAGRAPH
       (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
-      by&nbsp;Shin&nbsp;Nishiyama.)
+      por&nbsp;Shin&nbsp;Nishiyama.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
-      by&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
-      by&nbsp;Mikhail&nbsp;Shokhirev.)
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
       END_PARAGRAPH
     end
     para do <<-END_PARAGRAPH
       (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
-      by&nbsp;Gunner&nbsp;Carstens.)
+      por&nbsp;Gunner&nbsp;Carstens.)
       END_PARAGRAPH
     end
   end

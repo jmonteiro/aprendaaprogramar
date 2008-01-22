@@ -50,10 +50,51 @@ module Main
         end
         div(:id=>'contentPane') do
           if chapter
-            h1 {chapTitle}
-            puts HLINE
+            if chapter[0]
+              h1 {chapTitle}
+              puts HLINE
+            end
             method(chapter[1]).call
           else # TOC
+            h2 { "Notas sobre a tradução em Português Brasileiro"}
+            para do <<-END_PARAGRAPH
+              Todo comunidade de programação é formada pelos amantes de computação, que aprendem linguagens
+              novas no café-da-manhã, mas também uma uma grande parcela de pessoas que foram empolgadas por
+              nós mas acabam esbarrando na barreira inicial do aprendizado. Felizmente autores como Chris
+              Pine resolveram atacar este desafio e o resultado que temos é uma excelente material para 
+              programadores iniciantes em Ruby.
+              END_PARAGRAPH
+            end
+
+            para do <<-END_PARAGRAPH
+              Eu, Fabio Akita, <a href="http://www.akitaonrails.com/2008/1/15/vamos-traduzir-o-learn-to-program">surgi</a>
+              com esta idéia em Janeiro de 2008. Fiz o anúncio no meu site e na lista rails-br e foi um
+              movimento incrívei: dezenas de voluntários se candidataram a ajudar. Graças a isso a tradução
+              e revisão não durou uma semana! Fico extremamente satisfeito em ter essa amostra da
+              comunidade se auto-ajudando. Espero ter a oportunidade de conduzir mais trabalhos desta
+              natureza.
+              END_PARAGRAPH
+            end
+
+            para do <<-END_PARAGRAPH
+              Meus agradecimentos e parabéns aos tradutores/revisores: Reginaldo Russinholi, Oliver, Vitor, Danilo Sato,
+              Larini, Davi Vidal, Max, Ricardo Yasuda, Lucas Húngaro, Anderson Leite.
+              END_PARAGRAPH
+            end
+
+            para do <<-END_PARAGRAPH
+              Agradecimentos também ao Júlio Monteiro por dar uma "casa" oficial a este trabalho no
+              web site http://aprendaaprogramar.rubyonrails.pro.br.
+              END_PARAGRAPH
+            end
+
+            para do <<-END_PARAGRAPH
+              Esperamos que o resultado deste trabalho seja de grande valia tanto a estudantes quanto
+              a qualquer um que queira ensinar outros a programar.
+              END_PARAGRAPH
+            end
+            puts HLINE
+
             h2 { 'Um lugar para o futuro programador começar' }
             para do <<-END_PARAGRAPH
               Eu acho que tudo isso começou em 2002. Eu estava pensando
@@ -201,6 +242,30 @@ module Main
               números aleatórios, você vai ver que os números mudam sempre... <em>lindo</em>.
               (Eu usei um truque parecido na hora de escrever o livro, mas é óbvio que isso
               é muito mais aparente aqui no tutorial.)
+              END_PARAGRAPH
+            end
+            h2 { "Sobre o Material Traduzido" }
+            para do <<-END_PARAGRAPH
+              O código original descrito por Chris Pine acima, era uma versão simples e implementada sobre
+              CGI. Em total ritmo de 2008, eu mesmo (Fabio Akita) modifiquei esse código. Sem muitas 
+              modificações sobre o original, transportei o código para rodar sobre Rails 2.0.2.
+              END_PARAGRAPH
+            end
+
+            para do <<-END_PARAGRAPH
+              Esse código está todo disponível no OpenSVN, neste endereço:
+              END_PARAGRAPH
+            end
+
+            para do <<-END_PARAGRAPH
+              <em>http://opensvn.csie.org/learn_to_program_pt_br/trunk/</em>
+              END_PARAGRAPH
+            end
+
+            para do <<-END_PARAGRAPH
+              Por motivos de performance, os códigos (que localmente são realmente executados em tempo real
+              conforme Chris explicou) não são executados online, sendo uma cópia estática. Para ter todos os
+              benefícios do programa em tempo real, baixe o código para rodar sobre Rails.
               END_PARAGRAPH
             end
             para do

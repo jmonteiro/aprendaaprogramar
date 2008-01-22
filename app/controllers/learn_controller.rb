@@ -16,11 +16,11 @@ class LearnController < ApplicationController
       opt.merge!("ShowTutorialCode" => [nil])
     end
     unless opt.include?("Chapter")
-      opt.merge!("Chapter" => ["00"])
+      opt.merge!("Chapter" => 13)
     end
     request.cgi.params = opt
     
     # redireciona a saída do cgi para a saída do controller
-    render :text => LearnToProgramTutorial.handle_request(request.cgi)
+    render :text => LearnToProgramTutorial.handle_request(request.cgi), :status => 200, :layout => false
   end
 end
