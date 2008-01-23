@@ -43,7 +43,7 @@ module Beyond
     h2 {'O Pickaxe: "Programming Ruby"'}
     para do <<-END_PARAGRAPH
 			<em>O</em> livro sobre Ruby que você não pode perder de jeito nenhum é 
-			"Programming Ruby, The pragmáticas Programador's Guide",
+			"Programming Ruby, The Pragmatic Programmer's Guide",
 			de Andrew Hunt e David Thomas (os Programadores Pragmáticos).
 			Embora eu recomende fortemente a 
 			<a href="http://www.pragmaticprogrammer.com/titles/ruby/">2ª edição</a>
