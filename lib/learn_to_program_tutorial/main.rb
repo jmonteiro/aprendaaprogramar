@@ -80,11 +80,12 @@ module Main
               Meus agradecimentos e parabéns aos tradutores/revisores: 
               <a href="http://www.dtsato.com/">Danilo Sato</a>,
               <a href="http://presto.stellar.com.br/">Davi Vidal</a>, 
-              Reginaldo Russinholi, 
+              <a href="mailto:bagrehc@gmail.com">Reginaldo Russinholi</a>, 
               <a href="http://www.oliverbarnes.com/">Oliver Azevedo Barnes</a>, 
               <a href="http://dodecaphonic.blogspot.com/">Vitor Peres</a>, 
-              Larini, 
-              Max, Ricardo Yasuda, 
+              <a href="mailto:pflarini@gmail.com">Paulo Fernando Larini</a>, 
+              Max Dev, 
+              <a href="http://blog.shadowmaru.org/">Ricardo Yasuda</a>, 
               <a href="http://makemesimple.com/blog/">Lucas Húngaro</a>, 
               Anderson Leite.
               
