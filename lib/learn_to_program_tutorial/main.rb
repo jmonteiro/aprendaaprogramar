@@ -84,7 +84,7 @@ module Main
               <a href="http://www.oliverbarnes.com/">Oliver Azevedo Barnes</a>, 
               <a href="http://dodecaphonic.blogspot.com/">Vitor Peres</a>, 
               <a href="mailto:pflarini@gmail.com">Paulo Fernando Larini</a>, 
-              Max Dev, 
+              Massimiliano Giroldi, 
               <a href="http://blog.shadowmaru.org/">Ricardo Yasuda</a>, 
               <a href="http://makemesimple.com/blog/">Lucas Húngaro</a>, 
               Anderson Leite.
