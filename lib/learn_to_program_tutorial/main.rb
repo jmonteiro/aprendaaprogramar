@@ -7,7 +7,7 @@ module Main
     srand
     chapNum   = @cgi.params['Chapter'][0]
     chapter   = @chapters[chapNum]
-    chapTitle = 'Aprendendo a Programar, por Chris Pine'
+    chapTitle = 'Aprenda a Programar, por Chris Pine'
     if chapter
       chapTitle = chapNum + '.&nbsp;&nbsp;' if chapNum < 'A'
       chapTitle.sub! /^0/, ''
@@ -20,7 +20,8 @@ module Main
         meta('http-equiv'=>"Content-Type", :content=>"text/html; charset=utf-8")
       	
         link(:href=>LINKADDR+'stylesheets/pine.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
-        link(:href=>LINKADDR+'stylesheets/tutorial.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen')
+        link(:href=>LINKADDR+'stylesheets/tutorial.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'screen, print')
+        link(:href=>LINKADDR+'stylesheets/print.css', :rel=>'Stylesheet', :type=>'text/css', :media=>'print')
         title { chapTitle }
         script(:language=>'JavaScript', :src=>'http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106', :type=>'text/javascript') {}
       end # head
@@ -29,7 +30,7 @@ module Main
         div(:id=>'headerBar') do
           div(:id=>'titlePicContainer') do
             puts '<a href="'+LINKADDR+'">'
-            img(:id=>'titlePic', :width=>'418', :height=>'108', :src=>'images/titleLTP.gif', :alt=>'Aprendendo a Programar')
+            img(:id=>'titlePic', :width=>'500', :height=>'108', :src=>'images/titleLTP_pt_br.gif', :alt=>'Aprenda a Programar')
             puts '</a>'
           end
           puts '<a href="'+LINKADDR+'index.rb">'
