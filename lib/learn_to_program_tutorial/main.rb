@@ -96,8 +96,8 @@ module Main
             end
 
             para do <<-END_PARAGRAPH
-              Agradecimentos também ao Júlio Monteiro por dar uma "casa" oficial a este trabalho no
-              web site http://aprendaaprogramar.rubyonrails.pro.br.
+              Agradecimentos também ao <a href="http://monteiro.eti.br/">Júlio Santos Monteiro</a> por dar uma "casa" oficial a este trabalho no
+              web site <a href="http://aprendaaprogramar.rubyonrails.pro.br" title="Aprenda a Programar">http://aprendaaprogramar.rubyonrails.pro.br</a>.
               END_PARAGRAPH
             end
 

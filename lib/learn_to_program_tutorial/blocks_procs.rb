@@ -312,7 +312,7 @@ module BlocksProcs
         é anexar o bloco após o método. Você pode passar um bloco para qualquer método
         dessa maneira, apesar de que muitos métodos vão apenas ignorar o bloco. Para
         fazer seu método <em>não</em> ignorar o bloco, mas pegá-lo e transformá-lo em
-        uma proc, ponha o nome da prco no começo da lista dos parâmetros do seu método,
+        uma proc, ponha o nome da proc no começo da lista dos parâmetros do seu método,
         precedido por um 'e' comercial (#{code '&'}). Essa parte é um pequeno truque,
         mas não é tão ruim, e você apenas precisa fazer isso uma vez (quando você
         define o método). Então você pode usar o método de novo, e de novo e de novo,
