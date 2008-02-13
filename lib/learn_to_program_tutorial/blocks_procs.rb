@@ -5,10 +5,10 @@ module BlocksProcs
 
     def generateBlocksProcs
       para do <<-END_PARAGRAPH
-        Esta é, definitivamente, um dos recursos mais legais de Ruby. Algumas
+        Este é, definitivamente, um dos recursos mais legais de Ruby. Algumas
         outras linguagens têm esse recurso, porém elas podem chamar isso
         de formas diferentes (como <dfn>closures</dfn>), mas muitas
-        das mais populares não, o que é uma vergonha.
+        das mais populares não, o que é uma pena.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
@@ -65,13 +65,13 @@ module BlocksProcs
       end
       para do <<-END_PARAGRAPH
         (De qualquer forma, isso parece familiar? Sim, você já viu blocos antes... quando
-        você aprendeu sobre interadores. Mas vamos voltar a falar disso daqui a pouco.)
+        você aprendeu sobre iteradores. Mas vamos voltar a falar disso daqui a pouco.)
         END_PARAGRAPH
       end
       h2 { 'Métodos que Recebem Procs' }
       para do <<-END_PARAGRAPH
         Quando passamos uma proc em um método, nós podemos controlar como, se ou quantas vezes
-        nós vamos chamar a proc. Por exemplo, deixe-me dizer que há uma coisa que nós queremos
+        nós vamos chamar a proc. Por exemplo, posso dizer que há uma coisa que nós queremos
         fazer antes e depois que um código é executado:
         END_PARAGRAPH
       end
@@ -79,7 +79,7 @@ module BlocksProcs
         def FacaUmaCoisaImportante umaProc
           puts 'Todo mundo apenas ESPERE! Eu tenho uma coisa a fazer...'
           umaProc.call
-          puts 'Certo pessoa, Eu terminei. Voltem a fazer o que estavam fazendo.'
+          puts 'Certo pessoal, Eu terminei. Voltem a fazer o que estavam fazendo.'
         end
 
         digaOla = Proc.new do
@@ -101,7 +101,7 @@ module BlocksProcs
         o que quiser lá dentro e então fechar o arquivo. Se você se esquecer de fechar o arquivo,
         Coisas Ruins(tm) podem acontecer. Mas toda a vez que você quiser salvar ou carregar um arquivo,
         você deve fazer a mesma coisa: abrir o arquivo, fazer o que você <em>realmente</em> quiser com ele
-        e então fechar o arquivo. Isso é entediante e fácil de esquecer. Em Ruby, salver (ou carregar)
+        e então fechar o arquivo. Isso é entediante e fácil de esquecer. Em Ruby, salvar (ou carregar)
         arquivos funciona similarmente com o código anterior, então você não precisa se preocupar
         com nada além de o que você quer salvar (ou carregar) (No próximo capítulo eu vou lhe
         mostrar como fazer coisas como salvar e carregar arquivos).
@@ -210,7 +210,7 @@ module BlocksProcs
       h2 { 'Métodos que Retornam Procs' }
       para do <<-END_PARAGRAPH
         Uma das outras coisas legais que você pode fazer com procs é
-        criá-las em métodos e retorná-las. Isso permite toda uma sorte
+        criá-las em métodos e retorná-las. Isso permite toda uma variedade
         de poderes de programação malucos (coisas com nomes impressionantes,
         como <dfn>avaliação preguiçosa</dfn>, <dfn>estrutura de dados infinita</dfn>,
         e <dfn>temperando com curry</dfn>), mas o fato é de que eu nunca faço isso
@@ -263,7 +263,7 @@ module BlocksProcs
         sem usar uma proc), uma vez que na maior parte das vezes você não
         vai querer usar a proc ou o bloco depois que o passar para um método.
         Bem, você não sabe, mas Ruby tem isso para nós! Na verdade,
-        você já estava fazendo isso todas as vezes que usou interadores.
+        você já estava fazendo isso todas as vezes que usou iteradores.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
@@ -301,7 +301,7 @@ module BlocksProcs
 
         #  Lembre-se, nós estamos pegando os mesmos elementos numerados
         #  do array, todos que se relacionam com os outros números,
-        #  apenas porque goste de causar esse tipo de problema.
+        #  apenas porque gosto de causar esse tipo de problema.
         [1, 2, 3, 4, 5].cadaComparacao do |bola_estranha|
           puts bola_estranha.to_s+' não é um número!'
         end
@@ -323,11 +323,11 @@ module BlocksProcs
       para do <<-END_PARAGRAPH
         Se você estiver confuso, apenas lembre-se do que supostamente o método
         #{code 'cadaComparacao'} faz: chama o bloco passado como parâmetro para
-        cada elemento no vetor. Depois que você o escrever e ele estar funcionando,
-        você não vai precisar pensar sobre o que está acontecendo atualmente por baixo
+        cada elemento no vetor. Depois que você o escrever e ele estiver funcionando,
+        você não vai precisar pensar sobre o que está acontecendo realmente por baixo
         dos panos ("qual bloco é chamado quando??"); na verdade, é exatamente <em>por isso</em>
-        que escrevemos métodos assim: nós nunca mais vamos precisar para para pensar
-        em como eles funcionam de novo. Nós apenas os usamos.
+        que escrevemos métodos assim: nós nunca mais vamos precisar pensar sobre
+        como eles funcionam novamente. Nós vamos apenas usar-los.
         END_PARAGRAPH
       end
       para do <<-END_PARAGRAPH
@@ -438,12 +438,12 @@ module BlocksProcs
             '</pre>'
       para do <<-END_PARAGRAPH
         Bem, isso é tudo que você aprendeu com esse tutorial.
-        Parabéns! Você aprendeu <em>muito</em> Talvez você sinta
-        como se você não lembrasse de nada, ou talvez você tenha
+        Parabéns! Você aprendeu <em>muito</em>. Talvez você sinta
+        como se não lembrasse de nada, ou talvez você tenha
         pulado algumas partes... Relaxe. Programação não é o que
-        você sabe, e sim o que você faz. A medida que você for
+        você sabe, e sim o que você faz. À medida que você for
         aprendendo onde procurar as coisas que você esquecer,
-        você está indo bem. Eu espero que você não ache que eu
+        você estará indo bem. Eu espero que você não ache que eu
         escrevi tudo isso sem ficar conferindo a cada minuto!
         Porque eu fiz isso. Eu também tive muita ajuda com os
         códigos que rodam em todos os exemplos desse tutorial.
