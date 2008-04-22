@@ -281,7 +281,7 @@ module FlowControl
       
       while comando != 'tchau'
         puts comando
-        comando = comando.gets.chomp
+        comando = gets.chomp
       end
       
       puts 'Volte logo!'
