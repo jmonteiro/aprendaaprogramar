@@ -266,12 +266,12 @@ module Main
             end
 
             para do <<-END_PARAGRAPH
-              Esse código está todo disponível no OpenSVN, neste endereço:
+              Esse código está todo disponível no GitHub, neste endereço:
               END_PARAGRAPH
             end
 
             para do <<-END_PARAGRAPH
-              <em>http://opensvn.csie.org/learn_to_program_pt_br/trunk/</em>
+              <em>http://github.com/jmonteiro/aprendaaprogramar</em>
               END_PARAGRAPH
             end
 
