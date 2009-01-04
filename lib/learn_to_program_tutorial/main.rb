@@ -301,7 +301,9 @@ module Main
             para do <<-END_PARAGRAPH
               Se você notar qualquer erro ou falha de digitação, se tiver
               qualquer comentário ou sugestão, ou um bom exercício que eu possa
-              incluir, por favor <a href="mailto:chris@pine.fm">me avise</a>.
+              incluir, por favor <a href="mailto:chris@pine.fm">me avise</a> (se você falar
+              inglês) ou, se preferir falar em português,
+              <a href="mailto:julio@monteiro.eti.br">avise o Júlio Monteiro</a>.
               END_PARAGRAPH
             end
           end
