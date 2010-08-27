@@ -46,5 +46,10 @@ module Menu
       por&nbsp;Gunner&nbsp;Carstens.)
       END_PARAGRAPH
     end
+    para do <<-END_PARAGRAPH
+      (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+      END_PARAGRAPH
+    end
   end
 end
