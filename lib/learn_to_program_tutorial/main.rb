@@ -83,7 +83,7 @@ module Main
               <a href="http://presto.stellar.com.br/">Davi Vidal</a>, 
               <a href="mailto:bagrehc@gmail.com">Reginaldo Russinholi</a>, 
               <a href="http://www.oliverbarnes.com/">Oliver Azevedo Barnes</a>, 
-              <a href="http://dodecaphonic.blogspot.com/">Vitor Peres</a>, 
+              <a href="https://github.com/dodecaphonic">Vitor Peres</a>, 
               <a href="mailto:pflarini@gmail.com">Paulo Fernando Larini</a>, 
               Massimiliano Giroldi, 
               <a href="http://blog.shadowmaru.org/">Ricardo Yasuda</a>, 
