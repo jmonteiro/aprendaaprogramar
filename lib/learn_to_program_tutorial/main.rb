@@ -96,8 +96,8 @@ module Main
             end
 
             para do <<-END_PARAGRAPH
-              Agradecimentos também ao <a href="http://monteiro.eti.br/">Júlio Santos Monteiro</a> por dar uma "casa" oficial a este trabalho no
-              web site <a href="http://aprendaaprogramar.rubyonrails.pro.br" title="Aprenda a Programar">http://aprendaaprogramar.rubyonrails.pro.br</a>.
+              Agradecimentos também ao <a href="http://www.jmonteiro.com/">Júlio Santos Monteiro</a> por dar uma "casa" oficial a este trabalho no
+              web site <a href="http://aprendaaprogramar.rubyonrails.com.br" title="Aprenda a Programar">http://aprendaaprogramar.rubyonrails.com.br</a>.
               END_PARAGRAPH
             end
 
@@ -241,7 +241,7 @@ module Main
             h2 { 'Sobre o Tutorial Original' }
             para do <<-END_PARAGRAPH
               As páginas do tutorial (esta página, inclusive) são geradas por um
-              <a href="#{LINKADDR}?ShowTutorialCode=true">grande programa em Ruby</a>,
+              <a href="https://github.com/jmonteiro/aprendaaprogramar">grande programa em Ruby</a>,
               claro. :-)
               Assim, elas possuem recursos elegantes. Por exemplo, todos os
               exemplos de código são realmente executados toda vez que você
@@ -271,7 +271,7 @@ module Main
             end
 
             para do <<-END_PARAGRAPH
-              <em>http://github.com/jmonteiro/aprendaaprogramar</em>
+              <em>https://github.com/jmonteiro/aprendaaprogramar</em>
               END_PARAGRAPH
             end
 
