@@ -1,4 +1,4 @@
 Aprenda a Programar
 ==================
-Leia a introdução deste projeto em [Aprenda a Programar](http://aprendaaprogramar.rubyonrails.pro.br/).
+Leia a introdução deste projeto em [Aprenda a Programar](http://aprendaaprogramar.rubyonrails.com.br/).
 
