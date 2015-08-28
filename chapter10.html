@@ -1,0 +1,593 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="pt_br">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" media="screen" href="pine.css" rel="Stylesheet" />
+    <link type="text/css" media="screen, print" href="tutorial.css" rel="Stylesheet" />
+    <link type="text/css" media="print" href="print.css" rel="Stylesheet" />
+    <title>
+      10.&nbsp;&nbsp;Blocos e Procs
+    </title>
+    <script type="text/javascript" language="JavaScript" src="http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106">
+    </script>
+  </head>
+  <body>
+    <div id="pageWidth">
+      <div id="headerBar">
+        <div id="titlePicContainer">
+          <a href="index.html">
+          <img alt="Aprenda a Programar" height="108" src="titleLTP_pt_br.gif" width="500" id="titlePic" />
+          </a>
+        </div>
+        <a href="index.html">
+          <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"
+            src="locketLTP.png" />
+        </a>
+      </div>
+      <div id="menuPane">
+        <img height="38" src="spearup_sm.gif" width="35" id="menuSpearTop" />
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          a versão
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          <em>melhorada</em>
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;">
+          estendida
+        </p>
+        <a href="http://pragmaticprogrammer.com/titles/fr_ltp">
+        <img height="120" src="LTP_cover.jpg" width="100" />
+        </a>
+        <img height="21" src="swirly.gif" width="64" style="padding: 30px;" />
+        <p class="funnyMenuText">
+          &laquo; o tutorial original &raquo;
+        </p>
+        <ol start="0" style="padding-top: 15px; padding-bottom: 15px;">
+          <li>
+            <a href="chapter00.html">Iniciando</a>
+          </li>
+          <li>
+            <a href="chapter01.html">Números</a>
+          </li>
+          <li>
+            <a href="chapter02.html">Letras</a>
+          </li>
+          <li>
+            <a href="chapter03.html">Variáveis e Atribuições</a>
+          </li>
+          <li>
+            <a href="chapter04.html">Misturando tudo</a>
+          </li>
+          <li>
+            <a href="chapter05.html">Mais Sobre Métodos</a>
+          </li>
+          <li>
+            <a href="chapter06.html">Controle de Fluxo</a>
+          </li>
+          <li>
+            <a href="chapter07.html">Arrays e Iteradores</a>
+          </li>
+          <li>
+            <a href="chapter08.html">Escrevendo seus Próprios Métodos</a>
+          </li>
+          <li>
+            <a href="chapter09.html">Classes</a>
+          </li>
+          <li>
+            <a href="chapter10.html">Blocos e Procs</a>
+          </li>
+          <li>
+            <a href="chapter11.html">Além deste Tutorial</a>
+          </li>
+        </ol>
+        <p>
+                (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+
+        </p>
+        <p>
+                (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
+      por&nbsp;Shin&nbsp;Nishiyama.)
+
+        </p>
+        <p>
+                (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+
+        </p>
+        <p>
+                (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
+
+        </p>
+        <p>
+                (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
+      por&nbsp;Gunner&nbsp;Carstens.)
+
+        </p>
+        <p>
+                (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+
+        </p>
+        <img height="40" src="speardown_sm.gif" width="36" id="menuSpearBottom" />
+      </div>
+      <div id="contentPane">
+        <h1>
+          10.&nbsp;&nbsp;Blocos e Procs
+        </h1>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p>
+                  Este é, definitivamente, um dos recursos mais legais de Ruby. Algumas
+        outras linguagens têm esse recurso, porém elas podem chamar isso
+        de formas diferentes (como <dfn>closures</dfn>), mas muitas
+        das mais populares não, o que é uma pena.
+
+        </p>
+        <p>
+                  Então o que é essa nova coisa legal? É a habilidade de pegar
+        um <dfn>bloco</dfn> de código (código entre <span class="L2Pcode"><span class="L2Pkeyword">do</span></span>
+        e <span class="L2Pcode"><span class="L2Pkeyword">end</span></span>), amarrar tudo em um objeto (chamado de
+        <dfn>proc</dfn>), armazenar isso em uma variável e passar isso
+        para um método, e rodar o código do bloco quando você quiser
+        (mais de uma vez, se você quiser). Então, é como se fosse um método,
+        exceto pelo fato de que isso não está em um objeto (isso <em>é</em> um objeto),
+        e você pode armazená-lo ou passá-lo adiante, como com qualquer outro objeto.
+        Acho que é hora de um exemplo:
+
+        </p>
+        <pre class="L2PcodeBlock">saudacao = Proc.new <span class="L2Pkeyword">do</span>
+  puts '<span class="L2Pstring">Olá!</span>'
+<span class="L2Pkeyword">end</span>
+
+saudacao.call
+saudacao.call
+saudacao.call</pre>
+        <pre class="L2PoutputBlock">
+Olá!
+Olá!
+Olá!
+</pre>
+        <p>
+                  Eu criei uma proc (eu acho que é abreviatura para "procedimento",
+        mas o que importa é que rima com "block") que tem um bloco de código, então
+        eu chamei (<span class="L2Pcode">call</span>) a proc três vezes.
+        Como você pode ver, parece, em muito, com um método.
+
+        </p>
+        <p>
+                  Atualmente, é muito mais parecido com um método do que eu mostrei para você,
+        porque blocos podem receber parâmetros:
+
+        </p>
+        <pre class="L2PcodeBlock">VoceGostade = Proc.new <span class="L2Pkeyword">do</span> |umaBoaCoisa|
+  puts '<span class="L2Pstring">Eu *realmente* gosto de </span>'+umaBoaCoisa+'<span class="L2Pstring">!</span>'
+<span class="L2Pkeyword">end</span>
+
+VoceGostade.call '<span class="L2Pstring">chocolate</span>'
+VoceGostade.call '<span class="L2Pstring">ruby</span>'</pre>
+        <pre class="L2PoutputBlock">
+Eu *realmente* gosto de chocolate!
+Eu *realmente* gosto de ruby!
+</pre>
+        <p>
+                  Certo, então nós vimos o que blocos e procs são e como os usar, mas e daí?
+        Por que não usar apenas métodos? Bem, isso é porque existem algumas coisas
+        que você não pode fazer com métodos. Particularmente, você não pode passar
+        métodos para outros métodos (mas você pode passar procs para métodos), e
+        métodos não podem retornar outros métodos (mas podem retornar procs). É apenas
+        por isso que procs são objetos; métodos não.
+
+        </p>
+        <p>
+                  (De qualquer forma, isso parece familiar? Sim, você já viu blocos antes... quando
+        você aprendeu sobre iteradores. Mas vamos voltar a falar disso daqui a pouco.)
+
+        </p>
+        <h2>
+          Métodos que Recebem Procs
+        </h2>
+        <p>
+                  Quando passamos uma proc em um método, nós podemos controlar como, se ou quantas vezes
+        nós vamos chamar a proc. Por exemplo, posso dizer que há uma coisa que nós queremos
+        fazer antes e depois que um código é executado:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">FacaUmaCoisaImportante</span> umaProc
+  puts '<span class="L2Pstring">Todo mundo apenas ESPERE! Eu tenho uma coisa a fazer...</span>'
+  umaProc.call
+  puts '<span class="L2Pstring">Certo pessoal, Eu terminei. Voltem a fazer o que estavam fazendo.</span>'
+<span class="L2Pkeyword">end</span>
+
+digaOla = Proc.new <span class="L2Pkeyword">do</span>
+  puts '<span class="L2Pstring">olá</span>'
+<span class="L2Pkeyword">end</span>
+
+digaTchau = Proc.new <span class="L2Pkeyword">do</span>
+  puts '<span class="L2Pstring">tchau</span>'
+<span class="L2Pkeyword">end</span>
+
+FacaUmaCoisaImportante digaOla
+FacaUmaCoisaImportante digaTchau</pre>
+        <pre class="L2PoutputBlock">
+Todo mundo apenas ESPERE! Eu tenho uma coisa a fazer...
+olá
+Certo pessoal, Eu terminei. Voltem a fazer o que estavam fazendo.
+Todo mundo apenas ESPERE! Eu tenho uma coisa a fazer...
+tchau
+Certo pessoal, Eu terminei. Voltem a fazer o que estavam fazendo.
+</pre>
+        <p>
+                  Talvez isso não pareça tão fabuloso... mas é. :-)
+        É muito comum em programação que alguns requesitos críticos sejam executados.
+        Se você grava um arquivo, por exemplo, você deve abrir o arquivo, escrever
+        o que quiser lá dentro e então fechar o arquivo. Se você se esquecer de fechar o arquivo,
+        Coisas Ruins(tm) podem acontecer. Mas toda a vez que você quiser salvar ou carregar um arquivo,
+        você deve fazer a mesma coisa: abrir o arquivo, fazer o que você <em>realmente</em> quiser com ele
+        e então fechar o arquivo. Isso é entediante e fácil de esquecer. Em Ruby, salvar (ou carregar)
+        arquivos funciona similarmente com o código anterior, então você não precisa se preocupar
+        com nada além de o que você quer salvar (ou carregar) (No próximo capítulo eu vou lhe
+        mostrar como fazer coisas como salvar e carregar arquivos).
+
+        </p>
+        <p>
+                  Você pode também escrever métodos que vão determinar quantas vezes, ou mesmo
+        <em>se</em> uma proc será chamada. Aqui está um método que irá chamar uma proc
+        metade do tempo, e outra que irá chamar a proc duas vezes.
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">talvezFaca</span> umaProc
+  <span class="L2Pkeyword">if</span> rand(<span class="L2Pnumber">2</span>) == <span class="L2Pnumber">0</span>
+    umaProc.call
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+<span class="L2Pkeyword">def</span> <span class="L2Pdefinition">FacaDuasVezes</span> umaProc
+  umaProc.call
+  umaProc.call
+<span class="L2Pkeyword">end</span>
+
+piscar = Proc.new <span class="L2Pkeyword">do</span>
+  puts '<span class="L2Pstring">&lt;piscada&gt;</span>'
+<span class="L2Pkeyword">end</span>
+
+olhandofixamente = Proc.new <span class="L2Pkeyword">do</span>
+  puts '<span class="L2Pstring">&lt;olhando fixamente&gt;</span>'
+<span class="L2Pkeyword">end</span>
+
+talvezFaca piscar
+talvezFaca olhandofixamente
+FacaDuasVezes piscar
+FacaDuasVezes olhandofixamente</pre>
+        <pre class="L2PoutputBlock">
+&lt;olhando fixamente&gt;
+&lt;piscada&gt;
+&lt;piscada&gt;
+&lt;olhando fixamente&gt;
+&lt;olhando fixamente&gt;
+</pre>
+        <p>
+                  (Se você recarregar essa página algumas vezes, você verá que a saída muda)
+        Esses são alguns dos usos mais comuns de procs, que nos possibilita fazer coisas que nós
+        simplesmente não poderíamos fazer usando apenas métodos. Claro, você pode escrever um método
+        que "pisque" duas vezes, mas você não pode escrever um que apenas faça <em>qualquer coisa</em> duas vezes!
+
+        </p>
+        <p>
+                  Antes de seguirmos adiante, vamos olhar um último exemplo. Até agora,
+        as procs que nós usamos foram muito similares umas às outras. Agora,
+        elas serão um pouco diferentes, assim você poderá ver como um método
+        depende das procs que lhe são passadas. Nosso método irá receber
+        um objeto e uma proc e irá chamar essa proc naquele objeto. Se a
+        proc retornar falso, nós saímos; caso contrário, nós chamamos a proc
+        com o objeto retornado. Nós vamos continuar fazendo isso até que a proc
+        retorne falso (o que é o melhor a fazer eventualmente, ou o programá irá
+        travar). O método irá retornar o último valor não falso retornado pela proc.
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">facaAteFalso</span> primeiraEntrada, umaProc
+  entrada = primeiraEntrada
+  saida   = primeiraEntrada
+
+  <span class="L2Pkeyword">while</span> saida
+    entrada = saida
+    saida   = umaProc.call entrada
+  <span class="L2Pkeyword">end</span>
+
+  entrada
+<span class="L2Pkeyword">end</span>
+
+construindoVetorDeQuadrados = Proc.new <span class="L2Pkeyword">do</span> |vetor|
+  ultimoNumero = vetor.last
+  <span class="L2Pkeyword">if</span> ultimoNumero &lt;= <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">false</span>
+  <span class="L2Pkeyword">else</span>
+    vetor.pop                            <span class="L2Pcomment"># Jogue fora o último número...</span>
+    vetor.push ultimoNumero*ultimoNumero <span class="L2Pcomment"># ... e o substitua com esse quadrado...</span>
+    vetor.push ultimoNumero-<span class="L2Pnumber">1</span>            <span class="L2Pcomment"># ... seguido pelo número imediatamente anterior.</span>
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+sempreFalso = Proc.new <span class="L2Pkeyword">do</span> |apenasIgnoreme|
+  <span class="L2Pkeyword">false</span>
+<span class="L2Pkeyword">end</span>
+
+puts facaAteFalso([<span class="L2Pnumber">5</span>], construindoVetorDeQuadrados).inspect
+puts facaAteFalso('<span class="L2Pstring">Estou escrevendo isso às 3:00; alguém me derrube!</span>', sempreFalso)</pre>
+        <pre class="L2PoutputBlock">
+[25, 16, 9, 4, 1, 0]
+Estou escrevendo isso às 3:00; alguém me derrube!
+</pre>
+        <p>
+                  Certo, esse foi um exemplo estranho, eu admito. Mas isso mostra como nosso método
+        age diferentemente quando recebe diferentes procs.
+
+        </p>
+        <p>
+                  O método <span class="L2Pcode">inspect</span> é muito parecido com o <span class="L2Pcode">to_s</span>, exceto
+        pelo fato de que a string retornada tenta mostrar para você o código em ruby
+        que está construindo o objeto que você passou. Aqui ele nos mostra todo o vetor
+        retornado pela nossa primeira chamada a <span class="L2Pcode">facaAteFalso</span>. Você também deve
+        ter notado que nós nunca elevamos aquele <span class="L2Pcode"><span class="L2Pnumber">0</span></span> ao quadrado, no fim do vetor. Já que
+        <span class="L2Pcode"><span class="L2Pnumber">0</span></span> elevado ao quadrado continua apenas <span class="L2Pcode"><span class="L2Pnumber">0</span></span>, nós não precisamos fazer isso.
+        E já que <span class="L2Pcode">sempreFalso</span> foi, você sabe, sempre <span class="L2Pcode">falso</span>,
+        <span class="L2Pcode">facaAteFalso</span> não fez nada na segunda vez que a chamamos; apenas retornou o que
+        lhe foi passada.
+
+        </p>
+        <h2>
+          Métodos que Retornam Procs
+        </h2>
+        <p>
+                  Uma das outras coisas legais que você pode fazer com procs é
+        criá-las em métodos e retorná-las. Isso permite toda uma variedade
+        de poderes de programação malucos (coisas com nomes impressionantes,
+        como <dfn>avaliação preguiçosa</dfn>, <dfn>estrutura de dados infinita</dfn>,
+        e <dfn>temperando com curry</dfn>), mas o fato é de que eu nunca faço isso
+        na prática e eu não me lembro de ter visto ninguém fazendo isso. Eu acho
+        que isso é o tipo de coisa que você acaba não fazendo em Ruby, ou talvez
+        Ruby apenas encoraje-o a achar outras soluções: eu não sei. De qualquer forma,
+        eu vou tocar no assunto apenas brevemente.
+
+        </p>
+        <p>
+                  Nesse exemplo, <span class="L2Pcode">compor</span> recebe duas procs e retorna uma nova proc
+        que, quando chamada, chama uma terceira proc e passa seu resultado
+        para a segunda proc.
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">compor</span> proc1, proc2
+  Proc.new <span class="L2Pkeyword">do</span> |x|
+    proc2.call(proc1.call(x))
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+quadrado = Proc.new <span class="L2Pkeyword">do</span> |x|
+  x * x
+<span class="L2Pkeyword">end</span>
+
+dobre = Proc.new <span class="L2Pkeyword">do</span> |x|
+  x + x
+<span class="L2Pkeyword">end</span>
+
+dobreeEleve = compor dobre, quadrado
+eleveeDobre = compor quadrado, dobre
+
+puts dobreeEleve.call(<span class="L2Pnumber">5</span>)
+puts eleveeDobre.call(<span class="L2Pnumber">5</span>)</pre>
+        <pre class="L2PoutputBlock">
+100
+50
+</pre>
+        <p>
+                  Note que a chamada para <span class="L2Pcode">proc1</span> deve ser inserida
+        entre parenteses dentro de <span class="L2Pcode">proc2</span>, para que seja executada primeiro.
+
+        </p>
+        <h2>
+          Passando Blocos (E Não Procs) para Métodos
+        </h2>
+        <p>
+                  Certo, isso foi muito interessante academicamente, mas de pouca
+        utilidade prática. Uma porção desse problema é que há três passos
+        que você deve seguir (definir o método, construir a proc e chamar
+        o método com a proc), quando eles podem ser resumidos em apenas
+        dois (definir o método e passar o <em>bloco</em> diretamente ao método,
+        sem usar uma proc), uma vez que na maior parte das vezes você não
+        vai querer usar a proc ou o bloco depois que o passar para um método.
+        Bem, você não sabe, mas Ruby tem isso para nós! Na verdade,
+        você já estava fazendo isso todas as vezes que usou iteradores.
+
+        </p>
+        <p>
+                  Eu vou mostrar a você um exemplo rápido, então nós vamos falar sobre isso.
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">class</span> <span class="L2Pdefinition">Array</span>
+
+    <span class="L2Pkeyword">def</span> <span class="L2Pdefinition">cadaComparacao</span>(&amp;eraUmBloco_agoraUmaProc)
+    eIgual = <span class="L2Pkeyword">true</span>  <span class="L2Pcomment"># Nós começamos com &quot;verdadeiro&quot; porque vetores começam com 0, mesmo se iguais.</span>
+
+    <span class="L2Pkeyword">self</span>.each <span class="L2Pkeyword">do</span> |objeto|
+      <span class="L2Pkeyword">if</span> eIgual
+        eraUmBloco_agoraUmaProc.call objeto
+      <span class="L2Pkeyword">end</span>
+
+      eIgual = (<span class="L2Pkeyword">not</span> eIgual)  <span class="L2Pcomment"># Comutando entre igual para diferente, ou de diferente para igual.</span>
+    <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">end</span>
+
+<span class="L2Pkeyword">end</span>
+
+['<span class="L2Pstring">maçã</span>', '<span class="L2Pstring">maçã podre</span>', '<span class="L2Pstring">cereja</span>', '<span class="L2Pstring">mamona</span>'].cadaComparacao <span class="L2Pkeyword">do</span> |fruta|
+  puts '<span class="L2Pstring">Hum! Eu adoro tortas de </span>'+fruta+'<span class="L2Pstring">, você não?</span>'
+<span class="L2Pkeyword">end</span>
+
+<span class="L2Pcomment">#  Lembre-se, nós estamos pegando os mesmos elementos numerados</span>
+<span class="L2Pcomment">#  do array, todos que se relacionam com os outros números,</span>
+<span class="L2Pcomment">#  apenas porque gosto de causar esse tipo de problema.</span>
+[<span class="L2Pnumber">1</span>, <span class="L2Pnumber">2</span>, <span class="L2Pnumber">3</span>, <span class="L2Pnumber">4</span>, <span class="L2Pnumber">5</span>].cadaComparacao <span class="L2Pkeyword">do</span> |bola_estranha|
+  puts bola_estranha.to_s+'<span class="L2Pstring"> não é um número!</span>'
+<span class="L2Pkeyword">end</span></pre>
+        <pre class="L2PoutputBlock">
+Hum! Eu adoro tortas de maçã, você não?
+Hum! Eu adoro tortas de cereja, você não?
+1 não é um número!
+3 não é um número!
+5 não é um número!
+</pre>
+        <p>
+                  Para passar um bloco para <span class="L2Pcode">cadaComparacao</span>, tudo o que temos que fazer
+        é anexar o bloco após o método. Você pode passar um bloco para qualquer método
+        dessa maneira, apesar de que muitos métodos vão apenas ignorar o bloco. Para
+        fazer seu método <em>não</em> ignorar o bloco, mas pegá-lo e transformá-lo em
+        uma proc, ponha o nome da proc no começo da lista dos parâmetros do seu método,
+        precedido por um 'e' comercial (<span class="L2Pcode">&amp;</span>). Essa parte é um pequeno truque,
+        mas não é tão ruim, e você apenas precisa fazer isso uma vez (quando você
+        define o método). Então você pode usar o método de novo, e de novo e de novo,
+        assim como os métodos da linguagem que aceitam blocos, como o <span class="L2Pcode">each</span>
+        e o <span class="L2Pcode">times</span> (Lembra-se do <span class="L2Pcode"><span class="L2Pnumber">5</span>.times&nbsp;<span class="L2Pkeyword">do</span></span>...?).
+
+        </p>
+        <p>
+                  Se você estiver confuso, apenas lembre-se do que supostamente o método
+        <span class="L2Pcode">cadaComparacao</span> faz: chama o bloco passado como parâmetro para
+        cada elemento no vetor. Depois que você o escrever e ele estiver funcionando,
+        você não vai precisar pensar sobre o que está acontecendo realmente por baixo
+        dos panos ("qual bloco é chamado quando??"); na verdade, é exatamente <em>por isso</em>
+        que escrevemos métodos assim: nós nunca mais vamos precisar pensar sobre
+        como eles funcionam novamente. Nós vamos apenas usar-los.
+
+        </p>
+        <p>
+                  Eu lembro que uma vez eu quis cronometrar quanto tempo cada
+        seção do meu código estava demorando (Isso é algo conhecido como
+        <dfn>sumarizar</dfn> o código). Então, eu escrevi um método que
+        pegava o tempo antes de executar o código, o executava e então
+        fazia uma nova medição do tempo e me retornava a diferença. Eu
+        não estou conseguindo achar o código agora, mas eu não preciso disso:
+        provavelmente é um código parecido com esse:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">sumario</span> descricaoDoBloco, &amp;bloco
+  tempoInicial = Time.now
+
+  bloco.call
+
+  duracao = Time.now - tempoInicial
+
+  puts descricaoDoBloco+'<span class="L2Pstring">: </span>'+duracao.to_s+'<span class="L2Pstring"> segundos</span>'
+<span class="L2Pkeyword">end</span>
+
+sumario '<span class="L2Pstring">dobrando 25000 vezes</span>' <span class="L2Pkeyword">do</span>
+  numero = <span class="L2Pnumber">1</span>
+
+  <span class="L2Pnumber">25000</span>.times <span class="L2Pkeyword">do</span>
+    numero = numero + numero
+  <span class="L2Pkeyword">end</span>
+
+  puts numero.to_s.length.to_s+'<span class="L2Pstring"> dígitos</span>'  <span class="L2Pcomment">#  É isso mesmo: o número de dígitos nesse número ENORME.</span>
+<span class="L2Pkeyword">end</span>
+
+sumario '<span class="L2Pstring">contando até um milhão</span>' <span class="L2Pkeyword">do</span>
+  numero = <span class="L2Pnumber">0</span>
+
+  <span class="L2Pnumber">1000000</span>.times <span class="L2Pkeyword">do</span>
+    numero = numero + <span class="L2Pnumber">1</span>
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span></pre>
+        <pre class="L2PoutputBlock">
+7526 dígitos
+dobrando 25000 vezes: 0.079249 segundos
+contando até um milhão: 0.134337 segundos
+</pre>
+        <p>
+                  Que simplicidade! Que elegância! Com aquele pequeno método
+        eu posso, agora, facilmente cronometrar qualquer seção, de qualquer
+        programa, que eu queira, eu apenas preciso jogar o código para um bloco
+        e enviar ele para o <span class="L2Pcode">sumario</span>.
+        O que poderia ser mais simples? Em muitas linguagens, eu teria que
+        adicionar explicitamente o código de cronometragem (tudo o que está
+        em <span class="L2Pcode">sumario</span>) em volta de qualquer seção que eu queira medir.
+        Em Ruby, porém, eu deixo tudo em um só lugar, e (o mais importante)
+        fora do meu caminho!
+
+        </p>
+        <h2>
+          Algumas Coisinhas Para Tentar
+        </h2>
+        <p>
+                  &bull; <em>Relógio Cuco</em>. Escreva um método que pegue um bloco
+        e o chame de hora em hora. Assim, se eu passar o bloco <span class="L2Pcode"><span class="L2Pkeyword">do</span>&nbsp;puts&nbsp;'<span class="L2Pstring">DONG!</span>'&nbsp;<span class="L2Pkeyword">end</span></span>,
+        ele deve tocar como um relógio cuco. Teste seu método com diferentes
+        blocos (inclusive o que eu mostrei para você).
+        <em><strong>Dica:</strong> Você pode usar
+        </em><span class="L2Pcode">Time.now.hour</span><em> para pegar a hora atual.
+        Porém, isso retorna um número entre </em><span class="L2Pcode"><span class="L2Pnumber">0</span></span><em> e </em><span class="L2Pcode"><span class="L2Pnumber">23</span></span><em>,
+        então você deve alterar esses números para os números de um relógio normal, entre
+        (</em><span class="L2Pcode"><span class="L2Pnumber">1</span></span><em> e </em><span class="L2Pcode"><span class="L2Pnumber">12</span></span><em>).</em>
+
+        </p>
+        <p>
+                  &bull; <em>Logger do programa</em>. Escreva um método chamado <span class="L2Pcode">log</span>, que
+        pegue uma string como descrição de um bloco e, é claro, um bloco. Similarmente ao
+        <span class="L2Pcode">FacaUmaCoisaImportante</span>, essa deve retornar (<span class="L2Pcode">puts</span>) uma string
+        dizendo que o bloco foi iniciado e outra string ao fim, dizendo que é o fim da
+        execução do bloco, e também dizendo o que o bloco retornou. Teste seu método
+        enviando um bloco de código. Dentro do bloco, coloque <em>outra</em> chamada para
+        <span class="L2Pcode">log</span>, passando outro bloco para o mesmo (isto é chamado de <dfn>nesting</dfn>).
+        Em outras palavras, sua saída deve se parecer com isso:
+
+        </p>
+        <pre class="L2PoutputBlock">Começando "bloco externo"...
+Começando "um bloco um pouco menor"...
+..."um bloco um pouco menor" terminou retornando:  5
+Começando "um outro bloco"...
+..."um outro bloco" terminou retornando: Eu gosto de comida tailandesa!
+..."bloco externo" terminou retornando: false
+</pre>
+        <p>
+                  &bull; <em>Um Logger aperfeiçoado</em>. A saída do último logger é muito difícil de
+        ler, e fica muito pior a medida que você for usando. Seria muito mais fácil de ler
+        se você identasse as linhas para os blocos internos. Para fazer isso, você vai precisar
+        saber quão profundamente aninhado você está toda vez que for escrever algo no log. Para
+        fazer isso, use uma <dfn>variável global</dfn>, uma variável que você possa ver de
+        qualquer lugar de seu código. Para instânciar uma variável global, você deve
+        precedê-la com um <span class="L2Pcode">$</span>, assim: <span class="L2Pcode">$global</span>, <span class="L2Pcode">$nestingDepth</span>,
+        e <span class="L2Pcode">$bigTopPeeWee</span>.
+        Enfim, seu logger deve ter uma saída parecida com essa:
+
+        </p>
+        <pre class="L2PoutputBlock">Começando "bloco externo"...
+  Começando "um pequeno bloco"...
+    Começando "pequenino bloco"...
+    ..."pequenino bloco" terminou retornando: muito amor
+  ..."um pequeno bloco" terminou retornando: 42
+  Começando "um outro bloco"...
+  ..."um outro bloco" terminou retornando: Eu adoro comida indiana!
+..."bloco externo" terminou retornando: true
+</pre>
+        <p>
+                  Bem, isso é tudo que você aprendeu com esse tutorial.
+        Parabéns! Você aprendeu <em>muito</em>. Talvez você sinta
+        como se não lembrasse de nada, ou talvez você tenha
+        pulado algumas partes... Relaxe. Programação não é o que
+        você sabe, e sim o que você faz. À medida que você for
+        aprendendo onde procurar as coisas que você esquecer,
+        você estará indo bem. Eu espero que você não ache que eu
+        escrevi tudo isso sem ficar conferindo a cada minuto!
+        Porque eu fiz isso. Eu também tive muita ajuda com os
+        códigos que rodam em todos os exemplos desse tutorial.
+        Mas onde <em>eu</em> estava pesquisando tudo e a quem
+        <em>eu</em> estava pedindo ajuda?
+        <a href="chapter11.html">Deixe-me conhecê-lo...</a>
+
+        </p>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p style="padding-bottom: 20px;">
+          &copy; 2003-2015 Chris Pine
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

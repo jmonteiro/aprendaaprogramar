@@ -1,0 +1,668 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="pt_br">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" media="screen" href="pine.css" rel="Stylesheet" />
+    <link type="text/css" media="screen, print" href="tutorial.css" rel="Stylesheet" />
+    <link type="text/css" media="print" href="print.css" rel="Stylesheet" />
+    <title>
+      5.&nbsp;&nbsp;Mais Sobre Métodos
+    </title>
+    <script type="text/javascript" language="JavaScript" src="http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106">
+    </script>
+  </head>
+  <body>
+    <div id="pageWidth">
+      <div id="headerBar">
+        <div id="titlePicContainer">
+          <a href="index.html">
+          <img alt="Aprenda a Programar" height="108" src="titleLTP_pt_br.gif" width="500" id="titlePic" />
+          </a>
+        </div>
+        <a href="index.html">
+          <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"
+            src="locketLTP.png" />
+        </a>
+      </div>
+      <div id="menuPane">
+        <img height="38" src="spearup_sm.gif" width="35" id="menuSpearTop" />
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          a versão
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          <em>melhorada</em>
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;">
+          estendida
+        </p>
+        <a href="http://pragmaticprogrammer.com/titles/fr_ltp">
+        <img height="120" src="LTP_cover.jpg" width="100" />
+        </a>
+        <img height="21" src="swirly.gif" width="64" style="padding: 30px;" />
+        <p class="funnyMenuText">
+          &laquo; o tutorial original &raquo;
+        </p>
+        <ol start="0" style="padding-top: 15px; padding-bottom: 15px;">
+          <li>
+            <a href="chapter00.html">Iniciando</a>
+          </li>
+          <li>
+            <a href="chapter01.html">Números</a>
+          </li>
+          <li>
+            <a href="chapter02.html">Letras</a>
+          </li>
+          <li>
+            <a href="chapter03.html">Variáveis e Atribuições</a>
+          </li>
+          <li>
+            <a href="chapter04.html">Misturando tudo</a>
+          </li>
+          <li>
+            <a href="chapter05.html">Mais Sobre Métodos</a>
+          </li>
+          <li>
+            <a href="chapter06.html">Controle de Fluxo</a>
+          </li>
+          <li>
+            <a href="chapter07.html">Arrays e Iteradores</a>
+          </li>
+          <li>
+            <a href="chapter08.html">Escrevendo seus Próprios Métodos</a>
+          </li>
+          <li>
+            <a href="chapter09.html">Classes</a>
+          </li>
+          <li>
+            <a href="chapter10.html">Blocos e Procs</a>
+          </li>
+          <li>
+            <a href="chapter11.html">Além deste Tutorial</a>
+          </li>
+        </ol>
+        <p>
+                (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+
+        </p>
+        <p>
+                (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
+      por&nbsp;Shin&nbsp;Nishiyama.)
+
+        </p>
+        <p>
+                (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+
+        </p>
+        <p>
+                (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
+
+        </p>
+        <p>
+                (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
+      por&nbsp;Gunner&nbsp;Carstens.)
+
+        </p>
+        <p>
+                (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+
+        </p>
+        <img height="40" src="speardown_sm.gif" width="36" id="menuSpearBottom" />
+      </div>
+      <div id="contentPane">
+        <h1>
+          5.&nbsp;&nbsp;Mais Sobre Métodos
+        </h1>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p>
+                Até agora nós vimos uma porção de métodos diferentes,
+      <span class="L2Pcode">puts</span> e <span class="L2Pcode">gets</span>
+      dentre outros (<em><strong>Teste Surpresa:</strong> Liste todos
+      os métodos que vimos até agora!
+      Foram dez deles; a resposta está mais embaixo.</em>),
+      mas nós não conversamos realmente sobre o que são métodos.
+      Nós sabemos o que eles fazem, mas não sabemos o que eles são.
+
+        </p>
+        <p>
+                Mas, na verdade, isso <em>é</em> o que eles são: coisas
+      que fazem coisas.  Se objetos (como strings,
+      inteiros e floats) são os substantivos na linguagem Ruby,
+      os métodos são como os verbos.
+      E, ao contrário do Português (em que há sujeitos indefinidos
+      e outras construções esotéricas), você não pode ter um
+      verbo sem um substantivo para <em>executar</em> o verbo. Mas mesmo
+      o Português trata a ausência de um substantivo como exceção:
+      por exemplo, contar o tempo não é algo que simplesmente acontece;
+      um relógio (ou cronômetro, ou algo parecido) deve fazê-lo. Em
+      Português diríamos: "O relógio conta o tempo". Em Ruby dizemos
+      <span class="L2Pcode">relogio.tiquetaque</span> (presumindo que <span class="L2Pcode">relogio</span>
+      é um objeto Ruby, claro).
+      Programadores podem dizer que estamos "chamando o método
+      <span class="L2Pcode">tiquetaque</span> do <span class="L2Pcode">relogio</span>,"
+      ou que "chamamos <span class="L2Pcode">tiquetaque</span> no <span class="L2Pcode">relogio</span>."
+
+        </p>
+        <p>
+                E então, você respondeu o quiz? Ótimo. Bem, tenho
+      certeza que você lembrou dos métodos
+      <span class="L2Pcode">puts</span>, <span class="L2Pcode">gets</span> e <span class="L2Pcode">chomp</span>,
+      que acabamos de ver. Você também provavelmente
+      lembrou dos métodos de conversão,
+      <span class="L2Pcode">to_i</span>, <span class="L2Pcode">to_f</span>
+      e <span class="L2Pcode">to_s</span>.  No entanto, você descobriu os
+      outros quatro?  Pois não eram ninguém menos
+      que nossos velhos amigos da matemática, <span class="L2Pcode">+</span>,
+      <span class="L2Pcode">-</span>, <span class="L2Pcode">*</span> e <span class="L2Pcode">/</span>!
+
+        </p>
+        <p>
+                Como eu estava dizendo, todo método precisa de um objeto.
+      Geralmente é fácil dizer qual objeto está executando o
+      método: é aquilo que vem logo antes do ponto, como
+      no nosso exemplo do <span class="L2Pcode">relogio.tiquetaque</span>, ou em
+      <span class="L2Pcode"><span class="L2Pnumber">101</span>.to_s</span>.
+      Às vezes, no entanto, isso não é tão óbvio; como com os
+      métodos aritméticos. A bem da verdade,
+      <span class="L2Pcode"><span class="L2Pnumber">5</span>&nbsp;+&nbsp;<span class="L2Pnumber">5</span></span> é realmente apenas um atalho para se
+      escrever <span class="L2Pcode"><span class="L2Pnumber">5</span>.+&nbsp;<span class="L2Pnumber">5</span></span>.
+      Por exemplo:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">olá </span>'.+ '<span class="L2Pstring">mundo</span>'
+puts (<span class="L2Pnumber">10</span>.* <span class="L2Pnumber">9</span>).+ <span class="L2Pnumber">9</span></pre>
+        <pre class="L2PoutputBlock">
+olá mundo
+99
+</pre>
+        <p>
+                Não é muito bonito, então nós nunca mais vamos escrever desse jeito;
+      no entanto, é importante entender o que <em>realmente</em> está
+      acontecendo.
+      (Na minha máquina, isso também me dá um <dfn>aviso</dfn>:
+      <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">warning:&nbsp;parenthesize&nbsp;argument(s)&nbsp;for&nbsp;future&nbsp;version</span>.
+      O código ainda rodou sem problemas, mas ele está me dizendo que está com
+      problemas para descobrir o que eu quis dizer, e pedindo para usar mais parênteses no
+      futuro).
+      Isso também nos dá um entendimento mais profundo sobre por que
+      podemos fazer <span class="L2Pcode">'<span class="L2Pstring">porco</span>'*<span class="L2Pnumber">5</span></span> mas não <span class="L2Pcode"><span class="L2Pnumber">5</span>*'<span class="L2Pstring">porco</span>'</span>:
+      <span class="L2Pcode">'<span class="L2Pstring">porco</span>'*<span class="L2Pnumber">5</span></span> está dizendo ao <span class="L2Pcode">'<span class="L2Pstring">porco</span>'</span> para se
+      multiplicar, mas <span class="L2Pcode"><span class="L2Pnumber">5</span>*'<span class="L2Pstring">porco</span>'</span> está pedindo ao <span class="L2Pcode"><span class="L2Pnumber">5</span></span>
+      que se multiplique.  <span class="L2Pcode">'<span class="L2Pstring">porco</span>'</span> sabe como fazer
+      <span class="L2Pcode"><span class="L2Pnumber">5</span></span> cópias de si mesmo e juntá-las; no entanto, <span class="L2Pcode"><span class="L2Pnumber">5</span></span>
+      vai ter muito mais dificuldade para fazer
+      <span class="L2Pcode">'<span class="L2Pstring">porco</span>'</span> cópias de <em>si mesmo</em> e juntá-las.
+
+        </p>
+        <p>
+                E, claro, nós ainda temos o <span class="L2Pcode">puts</span>
+      e o <span class="L2Pcode">gets</span> para explicar.  Onde estão seus
+      objetos?  Em Português, você pode às vezes omitir o
+      substantivo; por exemplo, se um vilão grita "Morra!",
+      o substantivo implícito é a pessoa com quem ele está
+      gritando. Em Ruby, se dissermos
+      <span class="L2Pcode">puts&nbsp;'<span class="L2Pstring">ser&nbsp;ou&nbsp;não&nbsp;ser</span>'</span>, o que 
+      eu realmente estou dizendo é
+      <span class="L2Pcode"><span class="L2Pkeyword">self</span>.puts&nbsp;'<span class="L2Pstring">ser&nbsp;ou&nbsp;não&nbsp;ser</span>'</span>.
+      Então o que é <span class="L2Pcode"><span class="L2Pkeyword">self</span></span>?  É uma variável especial
+      que aponta para o objeto onde você está.
+      Nós nem sabemos como estar <em>em</em> um
+      objeto ainda, mas até descobrirmos, nós
+      estaremos sempre em um grande objeto que é...
+      o programa inteiro! E para nossa sorte, o 
+      programa tem alguns métodos próprios, como
+      <span class="L2Pcode">puts</span> e <span class="L2Pcode">gets</span>.
+      Preste atenção:
+
+        </p>
+        <pre class="L2PcodeBlock">naoAcreditoQueFizUmNomeDeVariavelTaoGrandeApenasParaGuardarUm3 = <span class="L2Pnumber">3</span>
+puts naoAcreditoQueFizUmNomeDeVariavelTaoGrandeApenasParaGuardarUm3
+<span class="L2Pkeyword">self</span>.puts naoAcreditoQueFizUmNomeDeVariavelTaoGrandeApenasParaGuardarUm3</pre>
+        <pre class="L2PoutputBlock">
+3
+3
+</pre>
+        <p>
+                Se você não acompanhou tudo o que aconteceu, não tem problema.
+      A coisa importante para aprender disso tudo é que cada
+      métodos está sendo executado pelo mesmo objeto, mesmo
+      que ele não esteja na sua frente. Se você entender isso, então
+      está preparado.
+
+        </p>
+        <h2>
+          Métodos Elegantes da String
+        </h2>
+        <p>
+                Vamos aprender alguns métodos divertidos da string.
+      Você não precisa memorizar todos eles; você pode
+      apenas olhar esta página novamente se esquecê-los.
+      Eu só quero mostrar uma <em>pequena</em> parte do que
+      as strings podem fazer. Na verdade, eu mesmo não lembro
+      da metade dos métodos da string&mdash;mas não tem
+      problema, pois existem ótimas referências na internet
+      com todos os métodos da string listados e explicados.
+      (Vou mostrar onde encontrá-los no final deste tutorial.)
+      Pra falar a verdade, eu nem <em>quero</em> saber todos
+      os métodos da string; é como saber todas as palavras do
+      dicionário. Eu posso falar Português muito bem sem saber
+      todas as palavras do dicionário... e esse não é exatamente
+      o seu propósito? Para que você não <em>precise</em>
+      saber tudo que está nele?
+
+        </p>
+        <p>
+                Então, nosso primeiro método da string é o <span class="L2Pcode">reverse</span>,
+      que nos dá uma versão ao contrário da string:
+
+        </p>
+        <pre class="L2PcodeBlock">var1 = '<span class="L2Pstring">pare</span>'
+var2 = '<span class="L2Pstring">radar</span>'
+var3 = '<span class="L2Pstring">Voce consegue pronunciar esta frase ao contrario?</span>'
+
+puts var1.reverse
+puts var2.reverse
+puts var3.reverse
+puts var1
+puts var2
+puts var3</pre>
+        <pre class="L2PoutputBlock">
+erap
+radar
+?oirartnoc oa esarf atse raicnunorp eugesnoc ecoV
+pare
+radar
+Voce consegue pronunciar esta frase ao contrario?
+</pre>
+        <p>
+                Como você pode ver, <span class="L2Pcode">reverse</span> não inverte a
+      string original; ela apenas faz uma nova versão ao contrário dela.
+      É por isso que <span class="L2Pcode">var1</span> ainda é <span class="L2Pcode">'<span class="L2Pstring">pare</span>'</span>
+      mesmo após a chamada a <span class="L2Pcode">reverse</span> em <span class="L2Pcode">var1</span>.
+
+        </p>
+        <p>
+                Outro método da string é <span class="L2Pcode">length</span>, que nos diz
+      o número de caracteres (incluindo espaços) na string:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Qual o seu nome completo?</span>'
+nome = gets.chomp
+puts '<span class="L2Pstring">Você sabia que seu nome possui </span>' + nome.length + '<span class="L2Pstring"> caracteres, </span>' + nome + '<span class="L2Pstring">?</span>'</pre>
+        <pre class="L2PoutputBlock">
+Qual o seu nome completo?
+<span class="L2Pinput">Christopher David Pine</span>
+#&lt;TypeError: can't convert Fixnum into String&gt;
+</pre>
+        <p>
+                Uh-oh! Algo deu errado, e parece que isso aconteceu após a linha
+      <span class="L2Pcode">nome&nbsp;=&nbsp;gets.chomp</span>...  Você enxerga o problema?  Veja se consegue descobrir.
+
+        </p>
+        <p>
+                O problema está em <span class="L2Pcode">length</span>:  ele lhe dá um número, mas queremos uma string.
+      Fácil, vamos colocar um  <span class="L2Pcode">to_s</span> (e cruzar os dedos):
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Qual o seu nome completo?</span>'
+nome = gets.chomp
+puts '<span class="L2Pstring">Você sabia que seu nome possui </span>' + nome.length.to_s + '<span class="L2Pstring"> caracteres, </span>' + nome + '<span class="L2Pstring">?</span>'</pre>
+        <pre class="L2PoutputBlock">
+Qual o seu nome completo?
+<span class="L2Pinput">Christopher David Pine</span>
+Você sabia que seu nome possui 22 caracteres, Christopher David Pine?
+</pre>
+        <p>
+                Não, eu não sabia disso.  <strong>Nota:</strong>  este é o número de
+      <em>caracteres</em> no meu nome, não o número de <em>letras</em>
+      (conte-as).  Eu acho que conseguimos escrever um programa que
+      pergunta seu primeiro nome, nome do meio e sobrenome individualmente e
+      some todos os tamanhos... Ei, por que você não faz isso?  Vá em frente,
+      eu espero.
+
+        </p>
+        <p>
+                Pronto? Bom! É um programa legal, não é?
+      Depois de mais uns capítulos, entretanto, você vai ficar maravilhado com
+      o que conseguirá fazer.
+
+        </p>
+        <p>
+                Existem alguns métodos da string que conseguem mudar a caixa (maiúsculas
+      e minúsculas) da sua string.  <span class="L2Pcode">upcase</span> muda todas as letras minúsculas
+      para maiúsculas, e <span class="L2Pcode">downcase</span> muda todas as letras maiúsculas para
+      minúsculas.  <span class="L2Pcode">swapcase</span> troca a caixa de todas as letras da string e,
+      finalmente, <span class="L2Pcode">capitalize</span> é parecido com <span class="L2Pcode">downcase</span>, exceto que
+      ele troca o primeiro caractere para maiúsculo (se for uma letra).
+
+        </p>
+        <pre class="L2PcodeBlock">letras = '<span class="L2Pstring">aAbBcCdDeE</span>'
+puts letras.upcase
+puts letras.downcase
+puts letras.swapcase
+puts letras.capitalize
+puts '<span class="L2Pstring"> a</span>'.capitalize
+puts letras</pre>
+        <pre class="L2PoutputBlock">
+AABBCCDDEE
+aabbccddee
+AaBbCcDdEe
+Aabbccddee
+ a
+aAbBcCdDeE
+</pre>
+        <p>
+                Coisas bem simples. Como você pode ver na linha
+      <span class="L2Pcode">puts&nbsp;'<span class="L2Pstring">&nbsp;a</span>'.capitalize</span>, o método <span class="L2Pcode">capitalize</span>
+      apenas deixa em maiúsculo o primeiro <em>caractere</em>, não a primeira
+      <em>letra</em>.  Também, como vimos anteriormente, durante todas essas chamadas
+      de métodos, <span class="L2Pcode">letras</span> continuou inalterada.  Eu não quero me alongar nesse
+      ponto, mas é importante entender.  Existem alguns métodos que <em>mudam</em> o
+      objeto associado, mas ainda não vimos nenhum, e nem iremos ver durante algum tempo.
+
+        </p>
+        <p>
+                O último método elegante da string que iremos ver é
+      para formatação visual.
+      O primeiro, <span class="L2Pcode">center</span>, adiciona espaços no começo e no
+      fim da string para torná-la centralizada. No entanto, assim como
+      você precisa dizer ao <span class="L2Pcode">puts</span> o que quer que seja impresso, e ao
+      <span class="L2Pcode">+</span> o que quer que seja adicionado, você precisa dizer ao
+      <span class="L2Pcode">center</span> a largura total da string a ser centralizada.  Então
+      se eu quiser centralizar as linhas de um poema, eu faria assim:
+
+        </p>
+        <pre class="L2PcodeBlock">larguraDaLinha = <span class="L2Pnumber">50</span>
+puts(                '<span class="L2Pstring">Old Mother Hubbard</span>'.center(larguraDaLinha))
+puts(               '<span class="L2Pstring">Sat in her cupboard</span>'.center(larguraDaLinha))
+puts(         '<span class="L2Pstring">Eating her curds an whey,</span>'.center(larguraDaLinha))
+puts(          '<span class="L2Pstring">When along came a spider</span>'.center(larguraDaLinha))
+puts(         '<span class="L2Pstring">Which sat down beside her</span>'.center(larguraDaLinha))
+puts('<span class="L2Pstring">And scared her poor shoe dog away.</span>'.center(larguraDaLinha))</pre>
+        <pre class="L2PoutputBlock">
+                Old Mother Hubbard                
+               Sat in her cupboard                
+            Eating her curds an whey,             
+             When along came a spider             
+            Which sat down beside her             
+        And scared her poor shoe dog away.        
+</pre>
+        <p>
+                Hum... Eu não acho que essa rima é assim, mas sou muito preguiçoso
+      para procurar.  (Também, eu queria alinhar a parte do
+      <span class="L2Pcode">.center&nbsp;larguraDaLinha</span>, por isso acrescentei espaços extra antes
+      das strings.  Isso é só por que acho que fica mais bonito assim.
+      Programadores geralmente têm opiniões fortes sobre o que é
+      bonito num programa, e eles geralmente discordam sobre o assunto.
+      Quanto mais você programar, mais vai descobrir seu próprio estilo).
+      Falando em ser preguiçoso, a preguiça nem sempre é algo ruim na programação.
+      Por exemplo, viu como eu guardei a largura do poema numa variável
+      <span class="L2Pcode">larguraDaLinha</span>?  Fiz isso pois se quiser tornar o poema mais
+      largo mais tarde, só precisarei mudar a primeira linha do programa,
+      ao invés de todas as linhas que são centralizadas.  Com um poema muito
+      longo, isso poderia me poupar um bom tempo. Esse tipo de preguiça é na
+      verdade uma virtude na programação.
+
+        </p>
+        <p>
+                Então, em relação à centralização... você deve ter percebido que não está
+      tão bonito quanto um processador de texto teria feito. Se você realmente
+      quer centralização perfeita (e talvez uma fonte melhor), então você
+      deveria apenas usar um processador de texto!  Ruby é uma ferramenta
+      maravilhosa, mas nenhuma ferramenta é a ferramenta certa para
+      <em>qualquer</em> trabalho.
+
+        </p>
+        <p>
+                Os outros dois métodos de formatação da string são <span class="L2Pcode">ljust</span> e
+      <span class="L2Pcode">rjust</span>, que fazem o texto <dfn>justificado à esquerda</dfn> e
+      <dfn>justificado à direita</dfn>.  Eles são parecidos com o <span class="L2Pcode">center</span>,
+      exceto que eliminam os espaços em branco da string do lado direito e esquerdo,
+      respectivamente.  Vamos ver os três em ação:
+
+        </p>
+        <pre class="L2PcodeBlock">larguraDaLinha = <span class="L2Pnumber">40</span>
+str = '<span class="L2Pstring">--&gt; text &lt;--</span>'
+puts str.ljust  larguraDaLinha
+puts str.center larguraDaLinha
+puts str.rjust  larguraDaLinha
+puts str.ljust (larguraDaLinha/<span class="L2Pnumber">2</span>) + str.rjust (larguraDaLinha/<span class="L2Pnumber">2</span>)</pre>
+        <pre class="L2PoutputBlock">
+--&gt; text &lt;--                            
+              --&gt; text &lt;--              
+                            --&gt; text &lt;--
+--&gt; text &lt;--                --&gt; text &lt;--
+</pre>
+        <h2>
+          Umas Coisinhas Para Tentar
+        </h2>
+        <p>
+                &bull; Escreva um programa do Chefe Zangado.  Ele deve perguntar o que você quer de forma rude.
+      Qualquer que seja a sua resposta, o Chefe Zangado vai gritar de volta para você, e então
+      despedi-lo.  Por exemplo, se você digitar <span class="L2Pinput">Eu&nbsp;quero&nbsp;um&nbsp;aumento.</span>, ele deve gritar
+      de volta <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">O&nbsp;QUE&nbsp;VOCÊ&nbsp;QUER&nbsp;DIZER&nbsp;COM&nbsp;&quot;EU&nbsp;QUERO&nbsp;UM&nbsp;AUMENTO.&quot;?!?&nbsp;&nbsp;VOCÊ&nbsp;ESTÁ&nbsp;DESPEDIDO!!</span>
+
+        </p>
+        <p>
+                &bull; Eis aqui algo para você fazer para brincar um pouco mais com
+      <span class="L2Pcode">center</span>, <span class="L2Pcode">ljust</span> e <span class="L2Pcode">rjust</span>:  Escreva um programa
+      que irá mostrar um Índice de forma que fique parecido com:
+
+        </p>
+        <pre class="L2PoutputBlock">                Tabela de Conteúdo                
+                                                  
+Capítulo 1:  Números                      página 1
+Capítulo 2:  Letras                      página 72
+Capítulo 3:  Variáveis                  página 118
+</pre>
+        <h2>
+          Matemática Avançada
+        </h2>
+        <p>
+                <em>(Esta seção é totalmente opcional. Ela assume um certo nível
+      de conhecimento matemático. Se você não estiver interessado, você pode
+      ir direto para o <a href="chapter06.html">Controle de Fluxo</a>
+      sem nenhum problema.  No entanto, uma breve passada pela seção de
+      <strong>Números Aleatórios</strong> pode ser útil.)</em>
+
+        </p>
+        <p>
+                Não há tantos métodos nos números quanto nas strings
+      (apesar de eu ainda não ter decorado todos).  Aqui, iremos olhar o
+      resto dos métodos de aritmética, um gerador de números aleatórios e
+      o objeto <span class="L2Pcode">Math</span>, com seus métodos trigonométricos e
+      transcendentais.
+
+        </p>
+        <h2>
+          Mais Aritimética
+        </h2>
+        <p>
+                Os outros dois métodos aritméticos são <span class="L2Pcode">**</span> (exponenciação)
+      e <span class="L2Pcode">%</span> (módulo).  Então se você quisesse dizer "cinco ao quadrado"
+      em Ruby, você escreveria <span class="L2Pcode"><span class="L2Pnumber">5</span>**<span class="L2Pnumber">2</span></span>.  Você também pode usar
+      floats para seu expoente, então se você quiser a raiz quadrada de 5,
+      você pode escrever <span class="L2Pcode"><span class="L2Pnumber">5</span>**<span class="L2Pnumber">0.5</span></span>.  O método módulo lhe dá o resto da
+      divisão por um número.  Então, por exemplo, se eu divido 7 por 3,
+      eu tenho 2 com resto 1. Vamos vê-los em ação num programa:
+
+        </p>
+        <pre class="L2PcodeBlock">puts <span class="L2Pnumber">5</span>**<span class="L2Pnumber">2</span>
+puts <span class="L2Pnumber">5</span>**<span class="L2Pnumber">0.5</span>
+puts <span class="L2Pnumber">7</span>/<span class="L2Pnumber">3</span>
+puts <span class="L2Pnumber">7</span>%<span class="L2Pnumber">3</span>
+puts <span class="L2Pnumber">365</span>%<span class="L2Pnumber">7</span></pre>
+        <pre class="L2PoutputBlock">
+25
+2.23606797749979
+2
+1
+1
+</pre>
+        <p>
+                Pela última linha, aprendemos que um ano (não-bissexto) tem um certo
+      número de semanas, mais um dia. Então se seu aniversário caiu numa
+      terça-feira este ano, ele será numa quarta-feira no ano que vem.
+      Você também pode usar floats com o método módulo.  Basicamente, ele
+      funciona da única maneira razoável que consegue... Mas eu vou deixar
+      você brincar um pouco com isso.
+
+        </p>
+        <p>
+                Tem um último método para ser mencionado antes de vermos o gerador de
+      números aleatórios:  <span class="L2Pcode">abs</span>.  Ele simplesmente pega o valor
+      absoluto de um número:
+
+        </p>
+        <pre class="L2PcodeBlock">puts((<span class="L2Pnumber">5</span>-<span class="L2Pnumber">2</span>).abs)
+puts((<span class="L2Pnumber">2</span>-<span class="L2Pnumber">5</span>).abs)</pre>
+        <pre class="L2PoutputBlock">
+3
+3
+</pre>
+        <h2>
+          Números Aleatórios
+        </h2>
+        <p>
+                Ruby vem com um gerador de números aleatórios bem legal.  O método que
+      escolhe aleatoriamente um número é o <span class="L2Pcode">rand</span>.  Se você chamar <span class="L2Pcode">rand</span>
+      simplesmente assim, você vai ter um float maior ou igual a <span class="L2Pcode"><span class="L2Pnumber">0.0</span></span> e menor
+      que <span class="L2Pcode"><span class="L2Pnumber">1.0</span></span>.  Se você der um inteiro (<span class="L2Pcode"><span class="L2Pnumber">5</span></span> por exemplo) para o <span class="L2Pcode">rand</span>,
+      ele vai te dar um inteiro maior ou igual a <span class="L2Pcode"><span class="L2Pnumber">0</span></span> e menor que <span class="L2Pcode"><span class="L2Pnumber">5</span></span> (então são
+      cinco números possíveis, de <span class="L2Pcode"><span class="L2Pnumber">0</span></span> até <span class="L2Pcode"><span class="L2Pnumber">4</span></span>).
+
+        </p>
+        <p>
+                Vamos ver o <span class="L2Pcode">rand</span> em ação.  (Se você recarregar esta página, estes números vão
+      mudar a cada vez.  Você sabia que eu estou realmente rodando estes programas, não sabia?)
+
+        </p>
+        <pre class="L2PcodeBlock">puts rand
+puts rand
+puts rand
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">1</span>))
+puts(rand(<span class="L2Pnumber">1</span>))
+puts(rand(<span class="L2Pnumber">1</span>))
+puts(rand(<span class="L2Pnumber">99999999999999999999999999999999999999999999999999999999999</span>))
+puts('<span class="L2Pstring">O homem do tempo disse que existe </span>'+rand(<span class="L2Pnumber">101</span>).to_s+'<span class="L2Pstring">% de chance de chover,</span>')
+puts('<span class="L2Pstring">mas você não pode nunca confiar num homem do tempo.</span>')</pre>
+        <pre class="L2PoutputBlock">
+0.533099438199271
+0.692927743758217
+0.940976910494312
+35
+25
+43
+0
+0
+0
+43268570703742641064840128301077341089498686011220522458380
+O homem do tempo disse que existe 42% de chance de chover,
+mas você não pode nunca confiar num homem do tempo.
+</pre>
+        <p>
+                Perceba que eu usei <span class="L2Pcode">rand(<span class="L2Pnumber">101</span>)</span> para conseguir os números de <span class="L2Pcode"><span class="L2Pnumber">0</span></span>
+      até <span class="L2Pcode"><span class="L2Pnumber">100</span></span>, e que <span class="L2Pcode">rand(<span class="L2Pnumber">1</span>)</span> sempre retorna <span class="L2Pcode"><span class="L2Pnumber">0</span></span>.  Não entender o
+      intervalo dos possíveis valores retornados é o maior erro que eu vejo as pessoas
+      cometerem ao usar <span class="L2Pcode">rand</span>; mesmo programadores profissionais; mesmo em
+      produtos terminados que você pode comprar na loja.  Eu inclusive tive um tocador de CD
+      que, se configurado para "Tocar Aleatoriamente", iria tocar todas as músicas menos
+      a última...  (Eu imagino o que aconteceria se eu colocasse um CD com apenas uma música
+      nele?)
+
+        </p>
+        <p>
+                As vezes você pode querer que <span class="L2Pcode">rand</span> retorne os <em>mesmos</em> números aleatórios
+      na mesma sequência em duas execuções diferentes do seu programa.  (Por exemplo, uma vez eu
+      estava usando números aleatórios gerados para criar um mundo gerado aleatoriamente num
+      jogo de computador.  Se eu encontrasse um mundo que eu realmente gostasse, talvez eu quisesse
+      jogar nele novamente, ou mandá-lo para um amigo).  Para isso, você precisa configurar
+      a <em>semente</em>, que você consegue fazer com <span class="L2Pcode">srand</span>.  Desta forma:
+
+        </p>
+        <pre class="L2PcodeBlock">srand <span class="L2Pnumber">1776</span>
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts '<span class="L2Pstring"></span>'
+srand <span class="L2Pnumber">1776</span>
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))
+puts(rand(<span class="L2Pnumber">100</span>))</pre>
+        <pre class="L2PoutputBlock">
+24
+35
+36
+58
+70
+
+24
+35
+36
+58
+70
+</pre>
+        <p>
+                Ele fará a mesma coisa sempre que você alimentá-lo com a mesma semente.  Se você quer
+      voltar a ter números diferentes (como acontece quando você nunca usa
+      <span class="L2Pcode">srand</span>), então apenas chame <span class="L2Pcode">srand&nbsp;<span class="L2Pnumber">0</span></span>.  Isso alimenta o gerador com
+      um número realmente estranho, usando (dentre outras coisas) a hora atual do seu
+      computador, com precisão de milisegundos.
+
+        </p>
+        <h2>
+          O Objeto <span class="L2Pcode">Math</span>
+        </h2>
+        <p>
+                Finalmente, vamos olhar para o objeto <span class="L2Pcode">Math</span>.  Vamos começar de uma vez:
+
+        </p>
+        <pre class="L2PcodeBlock">puts(Math::PI)
+puts(Math::E)
+puts(Math.cos(Math::PI/<span class="L2Pnumber">3</span>))
+puts(Math.tan(Math::PI/<span class="L2Pnumber">4</span>))
+puts(Math.log(Math::E**<span class="L2Pnumber">2</span>))
+puts((<span class="L2Pnumber">1</span> + Math.sqrt(<span class="L2Pnumber">5</span>))/<span class="L2Pnumber">2</span>)</pre>
+        <pre class="L2PoutputBlock">
+3.14159265358979
+2.71828182845905
+0.5
+1.0
+2.0
+1.61803398874989
+</pre>
+        <p>
+                A primeira coisa que você percebeu foi provavelmente a notação do <span class="L2Pcode">::</span>.  Explicar
+      o <dfn>operador de escopo</dfn> (que é o que ele é) está um pouco além do, uh... escopo
+      deste tutorial.  Não é nenhum trocadilho.  Eu juro.  Basta dizer que você pode usar
+      <span class="L2Pcode">Math::PI</span> exatamente da forma como você espera.
+
+        </p>
+        <p>
+                Como você pode ver, <span class="L2Pcode">Math</span> tem todas as coisas que você esperaria que
+      uma calculadora científica decente tivesse.  E, como sempre, os floats estão
+      <em>realmente perto</em> de serem as respostas certas.
+
+        </p>
+        <p>
+                Então vamos entrar no <a href="chapter06.html">fluxo</a>!
+
+        </p>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p style="padding-bottom: 20px;">
+          &copy; 2003-2015 Chris Pine
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

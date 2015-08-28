@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="pt_br">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" media="screen" href="pine.css" rel="Stylesheet" />
+    <link type="text/css" media="screen, print" href="tutorial.css" rel="Stylesheet" />
+    <link type="text/css" media="print" href="print.css" rel="Stylesheet" />
+    <title>
+      4.&nbsp;&nbsp;Misturando tudo
+    </title>
+    <script type="text/javascript" language="JavaScript" src="http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106">
+    </script>
+  </head>
+  <body>
+    <div id="pageWidth">
+      <div id="headerBar">
+        <div id="titlePicContainer">
+          <a href="index.html">
+          <img alt="Aprenda a Programar" height="108" src="titleLTP_pt_br.gif" width="500" id="titlePic" />
+          </a>
+        </div>
+        <a href="index.html">
+          <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"
+            src="locketLTP.png" />
+        </a>
+      </div>
+      <div id="menuPane">
+        <img height="38" src="spearup_sm.gif" width="35" id="menuSpearTop" />
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          a versão
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          <em>melhorada</em>
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;">
+          estendida
+        </p>
+        <a href="http://pragmaticprogrammer.com/titles/fr_ltp">
+        <img height="120" src="LTP_cover.jpg" width="100" />
+        </a>
+        <img height="21" src="swirly.gif" width="64" style="padding: 30px;" />
+        <p class="funnyMenuText">
+          &laquo; o tutorial original &raquo;
+        </p>
+        <ol start="0" style="padding-top: 15px; padding-bottom: 15px;">
+          <li>
+            <a href="chapter00.html">Iniciando</a>
+          </li>
+          <li>
+            <a href="chapter01.html">Números</a>
+          </li>
+          <li>
+            <a href="chapter02.html">Letras</a>
+          </li>
+          <li>
+            <a href="chapter03.html">Variáveis e Atribuições</a>
+          </li>
+          <li>
+            <a href="chapter04.html">Misturando tudo</a>
+          </li>
+          <li>
+            <a href="chapter05.html">Mais Sobre Métodos</a>
+          </li>
+          <li>
+            <a href="chapter06.html">Controle de Fluxo</a>
+          </li>
+          <li>
+            <a href="chapter07.html">Arrays e Iteradores</a>
+          </li>
+          <li>
+            <a href="chapter08.html">Escrevendo seus Próprios Métodos</a>
+          </li>
+          <li>
+            <a href="chapter09.html">Classes</a>
+          </li>
+          <li>
+            <a href="chapter10.html">Blocos e Procs</a>
+          </li>
+          <li>
+            <a href="chapter11.html">Além deste Tutorial</a>
+          </li>
+        </ol>
+        <p>
+                (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+
+        </p>
+        <p>
+                (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
+      por&nbsp;Shin&nbsp;Nishiyama.)
+
+        </p>
+        <p>
+                (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+
+        </p>
+        <p>
+                (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
+
+        </p>
+        <p>
+                (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
+      por&nbsp;Gunner&nbsp;Carstens.)
+
+        </p>
+        <p>
+                (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+
+        </p>
+        <img height="40" src="speardown_sm.gif" width="36" id="menuSpearBottom" />
+      </div>
+      <div id="contentPane">
+        <h1>
+          4.&nbsp;&nbsp;Misturando tudo
+        </h1>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p>
+                Nós vimos alguns tipos diferentes de objetos
+      (<a href="chapter01.html">números</a> e <a href="chapter02.html">letras</a>),
+      e nós fizemos <a href="chapter03.html">variáveis</a> para apontar para elas;
+      a coisa que queremos fazer a seguir é fazer com que todas se encaixem.
+
+        </p>
+        <p>
+                Nós vimos que se desejássemos que um programa imprimisse <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">25</span>,
+      o código a seguir <em><strong>não</strong></em> funcionaria, porque
+      você não pode somar números e strings:
+
+        </p>
+        <pre class="L2PcodeBlock">var1 = <span class="L2Pnumber">2</span>
+var2 = '<span class="L2Pstring">5</span>'
+
+puts var1 + var2</pre>
+        <p>
+                Parte do problema é que seu computador não sabe se você está
+      querendo <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">7</span> (<span class="L2Pcode"><span class="L2Pnumber">2</span>&nbsp;+&nbsp;<span class="L2Pnumber">5</span></span>) ou <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">25</span>
+      (<span class="L2Pcode">'<span class="L2Pstring">2</span>'&nbsp;+&nbsp;'<span class="L2Pstring">5</span>'</span>).
+
+        </p>
+        <p>
+                Antes que possamos somar os dois, precisamos de alguma maneira
+      de obter a versão em string de <span class="L2Pcode">var1</span>, ou então de obter
+      a versão inteira de <span class="L2Pcode">var2</span>.
+
+        </p>
+        <h2>
+          Conversions
+        </h2>
+        <p>
+                Para obter a versão string de um objeto, simplesmente escrevemos
+      <span class="L2Pcode">.to_s</span> depois dele:
+
+        </p>
+        <pre class="L2PcodeBlock">var1 = <span class="L2Pnumber">2</span>
+var2 = '<span class="L2Pstring">5</span>'
+
+puts var1.to_s + var2</pre>
+        <pre class="L2PoutputBlock">
+25
+</pre>
+        <p>
+                Similarmente, <span class="L2Pcode">to_i</span> fornece a versão inteira de um objeto,
+      e <span class="L2Pcode">to_f</span> dá a versão float. Vejamos o que esses três método
+      fazem (e <em>não</em> fazem) com mais detalhe:
+
+        </p>
+        <pre class="L2PcodeBlock">var1 = <span class="L2Pnumber">2</span>
+var2 = '<span class="L2Pstring">5</span>'
+
+puts var1.to_s + var2
+puts var1 + var2.to_i</pre>
+        <pre class="L2PoutputBlock">
+25
+7
+</pre>
+        <p>
+                Note que, mesmo depois que obtivemos a versão string de 
+      <span class="L2Pcode">var1</span> por meio de <span class="L2Pcode">to_s</span>, <span class="L2Pcode">var1</span>
+      sempre apontou para <span class="L2Pcode"><span class="L2Pnumber">2</span></span>, e nunca para <span class="L2Pcode">'<span class="L2Pstring">2</span>'</span>.
+      A não ser que reatribuamos <span class="L2Pcode">var1</span> explicitamente (o que
+      requer um sinal de <span class="L2Pcode">=</span>), ela vai apontar para <span class="L2Pcode"><span class="L2Pnumber">2</span></span>
+      enquanto o programa estiver rodando.
+
+        </p>
+        <p>
+                Agora vamos tentar algumas conversões mais interessantes (e alguma apenas
+      esquisitas):
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">15</span>'.to_f
+puts '<span class="L2Pstring">99.999</span>'.to_f
+puts '<span class="L2Pstring">99.999</span>'.to_i
+puts '<span class="L2Pstring"></span>'
+puts '<span class="L2Pstring">5 é meu número favorito!</span>'.to_i
+puts '<span class="L2Pstring">Quem foi que te perguntou sobre o 5?</span>'.to_i
+puts '<span class="L2Pstring">Sua mãe.</span>'.to_f
+puts '<span class="L2Pstring"></span>'
+puts '<span class="L2Pstring">stringuelingue</span>'.to_s
+puts <span class="L2Pnumber">3</span>.to_i</pre>
+        <pre class="L2PoutputBlock">
+15.0
+99.999
+99
+
+5
+0
+0.0
+
+stringuelingue
+3
+</pre>
+        <p>
+                É provável que tenha havido surpresas. A primeira é bem padrão e
+      dá <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">15</span>.
+      Depois disso, convertemos a string <span class="L2Pcode">'<span class="L2Pstring">99.999</span>'</span> para um float
+      e para um inteiro. O float ficou como esperávamos; o inteiro, como
+      sempre, foi arredondado para baixo.
+
+        </p>
+        <p>
+                Em seguida temos alguns exemplos de strings... atípicas convertidas
+      em números. <span class="L2Pcode">to_i</span> ignora a primeira coisa que ela não entende,
+      e o resto da string daquele ponto em diante. Então a primeira string
+      foi convertida para <span class="L2Pcode"><span class="L2Pnumber">5</span></span>, mas as outras, já que começavam com
+      letras, foram ignoradas por completo... então o computador só escolhe
+      zero.
+
+        </p>
+        <p>
+                Por fim, vimos que nossas duas últimas conversas não fizeram nada,
+      exatamente como esperávamos.
+
+        </p>
+        <h2>
+          Uma Outra Olhadela em <span class="L2Pcode">puts</span>
+        </h2>
+        <p>
+                Há alguma coisa estranha no nosso método favorito... Dê uma olhadinha:
+
+        </p>
+        <pre class="L2PcodeBlock">puts <span class="L2Pnumber">20</span>
+puts <span class="L2Pnumber">20</span>.to_s
+puts '<span class="L2Pstring">20</span>'</pre>
+        <pre class="L2PoutputBlock">
+20
+20
+20
+</pre>
+        <p>
+                Por que é que essas três imprimem a mesma coisa? Tudo bem, as duas
+      últimas deveriam mesmo, já que <span class="L2Pcode"><span class="L2Pnumber">20</span>.to_s</span> <em>é</em>
+      <span class="L2Pcode">'<span class="L2Pstring">20</span>'</span>. Mas e a primeira, o inteiro <span class="L2Pcode"><span class="L2Pnumber">20</span></span>? Falando nisso,
+      faz algum sentido escrever <em>o inteiro</em> 20? Quando você escreve
+      um <em>2</em> e depois um <em>0</em> num papel, você está escrevendo
+      uma string, não um inteiro. <em>O inteiro</em> 20 é o número de dedos
+      que eu possuo, e não um <em>2</em> seguido de um <em>0</em>.
+
+        </p>
+        <p>
+                O nosso amigo <span class="L2Pcode">puts</span> carrega um grande segredo: antes de tentar
+      escrever um objeto, <span class="L2Pcode">puts</span> usa <span class="L2Pcode">to_s</span> para obter a
+      versão string do mesmo. Na verdade, o <em>s</em> em <span class="L2Pcode">puts</span>
+      está lá representando <em>string</em>; <span class="L2Pcode">puts</span> na verdade
+      significa <dfn>put string</dfn> (colocar string).
+
+        </p>
+        <p>
+                Isso pode não parecer muito animador agora, mas há muitos,
+      <em>muitos</em> tipos de objetos em Ruby (você vai até aprender
+      a fazer o seu próprio!), e é bom saber o que vai acontecer
+      se você tentar usar <span class="L2Pcode">puts</span> num objeto muito estranho,
+      como uma foto da sua avó, ou um arquivo de música ou algo assim.
+      Mas isso vem depois...
+
+        </p>
+        <p>
+                Até lá, nós temos mais alguns métodos para você, e eles permitem
+      que escrevamos um bando de programas divertidos...
+
+        </p>
+        <h2>
+          Os Métodos <span class="L2Pcode">gets</span> e <span class="L2Pcode">chomp</span>
+        </h2>
+        <p>
+                Se <span class="L2Pcode">puts</span> significa <dfn>colocar string</dfn> (N.T.: put significa
+      "colocar"), acho que você pode adivinhar o que <span class="L2Pcode">gets</span> quer dizer
+      (N.T.: get, em inglês, entre várias acepções, significa pegar, obter).
+      E assim como <span class="L2Pcode">puts</span> sempre cospe strings, <span class="L2Pcode">gets</span> vai apenas
+      obter strings. E de onde ele as pega?
+
+        </p>
+        <p>
+                De você! Tudo bem, do seu teclado. Já que seu teclado só produz strings,
+      isso funciona muito bem. O que acontece, na verdade, é que <span class="L2Pcode">gets</span>
+      fica lá esperando, lendo o que você digita até que você pressione
+      <kbd>Enter</kbd>. Vamos experimentar:
+
+        </p>
+        <pre class="L2PcodeBlock">puts gets</pre>
+        <pre class="L2PoutputBlock">
+<span class="L2Pinput">Tem um eco aqui?</span>
+Tem um eco aqui?
+</pre>
+        <p>
+                Claro, tudo que você digitar vai ser repetido para você. Rode
+      algumas vezes e tente digitar coisas diferentes.
+
+        </p>
+        <p>
+                Agora podemos fazer programas interativos! Neste, digite
+      o seu nome para que ele lhe saude:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Olá, qual é o seu nome?</span>'
+name = gets
+puts '<span class="L2Pstring">Seu nome é </span>' + name + '<span class="L2Pstring">?  Que nome bonito!</span>'
+puts '<span class="L2Pstring">Prazer em conhecê-lo, </span>' + name + '<span class="L2Pstring">.  :)</span>'</pre>
+        <p><em>Eca!</em> Eu acabei de rodá-lo&mdash;escrevi meu nome&mdash;e aconteceu isto:</p>
+        <pre class="L2PoutputBlock">
+Olá, qual é o seu nome?
+<span class="L2Pinput">Chris</span>
+Seu nome é Chris
+?  Que nome bonito!
+Prazer em conhecê-lo, Chris
+.  :)
+</pre>
+        <p>
+                Hmmm... parece que quando eu digitei as letras <kbd>C</kbd>,
+      <kbd>h</kbd>, <kbd>r</kbd>, <kbd>i</kbd>, <kbd>s</kbd>, e pressionei
+      <kbd>Enter</kbd>, <span class="L2Pcode">gets</span> obteve todas as letras do meu nome
+      <em>e</em> o <kbd>Enter</kbd>! Felizmente, existe um método exatamente
+      pra esse tipo de coisa: <span class="L2Pcode">chomp</span>. Ele retira qualquer
+      <kbd>Enter<kbd> que esteja lá de bobeira no fim da sua string. Vamos
+      testar aquele programa de novo, mas com <span class="L2Pcode">chomp</span> para ajudar:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Olá, qual é o seu nome?</span>'
+name = gets.chomp
+puts '<span class="L2Pstring">Seu nome é </span>' + name + '<span class="L2Pstring">?  Que nome bonito!</span>'
+puts '<span class="L2Pstring">Prazer em conhecê-lo, </span>' + name + '<span class="L2Pstring">.  :)</span>'</pre>
+        <pre class="L2PoutputBlock">
+Olá, qual é o seu nome?
+<span class="L2Pinput">Chris</span>
+Seu nome é Chris?  Que nome bonito!
+Prazer em conhecê-lo, Chris.  :)
+</pre>
+        <p>
+                Muito melhor! Perceba que já que <span class="L2Pcode">name</span> aponta para 
+      <span class="L2Pcode">gets.chomp</span>, não temos que dizer <span class="L2Pcode">name.chomp</span>;
+      <span class="L2Pcode">name</span> já foi <span class="L2Pcode">mastiga</span>do (N.T.: chomp, em Inglês
+      é "mastigar").
+
+        </p>
+        <h2>
+          Umas Coisinhas Para Tentar
+        </h2>
+        <p>
+                &bull; Escreva um programa que peça o nome de uma pessoa, depois
+      o sobrenome. Por fim, faça com que ele cumprimente a pessoa usando seu nome completo.
+
+        </p>
+        <p>
+                &bull; Escreva um programa que pergunte pelo número favorito de uma
+      pessoa. Some um ao número, e sugira o resultado como um número favorito
+      <em>muito melhor</em> (tenha tato ao fazê-lo).
+
+        </p>
+        <p>
+                Assim que você terminar esses dois programas (e quaisquer outros que
+      você queira tentar), aprenderemos mais <a href="chapter05.html">métodos</a> (e mais coisas sobre eles).
+
+        </p>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p style="padding-bottom: 20px;">
+          &copy; 2003-2015 Chris Pine
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+#menuPane
+{
+  display: none;
+}
+#titlePicContainer
+{
+  position: relative;
+  left:     50%;
+  width:    50%;
+}
+#titlePicContainer a img {
+  border: 0;
+}
+#titlePic
+{
+  position: relative;
+  top:           2px;
+  left:          -256px;
+  /*color:     #d8c0a0;*/
+}
+#locket
+{
+  position: absolute;
+  top:   15px;
+  right: 15px;
+}

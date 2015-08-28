@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="pt_br">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" media="screen" href="pine.css" rel="Stylesheet" />
+    <link type="text/css" media="screen, print" href="tutorial.css" rel="Stylesheet" />
+    <link type="text/css" media="print" href="print.css" rel="Stylesheet" />
+    <title>
+      2.&nbsp;&nbsp;Letras
+    </title>
+    <script type="text/javascript" language="JavaScript" src="http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106">
+    </script>
+  </head>
+  <body>
+    <div id="pageWidth">
+      <div id="headerBar">
+        <div id="titlePicContainer">
+          <a href="index.html">
+          <img alt="Aprenda a Programar" height="108" src="titleLTP_pt_br.gif" width="500" id="titlePic" />
+          </a>
+        </div>
+        <a href="index.html">
+          <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"
+            src="locketLTP.png" />
+        </a>
+      </div>
+      <div id="menuPane">
+        <img height="38" src="spearup_sm.gif" width="35" id="menuSpearTop" />
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          a versão
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          <em>melhorada</em>
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;">
+          estendida
+        </p>
+        <a href="http://pragmaticprogrammer.com/titles/fr_ltp">
+        <img height="120" src="LTP_cover.jpg" width="100" />
+        </a>
+        <img height="21" src="swirly.gif" width="64" style="padding: 30px;" />
+        <p class="funnyMenuText">
+          &laquo; o tutorial original &raquo;
+        </p>
+        <ol start="0" style="padding-top: 15px; padding-bottom: 15px;">
+          <li>
+            <a href="chapter00.html">Iniciando</a>
+          </li>
+          <li>
+            <a href="chapter01.html">Números</a>
+          </li>
+          <li>
+            <a href="chapter02.html">Letras</a>
+          </li>
+          <li>
+            <a href="chapter03.html">Variáveis e Atribuições</a>
+          </li>
+          <li>
+            <a href="chapter04.html">Misturando tudo</a>
+          </li>
+          <li>
+            <a href="chapter05.html">Mais Sobre Métodos</a>
+          </li>
+          <li>
+            <a href="chapter06.html">Controle de Fluxo</a>
+          </li>
+          <li>
+            <a href="chapter07.html">Arrays e Iteradores</a>
+          </li>
+          <li>
+            <a href="chapter08.html">Escrevendo seus Próprios Métodos</a>
+          </li>
+          <li>
+            <a href="chapter09.html">Classes</a>
+          </li>
+          <li>
+            <a href="chapter10.html">Blocos e Procs</a>
+          </li>
+          <li>
+            <a href="chapter11.html">Além deste Tutorial</a>
+          </li>
+        </ol>
+        <p>
+                (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+
+        </p>
+        <p>
+                (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
+      por&nbsp;Shin&nbsp;Nishiyama.)
+
+        </p>
+        <p>
+                (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+
+        </p>
+        <p>
+                (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
+
+        </p>
+        <p>
+                (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
+      por&nbsp;Gunner&nbsp;Carstens.)
+
+        </p>
+        <p>
+                (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+
+        </p>
+        <img height="40" src="speardown_sm.gif" width="36" id="menuSpearBottom" />
+      </div>
+      <div id="contentPane">
+        <h1>
+          2.&nbsp;&nbsp;Letras
+        </h1>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p>
+                Então, nós já aprendemos tudo sobre <a href="chapter01.html">números</a>,
+      mas e as letras? Palavras? Textos?
+
+        </p>
+        <p>
+                Nós nos referimos a grupos de letras em um programa como <dfn>strings</dfn> (Você
+      pode pensar em letras impressas juntas ao longo de um banner).
+      Para ficar mais fácil de entender quais partes do código são strings,
+      Eu vou colorir as strings em <span class="L2Pcode"><span class="L2Pstring">vermelho</span></span>.
+      Aqui tem alguns exemplos de strings:
+
+        </p>
+        <pre class="L2PcodeBlock">'<span class="L2Pstring">Olá.</span>'
+'<span class="L2Pstring">Ruby rocks.</span>'
+'<span class="L2Pstring">5 é meu número favorito... qual é o seu?</span>'
+'<span class="L2Pstring">Snoopy diz #%^?&amp;*@! quando alguém pisa no seu pé.</span>'
+'<span class="L2Pstring">     </span>'
+'<span class="L2Pstring"></span>'</pre>
+        <p>
+                Como você pode ver, strings podem ter pontuação, dígitos, símbolos
+      e espaços... muito mais do que apenas letras. A última string
+      não tem nada: nós a chamamos de <dfn>string vazia</dfn>.
+
+        </p>
+        <p>
+                Nós estávamos usando <span class="L2Pcode">puts</span> para imprimir os números;
+      vamos tentar ele de novo com algumas strings:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Olá, mundo!</span>'
+puts '<span class="L2Pstring"></span>'
+puts '<span class="L2Pstring">Até logo.</span>'</pre>
+        <pre class="L2PoutputBlock">
+Olá, mundo!
+
+Até logo.
+</pre>
+        <p>
+                Isso funcionou bem. Agora, tente umas strings você mesmo.
+
+        </p>
+        <h2>
+          Aritimética das String
+        </h2>
+        <p>
+                Assim como você pode fazer aritimética com números, você também
+      pode fazer aritimética com strings! Bem, uma parte dela... você pode
+      adicionar strings, de qualquer forma.
+      Vamos tentar adicionar duas strings e ver o que o <span class="L2Pcode">puts</span>
+      faz.
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Eu gosto de</span>' + '<span class="L2Pstring">torta de maçã.</span>'</pre>
+        <pre class="L2PoutputBlock">
+Eu gosto detorta de maçã.
+</pre>
+        <p>
+                Ops! Eu esqueci de adicionar um espaço entre <span class="L2Pcode">'<span class="L2Pstring">Eu&nbsp;gosto&nbsp;de</span>'</span> e <span class="L2Pcode">'<span class="L2Pstring">torta&nbsp;de&nbsp;maçã.</span>'</span>.
+      Espaços não fazem importância normalmente, mas eles fazem sentido dentro de strings.
+      (É verdade o que dizem: computadores não fazem o que você <em>quer</em> que eles façam,
+      apenas o que você <em>manda</em> eles fazerem). Vamos tentar de novo:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Eu gosto de </span>' + '<span class="L2Pstring">torta de maçã.</span>'
+puts '<span class="L2Pstring">Eu gosto de</span>' + '<span class="L2Pstring"> torta de maçã.</span>'</pre>
+        <pre class="L2PoutputBlock">
+Eu gosto de torta de maçã.
+Eu gosto de torta de maçã.
+</pre>
+        <p>
+                (Como você pode ver, não importa em qual string eu adicione o espaço.)
+
+        </p>
+        <p>
+                Então você pode somar strings. Mas você pode, também, multiplicá-las!
+      (Por um número, de qualquer forma). Veja isso:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">piscar </span>' * <span class="L2Pnumber">4</span></pre>
+        <pre class="L2PoutputBlock">piscando os olhos dela</pre>
+        <p>(Estou brincando... ele na verdade faz isso:)</p>
+        <pre class="L2PoutputBlock">
+piscar piscar piscar piscar 
+</pre>
+        <p>
+                Se você parar para pensar, isso realmente faz sentido. Afinal,
+      <span class="L2Pcode"><span class="L2Pnumber">7</span>*<span class="L2Pnumber">3</span></span> realmente quer dizer <span class="L2Pcode"><span class="L2Pnumber">7</span>+<span class="L2Pnumber">7</span>+<span class="L2Pnumber">7</span></span>, então <span class="L2Pcode">'<span class="L2Pstring">moo</span>'*<span class="L2Pnumber">3</span></span>
+      apenas significa <span class="L2Pcode">'<span class="L2Pstring">moo</span>'+'<span class="L2Pstring">moo</span>'+'<span class="L2Pstring">moo</span>'</span>.
+
+        </p>
+        <h2>
+          <span class="L2Pcode"><span class="L2Pnumber">12</span></span> vs <span class="L2Pcode">'<span class="L2Pstring">12</span>'</span>
+        </h2>
+        <p>
+                Antes de irmos mais longe, nós devemos ter certeza de que entendemos
+      a diferença entre <em>números</em> e <em>dígitos</em>.
+      <span class="L2Pcode"><span class="L2Pnumber">12</span></span> é um número, mas <span class="L2Pcode">'<span class="L2Pstring">12</span>'</span> é uma string de dois dígitos.
+
+        </p>
+        <p>
+                Vamos brincar com isso um pouco:
+
+        </p>
+        <pre class="L2PcodeBlock">puts  <span class="L2Pnumber">12</span>  +  <span class="L2Pnumber">12</span>
+puts '<span class="L2Pstring">12</span>' + '<span class="L2Pstring">12</span>'
+puts '<span class="L2Pstring">12  +  12</span>'</pre>
+        <pre class="L2PoutputBlock">
+24
+1212
+12  +  12
+</pre>
+        <p>
+                Que tal isso?
+
+        </p>
+        <pre class="L2PcodeBlock">puts  <span class="L2Pnumber">2</span>  *  <span class="L2Pnumber">5</span>
+puts '<span class="L2Pstring">2</span>' *  <span class="L2Pnumber">5</span>
+puts '<span class="L2Pstring">2  *  5</span>'</pre>
+        <pre class="L2PoutputBlock">
+10
+22222
+2  *  5
+</pre>
+        <p>
+                Esses exemplos foram muito diretos. De qualquer forma, se você não for
+      muito cauteloso quando misturar strings e números, você pode cair em...
+
+        </p>
+        <h2>
+          Problemas
+        </h2>
+        <p>
+                Nesse ponto, você já deve ter tentado algumas coisas que
+      <em>não</em> funcionaram. Se não, aqui tem algumas:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">12</span>' + <span class="L2Pnumber">12</span>
+puts '<span class="L2Pstring">2</span>' * '<span class="L2Pstring">5</span>'</pre>
+        <pre class="L2PoutputBlock">
+#&lt;TypeError: can't convert Fixnum into String&gt;
+</pre>
+        <p>
+                Hmmm... Uma mensagem de erro. O problema é que você
+      não pode, realmente, adicionar um número a uma string, ou
+      multiplicar uma string por outra string. Isso não faz muito sentido como isso:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Betty</span>' + <span class="L2Pnumber">12</span>
+puts '<span class="L2Pstring">Fred</span>' * '<span class="L2Pstring">John</span>'</pre>
+        <p>
+                Uma coisa que você deve saber: você pode escrever <span class="L2Pcode">'<span class="L2Pstring">porco</span>'*<span class="L2Pnumber">5</span></span> em um programa,
+      já que isso apenas quer dizer <span class="L2Pcode"><span class="L2Pnumber">5</span></span> conjuntos da string <span class="L2Pcode">'<span class="L2Pstring">porco</span>'</span>, todas adicionadas
+      entre si. Entretanto,
+      você <em>não</em> pode escrever <span class="L2Pcode"><span class="L2Pnumber">5</span>*'<span class="L2Pstring">porco</span>'</span>, já que isso significa <span class="L2Pcode">'<span class="L2Pstring">porco</span>'</span>
+      conjuntos do número <span class="L2Pcode"><span class="L2Pnumber">5</span></span>, o que é um pouco insano.
+
+        </p>
+        <p>
+                Finalmente, e que tal um programa que imprima
+      <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">Isso&nbsp;é&nbsp;um&nbsp;apóstrofo:&nbsp;'</span>? Nós podemos tentar isso:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Isso é um apóstrofo: </span>''</pre>
+        <p>
+                Bem, <em>aquilo</em> não vai funcionar; Eu nem vou tentar executar aquilo.
+      O computador me disse que nós terminamos com uma string.
+      (É por isso que é bom ter um editor de texto que tenha
+      <dfn>realçador de sintaxe</dfn> para você). Então, como podemos
+      fazer com que o computador saiba que nós queremos continuar dentro da string?
+      Nós temos que <dfn>escapar</dfn> o apóstrofo, assim:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Isso é um apóstrofo: \'</span>'</pre>
+        <pre class="L2PoutputBlock">
+Isso é um apóstrofo: '
+</pre>
+        <p>
+                A barra invertida é um caractere de escape. Em outras palavras, se você tem
+      uma barra invertida seguida de um caractere, isso pode ser, algumas vezes, traduzido
+      em um novo caractere. As únicas coisas que uma barra invertida escapa, porém,
+      são o apóstrofo e a própria barra invertida (Se você pensar a respeito,
+      caracteres de escape devem sempre escapar a si mesmos).)
+      Acho que uns exemplos são bons agora:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Isso é um apóstrofo: \'</span>'
+puts '<span class="L2Pstring">uma barra invertida no fim da string:  \\</span>'
+puts '<span class="L2Pstring">acima\\embaixo</span>'
+puts '<span class="L2Pstring">acima\embaixo</span>'</pre>
+        <pre class="L2PoutputBlock">
+Isso é um apóstrofo: '
+uma barra invertida no fim da string:  \
+acima\embaixo
+acima\embaixo
+</pre>
+        <p>
+                Uma vez que a barra invertida <em>não escapa</em um <span class="L2Pcode">'<span class="L2Pstring">e</span>'</span>,
+      mas <em>escapa</em> a si mesma, as últimas duas strings são
+      idênticas. Elas não se parecem no código, mas no seu computador
+      elas são as mesmas.
+
+        </p>
+        <p>
+                Se você tiver outra dúvida, apenas
+      <a href="chapter03.html">continue lendo</a>!  Eu não posso
+      responder a todas as questões <em>nesta</em> página.
+
+        </p>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p style="padding-bottom: 20px;">
+          &copy; 2003-2015 Chris Pine
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

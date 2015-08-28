@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="pt_br">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" media="screen" href="pine.css" rel="Stylesheet" />
+    <link type="text/css" media="screen, print" href="tutorial.css" rel="Stylesheet" />
+    <link type="text/css" media="print" href="print.css" rel="Stylesheet" />
+    <title>
+      3.&nbsp;&nbsp;Variáveis e Atribuições
+    </title>
+    <script type="text/javascript" language="JavaScript" src="http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106">
+    </script>
+  </head>
+  <body>
+    <div id="pageWidth">
+      <div id="headerBar">
+        <div id="titlePicContainer">
+          <a href="index.html">
+          <img alt="Aprenda a Programar" height="108" src="titleLTP_pt_br.gif" width="500" id="titlePic" />
+          </a>
+        </div>
+        <a href="index.html">
+          <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"
+            src="locketLTP.png" />
+        </a>
+      </div>
+      <div id="menuPane">
+        <img height="38" src="spearup_sm.gif" width="35" id="menuSpearTop" />
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          a versão
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          <em>melhorada</em>
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;">
+          estendida
+        </p>
+        <a href="http://pragmaticprogrammer.com/titles/fr_ltp">
+        <img height="120" src="LTP_cover.jpg" width="100" />
+        </a>
+        <img height="21" src="swirly.gif" width="64" style="padding: 30px;" />
+        <p class="funnyMenuText">
+          &laquo; o tutorial original &raquo;
+        </p>
+        <ol start="0" style="padding-top: 15px; padding-bottom: 15px;">
+          <li>
+            <a href="chapter00.html">Iniciando</a>
+          </li>
+          <li>
+            <a href="chapter01.html">Números</a>
+          </li>
+          <li>
+            <a href="chapter02.html">Letras</a>
+          </li>
+          <li>
+            <a href="chapter03.html">Variáveis e Atribuições</a>
+          </li>
+          <li>
+            <a href="chapter04.html">Misturando tudo</a>
+          </li>
+          <li>
+            <a href="chapter05.html">Mais Sobre Métodos</a>
+          </li>
+          <li>
+            <a href="chapter06.html">Controle de Fluxo</a>
+          </li>
+          <li>
+            <a href="chapter07.html">Arrays e Iteradores</a>
+          </li>
+          <li>
+            <a href="chapter08.html">Escrevendo seus Próprios Métodos</a>
+          </li>
+          <li>
+            <a href="chapter09.html">Classes</a>
+          </li>
+          <li>
+            <a href="chapter10.html">Blocos e Procs</a>
+          </li>
+          <li>
+            <a href="chapter11.html">Além deste Tutorial</a>
+          </li>
+        </ol>
+        <p>
+                (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+
+        </p>
+        <p>
+                (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
+      por&nbsp;Shin&nbsp;Nishiyama.)
+
+        </p>
+        <p>
+                (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+
+        </p>
+        <p>
+                (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
+
+        </p>
+        <p>
+                (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
+      por&nbsp;Gunner&nbsp;Carstens.)
+
+        </p>
+        <p>
+                (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+
+        </p>
+        <img height="40" src="speardown_sm.gif" width="36" id="menuSpearBottom" />
+      </div>
+      <div id="contentPane">
+        <h1>
+          3.&nbsp;&nbsp;Variáveis e Atribuições
+        </h1>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p>
+                Até agora, sempre que usamos <span class="L2Pcode">puts</span> numa string ou número,
+      o que imprimimos some. O que eu quero dizer é, se quiséssemos imprimir
+      algo duas vezes, teríamos que digitar duas vezes:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">...você pode dizer aquilo de novo...</span>'
+puts '<span class="L2Pstring">...você pode dizer aquilo de novo...</span>'</pre>
+        <pre class="L2PoutputBlock">
+...você pode dizer aquilo de novo...
+...você pode dizer aquilo de novo...
+</pre>
+        <p>
+                Seria legal se pudéssemos digitá-lo uma única vez e mantê-lo por perto...
+      guardá-lo em algum lugar.
+      Bom, nós podemos, é claro&mdash;caso contrário eu não teria tocado no assunto!
+
+        </p>
+        <p>
+                Para guardar a string na memória de seu computador, precisamos dar
+      um nome a ela. Normalmente os programadores chamam esse processo de
+      <dfn>atribuição</dfn>, e chamam os nomes de <dfn>variáveis</dfn>. A
+      variável pode ser praticamente qualquer seqüência de letras e números,
+      mas o primeiro caracter tem de ser uma letra minúscula. Vamos rodar
+      o último programa de novo, mas desta vez eu darei à string o nome de
+      <span class="L2Pcode">minhaString</span> (ainda que eu pudesse tê-la chamado de 
+      <span class="L2Pcode">str</span> ou <span class="L2Pcode">minhaStringzinha</span> ou <span class="L2Pcode">pedroPrimeiro</span>).
+
+        </p>
+        <pre class="L2PcodeBlock">minhaString = '<span class="L2Pstring">...você pode dizer aquilo de novo...</span>'
+puts minhaString
+puts minhaString</pre>
+        <pre class="L2PoutputBlock">
+...você pode dizer aquilo de novo...
+...você pode dizer aquilo de novo...
+</pre>
+        <p>
+                Sempre que você tentou fazer algo com <span class="L2Pcode">minhaString</span>, o programa
+      fez com <span class="L2Pcode">'<span class="L2Pstring">...você&nbsp;pode&nbsp;dizer&nbsp;aquilo&nbsp;de&nbsp;novo</span>'</span> no lugar. Você
+      pode pensar na variável <span class="L2Pcode">minhaString</span> como "apontando para" a 
+      string <span class="L2Pcode">'<span class="L2Pstring">...você&nbsp;pode&nbsp;dizer&nbsp;aquilo&nbsp;de&nbsp;novo...</span>'</span>. Eis um exemplo
+      um pouquinho mais interessante:
+
+        </p>
+        <pre class="L2PcodeBlock">nome = '<span class="L2Pstring">Patricia Rosanna Jessica Mildred Oppenheimer</span>'
+puts '<span class="L2Pstring">Meu nome é </span>' + nome + '<span class="L2Pstring">.</span>'
+puts '<span class="L2Pstring">Nossa!  </span>' + nome + '<span class="L2Pstring"> é um nome bem longo!</span>'</pre>
+        <pre class="L2PoutputBlock">
+Meu nome é Patricia Rosanna Jessica Mildred Oppenheimer.
+Nossa!  Patricia Rosanna Jessica Mildred Oppenheimer é um nome bem longo!
+</pre>
+        <p>
+                Assim como podemos <em>atribuir</em> um objeto a uma variável,
+      podemos <em>reatribuir</em> um objeto diferente à mesma variável (e
+      é por isso que nós as chamamos de variáveis: porque a coisa para
+      a qual apontam pode variar).
+
+        </p>
+        <pre class="L2PcodeBlock">compositor = '<span class="L2Pstring">Mozart</span>'
+puts compositor + '<span class="L2Pstring"> era &quot;sensa&quot;, na sua época.</span>'
+
+compositor = '<span class="L2Pstring">Beethoven</span>'
+puts '<span class="L2Pstring">Mas eu, pessoalmente, prefiro </span>' + compositor + '<span class="L2Pstring">.</span>'</pre>
+        <pre class="L2PoutputBlock">
+Mozart era &quot;sensa&quot;, na sua época.
+Mas eu, pessoalmente, prefiro Beethoven.
+</pre>
+        <p>
+                Variáveis podem, é claro, apontar para qualquer tipo de objeto, não
+      só strings:
+
+        </p>
+        <pre class="L2PcodeBlock">var = '<span class="L2Pstring">só mais uma </span>' + '<span class="L2Pstring">string</span>'
+puts var
+
+var = <span class="L2Pnumber">5</span> * (<span class="L2Pnumber">1</span>+<span class="L2Pnumber">2</span>)
+puts var</pre>
+        <pre class="L2PoutputBlock">
+só mais uma string
+15
+</pre>
+        <p>
+                Na verdade, variáveis podem apontar para qualquer coisa...
+      que não outras variáveis. 
+      Então o que acontece se tentarmos?
+
+        </p>
+        <pre class="L2PcodeBlock">var1 = <span class="L2Pnumber">8</span>
+var2 = var1
+puts var1
+puts var2
+
+puts '<span class="L2Pstring"></span>'
+
+var1 = '<span class="L2Pstring">oito</span>'
+puts var1
+puts var2</pre>
+        <pre class="L2PoutputBlock">
+8
+8
+
+oito
+8
+</pre>
+        <p>
+                Primeiro, quando tentamos apontar <span class="L2Pcode">var2</span> para <span class="L2Pcode">var1</span>,
+      <span class="L2Pcode">var2</span> apontou para <span class="L2Pcode"><span class="L2Pnumber">8</span></span> (exatamente como <span class="L2Pcode">var1</span>
+      apontava). Aí fizemos <span class="L2Pcode">var1</span> apontar para <span class="L2Pcode">'<span class="L2Pstring">oito</span>'</span>, mas
+      como <span class="L2Pcode">var2</span> nunca apontou de verdade para <span class="L2Pcode">var1</span>, ela
+      se mantém apontando para <span class="L2Pcode"><span class="L2Pnumber">8</span></span>.
+
+        </p>
+        <p>
+                Agora que temos variáveis, números e strings, vamos aprender como
+      <a href="chapter04.html">misturar todos eles</a>!
+
+        </p>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p style="padding-bottom: 20px;">
+          &copy; 2003-2015 Chris Pine
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

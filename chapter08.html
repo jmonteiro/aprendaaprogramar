@@ -1,0 +1,955 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="pt_br">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" media="screen" href="pine.css" rel="Stylesheet" />
+    <link type="text/css" media="screen, print" href="tutorial.css" rel="Stylesheet" />
+    <link type="text/css" media="print" href="print.css" rel="Stylesheet" />
+    <title>
+      8.&nbsp;&nbsp;Escrevendo seus Próprios Métodos
+    </title>
+    <script type="text/javascript" language="JavaScript" src="http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106">
+    </script>
+  </head>
+  <body>
+    <div id="pageWidth">
+      <div id="headerBar">
+        <div id="titlePicContainer">
+          <a href="index.html">
+          <img alt="Aprenda a Programar" height="108" src="titleLTP_pt_br.gif" width="500" id="titlePic" />
+          </a>
+        </div>
+        <a href="index.html">
+          <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"
+            src="locketLTP.png" />
+        </a>
+      </div>
+      <div id="menuPane">
+        <img height="38" src="spearup_sm.gif" width="35" id="menuSpearTop" />
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          a versão
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          <em>melhorada</em>
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;">
+          estendida
+        </p>
+        <a href="http://pragmaticprogrammer.com/titles/fr_ltp">
+        <img height="120" src="LTP_cover.jpg" width="100" />
+        </a>
+        <img height="21" src="swirly.gif" width="64" style="padding: 30px;" />
+        <p class="funnyMenuText">
+          &laquo; o tutorial original &raquo;
+        </p>
+        <ol start="0" style="padding-top: 15px; padding-bottom: 15px;">
+          <li>
+            <a href="chapter00.html">Iniciando</a>
+          </li>
+          <li>
+            <a href="chapter01.html">Números</a>
+          </li>
+          <li>
+            <a href="chapter02.html">Letras</a>
+          </li>
+          <li>
+            <a href="chapter03.html">Variáveis e Atribuições</a>
+          </li>
+          <li>
+            <a href="chapter04.html">Misturando tudo</a>
+          </li>
+          <li>
+            <a href="chapter05.html">Mais Sobre Métodos</a>
+          </li>
+          <li>
+            <a href="chapter06.html">Controle de Fluxo</a>
+          </li>
+          <li>
+            <a href="chapter07.html">Arrays e Iteradores</a>
+          </li>
+          <li>
+            <a href="chapter08.html">Escrevendo seus Próprios Métodos</a>
+          </li>
+          <li>
+            <a href="chapter09.html">Classes</a>
+          </li>
+          <li>
+            <a href="chapter10.html">Blocos e Procs</a>
+          </li>
+          <li>
+            <a href="chapter11.html">Além deste Tutorial</a>
+          </li>
+        </ol>
+        <p>
+                (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+
+        </p>
+        <p>
+                (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
+      por&nbsp;Shin&nbsp;Nishiyama.)
+
+        </p>
+        <p>
+                (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+
+        </p>
+        <p>
+                (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
+
+        </p>
+        <p>
+                (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
+      por&nbsp;Gunner&nbsp;Carstens.)
+
+        </p>
+        <p>
+                (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+
+        </p>
+        <img height="40" src="speardown_sm.gif" width="36" id="menuSpearBottom" />
+      </div>
+      <div id="contentPane">
+        <h1>
+          8.&nbsp;&nbsp;Escrevendo seus Próprios Métodos
+        </h1>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p>
+                Como vimos, repetições e iteradores nos permitem
+      fazer a mesma coisa (rodar o mesmo código) várias e
+      várias vezes. Porém, algumas vezes queremos
+      fazer a mesma coisa um monte de vezes, mas de lugares
+      diferentes do programa. Por exemplo, vamos supor que
+      estejamos escrevendo um programa de questionário para
+      um estudante de psicologia. Levando em conta os estudantes
+      de psicologia que eu conheço e os questionários que
+      eles me forneceram, seria algo parecido com isto:
+
+        </p>
+        <pre class="L2PcodeBlock">puts '<span class="L2Pstring">Olá, e obrigado pelo seu tempo para me ajudar</span>'
+puts '<span class="L2Pstring">com essa pesquisa. Minha pesquisa é sobre</span>'
+puts '<span class="L2Pstring">como as pessoas se sentem com comida</span>'
+puts '<span class="L2Pstring">mexicana. Apenas pense sobre comida mexicana</span>'
+puts '<span class="L2Pstring">e tente responder, honestamente, cada questão</span>'
+puts '<span class="L2Pstring">com &quot;sim&quot; ou &quot;não&quot;. Minha pesquisa não tem</span>'
+puts '<span class="L2Pstring">nada a ver com quem molha a cama.</span>'
+puts
+
+<span class="L2Pcomment">#  Nós fazemos as perguntas, mas ignoramos as respostas.</span>
+
+boaResposta = <span class="L2Pkeyword">false</span>
+<span class="L2Pkeyword">while</span> (<span class="L2Pkeyword">not</span> boaResposta)
+  puts '<span class="L2Pstring">Você gosta de comer tacos?</span>'
+  resposta = gets.chomp.downcase
+  <span class="L2Pkeyword">if</span> (resposta == '<span class="L2Pstring">sim</span>' <span class="L2Pkeyword">or</span> resposta == '<span class="L2Pstring">não</span>')
+    boaResposta = <span class="L2Pkeyword">true</span>
+  <span class="L2Pkeyword">else</span>
+    puts '<span class="L2Pstring">Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.</span>'
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+boaResposta = <span class="L2Pkeyword">false</span>
+<span class="L2Pkeyword">while</span> (<span class="L2Pkeyword">not</span> boaResposta)
+  puts '<span class="L2Pstring">Você gosta de comer burritos?</span>'
+  resposta = gets.chomp.downcase
+  <span class="L2Pkeyword">if</span> (resposta == '<span class="L2Pstring">sim</span>' <span class="L2Pkeyword">or</span> resposta == '<span class="L2Pstring">não</span>')
+    boaResposta = <span class="L2Pkeyword">true</span>
+  <span class="L2Pkeyword">else</span>
+    puts '<span class="L2Pstring">Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.</span>'
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+<span class="L2Pcomment">#  Porém, nós prestamos atenção *nesta* questão.</span>
+boaResposta = <span class="L2Pkeyword">false</span>
+<span class="L2Pkeyword">while</span> (<span class="L2Pkeyword">not</span> boaResposta)
+  puts '<span class="L2Pstring">Você faz xixi na cama?</span>'
+  resposta = gets.chomp.downcase
+  <span class="L2Pkeyword">if</span> (resposta == '<span class="L2Pstring">sim</span>' <span class="L2Pkeyword">or</span> resposta == '<span class="L2Pstring">não</span>')
+    boaResposta = <span class="L2Pkeyword">true</span>
+    <span class="L2Pkeyword">if</span> resposta == '<span class="L2Pstring">sim</span>'
+      molhaCama = <span class="L2Pkeyword">true</span>
+    <span class="L2Pkeyword">else</span>
+      molhaCama = <span class="L2Pkeyword">false</span>
+    <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">else</span>
+    puts '<span class="L2Pstring">Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.</span>'
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+boaResposta = <span class="L2Pkeyword">false</span>
+<span class="L2Pkeyword">while</span> (<span class="L2Pkeyword">not</span> boaResposta)
+  puts '<span class="L2Pstring">Você gosta de comer chimichangas?</span>'
+  resposta = gets.chomp.downcase
+  <span class="L2Pkeyword">if</span> (resposta == '<span class="L2Pstring">sim</span>' <span class="L2Pkeyword">or</span> resposta == '<span class="L2Pstring">não</span>')
+    boaResposta = <span class="L2Pkeyword">true</span>
+  <span class="L2Pkeyword">else</span>
+    puts '<span class="L2Pstring">Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.</span>'
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+puts '<span class="L2Pstring">Apenas mais algumas perguntas...</span>'
+
+boaResposta = <span class="L2Pkeyword">false</span>
+<span class="L2Pkeyword">while</span> (<span class="L2Pkeyword">not</span> boaResposta)
+  puts '<span class="L2Pstring">Você gosta de comer sopapillas?</span>'
+  resposta = gets.chomp.downcase
+  <span class="L2Pkeyword">if</span> (resposta == '<span class="L2Pstring">sim</span>' <span class="L2Pkeyword">or</span> resposta == '<span class="L2Pstring">não</span>')
+    boaResposta = <span class="L2Pkeyword">true</span>
+  <span class="L2Pkeyword">else</span>
+    puts '<span class="L2Pstring">Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.</span>'
+  <span class="L2Pkeyword">end</span>
+<span class="L2Pkeyword">end</span>
+
+<span class="L2Pcomment">#  Faça mais um monte de perguntas sobre comida</span>
+<span class="L2Pcomment">#  mexicana.</span>
+
+puts
+puts '<span class="L2Pstring">QUESTIONÁRIO:</span>'
+puts '<span class="L2Pstring">Obrigado por dispender seu tempo ao nos ajudar</span>'
+puts '<span class="L2Pstring">com nossa pesquisa. Na verdade, essa pesquisa</span>'
+puts '<span class="L2Pstring">não tem nada a ver com comida mexicana.</span>'
+puts '<span class="L2Pstring">Mas é uma pesquisa sobre quem molha a cama.</span>'
+puts '<span class="L2Pstring">As comidas mexicanas estavam lá apenas para</span>'
+puts '<span class="L2Pstring">baixar sua guarda na esperança de fazer você</span>'
+puts '<span class="L2Pstring">responder mais honestamente. Obrigado novamente.</span>'
+puts
+puts molhaCama</pre>
+        <pre class="L2PoutputBlock">
+Olá, e obrigado pelo seu tempo para me ajudar
+com essa pesquisa. Minha pesquisa é sobre
+como as pessoas se sentem com comida
+mexicana. Apenas pense sobre comida mexicana
+e tente responder, honestamente, cada questão
+com &quot;sim&quot; ou &quot;não&quot;. Minha pesquisa não tem
+nada a ver com quem molha a cama.
+
+Você gosta de comer tacos?
+<span class="L2Pinput">sim</span>
+Você gosta de comer burritos?
+<span class="L2Pinput">sim</span>
+Você faz xixi na cama?
+<span class="L2Pinput">de jeito nenhum!</span>
+Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.
+Você faz xixi na cama?
+<span class="L2Pinput">NÃO</span>
+Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.
+Você faz xixi na cama?
+<span class="L2Pinput">sim</span>
+Você gosta de comer chimichangas?
+<span class="L2Pinput">sim</span>
+Apenas mais algumas perguntas...
+Você gosta de comer sopapillas?
+<span class="L2Pinput">sim</span>
+
+QUESTIONÁRIO:
+Obrigado por dispender seu tempo ao nos ajudar
+com nossa pesquisa. Na verdade, essa pesquisa
+não tem nada a ver com comida mexicana.
+Mas é uma pesquisa sobre quem molha a cama.
+As comidas mexicanas estavam lá apenas para
+baixar sua guarda na esperança de fazer você
+responder mais honestamente. Obrigado novamente.
+
+true
+</pre>
+        <p>
+                Um programa lindo e longo, com um monte de repetição.
+      (Todas as seções de código que giram em torno de questões
+      sobre comida mexicana são idênticas, e a questão sobre xixi
+      na cama é ligeiramente diferente.)
+      Repetição é uma coisa ruim. Mas nós não podemos fazer um grande
+      iterador, porque algumas vezes nós queremos fazer alguma coisa
+      entre as questões. Em situações como essa, é melhor escrever
+      um método. Veja como:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">digaMoo</span>
+  puts '<span class="L2Pstring">mooooooo...</span>'
+<span class="L2Pkeyword">end</span></pre>
+        <pre class="L2PoutputBlock">
+</pre>
+        <p>
+                Ahn... Nosso programa não disse <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">mooooooo...</span>.
+      Por que não? Porque nós não o mandamos fazer isso.
+      Nós apenas dissemos <em>como</em> fazer para dizer
+      <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">mooooooo...</span>, mas nós nunca o mandamos
+      <em>fazer</em> isso. Vamos lá, outra tentativa:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">digaMoo</span>
+  puts '<span class="L2Pstring">mooooooo...</span>'
+<span class="L2Pkeyword">end</span>
+
+digaMoo
+digaMoo
+puts '<span class="L2Pstring">coin-coin</span>'
+digaMoo
+digaMoo</pre>
+        <pre class="L2PoutputBlock">
+mooooooo...
+mooooooo...
+coin-coin
+mooooooo...
+mooooooo...
+</pre>
+        <p>
+                Ah! Muito melhor. (Para o caso de você não falar
+      francês, havia um pato francês no meio do programa.
+      Na França, os patos fazem <em>"coin-coin</em>").
+
+        </p>
+        <p>
+                Então, nós <span class="L2Pkeyword"><span class="L2Pcode">def</span></span>inimos
+      o método <span class="L2Pcode">digaMoo</span> (Nomes de método, assim como
+      nomes de variáveis, começam com uma letra minúscula. Há
+      exceções, como <span class="L2Pcode">+</span> ou <span class="L2Pcode">==</span>).
+      Mas métodos não têm de sempre estar associados com
+      objetos? Bem, sim, eles têm. E nesse caso (assim como com
+      o <span class="L2Pcode">puts</span> e o <span class="L2Pcode">gets</span>), o método está
+      associado apenas com o objeto representando o programa
+      como um todo. No próximo capítulo nós vamos ver
+      como adicionar métodos a outros objetos. Mas primeiro...
+
+        </p>
+        <h2>
+          Parâmetros de Métodos
+        </h2>
+        <p>
+                Você deve ter notado que se podemos chamar alguns métodos (como
+      o <span class="L2Pcode">gets</span>, ou o <span class="L2Pcode">to_s</span>, ou o <span class="L2Pcode">reverse</span>...)
+      apenas como um objeto. Porém, outros métodos (como o <span class="L2Pcode">+</span>,
+      o <span class="L2Pcode">-</span>, o <span class="L2Pcode">puts</span>...) recebem <dfn>parâmetros</dfn>
+      para dizer ao objeto o que fazer com o método. Por exemplo, você
+      não diz apenas <span class="L2Pcode"><span class="L2Pnumber">5</span>+</span>, certo? Você está dizendo ao <span class="L2Pcode"><span class="L2Pnumber">5</span></span>
+      para adicionar, mas você não está dizendo <em>o que</em>
+      adicionar.
+
+        </p>
+        <p>
+                Para adicionar um parâmetro ao <span class="L2Pcode">digaMoo</span> (o número
+      de mugidos, por exemplo), nós podemos fazer o seguinte:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">digaMoo</span> numeroDeMoos
+  puts '<span class="L2Pstring">mooooooo...</span>'*numeroDeMoos
+<span class="L2Pkeyword">end</span>
+
+digaMoo <span class="L2Pnumber">3</span>
+puts '<span class="L2Pstring">oink-oink</span>'
+digaMoo  <span class="L2Pcomment">#  Isso vai dar erro porque não foi passado nenhum parâmetro.</span></pre>
+        <pre class="L2PoutputBlock">
+mooooooo...mooooooo...mooooooo...
+oink-oink
+#&lt;ArgumentError: wrong number of arguments (0 for 1)&gt;
+</pre>
+        <p>
+                <span class="L2Pcode">numeroDeMoos</span> é uma variável que aponta
+      para o parâmetro que foi passado. Vou dizer mais uma vez,
+      mas é um pouco confuso: <span class="L2Pcode">numeroDeMoos</span> é uma variável
+      que aponta para o parâmetro que foi passado. Então, se eu
+      digitar <span class="L2Pcode">digaMoo&nbsp;<span class="L2Pnumber">3</span></span>, o parâmetro é o <span class="L2Pcode"><span class="L2Pnumber">3</span></span>,
+      e a variável <span class="L2Pcode">numeroDeMoos</span> aponta para <span class="L2Pcode"><span class="L2Pnumber">3</span></span>.
+
+        </p>
+        <p>
+                Como você pode ver, agora o parâmetro é <em>necessário</em>.
+      Afinal, o que o <span class="L2Pcode">digaMoo</span> deve fazer é multiplicar
+      <span class="L2Pcode">'<span class="L2Pstring">mooooooo</span>'</span> por um número. Mas por quanto, se você
+      não disse? Seu computador não tem a menor idéia.
+
+        </p>
+        <p>
+                Se compararmos os objetos em Ruby aos substantivos em português,
+      os métodos podem, da mesma forma, ser comparados aos verbos.
+      Assim, você pode imaginar os parâmetros como advérbios (assim
+      como em <span class="L2Pcode">digaMoo</span>, onde o parâmetro nos diz <em>como</em>
+      a <span class="L2Pcode">digaMoo</span> agir) ou algumas vezes como objetos diretos
+      (como em <span class="L2Pcode">puts</span>, onde o parâmetro é <em>o que</em>
+      o <span class="L2Pcode">puts</span> irá imprimir).
+
+        </p>
+        <h2>
+          Variáveis Locais
+        </h2>
+        <p>
+                No programa a seguir, há duas variáveis:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">dobreEste</span> num
+  numVezes2 = num*<span class="L2Pnumber">2</span>
+  puts '<span class="L2Pstring">O dobro de </span>'+num.to_s+'<span class="L2Pstring"> é </span>'+numVezes2.to_s
+<span class="L2Pkeyword">end</span>
+
+dobreEste <span class="L2Pnumber">44</span></pre>
+        <pre class="L2PoutputBlock">
+O dobro de 44 é 88
+</pre>
+        <p>
+                As variáveis são <span class="L2Pcode">num</span> e <span class="L2Pcode">numVezes2</span>.
+      Ambas estão localizadas dentro do método <span class="L2Pcode">dobreEste</span>.
+      Estas (e todas as outras variáveis que você viu até agora)
+      são <dfn>variáveis locais</dfn>. Isso significa que
+      elas vivem dentro do método e não podem sair.
+      Se você tentar, você terá um erro:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">dobreEste</span> num
+  numVezes2 = num*<span class="L2Pnumber">2</span>
+  puts '<span class="L2Pstring">O dobro de </span>'+num.to_s+'<span class="L2Pstring"> é </span>'+numVezes2.to_s
+<span class="L2Pkeyword">end</span>
+
+dobreEste <span class="L2Pnumber">44</span>
+puts numVezes2.to_s</pre>
+        <pre class="L2PoutputBlock">
+O dobro de 44 é 88
+#&lt;NameError: undefined local variable or method `numVezes2' for #&lt;StringIO:0x10a01cec0&gt;&gt;
+</pre>
+        <p>
+                Variável local não definida... Na verdade, nós
+      <em>definimos</em> aquela variável local, mas
+      ela não é local em relação ao local onde tentamos
+      usá-la; ela é local ao método.
+
+        </p>
+        <p>
+                Isso pode parecer inconveniente, mas é muito bom.
+      Enquanto você não tiver acesso a variáveis de dentro
+      dos métodos, isso também quer dizer que ninguém tem
+      acesso às <em>suas</em> variáveis, e isso quer dizer
+      que ninguém pode fazer algo como isso:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">pequenaPeste</span> var
+  var = <span class="L2Pkeyword">nil</span>
+  puts '<span class="L2Pstring">HAHA! Eu acabei com a sua variável!</span>'
+<span class="L2Pkeyword">end</span>
+
+var = '<span class="L2Pstring">Você não pode tocar na minha variável!</span>'
+pequenaPeste var
+puts var</pre>
+        <pre class="L2PoutputBlock">
+HAHA! Eu acabei com a sua variável!
+Você não pode tocar na minha variável!
+</pre>
+        <p>
+                Há, atualmente, <em>duas</em> variáveis naquele pequeno
+      programa chamadas <span class="L2Pcode">var</span>: uma dentro do método
+      <span class="L2Pcode">pequenaPeste</span> e uma fora dele. Quando você chamou
+      <span class="L2Pcode">pequenaPeste&nbsp;var</span>, nós realmente passamos a string
+      que estava em <span class="L2Pcode">var</span> para a outra, então as mesmas
+      estavam apontando para a mesma string. Então, o método <span class="L2Pcode">pequenaPeste</span>
+      apontou a sua <span class="L2Pcode">var</span> <em>local</em> para <span class="L2Pcode"><span class="L2Pkeyword">nil</span></span>,
+      mas isso não fez nada com a <span class="L2Pcode">var</span> de fora do método.
+
+        </p>
+        <h2>
+          Retornando Valores
+        </h2>
+        <p>
+                Você deve ter notado que alguns métodos devolvem alguma
+      coisa quando você os chama. Por exemplo, o método <span class="L2Pcode">gets</span>
+      <dfn>retorna</dfn> uma string (a string que você digitou),
+      e o método <span class="L2Pcode">+</span> em <span class="L2Pcode"><span class="L2Pnumber">5</span>+<span class="L2Pnumber">3</span></span>, (que é, na verdade <span class="L2Pcode"><span class="L2Pnumber">5</span>.+(<span class="L2Pnumber">3</span>)</span>)
+      retorna <span class="L2Pcode"><span class="L2Pnumber">8</span></span>. Os métodos aritméticos para números
+      retornam números, e os métodos aritméticos para strings
+      retornam strings.
+
+        </p>
+        <p>
+                É importante entender a diferença entre métodos retornando
+      um valor para onde ele foi chamado, e o seu programa gerando
+      uma saída para a sua tela, como o <span class="L2Pcode">puts</span> faz. Note
+      que <span class="L2Pcode"><span class="L2Pnumber">5</span>+<span class="L2Pnumber">3</span></span> retorna <span class="L2Pcode"><span class="L2Pnumber">8</span></span>; ele <strong>não</strong>
+      imprime <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">8</span> na tela.
+
+        </p>
+        <p>
+                Então, <em>o que</em> o <span class="L2Pcode">puts</span> retorna? Nós nunca
+      nos importamos antes, mas vamos dar uma olhadinha agora:
+
+        </p>
+        <pre class="L2PcodeBlock">valorRetorno = puts '<span class="L2Pstring">Este puts retornou:</span>'
+puts valorRetorno</pre>
+        <pre class="L2PoutputBlock">
+Este puts retornou:
+nil
+</pre>
+        <p>
+                O primeiro <span class="L2Pcode">puts</span> retornou <span class="L2Pcode"><span class="L2Pkeyword">nil</span></span>. Apesar
+      de não termos testado o segundo <span class="L2Pcode">puts</span>, ele fez a
+      mesma coisa; <span class="L2Pcode">puts</span> sempre retorna um <span class="L2Pcode"><span class="L2Pkeyword">nil</span></span>.
+      Todo método tem que retornar alguma coisa, mesmo que
+      seja apenas um <span class="L2Pcode"><span class="L2Pkeyword">nil</span></span>.
+
+        </p>
+        <p>
+                Faça uma pausa e escreva um programa que encontre
+      o que o método <span class="L2Pcode">digaMoo</span> retornou.
+
+        </p>
+        <p>
+                Você está surpreso? Bem, as coisas funcionam assim: o valor
+      de retorno de um método é simplesmente a última linha avaliada
+      do método. No caso do método <span class="L2Pcode">digaMoo</span>, isso quer dizer
+      que ele retornou <span class="L2Pcode">'<span class="L2Pstring">puts&nbsp;mooooooo...</span>'*numeroDeMoos</span>, que
+      é um simples <span class="L2Pcode"><span class="L2Pkeyword">nil</span></span>, já que <span class="L2Pcode">puts</span> sempre retorna
+      um <span class="L2Pcode"><span class="L2Pkeyword">nil</span></span>. Se nós quisermos que todos os nossos métodos
+      retornem a string <span class="L2Pcode">'<span class="L2Pstring">yellow&nbsp;submarine</span>'</span>, nós apenas
+      temos que colocar ela no fim deles:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">digaMoo</span> numeroDeMoos
+  puts '<span class="L2Pstring">mooooooo...</span>'*numeroDeMoos
+  '<span class="L2Pstring">yellow submarine</span>'
+<span class="L2Pkeyword">end</span>
+
+x = digaMoo <span class="L2Pnumber">2</span>
+puts x</pre>
+        <pre class="L2PoutputBlock">
+mooooooo...mooooooo...
+yellow submarine
+</pre>
+        <p>
+                Agora vamos tentar aquela pesquisa de psicologia de novo,
+      mas desta vez vamos escrever um método que faça a pergunta
+      para nós. Ele vai precisar pegar a questão como um
+      parâmetro e retornar <span class="L2Pcode"><span class="L2Pkeyword">true</span></span> se a resposta foi
+      <span class="L2Pinput">sim</span> e <span class="L2Pcode"><span class="L2Pkeyword">false</span></span> se a resposta foi
+      <span class="L2Pinput">não</span> (Mesmo que nós ignoremos a resposta
+      na maioria das vezes, é uma boa idéia fazer o método
+      retornar a resposta. Assim nós podemos usar isso para a
+      questão sobre molhar a cama).
+      Eu também vou dar uma resumida na saudação e no final,
+      apenas para ficar mais fácil de ler:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">pergunte</span> pergunta
+  boaResposta = <span class="L2Pkeyword">false</span>
+  <span class="L2Pkeyword">while</span> (<span class="L2Pkeyword">not</span> boaResposta)
+    puts pergunta
+    replica = gets.chomp.downcase
+    
+    <span class="L2Pkeyword">if</span> (replica == '<span class="L2Pstring">sim</span>' <span class="L2Pkeyword">or</span> replica == '<span class="L2Pstring">não</span>')
+      boaResposta = <span class="L2Pkeyword">true</span>
+      <span class="L2Pkeyword">if</span> replica == '<span class="L2Pstring">sim</span>'
+        resposta = <span class="L2Pkeyword">true</span>
+      <span class="L2Pkeyword">else</span>
+        resposta = <span class="L2Pkeyword">false</span>
+      <span class="L2Pkeyword">end</span>
+    <span class="L2Pkeyword">else</span>
+      puts '<span class="L2Pstring">Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.</span>'
+    <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">end</span>
+  
+  resposta <span class="L2Pcomment">#  É isso o que será retornado (true ou false).</span>
+<span class="L2Pkeyword">end</span>
+
+puts '<span class="L2Pstring">Olá e obrigado por...</span>'
+puts
+
+pergunte '<span class="L2Pstring">Você gosta de comer tacos?</span>'          <span class="L2Pcomment">#  Nós ignoramos o valor de retorno desse método.</span>
+pergunte '<span class="L2Pstring">Você gosta de comer burritos?</span>'
+molhaCama = pergunte '<span class="L2Pstring">Você faz xixi na cama?</span>'  <span class="L2Pcomment">#  Nós salvamos o retorno desse.</span>
+pergunte '<span class="L2Pstring">Você gosta de comer chimichangas?</span>'
+pergunte '<span class="L2Pstring">Você gosta de comer sopapillas?</span>'
+pergunte '<span class="L2Pstring">Você gosta de comer tamales?</span>'
+puts '<span class="L2Pstring">Apenas mais algumas perguntas...</span>'
+pergunte '<span class="L2Pstring">Você gosta de beber horchata?</span>'
+pergunte '<span class="L2Pstring">Você gosta de comer flautas?</span>'
+
+puts
+puts '<span class="L2Pstring">QUESTIONÁRIO:</span>'
+puts '<span class="L2Pstring">Obrigado por...</span>'
+puts
+puts molhaCama</pre>
+        <pre class="L2PoutputBlock">
+Olá e obrigado por...
+
+Você gosta de comer tacos?
+<span class="L2Pinput">sim</span>
+Você gosta de comer burritos?
+<span class="L2Pinput">sim</span>
+Você faz xixi na cama?
+<span class="L2Pinput">de jeito nenhum!</span>
+Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.
+Você faz xixi na cama?
+<span class="L2Pinput">NÃO</span>
+Por favor, responda com &quot;sim&quot; ou &quot;não&quot;.
+Você faz xixi na cama?
+<span class="L2Pinput">sim</span>
+Você gosta de comer chimichangas?
+<span class="L2Pinput">sim</span>
+Você gosta de comer sopapillas?
+<span class="L2Pinput">sim</span>
+Você gosta de comer tamales?
+<span class="L2Pinput">sim</span>
+Apenas mais algumas perguntas...
+Você gosta de beber horchata?
+<span class="L2Pinput">sim</span>
+Você gosta de comer flautas?
+<span class="L2Pinput">sim</span>
+
+QUESTIONÁRIO:
+Obrigado por...
+
+true
+</pre>
+        <p>
+                Nada mal, hein? Nós podemos adicionar mais perguntas (e
+      adicionar mais perguntas é <em>fácil</em> agora), mas
+      nosso programa continuará pequeno! Isso é um grande
+      progresso &mdash; o sonho de todo programador preguiçoso.
+
+        </p>
+        <h2>
+          Mais um Grande Exemplo
+        </h2>
+        <p>
+                Eu acho que outro exemplo de método seria muito
+      útil aqui. Vamos chamar esse de <span class="L2Pcode">numeroPortugues</span>.
+      Esse método vai pegar um número, como o <span class="L2Pcode"><span class="L2Pnumber">22</span></span>, e retorná-lo
+      por extenso (nesse caso, a string <span class="L2Pcode">vinte&nbsp;e&nbsp;dois</span>).
+      Por enquanto, vamos fazê-lo trabalhar apenas com inteiros
+      entre <span class="L2Pcode"><span class="L2Pnumber">0</span></span> e <span class="L2Pcode"><span class="L2Pnumber">100</span></span>.
+
+        </p>
+        <p>
+                <em>(<strong>NOTA:</strong> Esse método usa um novo truque
+      para retornar a partir de um método antes do fim usando
+      a palavra-chave </em><span class="L2Pcode"><span class="L2Pkeyword">return</span></span><em>, e introduz
+      um novo conceito: </em><span class="L2Pcode"><span class="L2Pkeyword">elsif</span></span><em>. Isso deve
+      ficar mais claro no contexto, mostrando como as coisas
+      funcionam).</em>
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">numeroPortugues</span> numero
+  <span class="L2Pcomment">#  Nós apenas queremos números entre 0 e 100.</span>
+  <span class="L2Pkeyword">if</span> numero &lt; <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">return</span> '<span class="L2Pstring">Por favor, entre com um número maior ou igual a zero.</span>'
+  <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">if</span> numero &gt; <span class="L2Pnumber">100</span>
+    <span class="L2Pkeyword">return</span> '<span class="L2Pstring">Por favor, entre com um número menor ou igual a 100.</span>'
+  <span class="L2Pkeyword">end</span>
+  
+  numExtenso = '<span class="L2Pstring"></span>'  <span class="L2Pcomment">#  Esta é a string que vamos retornar.</span>
+  
+  <span class="L2Pcomment">#  &quot;falta&quot; é quanto do número ainda falta para escrevermos.</span>
+  <span class="L2Pcomment">#  &quot;escrevendo&quot; é a parte que estamos escrevendo agora.</span>
+  falta   = numero
+  escrevendo = falta/<span class="L2Pnumber">100</span>               <span class="L2Pcomment">#  Quantas centenas faltam escrever?</span>
+  falta   = falta - escrevendo*<span class="L2Pnumber">100</span>     <span class="L2Pcomment">#  Subtraia essas centenas.</span>
+  
+  <span class="L2Pkeyword">if</span> escrevendo &gt; <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">return</span> '<span class="L2Pstring">cem</span>'
+  <span class="L2Pkeyword">end</span>
+  
+  escrevendo = falta/<span class="L2Pnumber">10</span>              <span class="L2Pcomment">#  Quantas dezenas faltam escrever?</span>
+  falta  = falta - escrevendo*<span class="L2Pnumber">10</span>     <span class="L2Pcomment">#  Subtraia essas dezenas.</span>
+  
+  <span class="L2Pkeyword">if</span> escrevendo &gt; <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">if</span> escrevendo == <span class="L2Pnumber">1</span>  <span class="L2Pcomment">#  Oh-oh...</span>
+      <span class="L2Pcomment">#  Já que não podemos escrever &quot;dez e dois&quot;,</span>
+      <span class="L2Pcomment">#  vamos fazer algo especial aqui</span>
+      <span class="L2Pkeyword">if</span> falta == <span class="L2Pnumber">0</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">dez</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">1</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">onze</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">2</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">doze</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">3</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">treze</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">4</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">catorze</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">5</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">quinze</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">6</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">dezesseis</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">7</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">dezessete</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">8</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">dezoito</span>'
+      <span class="L2Pkeyword">elsif</span> falta == <span class="L2Pnumber">9</span>
+        numExtenso = numExtenso + '<span class="L2Pstring">dezenove</span>'
+      <span class="L2Pkeyword">end</span>
+      <span class="L2Pcomment">#  Já que já cuidamos das unidades,</span>
+      <span class="L2Pcomment">#  não temos mais nada a escrever.</span>
+      falta = <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">2</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">vinte</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">3</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">trinta</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">4</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">quarenta</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">5</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">cinqüenta</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">6</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">sessenta</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">7</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">setenta</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">8</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">oitenta</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">9</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">noventa</span>'
+    <span class="L2Pkeyword">end</span>
+    
+    <span class="L2Pkeyword">if</span> falta &gt; <span class="L2Pnumber">0</span>
+      numExtenso = numExtenso + '<span class="L2Pstring"> e </span>'
+    <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">end</span>
+  
+  escrevendo = falta  <span class="L2Pcomment">#  Quantos ainda faltam a escrever?</span>
+  falta   = <span class="L2Pnumber">0</span>         <span class="L2Pcomment">#  Subtraia esses.</span>
+  
+  <span class="L2Pkeyword">if</span> escrevendo &gt; <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">if</span> escrevendo == <span class="L2Pnumber">1</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">um</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">2</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">dois</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">3</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">três</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">4</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">quatro</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">5</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">cinco</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">6</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">seis</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">7</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">sete</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">8</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">oito</span>'
+    <span class="L2Pkeyword">elsif</span> escrevendo == <span class="L2Pnumber">9</span>
+      numExtenso = numExtenso + '<span class="L2Pstring">nove</span>'
+    <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">end</span>
+  
+  <span class="L2Pkeyword">if</span> numExtenso == '<span class="L2Pstring"></span>'
+    <span class="L2Pcomment">#  A única forma de &quot;numExtenso&quot; estar vazia é</span>
+    <span class="L2Pcomment">#  se o &quot;numero&quot; for 0</span>
+    <span class="L2Pkeyword">return</span> '<span class="L2Pstring">zero</span>'
+  <span class="L2Pkeyword">end</span>
+  
+  <span class="L2Pcomment">#  Se chemagmos aqui, então temos um</span>
+  <span class="L2Pcomment">#  número entre 0 e 100, então precisamos</span>
+  <span class="L2Pcomment">#  apenas retornar o &quot;numExtenso&quot;</span>
+  numExtenso
+<span class="L2Pkeyword">end</span>
+
+puts numeroPortugues(  <span class="L2Pnumber">0</span>)
+puts numeroPortugues(  <span class="L2Pnumber">9</span>)
+puts numeroPortugues( <span class="L2Pnumber">10</span>)
+puts numeroPortugues( <span class="L2Pnumber">11</span>)
+puts numeroPortugues( <span class="L2Pnumber">17</span>)
+puts numeroPortugues( <span class="L2Pnumber">32</span>)
+puts numeroPortugues( <span class="L2Pnumber">88</span>)
+puts numeroPortugues( <span class="L2Pnumber">99</span>)
+puts numeroPortugues(<span class="L2Pnumber">100</span>)</pre>
+        <pre class="L2PoutputBlock">
+zero
+nove
+dez
+onze
+dezessete
+trinta e dois
+oitenta e oito
+noventa e nove
+cem
+</pre>
+        <p>
+                Bem, ainda há algumas coisas nesse programa que eu não gostei.
+      Primeiro: há muita repetição. Segundo: esse programa
+      não consegue lidar com números maiores do que 100. Terceiro:
+      há muitos casos especiais, muitos retornos (<span class="L2Pcode"><span class="L2Pkeyword">return</span></span>).
+      Vamos usar alguns vetores e tentar dar uma limpada:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pkeyword">def</span> <span class="L2Pdefinition">numeroPortugues</span> numero
+  <span class="L2Pkeyword">if</span> numero &lt; <span class="L2Pnumber">0</span>  <span class="L2Pcomment">#  Nada de números negativos.</span>
+    <span class="L2Pkeyword">return</span> '<span class="L2Pstring">Por favor, digite um número positivo.</span>'
+  <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">if</span> numero == <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">return</span> '<span class="L2Pstring">zero</span>'
+  <span class="L2Pkeyword">end</span>
+  
+  <span class="L2Pcomment">#  Nada de casos especiais! Nada de retornos!</span>
+  
+  numExtenso = '<span class="L2Pstring"></span>'  <span class="L2Pcomment">#  Esta é a string que vamos retornar.</span>
+  
+  unidades     = ['<span class="L2Pstring">um</span>'  , '<span class="L2Pstring">dois</span>', '<span class="L2Pstring">tres</span>', '<span class="L2Pstring">quatro</span>', '<span class="L2Pstring">cinco</span>',
+                  '<span class="L2Pstring">seis</span>', '<span class="L2Pstring">sete</span>', '<span class="L2Pstring">oito</span>', '<span class="L2Pstring">nove</span>']
+  dezenas      = ['<span class="L2Pstring">dez</span>'     ,   '<span class="L2Pstring">vinte</span>'   ,    '<span class="L2Pstring">trinta</span>' ,   '<span class="L2Pstring">quarenta</span>',    '<span class="L2Pstring">cinqüenta</span>',
+                  '<span class="L2Pstring">sessenta</span>',   '<span class="L2Pstring">sessenta</span>',    '<span class="L2Pstring">oitenta</span>',   '<span class="L2Pstring">noventa</span>']
+  especiais =    ['<span class="L2Pstring">onze</span>'     ,  '<span class="L2Pstring">doze</span>'    ,    '<span class="L2Pstring">treze</span>'  , '<span class="L2Pstring">catorze</span>', '<span class="L2Pstring">quinze</span>',
+                  '<span class="L2Pstring">dezesseis</span>',  '<span class="L2Pstring">dezesete</span>',    '<span class="L2Pstring">dezoito</span>', '<span class="L2Pstring">dezenove</span>']
+  
+  <span class="L2Pcomment">#  &quot;falta&quot; é quanto do número ainda falta escrever.</span>
+  <span class="L2Pcomment">#  &quot;escrevendo&quot; é a parte que estamos escrevendo agora.</span>
+  falta  = numero
+  escrevendo = falta/<span class="L2Pnumber">100</span>           <span class="L2Pcomment">#  Quantas centenas ainda faltam escrever?</span>
+  falta  = falta - escrevendo*<span class="L2Pnumber">100</span>  <span class="L2Pcomment">#  Subtraia essas centenas.</span>
+  
+  <span class="L2Pkeyword">if</span> escrevendo &gt; <span class="L2Pnumber">0</span>
+    <span class="L2Pcomment">#  Aqui está o truque sujo:</span>
+    centenas   = numeroPortugues escrevendo
+    numExtenso = numExtenso + centenas + '<span class="L2Pstring"> centos</span>'
+    <span class="L2Pcomment">#  Isso é chamado &quot;recursão&quot;. O que nós fizemos?</span>
+    <span class="L2Pcomment">#  Eu disse para o método chamar a si mesmo, mas</span>
+    <span class="L2Pcomment">#  passando &quot;escrevendo&quot; como parâmetro, ao invés</span>
+    <span class="L2Pcomment">#  de &quot;numero&quot;. Lembre-se de que &quot;escrevendo&quot; é</span>
+    <span class="L2Pcomment">#  (agora) o número de dezenas que nós estamos escrevendo.</span>
+    <span class="L2Pcomment">#  Depois de adicionarmos as &quot;centenas&quot; a &quot;numExtenso&quot;,</span>
+    <span class="L2Pcomment">#  nós adicionamos a string &quot; centos&quot;. Então, se nós</span>
+    <span class="L2Pcomment">#  chamamos numeroPortugues com 1999 (numero = 1999),</span>
+    <span class="L2Pcomment">#  agora escrevendo será 19, e &quot;falta&quot; deve ser 99.</span>
+    <span class="L2Pcomment">#  A coisa mais preguiçosa que fazemos aqui é</span>
+    <span class="L2Pcomment">#  mandar o método numeroPortugues escrever o número</span>
+    <span class="L2Pcomment">#  19 por extenso, e então adicionando &quot;centos&quot; ao</span>
+    <span class="L2Pcomment">#  fim e escrevendo &quot;noventa e nove&quot; ao que falta.</span>
+    <span class="L2Pcomment">#  Ficando, portanto, &quot;dezenove centos e noventa e nove&quot;.</span>
+    
+    <span class="L2Pkeyword">if</span> falta &gt; <span class="L2Pnumber">0</span>
+      <span class="L2Pcomment">#  Nós não escrevemos dois centosecinqüenta e um'...</span>
+      numExtenso = numExtenso + '<span class="L2Pstring"> e </span>'
+    <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">end</span>
+  
+  escrevendo = falta/<span class="L2Pnumber">10</span>           <span class="L2Pcomment">#  Quantas dezenas faltam escrever?</span>
+  falta  = falta - escrevendo*<span class="L2Pnumber">10</span>  <span class="L2Pcomment">#  Subtraia dessas dezenas.</span>
+  
+  <span class="L2Pkeyword">if</span> escrevendo &gt; <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">if</span> ((escrevendo == <span class="L2Pnumber">1</span>) <span class="L2Pkeyword">and</span> (falta &gt; <span class="L2Pnumber">0</span>))
+      <span class="L2Pcomment">#  Não podemos escrever &quot;dez e dois&quot;, temos que escrever &quot;doze&quot;,</span>
+      <span class="L2Pcomment">#  então vamos fazer uma exceção.</span>
+      numExtenso = numExtenso + especiais[falta-<span class="L2Pnumber">1</span>]
+      <span class="L2Pcomment">#  O &quot;-1&quot; aqui é porque especiais[3] é 'catorze', e não 'treze'.</span>
+      
+      <span class="L2Pcomment">#  Já que cuidamos do dígito das unidades,</span>
+      <span class="L2Pcomment">#  não falta mais nada</span>
+      falta = <span class="L2Pnumber">0</span>
+    <span class="L2Pkeyword">else</span>
+      numExtenso = numExtenso + dezenas[escrevendo-<span class="L2Pnumber">1</span>]
+      <span class="L2Pcomment">#  E o &quot;-1&quot; aqui é porque dezenas[3] é 'quarenta', e não 'trinta'.</span>
+    <span class="L2Pkeyword">end</span>
+    
+    <span class="L2Pkeyword">if</span> falta &gt; <span class="L2Pnumber">0</span>
+      <span class="L2Pcomment">#  Como nós não escrevemos &quot;sessentaequatro&quot;...</span>
+      numExtenso = numExtenso + '<span class="L2Pstring"> e </span>'
+    <span class="L2Pkeyword">end</span>
+  <span class="L2Pkeyword">end</span>
+  
+  escrevendo = falta  <span class="L2Pcomment">#  Quantas unidades faltam ser escritas?</span>
+  falta  = <span class="L2Pnumber">0</span>          <span class="L2Pcomment">#  Subtraia elas.</span>
+  
+  <span class="L2Pkeyword">if</span> escrevendo &gt; <span class="L2Pnumber">0</span>
+    numExtenso = numExtenso + unidades[escrevendo-<span class="L2Pnumber">1</span>]
+    <span class="L2Pcomment">#  Novamente: O &quot;-1&quot; aqui é porque unidades[3] é 'quatro', e não 'três'.</span>
+  <span class="L2Pkeyword">end</span>
+  
+  <span class="L2Pcomment">#  Agora podemos, simplesmente, retornar o nosso &quot;numExtenso&quot;...</span>
+  numExtenso
+<span class="L2Pkeyword">end</span>
+
+puts numeroPortugues(  <span class="L2Pnumber">0</span>)
+puts numeroPortugues(  <span class="L2Pnumber">9</span>)
+puts numeroPortugues( <span class="L2Pnumber">10</span>)
+puts numeroPortugues( <span class="L2Pnumber">11</span>)
+puts numeroPortugues( <span class="L2Pnumber">17</span>)
+puts numeroPortugues( <span class="L2Pnumber">32</span>)
+puts numeroPortugues( <span class="L2Pnumber">88</span>)
+puts numeroPortugues( <span class="L2Pnumber">99</span>)
+puts numeroPortugues(<span class="L2Pnumber">100</span>)
+puts numeroPortugues(<span class="L2Pnumber">101</span>)
+puts numeroPortugues(<span class="L2Pnumber">234</span>)
+puts numeroPortugues(<span class="L2Pnumber">3211</span>)
+puts numeroPortugues(<span class="L2Pnumber">999999</span>)
+puts numeroPortugues(<span class="L2Pnumber">1000000000000</span>)</pre>
+        <pre class="L2PoutputBlock">
+zero
+nove
+dez
+onze
+dezesete
+trinta e dois
+oitenta e oito
+noventa e nove
+um centos
+um centos e um
+dois centos e trinta e quatro
+trinta e dois centos e onze
+noventa e nove centos e noventa e nove centos e noventa e nove
+um centos centos centos centos centos centos
+</pre>
+        <p>
+                <em>Ahhhh....</em> Agora está muito melhor. O programa
+      está um pouco maçante, mas é porque eu enchi de comentários.
+      Agora ele funciona para números grandes... embora não de
+      uma maneira muito elegante. Por exemplo, eu acho que <span class="L2Pcode">'<span class="L2Pstring">um&nbsp;trilhão</span>'</span>
+      seria muito mais elegante para o último número, ou mesmo
+      <span class="L2Pcode">'<span class="L2Pstring">um&nbsp;milhão&nbsp;milhão</span>'</span> (muito embora todas as três estejam
+      corretas). Na verdade, você pode fazer isso agora...
+
+        </p>
+        <h2>
+          Algumas Coisinhas para Tentar
+        </h2>
+        <p>
+                &bull; Melhore o método <span class="L2Pcode">numeroPortugues</span>. Primeiro,
+      coloque os milhares. Ou seja, ele deve retornar <span class="L2Pcode">'<span class="L2Pstring">um&nbsp;mil</span>'</span>
+      ao inves de <span class="L2Pcode">'<span class="L2Pstring">dez&nbsp;centos</span>'</span> e <span class="L2Pcode">'<span class="L2Pstring">dez&nbsp;mil</span>'</span>
+      ao invés de <span class="L2Pcode">'<span class="L2Pstring">um&nbsp;centos&nbsp;centos</span>'</span>. Seria interessante
+      retornar <span class="L2Pcode">'<span class="L2Pstring">cem</span>'</span>, <span class="L2Pcode">'<span class="L2Pstring">duzentos</span>'</span> e etc. ao invés
+      de <span class="L2Pcode">'<span class="L2Pstring">um&nbsp;centos</span>'</span>, <span class="L2Pcode">'<span class="L2Pstring">dois&nbsp;centos</span>'</span> e etc. (muito embora
+      ambas as formas estejam corretas).
+
+        </p>
+        <p>
+                &bull; Melhore o método <span class="L2Pcode">numeroPortugues</span> um pouquinho
+      mais.
+      Coloque milhões agora, assim você conseguirá coisas como <span class="L2Pcode">'<span class="L2Pstring">um&nbsp;milhão</span>'</span>
+      ao invés de <span class="L2Pcode">'<span class="L2Pstring">um&nbsp;mil&nbsp;mil</span>'</span>. Depois tente adicionar
+      bilhões e trilhões. Quão longe você consegue ir?
+
+        </p>
+        <p>
+                &bull; <em>"Um elefante incomoda muita gente..."</em>
+      Usando o método <span class="L2Pcode">numeroPortugues</span>, escreva
+      esse clássico <em>corretamente</em> agora. Coloque
+      seu computador de castigo: faça ele contar 9999 elefantes
+      (Não exagere nos elefantes, porém. Escrever todos esses
+      elefantes na sua tela vai demorar um pouco. Se você
+      pensar em um milhão de elefantes, você vai acabar se
+      colocando de castigo!).
+
+        </p>
+        <p>
+                Parabéns! Agora você já é um verdadeiro programador!
+      Você aprendeu tudo o que você precisava para
+      escrever grandes programas do zero. Se você tiver
+      idéias de programas que você gostaria de escrever
+      para você mesmo, tente agora!
+
+        </p>
+        <p>
+                Claro que escrever tudo do zero pode ser um processo
+      muito lento. Por que gastar tempo e energia escrevendo
+      um código que alguém já escreveu?
+      Você quer um programa que mande alguns e-mails?
+      Você gostaria de salvar e carregar arquivos em seu
+      computador?
+      Que tal gerar páginas da web para um tutorial onde
+      os exemplos de código sejam executados cada vez que
+      a página é carregada? :) Ruby tem muitos <a href="chapter09.html">tipos diferentes de objetos</a>
+      que podemos usar para nos ajudar a escrever programas
+      mais rapidamente.
+
+        </p>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p style="padding-bottom: 20px;">
+          &copy; 2003-2015 Chris Pine
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

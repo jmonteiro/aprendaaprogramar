@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html lang="pt_br">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link type="text/css" media="screen" href="pine.css" rel="Stylesheet" />
+    <link type="text/css" media="screen, print" href="tutorial.css" rel="Stylesheet" />
+    <link type="text/css" media="print" href="print.css" rel="Stylesheet" />
+    <title>
+      1.&nbsp;&nbsp;Números
+    </title>
+    <script type="text/javascript" language="JavaScript" src="http://www.gvisit.com/record.php?sid=6941c11eba5c874197e2096f9c854106">
+    </script>
+  </head>
+  <body>
+    <div id="pageWidth">
+      <div id="headerBar">
+        <div id="titlePicContainer">
+          <a href="index.html">
+          <img alt="Aprenda a Programar" height="108" src="titleLTP_pt_br.gif" width="500" id="titlePic" />
+          </a>
+        </div>
+        <a href="index.html">
+          <img id="locket" width="82" height="82" alt="apenas uma figura bonitinha"
+            src="locketLTP.png" />
+        </a>
+      </div>
+      <div id="menuPane">
+        <img height="38" src="spearup_sm.gif" width="35" id="menuSpearTop" />
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          a versão
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif;">
+          <em>melhorada</em>
+        </p>
+        <p class="funnyMenuText fancyMenuText" style="font-size: 12px; font-family: times, serif; letter-spacing: 6px; font-variant: small-caps;">
+          estendida
+        </p>
+        <a href="http://pragmaticprogrammer.com/titles/fr_ltp">
+        <img height="120" src="LTP_cover.jpg" width="100" />
+        </a>
+        <img height="21" src="swirly.gif" width="64" style="padding: 30px;" />
+        <p class="funnyMenuText">
+          &laquo; o tutorial original &raquo;
+        </p>
+        <ol start="0" style="padding-top: 15px; padding-bottom: 15px;">
+          <li>
+            <a href="chapter00.html">Iniciando</a>
+          </li>
+          <li>
+            <a href="chapter01.html">Números</a>
+          </li>
+          <li>
+            <a href="chapter02.html">Letras</a>
+          </li>
+          <li>
+            <a href="chapter03.html">Variáveis e Atribuições</a>
+          </li>
+          <li>
+            <a href="chapter04.html">Misturando tudo</a>
+          </li>
+          <li>
+            <a href="chapter05.html">Mais Sobre Métodos</a>
+          </li>
+          <li>
+            <a href="chapter06.html">Controle de Fluxo</a>
+          </li>
+          <li>
+            <a href="chapter07.html">Arrays e Iteradores</a>
+          </li>
+          <li>
+            <a href="chapter08.html">Escrevendo seus Próprios Métodos</a>
+          </li>
+          <li>
+            <a href="chapter09.html">Classes</a>
+          </li>
+          <li>
+            <a href="chapter10.html">Blocos e Procs</a>
+          </li>
+          <li>
+            <a href="chapter11.html">Além deste Tutorial</a>
+          </li>
+        </ol>
+        <p>
+                (<a href="http://pine.fm/LearnToProgram/">Versão Original</a>
+      por&nbsp;Chris&nbsp;Pine.)
+
+        </p>
+        <p>
+                (<a href="http://www1.tf.chiba-u.jp/~shin/tutorial/">Tradução em Japonês</a>
+      por&nbsp;Shin&nbsp;Nishiyama.)
+
+        </p>
+        <p>
+                (<a href="http://www.ruby-doc.org/docs/ApprendreProgrammer/Apprendre_%E0_Programmer.pdf">Tradução em Francês</a>
+      por&nbsp;Jean&#8209;Pierre&nbsp;ANGHEL.)
+
+        </p>
+        <p>
+                (<a href="http://www.shokhirev.com/mikhail/ruby/ltp/title.html">Tradução em Russo</a>
+      por&nbsp;Mikhail&nbsp;Shokhirev.)
+
+        </p>
+        <p>
+                (<a href="http://gcarst.googlepages.com/komgodtigang">Tradução em Dinamarquês</a>
+      por&nbsp;Gunner&nbsp;Carstens.)
+
+        </p>
+        <p>
+                (<a href="http://sites.google.com/site/rubynabosanskom/">Tradução em Bósnio</a>
+      por&nbsp;Rusmir&nbsp;Gadžo.)
+
+        </p>
+        <img height="40" src="speardown_sm.gif" width="36" id="menuSpearBottom" />
+      </div>
+      <div id="contentPane">
+        <h1>
+          1.&nbsp;&nbsp;Números
+        </h1>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p>
+                Agora que você já <a href="chapter00.html">arranjou</a>
+      tudo, vamos escrever um programa! Abra seu editor de texto
+      favorito e digite o seguinte:
+
+        </p>
+        <pre class="L2PcodeBlock">puts <span class="L2Pnumber">1</span>+<span class="L2Pnumber">2</span></pre>
+        <p>
+                Salve seu programa (sim, isso é um programa!) como <span class="L2Pinput">calc.rb</span>
+      (o <strong>.rb</strong> é o que normalmente colocamos no final de
+      programas escritos em Ruby). Agora rode o seu programa digitando
+      <span class="L2Pinput">ruby&nbsp;calc.rb</span> na linha de comando. Ele deve ter posto
+      <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">3</span> na sua tela. Viu como programar não é tão difícil?
+
+        </p>
+        <h2>
+          Introdução ao <span class="L2Pcode">puts</span>
+        </h2>
+        <p>
+                O que é então que está acontecendo no programa? Tenho certeza que você
+      é capaz de adivinhar o quê <span class="L2Pcode"><span class="L2Pnumber">1</span>+<span class="L2Pnumber">2</span></span> faz; nosso programa é
+      praticamente a mesma coisa que:
+
+        </p>
+        <pre class="L2PcodeBlock">puts <span class="L2Pnumber">3</span></pre>
+        <p>
+                <span class="L2Pcode">puts</span> simplesmente escreve na tela tudo que
+      vem depois dele.
+
+        </p>
+        <h2>
+          Inteiro e Float
+        </h2>
+        <p>
+                Na maioria das linguagens de programação (e não é diferente no Ruby)
+      números sem pontos decimais são chamados de <dfn>inteiros</dfn>, e
+      números com pontos decimais normalmente são chamados de
+      <dfn>números de ponto-flutuante</dfn>,
+      ou mais singelamente, <dfn>floats</dfn>.
+
+        </p>
+        <p>
+                Eis alguns inteiros:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pnumber">5</span>
+-<span class="L2Pnumber">205</span>
+<span class="L2Pnumber">9999999999999999999999999</span>
+<span class="L2Pnumber">0</span></pre>
+        <p>
+                E aqui estão alguns floats:
+
+        </p>
+        <pre class="L2PcodeBlock"><span class="L2Pnumber">54.321</span>
+<span class="L2Pnumber">0.001</span>
+-<span class="L2Pnumber">205.3884</span>
+<span class="L2Pnumber">0.0</span></pre>
+        <p>
+                Na prática, a maioria dos programas não usa floats;
+      apenas inteiros.
+      (Afinal, ninguém quer ler 7.4 emails, ou navegar 1.8 páginas,
+      ou ouvir 5.24 músicas favoritas)
+      Floats são usados mais freqüentemente para fins acadêmicos
+      (experimentos de física e afins) e para gráficos 3D.
+      Mesmo a maioria dos programas que lidam com dinheiro usam
+      inteiros; eles só ficam contando as moedinhas!
+
+        </p>
+        <h2>
+          Aritmética Simples
+        </h2>
+        <p>
+                Até agora, temos tudo que é necessário para uma calculadora simples.
+      (Calculadoras sempre usam floats, então se você quer que seu
+      computador aja como uma calculadora, você também deve usar floats.)
+      Para adição e subtração, usamos <kbd>+</kbd> e <kbd>-</kbd>, como
+      vimos. Para multiplicação, usamos <kbd>*</kbd>, e para divisão
+      usamos <kbd>/</kbd>. A maioria dos teclados possui essas
+      teclas no teclado numérico. Se você tem teclado menor ou um laptop,
+      você pode usar <kbd>Shift 8</kbd> e <kbd>/</kbd> (fica na mesma
+      tecla que <kbd>?</kbd>). Vamos tentar expandir um pouco nosso calc.rb.
+      Digite o seguinte e depois rode.
+
+        </p>
+        <pre class="L2PcodeBlock">puts <span class="L2Pnumber">1.0</span> + <span class="L2Pnumber">2.0</span>
+puts <span class="L2Pnumber">2.0</span> * <span class="L2Pnumber">3.0</span>
+puts <span class="L2Pnumber">5.0</span> - <span class="L2Pnumber">8.0</span>
+puts <span class="L2Pnumber">9.0</span> / <span class="L2Pnumber">2.0</span></pre>
+        <p>Isto é o que o programa retorna:</p>
+        <pre class="L2PoutputBlock">
+3.0
+6.0
+-3.0
+4.5
+</pre>
+        <p>
+                (Os espaços no programa não são importantes; eles só deixam
+      o código mais legível.) Bom, não foi lá muito surpreendente.
+      Vamos tentar agora com inteiros.
+
+        </p>
+        <pre class="L2PcodeBlock">puts <span class="L2Pnumber">1</span>+<span class="L2Pnumber">2</span>
+puts <span class="L2Pnumber">2</span>*<span class="L2Pnumber">3</span>
+puts <span class="L2Pnumber">5</span>-<span class="L2Pnumber">8</span>
+puts <span class="L2Pnumber">9</span>/<span class="L2Pnumber">2</span></pre>
+        <p>Basicamente a mesma coisa, não é?</p>
+        <pre class="L2PoutputBlock">
+3
+6
+-3
+4
+</pre>
+        <p>
+                Ahn... tirando aquele último ali!
+      Quando você faz aritmética com inteiros, você recebe respostas em
+      inteiros. Quando seu computador não sabe dar a resposta "certa", ele
+      sempre arredonda para baixo. (Claro, <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">4</span> <em>é</em> a
+      resposta certa em aritmética de inteiros para <span class="L2Pcode"><span class="L2Pnumber">9</span>/<span class="L2Pnumber">2</span></span>; só
+      pode não ser o que você estava esperando.)
+
+        </p>
+        <p>
+                Talvez você esteja se perguntado para que divisão de inteiros serve.
+      Bem, vamos dizer que você vai ao cinema, mas só tem $ 9. Aqui em
+      Portland, você pode ver um filme no Bagdad por 2 pilas. A quantos
+      filmes você pode assistir lá? <span class="L2Pcode"><span class="L2Pnumber">9</span>/<span class="L2Pnumber">2</span></span>... <span class="L2Pcode L2PcodeBG" style="padding-right: 3px; padding-left: 3px;">4</span> filmes.
+      4.5 <em>não</em> é a resposta certa neste caso; eles não vão deixar
+      você ver metade de um filme, ou metade de você ver um filme inteiro...
+      algumas coisas não são divisíveis.
+
+        </p>
+        <p>
+                Agora experimente com alguns programas seus! Se você quiser
+      escrever expressões mais complexas, você pode usar parênteses.
+      Por exemplo:
+
+        </p>
+        <pre class="L2PcodeBlock">puts <span class="L2Pnumber">5</span> * (<span class="L2Pnumber">12</span>-<span class="L2Pnumber">8</span>) + -<span class="L2Pnumber">15</span>
+puts <span class="L2Pnumber">98</span> + (<span class="L2Pnumber">59872</span> / (<span class="L2Pnumber">13</span>*<span class="L2Pnumber">8</span>)) * -<span class="L2Pnumber">52</span></pre>
+        <pre class="L2PoutputBlock">
+5
+-29802
+</pre>
+        <h2>
+          Umas Coisinhas Para Tentar
+        </h2>
+        <p>
+          Escreva um programa que lhe dê:
+        </p>
+        <ul>
+          <li>
+            quantas horas há em um ano?
+          </li>
+          <li>
+            quantos minutos há em uma década?
+          </li>
+          <li>
+            qual é a sua idade em segundos?
+          </li>
+          <li>
+            quantos chocolates você pretende comer na vida? <br /><em><strong>Aviso:</strong>  Esta parte do programa pode demorar um pouco para computar!</em>
+          </li>
+        </ul>
+        <p>
+          Eis uma pergunta mais difícil:
+        </p>
+        <ul>
+          <li>
+            Se minha idade é de 1232 milhões de segundos, qual é minha idade em anos?
+          </li>
+        </ul>
+        <p>
+                Quando você cansar de brincar com números, vamos dar uma
+      olhada em algumas <a href="chapter02.html">letras</a>.
+
+        </p>
+        <div class="fleur"><div class="fleur_stem">&nbsp;</div></div>
+        <p style="padding-bottom: 20px;">
+          &copy; 2003-2015 Chris Pine
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
