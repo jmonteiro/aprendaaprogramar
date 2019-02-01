@@ -180,7 +180,7 @@ module Letters
       uma barra invertida seguida de um caractere, isso pode ser, algumas vezes, traduzido
       em um novo caractere. As únicas coisas que uma barra invertida escapa, porém,
       são o apóstrofo e a própria barra invertida (Se você pensar a respeito,
-      caracteres de escape devem sempre escapar a si mesmos).)
+      caracteres de escape devem sempre escapar a si mesmos).
       Acho que uns exemplos são bons agora:
       END_PARAGRAPH
     end
