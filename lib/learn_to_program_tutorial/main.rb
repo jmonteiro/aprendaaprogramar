@@ -293,7 +293,7 @@ module Main
               por suas idéis e pelo encorajamento, aos meus maravilhosos
               revisores, por sua ajuda em fazer o livro muito melhor do que
               eu poderia fazer sozinho, especialmente à minha querida esposa,
-              por ser minha principal revisora/testadora/porquinho-da-índia/musa, ao Matz,
+              por ser minha principal revisora/testadora/cobaia/musa, ao Matz,
               por ter criado essa fabulosa linguagem, e aos Pragmatic Programmers, por
               me falar sobre a linguagem&mdash;e, é claro, por publicar meu livro!
               END_PARAGRAPH
